@@ -6,6 +6,11 @@ use \ArrayAccess;
 
 class MonitoringCondition implements ArrayAccess
 {
+    /**
+     * Container with all data
+     *
+     * @var array
+     */
     protected $container = [];
 
     protected static $typeMap = [

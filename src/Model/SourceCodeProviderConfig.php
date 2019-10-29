@@ -6,6 +6,11 @@ use \ArrayAccess;
 
 class SourceCodeProviderConfig implements ArrayAccess
 {
+    /**
+     * Container with all data
+     *
+     * @var array
+     */
     protected $container = [];
 
     protected static $typeMap = [

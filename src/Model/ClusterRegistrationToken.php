@@ -6,6 +6,11 @@ use \ArrayAccess;
 
 class ClusterRegistrationToken implements ArrayAccess
 {
+    /**
+     * Container with all data
+     *
+     * @var array
+     */
     protected $container = [];
 
     protected static $typeMap = [

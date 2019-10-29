@@ -6,6 +6,11 @@ use \ArrayAccess;
 
 class Project implements ArrayAccess
 {
+    /**
+     * Container with all data
+     *
+     * @var array
+     */
     protected $container = [];
 
     protected static $typeMap = [

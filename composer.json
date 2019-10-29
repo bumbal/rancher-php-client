@@ -16,8 +16,10 @@
         }
     ],
     "require": {
-        "php": ">=5.4",
+        "php": ">=7.0",
         "ext-json": "*",
+        "ext-curl": "*",
+        "twig/twig": "^2.0",
         "guzzlehttp/guzzle": "^6.3"
     },
     "autoload": {

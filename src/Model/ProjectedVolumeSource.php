@@ -6,6 +6,11 @@ use \ArrayAccess;
 
 class ProjectedVolumeSource implements ArrayAccess
 {
+    /**
+     * Container with all data
+     *
+     * @var array
+     */
     protected $container = [];
 
     protected static $typeMap = [

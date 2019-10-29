@@ -1,0 +1,136 @@
+<?php
+
+namespace Rancher\Model;
+
+use \ArrayAccess;
+
+class {{ name }} implements ArrayAccess
+{
+    /**
+     * Container with all data
+     *
+     * @var array
+     */
+    protected $container = [];
+
+    protected static $typeMap = [
+{% for property in properties %}
+        '{{ property.name }}' => '{{ property.type }}',
+{% endfor %}
+    ];
+
+    public static function typeMap()
+    {
+        return self::$typeMap;
+    }
+
+    protected static $setters = [
+{% for property in properties %}
+        '{{ property.name }}' => 'set{{ property.name|ucfirst }}',
+{% endfor %}
+    ];
+
+    public static function setters()
+    {
+        return self::$setters;
+    }
+
+    protected static $getters = [
+{% for property in properties %}
+        '{{ property.name }}' => 'get{{ property.name|ucfirst }}',
+{% endfor %}
+    ];
+
+    public static function getters()
+    {
+        return self::$getters;
+    }
+
+    public function __construct(array $data = null)
+    {
+{% for property in properties %}
+        $this->container['{{ property.name }}'] = isset($data['{{ property.name }}']) ? $data['{{ property.name }}'] : null;
+{% endfor %}
+    }
+
+{% for property in properties %}
+    /**
+     * Gets {{ property.name }}
+{% if property.doc_type == false %}
+     * @return {{ property.type }}
+{% else %}
+     * @return {{ property.doc_type }}
+{% endif %}
+     */
+    public function get{{ property.name|ucfirst }}()
+    {
+        return $this->container['{{ property.name }}'];
+    }
+
+    /**
+     * Sets {{ property.name }}
+{% if property.doc_type == false %}
+     * @param {{ property.type }} ${{ property.name }}
+{% else %}
+     * @param {{ property.doc_type }} ${{ property.name }}
+{% endif %}
+     * @return $this
+     */
+    public function set{{ property.name|ucfirst }}(${{ property.name }})
+    {
+        $this->container['{{ property.name }}'] = ${{ property.name }};
+
+        return $this;
+    }
+{% if not loop.last %}
+
+
+{% endif %}
+{% endfor %}
+
+    /**
+     * Returns true if offset exists. False otherwise.
+     * @param  integer $offset Offset
+     * @return boolean
+     */
+    public function offsetExists($offset)
+    {
+        return isset($this->container[$offset]);
+    }
+
+    /**
+     * Gets offset.
+     * @param  integer $offset Offset
+     * @return mixed
+     */
+    public function offsetGet($offset)
+    {
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+    }
+
+    /**
+     * Sets value based on offset.
+     * @param  integer $offset Offset
+     * @param  mixed   $value  Value to be set
+     * @return void
+     */
+    public function offsetSet($offset, $value)
+    {
+        if (is_null($offset)) {
+            $this->container[] = $value;
+        } else {
+            $this->container[$offset] = $value;
+        }
+    }
+
+    /**
+     * Unsets offset.
+     * @param  integer $offset Offset
+     * @return void
+     */
+    public function offsetUnset($offset)
+    {
+        unset($this->container[$offset]);
+    }
+}
+

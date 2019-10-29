@@ -6,6 +6,11 @@ use \ArrayAccess;
 
 class ClusterMetricNamesInput implements ArrayAccess
 {
+    /**
+     * Container with all data
+     *
+     * @var array
+     */
     protected $container = [];
 
     protected static $typeMap = [
