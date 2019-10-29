@@ -1,0 +1,36 @@
+{
+    "name": "bumbal/docker-php-client",
+    "description": "A PHP Client for Docker",
+    "keywords": [
+        "docker",
+        "php",
+        "client",
+        "api"
+    ],
+    "homepage": "https://github.com/freightlive/docker-php-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gerb Sterrenburg",
+            "homepage": "https://bumbal.eu/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0",
+        "satooshi/php-coveralls": "~1.0",
+        "squizlabs/php_codesniffer": "~2.6",
+        "friendsofphp/php-cs-fixer": "~1.12",
+        "twig/twig": "^2.0"
+    },
+    "autoload": {
+        "psr-4": { "Racher\\" : "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Racher\\" : "test/" }
+    }
+}
