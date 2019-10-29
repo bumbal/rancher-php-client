@@ -1,13 +1,13 @@
 {
-    "name": "bumbal/docker-php-client",
-    "description": "A PHP Client for Docker",
+    "name": "bumbal/rancher-php-client",
+    "description": "A PHP Client for Rancher",
     "keywords": [
-        "docker",
+        "rancher",
         "php",
         "client",
         "api"
     ],
-    "homepage": "https://github.com/freightlive/docker-php-client",
+    "homepage": "https://github.com/freightlive/rancher-php-client",
     "license": "MIT",
     "authors": [
         {
