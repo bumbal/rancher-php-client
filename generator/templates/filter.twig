@@ -1,10 +1,19 @@
 <?php
 
+/**
+ * {{ name }}Filter
+ *
+ * @category Class
+ * @package  Rancher
+ * @author   Gerb Sterrenburg @ Bumbal
+ * @link     https://github.com/freightlive/rancher-php-client
+ */
+
 namespace Rancher\Filter;
 
 use Rancher\AbstractFilter;
 
-class {{ name }} extends AbstractFilter
+class {{ name }}Filter extends AbstractFilter
 {
 {% for key, filter in filters %}
     /**

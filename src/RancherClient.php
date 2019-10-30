@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * RancherClient
+ *
+ * @category Class
+ * @package  Rancher
+ * @author   Gerb Sterrenburg @ Bumbal
+ * @link     https://github.com/freightlive/rancher-php-client
+ */
+
 namespace Rancher;
 
 use GuzzleHttp\Client as HttpClient;
@@ -12,8 +21,20 @@ class RancherClient
      */
     private $client;
 
+    /**
+     * @var ObjectSerializer
+     */
     private $serializer;
 
+    /**
+     * Make the request
+     *
+     * @param string $url
+     * @param string $access
+     * @param string $secret
+     *
+     * @return void
+     */
     public function __construct($url, $access, $secret)
     {
         $this->client = new HttpClient([
@@ -36,6 +57,16 @@ class RancherClient
         return $this->serializer;
     }
 
+    /**
+     * Make the request
+     *
+     * @param string $type
+     * @param string $endpoint
+     * @param array $params
+     *
+     * @return array
+     * @throws RancherException
+     */
     public function request($type = 'GET', $endpoint = "", array $params = [])
     {
         $response = null;
@@ -82,7 +113,7 @@ class RancherClient
         }
         catch(ClientException $e)
         {
-            throw new \Exception($e->getMessage());
+            throw new RancherException($e->getMessage(), $e->getCode());
         }
     }
 }

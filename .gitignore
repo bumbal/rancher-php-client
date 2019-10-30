@@ -3,3 +3,4 @@
 generator/config.php
 vendor/
 composer.lock
+test/

@@ -1,4 +1,14 @@
 <?php
+
+/**
+ * RancherCollection
+ *
+ * @category Class
+ * @package  Rancher
+ * @author   Gerb Sterrenburg @ Bumbal
+ * @link     https://github.com/freightlive/rancher-php-client
+ */
+
 namespace Rancher;
 
 class RancherCollection

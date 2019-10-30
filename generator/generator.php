@@ -19,9 +19,9 @@ class APIGenerator
     {
         $groups = ['schemas/', 'clusters/schemas/', 'projects/schemas/'];
 
-        $this->clearDirectory('../src/Model/');
-        $this->clearDirectory('../src/Resource/');
-        $this->clearDirectory('../src/Filter/');
+        $this->clearDirectory('../src/Model/*');
+        $this->clearDirectory('../src/Resource/*');
+        $this->clearDirectory('../src/Filter/*');
 
         foreach ($groups as $group)
         {
@@ -75,10 +75,12 @@ class APIGenerator
     {
         $schemeName = ucfirst($scheme['id']);
 
+        /*
         if($schemeName == 'Namespace')
         {
             $schemeName = 'NamespaceObject';
         }
+        */
 
         $content = [
             'name' => $schemeName,
@@ -106,7 +108,7 @@ class APIGenerator
                     }
                     else
                     {
-                        $type = '\Rancher\Model\\' . ucfirst($type) . '[]';
+                        $type = '\Rancher\Model\\' . ucfirst($type) . 'Model[]';
                     }
                 }
                 else
@@ -127,8 +129,8 @@ class APIGenerator
                     }
                     else
                     {
-                        $type = 'map[\Rancher\Model\\' . ucfirst($tmpType) . ']';
-                        $docType = '\Rancher\Model\\' . ucfirst($tmpType) . '[]';
+                        $type = 'map[\Rancher\Model\\' . ucfirst($tmpType) . 'Model]';
+                        $docType = '\Rancher\Model\\' . ucfirst($tmpType) . 'Model[]';
                     }
                 }
                 else
@@ -143,19 +145,21 @@ class APIGenerator
             }
             elseif(!in_array($property['type'], ['bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void']))
             {
-                $type = '\Rancher\Model\\' . ucfirst($property['type']);
+                $type = '\Rancher\Model\\' . ucfirst($property['type']) . 'Model';
             }
             else
             {
                 $type = $property['type'];
             }
 
+            /*
             if($this->endsWith($type, 'Namespace'))
             {
                 $type = str_replace('Namespace', 'NamespaceObject', $type);
             }
+            */
 
-            if($this->endsWith($type, 'DnsLabel') || $this->endsWith($type, 'Enum'))
+            if($this->endsWith($type, 'DnsLabelModel') || $this->endsWith($type, 'EnumModel'))
             {
                 $type = "string";
             }
@@ -175,7 +179,7 @@ class APIGenerator
 
             $output = $twig->render('model.twig', $content);
 
-            file_put_contents('../src/Model/' . $schemeName . '.php', $output);
+            file_put_contents('../src/Model/' . $schemeName . 'Model.php', $output);
         }
         catch (\Exception $exception)
         {
@@ -193,10 +197,12 @@ class APIGenerator
 
         $schemeName = ucfirst($scheme['id']);
 
+        /*
         if($schemeName == 'Namespace')
         {
             $schemeName = 'NamespaceObject';
         }
+        */
 
         $content = [
             'name' => $schemeName,
@@ -215,7 +221,7 @@ class APIGenerator
 
             $output = $twig->render('resource.twig', $content);
 
-            file_put_contents('../src/Resource/' . $schemeName . '.php', $output);
+            file_put_contents('../src/Resource/' . $schemeName . 'Resource.php', $output);
         }
         catch (\Exception $exception)
         {
@@ -233,10 +239,12 @@ class APIGenerator
 
         $schemeName = ucfirst($scheme['id']);
 
+        /*
         if($schemeName == 'Namespace')
         {
             $schemeName = 'NamespaceObject';
         }
+        */
 
         $content = [
             'name' => $schemeName,
@@ -251,7 +259,7 @@ class APIGenerator
 
             $output = $twig->render('filter.twig', $content);
 
-            file_put_contents('../src/Filter/' . $schemeName . '.php', $output);
+            file_put_contents('../src/Filter/' . $schemeName . 'Filter.php', $output);
         }
         catch (\Exception $exception)
         {
