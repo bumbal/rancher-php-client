@@ -44,23 +44,23 @@ class ObjectSerializer
         elseif (is_object($data))
         {
             $values = [];
-            $formats = $data::swaggerFormats();
+            $formats = $data::typeMap();
 
-            foreach ($data::swaggerTypes() as $property => $swaggerType)
+            foreach ($data::typeMap() as $property => $objType)
             {
                 $getter = $data::getters()[$property];
 
                 $value = $data->$getter();
 
-                if ($value !== null && method_exists($swaggerType, 'getAllowableEnumValues') && !in_array($value, $swaggerType::getAllowableEnumValues()))
+                if ($value !== null && method_exists($objType, 'getAllowableEnumValues') && !in_array($value, $objType::getAllowableEnumValues()))
                 {
-                    $imploded = implode("', '", $swaggerType::getAllowableEnumValues());
-                    throw new \InvalidArgumentException("Invalid value for enum '$swaggerType', must be one of: '$imploded'");
+                    $imploded = implode("', '", $objType::getAllowableEnumValues());
+                    throw new \InvalidArgumentException("Invalid value for enum '$objType', must be one of: '$imploded'");
                 }
 
                 if ($value !== null)
                 {
-                    $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $swaggerType, $formats[$property]);
+                    $values[$property] = self::sanitizeForSerialization($value, $objType, $formats[$property]);
                 }
             }
 

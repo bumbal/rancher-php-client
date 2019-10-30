@@ -60,25 +60,26 @@ class AppRevisionResource
      * constructPath
      *
      * @param boolean $plural
+     * @param boolean $includeOwnerId
      *
      * @return string
      */
-    private function constructPath($plural = false)
+    private function constructPath($includeOwnerId = false, $plural = false)
     {
         $constructedPath = $this->path;
 
-        if(!empty($this->ownerId))
+        if($includeOwnerId && !empty($this->ownerId))
         {
             $constructedPath .= $this->ownerId . '/';
         }
 
         if($plural)
         {
-            $constructedPath .= $this->resourcePluralName . '/';
+            $constructedPath .= $this->resourcePluralName;
         }
         else
         {
-            $constructedPath .= $this->resourceName . '/';
+            $constructedPath .= $this->resourceName;
         }
 
         return $constructedPath;
@@ -119,7 +120,7 @@ class AppRevisionResource
             'marker' => $marker,
         ]);
 
-        $response = $this->client->request('POST', $this->constructPath(true) . '?'.$queryString, $filterArray);
+        $response = $this->client->request('POST', $this->constructPath(false, true) . '?'.$queryString, $filterArray);
 
         $collection->filters = $response->filters;
         $collection->pagination = $response->pagination;
@@ -150,18 +151,36 @@ class AppRevisionResource
     }
 
     /**
-     * set
+     * create
      *
      * @param \Rancher\Model\AppRevisionModel $data
      *
      * @throws RancherException
      * @return \Rancher\Model\AppRevisionModel
      */
-    public function set($data)
+    public function create($data)
     {
-        $postData = json_encode(\Rancher\ObjectSerializer::sanitizeForSerialization($data));
+        $postData =  (array) \Rancher\ObjectSerializer::sanitizeForSerialization($data);
 
-        $response = $this->client->request('PUT', $this->constructPath(), $postData);
+        $response = $this->client->request('POST', $this->constructPath(true, true), $postData);
+
+        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\AppRevisionModel');
+    }
+
+    /**
+     * update
+     *
+     * @param string $id
+     * @param \Rancher\Model\AppRevisionModel $data
+     *
+     * @throws RancherException
+     * @return \Rancher\Model\AppRevisionModel
+     */
+    public function update($id, $data)
+    {
+        $putData =  (array) \Rancher\ObjectSerializer::sanitizeForSerialization($data);
+
+        $response = $this->client->request('PUT', $this->constructPath(true, true) . $id, $putData);
 
         return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\AppRevisionModel');
     }
@@ -176,7 +195,7 @@ class AppRevisionResource
      */
     public function remove($id)
     {
-        $response = $this->client->request('DELETE', $this->constructPath() . $id, []);
+        $response = $this->client->request('DELETE', $this->constructPath(true) . $id, []);
 
         return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\AppRevisionModel');
     }

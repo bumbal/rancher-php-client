@@ -60,25 +60,26 @@ class GitlabProviderResource
      * constructPath
      *
      * @param boolean $plural
+     * @param boolean $includeOwnerId
      *
      * @return string
      */
-    private function constructPath($plural = false)
+    private function constructPath($includeOwnerId = false, $plural = false)
     {
         $constructedPath = $this->path;
 
-        if(!empty($this->ownerId))
+        if($includeOwnerId && !empty($this->ownerId))
         {
             $constructedPath .= $this->ownerId . '/';
         }
 
         if($plural)
         {
-            $constructedPath .= $this->resourcePluralName . '/';
+            $constructedPath .= $this->resourcePluralName;
         }
         else
         {
-            $constructedPath .= $this->resourceName . '/';
+            $constructedPath .= $this->resourceName;
         }
 
         return $constructedPath;
@@ -119,7 +120,7 @@ class GitlabProviderResource
             'marker' => $marker,
         ]);
 
-        $response = $this->client->request('POST', $this->constructPath(true) . '?'.$queryString, $filterArray);
+        $response = $this->client->request('POST', $this->constructPath(false, true) . '?'.$queryString, $filterArray);
 
         $collection->filters = $response->filters;
         $collection->pagination = $response->pagination;
@@ -161,7 +162,7 @@ class GitlabProviderResource
      */
     public function login($id, $input)
     {
-        $postData = json_encode(\Rancher\ObjectSerializer::sanitizeForSerialization($input));
+        $postData = (array) \Rancher\ObjectSerializer::sanitizeForSerialization($input);
 
         $response = $this->client->request('POST', $this->constructPath() . $id . '?action=login', $postData);
 

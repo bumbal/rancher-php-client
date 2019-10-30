@@ -60,25 +60,26 @@ class ActiveDirectoryConfigResource
      * constructPath
      *
      * @param boolean $plural
+     * @param boolean $includeOwnerId
      *
      * @return string
      */
-    private function constructPath($plural = false)
+    private function constructPath($includeOwnerId = false, $plural = false)
     {
         $constructedPath = $this->path;
 
-        if(!empty($this->ownerId))
+        if($includeOwnerId && !empty($this->ownerId))
         {
             $constructedPath .= $this->ownerId . '/';
         }
 
         if($plural)
         {
-            $constructedPath .= $this->resourcePluralName . '/';
+            $constructedPath .= $this->resourcePluralName;
         }
         else
         {
-            $constructedPath .= $this->resourceName . '/';
+            $constructedPath .= $this->resourceName;
         }
 
         return $constructedPath;
@@ -119,7 +120,7 @@ class ActiveDirectoryConfigResource
             'marker' => $marker,
         ]);
 
-        $response = $this->client->request('POST', $this->constructPath(true) . '?'.$queryString, $filterArray);
+        $response = $this->client->request('POST', $this->constructPath(false, true) . '?'.$queryString, $filterArray);
 
         $collection->filters = $response->filters;
         $collection->pagination = $response->pagination;
@@ -150,18 +151,36 @@ class ActiveDirectoryConfigResource
     }
 
     /**
-     * set
+     * create
      *
      * @param \Rancher\Model\ActiveDirectoryConfigModel $data
      *
      * @throws RancherException
      * @return \Rancher\Model\ActiveDirectoryConfigModel
      */
-    public function set($data)
+    public function create($data)
     {
-        $postData = json_encode(\Rancher\ObjectSerializer::sanitizeForSerialization($data));
+        $postData =  (array) \Rancher\ObjectSerializer::sanitizeForSerialization($data);
 
-        $response = $this->client->request('PUT', $this->constructPath(), $postData);
+        $response = $this->client->request('POST', $this->constructPath(true, true), $postData);
+
+        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\ActiveDirectoryConfigModel');
+    }
+
+    /**
+     * update
+     *
+     * @param string $id
+     * @param \Rancher\Model\ActiveDirectoryConfigModel $data
+     *
+     * @throws RancherException
+     * @return \Rancher\Model\ActiveDirectoryConfigModel
+     */
+    public function update($id, $data)
+    {
+        $putData =  (array) \Rancher\ObjectSerializer::sanitizeForSerialization($data);
+
+        $response = $this->client->request('PUT', $this->constructPath(true, true) . $id, $putData);
 
         return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\ActiveDirectoryConfigModel');
     }
@@ -193,7 +212,7 @@ class ActiveDirectoryConfigResource
      */
     public function testAndApply($id, $input)
     {
-        $postData = json_encode(\Rancher\ObjectSerializer::sanitizeForSerialization($input));
+        $postData = (array) \Rancher\ObjectSerializer::sanitizeForSerialization($input);
 
         $this->client->request('POST', $this->constructPath() . $id . '?action=testAndApply', $postData);
 

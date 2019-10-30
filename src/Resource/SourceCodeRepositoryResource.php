@@ -60,25 +60,26 @@ class SourceCodeRepositoryResource
      * constructPath
      *
      * @param boolean $plural
+     * @param boolean $includeOwnerId
      *
      * @return string
      */
-    private function constructPath($plural = false)
+    private function constructPath($includeOwnerId = false, $plural = false)
     {
         $constructedPath = $this->path;
 
-        if(!empty($this->ownerId))
+        if($includeOwnerId && !empty($this->ownerId))
         {
             $constructedPath .= $this->ownerId . '/';
         }
 
         if($plural)
         {
-            $constructedPath .= $this->resourcePluralName . '/';
+            $constructedPath .= $this->resourcePluralName;
         }
         else
         {
-            $constructedPath .= $this->resourceName . '/';
+            $constructedPath .= $this->resourceName;
         }
 
         return $constructedPath;
@@ -119,7 +120,7 @@ class SourceCodeRepositoryResource
             'marker' => $marker,
         ]);
 
-        $response = $this->client->request('POST', $this->constructPath(true) . '?'.$queryString, $filterArray);
+        $response = $this->client->request('POST', $this->constructPath(false, true) . '?'.$queryString, $filterArray);
 
         $collection->filters = $response->filters;
         $collection->pagination = $response->pagination;
@@ -159,7 +160,7 @@ class SourceCodeRepositoryResource
      */
     public function remove($id)
     {
-        $response = $this->client->request('DELETE', $this->constructPath() . $id, []);
+        $response = $this->client->request('DELETE', $this->constructPath(true) . $id, []);
 
         return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\SourceCodeRepositoryModel');
     }

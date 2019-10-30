@@ -60,25 +60,26 @@ class WorkloadResource
      * constructPath
      *
      * @param boolean $plural
+     * @param boolean $includeOwnerId
      *
      * @return string
      */
-    private function constructPath($plural = false)
+    private function constructPath($includeOwnerId = false, $plural = false)
     {
         $constructedPath = $this->path;
 
-        if(!empty($this->ownerId))
+        if($includeOwnerId && !empty($this->ownerId))
         {
             $constructedPath .= $this->ownerId . '/';
         }
 
         if($plural)
         {
-            $constructedPath .= $this->resourcePluralName . '/';
+            $constructedPath .= $this->resourcePluralName;
         }
         else
         {
-            $constructedPath .= $this->resourceName . '/';
+            $constructedPath .= $this->resourceName;
         }
 
         return $constructedPath;
@@ -119,7 +120,7 @@ class WorkloadResource
             'marker' => $marker,
         ]);
 
-        $response = $this->client->request('POST', $this->constructPath(true) . '?'.$queryString, $filterArray);
+        $response = $this->client->request('POST', $this->constructPath(false, true) . '?'.$queryString, $filterArray);
 
         $collection->filters = $response->filters;
         $collection->pagination = $response->pagination;
@@ -150,18 +151,36 @@ class WorkloadResource
     }
 
     /**
-     * set
+     * create
      *
      * @param \Rancher\Model\WorkloadModel $data
      *
      * @throws RancherException
      * @return \Rancher\Model\WorkloadModel
      */
-    public function set($data)
+    public function create($data)
     {
-        $postData = json_encode(\Rancher\ObjectSerializer::sanitizeForSerialization($data));
+        $postData =  (array) \Rancher\ObjectSerializer::sanitizeForSerialization($data);
 
-        $response = $this->client->request('PUT', $this->constructPath(), $postData);
+        $response = $this->client->request('POST', $this->constructPath(true, true), $postData);
+
+        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\WorkloadModel');
+    }
+
+    /**
+     * update
+     *
+     * @param string $id
+     * @param \Rancher\Model\WorkloadModel $data
+     *
+     * @throws RancherException
+     * @return \Rancher\Model\WorkloadModel
+     */
+    public function update($id, $data)
+    {
+        $putData =  (array) \Rancher\ObjectSerializer::sanitizeForSerialization($data);
+
+        $response = $this->client->request('PUT', $this->constructPath(true, true) . $id, $putData);
 
         return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\WorkloadModel');
     }
@@ -176,7 +195,7 @@ class WorkloadResource
      */
     public function remove($id)
     {
-        $response = $this->client->request('DELETE', $this->constructPath() . $id, []);
+        $response = $this->client->request('DELETE', $this->constructPath(true) . $id, []);
 
         return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\WorkloadModel');
     }
@@ -222,7 +241,7 @@ class WorkloadResource
      */
     public function rollback($id, $input)
     {
-        $postData = json_encode(\Rancher\ObjectSerializer::sanitizeForSerialization($input));
+        $postData = (array) \Rancher\ObjectSerializer::sanitizeForSerialization($input);
 
         $this->client->request('POST', $this->constructPath() . $id . '?action=rollback', $postData);
 
