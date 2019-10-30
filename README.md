@@ -34,12 +34,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 try
 {
     $rancherClient = new Rancher\RancherClient("https://your.racher.url/", "rancher_token", "rancher_secret");
+    
+    $namespaceResource = new \Rancher\Resource\NamespaceResource($rancherClient, "c-abcdef");
+    $namespaceModel = new \Rancher\Model\NamespaceModel();
+    $namespaceModel->setName('from-php-api');
+    $namespaceModel->setDescription('Namespace generated with Rancher PHP Client');
+    $namespaceModel->setProjectId('c-abcdef:p-qwerty');
 
-    $projectResource = new Rancher\Resource\ProjectResource($rancherClient);
-
-    echo $projectResource->get("c-clusterid:p-projectid")->getDescription() . "\n";
+    print_r($namespaceResource->create($namespaceModel));
 }
-catch (Rancher\RancherException $e)
+catch (\Rancher\RancherException $e)
 {
     echo $e->getMessage();
 }
