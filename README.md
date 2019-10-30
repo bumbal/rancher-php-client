@@ -31,11 +31,18 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$rancherClient = new Rancher\RancherClient("https://your.racher.url/", "rancher_token", "rancher_secret");
+try
+{
+    $rancherClient = new Rancher\RancherClient("https://your.racher.url/", "rancher_token", "rancher_secret");
 
-$projectResource = new Rancher\Project($rancherClient);
+    $projectResource = new Rancher\Resource\ProjectResource($rancherClient);
 
-echo $projectResource->get("cluster:project")->getId() ;
+    echo $projectResource->get("c-clusterid:p-projectid")->getDescription() . "\n";
+}
+catch (Rancher\RancherException $e)
+{
+    echo $e->getMessage();
+}
 
 ?>
 ```

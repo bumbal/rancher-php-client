@@ -75,13 +75,6 @@ class APIGenerator
     {
         $schemeName = ucfirst($scheme['id']);
 
-        /*
-        if($schemeName == 'Namespace')
-        {
-            $schemeName = 'NamespaceObject';
-        }
-        */
-
         $content = [
             'name' => $schemeName,
             'properties' => []
@@ -152,13 +145,6 @@ class APIGenerator
                 $type = $property['type'];
             }
 
-            /*
-            if($this->endsWith($type, 'Namespace'))
-            {
-                $type = str_replace('Namespace', 'NamespaceObject', $type);
-            }
-            */
-
             if($this->endsWith($type, 'DnsLabelModel') || $this->endsWith($type, 'EnumModel'))
             {
                 $type = "string";
@@ -197,13 +183,6 @@ class APIGenerator
 
         $schemeName = ucfirst($scheme['id']);
 
-        /*
-        if($schemeName == 'Namespace')
-        {
-            $schemeName = 'NamespaceObject';
-        }
-        */
-
         $content = [
             'name' => $schemeName,
             'path' => $scheme['version']['path'],
@@ -238,13 +217,6 @@ class APIGenerator
         }
 
         $schemeName = ucfirst($scheme['id']);
-
-        /*
-        if($schemeName == 'Namespace')
-        {
-            $schemeName = 'NamespaceObject';
-        }
-        */
 
         $content = [
             'name' => $schemeName,
