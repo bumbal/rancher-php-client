@@ -9,7 +9,6 @@
  * @link     https://github.com/freightlive/rancher-php-client
  */
 
-
 namespace Rancher\Resource;
 
 use Rancher\RancherClient;
@@ -43,12 +42,27 @@ class NamespaceResource
      */
     protected $ownerId;
 
+    /**
+     * __construct
+     *
+     * @param RancherClient $client
+     * @param string $ownerId
+     *
+     * @return void
+     */
     public function __construct($client, $ownerId = null)
     {
         $this->client = $client;
         $this->ownerId = $ownerId;
     }
 
+    /**
+     * constructPath
+     *
+     * @param boolean $plural
+     *
+     * @return string
+     */
     private function constructPath($plural = false)
     {
         $constructedPath = $this->path;
@@ -74,7 +88,7 @@ class NamespaceResource
      * getAll
      *
      * @param \Rancher\AbstractFilter $filter
-     * @param string $sortDirection
+     * @param string $sortOrder
      * @param int $limit
      * @param string $marker
      *
@@ -138,7 +152,7 @@ class NamespaceResource
     /**
      * set
      *
-     * @param \Rancher\Model\Namespace $data
+     * @param \Rancher\Model\NamespaceModel $data
      *
      * @throws RancherException
      * @return \Rancher\Model\NamespaceModel
