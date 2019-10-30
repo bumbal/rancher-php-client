@@ -1,6 +1,6 @@
-##Create a namespace
+## Remove a namespace
 
-Example of how to create a name space
+Example of how to remove a name space
 
 ```php
 try

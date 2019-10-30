@@ -1,6 +1,6 @@
-##Create a namespace
+## Update a namespace
 
-Example of how to create a name space
+Example of how to update a name space
 
 ```php
 try

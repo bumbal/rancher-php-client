@@ -1,4 +1,4 @@
-##Create a namespace
+## Create a namespace
 
 Example of how to create a name space
 
