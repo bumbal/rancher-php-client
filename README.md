@@ -3,7 +3,7 @@ A PHP client for Rancher
 
 This client is largely based on the structure and code used by Swagger PHP. All files are generated from the schema files found within Rancher. Checkout the generator folder for more information.
 
-*Disclaimer: I am in not way, shape or form associated with Rancher.*
+*Disclaimer: I am not in any way, shape or form associated with Rancher.*
 
 ## Requirements
 
