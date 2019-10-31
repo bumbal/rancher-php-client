@@ -15,7 +15,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 ```
 {
   "require": {
-    "bumbal/rancher-php-client": "*@dev"
+    "freightlive/rancher-php-client": "*@dev"
   }
 }
 ```
