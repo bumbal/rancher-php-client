@@ -145,7 +145,13 @@ class APIGenerator
                 $type = $property['type'];
             }
 
-            if($this->endsWith($type, 'DnsLabelModel') || $this->endsWith($type, 'EnumModel'))
+            // override some non standard model names
+            if(
+                $this->endsWith($type, 'DnsLabelModel') ||
+                $this->endsWith($type, 'DnsLabelRestrictedModel') ||
+                $this->endsWith($type, 'EnumModel') ||
+                $this->endsWith($type, 'IntOrStringModel')
+            )
             {
                 $type = "string";
             }

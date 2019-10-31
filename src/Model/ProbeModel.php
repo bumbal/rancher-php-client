@@ -30,7 +30,7 @@ class ProbeModel implements ArrayAccess
         'initialDelaySeconds' => 'int',
         'path' => 'string',
         'periodSeconds' => 'int',
-        'port' => '\Rancher\Model\IntOrStringModel',
+        'port' => 'string',
         'scheme' => 'string',
         'successThreshold' => 'int',
         'tcp' => 'boolean',
@@ -254,7 +254,7 @@ class ProbeModel implements ArrayAccess
 
     /**
      * Gets port
-     * @return \Rancher\Model\IntOrStringModel
+     * @return string
      */
     public function getPort()
     {
@@ -263,7 +263,7 @@ class ProbeModel implements ArrayAccess
 
     /**
      * Sets port
-     * @param \Rancher\Model\IntOrStringModel $port
+     * @param string $port
      * @return $this
      */
     public function setPort($port)

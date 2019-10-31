@@ -23,7 +23,7 @@ class DaemonSetConfigModel implements ArrayAccess
     protected $container = [];
 
     protected static $typeMap = [
-        'maxUnavailable' => '\Rancher\Model\IntOrStringModel',
+        'maxUnavailable' => 'string',
         'minReadySeconds' => 'int',
         'revisionHistoryLimit' => 'int',
         'strategy' => 'string',
@@ -68,7 +68,7 @@ class DaemonSetConfigModel implements ArrayAccess
 
     /**
      * Gets maxUnavailable
-     * @return \Rancher\Model\IntOrStringModel
+     * @return string
      */
     public function getMaxUnavailable()
     {
@@ -77,7 +77,7 @@ class DaemonSetConfigModel implements ArrayAccess
 
     /**
      * Sets maxUnavailable
-     * @param \Rancher\Model\IntOrStringModel $maxUnavailable
+     * @param string $maxUnavailable
      * @return $this
      */
     public function setMaxUnavailable($maxUnavailable)

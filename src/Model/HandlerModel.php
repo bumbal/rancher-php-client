@@ -27,7 +27,7 @@ class HandlerModel implements ArrayAccess
         'host' => 'string',
         'httpHeaders' => '\Rancher\Model\HttpHeaderModel[]',
         'path' => 'string',
-        'port' => '\Rancher\Model\IntOrStringModel',
+        'port' => 'string',
         'scheme' => 'string',
         'tcp' => 'boolean',
     ];
@@ -168,7 +168,7 @@ class HandlerModel implements ArrayAccess
 
     /**
      * Gets port
-     * @return \Rancher\Model\IntOrStringModel
+     * @return string
      */
     public function getPort()
     {
@@ -177,7 +177,7 @@ class HandlerModel implements ArrayAccess
 
     /**
      * Sets port
-     * @param \Rancher\Model\IntOrStringModel $port
+     * @param string $port
      * @return $this
      */
     public function setPort($port)

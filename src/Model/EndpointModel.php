@@ -29,7 +29,7 @@ class EndpointModel implements ArrayAccess
         'relabelings' => '\Rancher\Model\RelabelConfigModel[]',
         'scheme' => 'string',
         'scrapeTimeout' => 'string',
-        'targetPort' => '\Rancher\Model\IntOrStringModel',
+        'targetPort' => 'string',
     ];
 
     public static function typeMap()
@@ -212,7 +212,7 @@ class EndpointModel implements ArrayAccess
 
     /**
      * Gets targetPort
-     * @return \Rancher\Model\IntOrStringModel
+     * @return string
      */
     public function getTargetPort()
     {
@@ -221,7 +221,7 @@ class EndpointModel implements ArrayAccess
 
     /**
      * Sets targetPort
-     * @param \Rancher\Model\IntOrStringModel $targetPort
+     * @param string $targetPort
      * @return $this
      */
     public function setTargetPort($targetPort)

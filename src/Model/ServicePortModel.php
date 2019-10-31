@@ -27,7 +27,7 @@ class ServicePortModel implements ArrayAccess
         'nodePort' => 'int',
         'port' => 'int',
         'protocol' => 'string',
-        'targetPort' => '\Rancher\Model\IntOrStringModel',
+        'targetPort' => 'string',
     ];
 
     public static function typeMap()
@@ -160,7 +160,7 @@ class ServicePortModel implements ArrayAccess
 
     /**
      * Gets targetPort
-     * @return \Rancher\Model\IntOrStringModel
+     * @return string
      */
     public function getTargetPort()
     {
@@ -169,7 +169,7 @@ class ServicePortModel implements ArrayAccess
 
     /**
      * Sets targetPort
-     * @param \Rancher\Model\IntOrStringModel $targetPort
+     * @param string $targetPort
      * @return $this
      */
     public function setTargetPort($targetPort)

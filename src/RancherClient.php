@@ -113,7 +113,7 @@ class RancherClient
         }
         catch(ClientException $e)
         {
-            throw new RancherException($e->getMessage(), $e->getCode());
+            throw new RancherException($e->getMessage(), $e->getCode(), $e->getResponse());
         }
     }
 }

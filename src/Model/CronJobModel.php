@@ -42,7 +42,7 @@ class CronJobModel implements ArrayAccess
         'hostname' => 'string',
         'imagePullSecrets' => '\Rancher\Model\LocalObjectReferenceModel[]',
         'labels' => 'map[string]',
-        'name' => '\Rancher\Model\DnsLabelRestrictedModel',
+        'name' => 'string',
         'namespaceId' => 'string',
         'nodeId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
@@ -674,7 +674,7 @@ class CronJobModel implements ArrayAccess
 
     /**
      * Gets name
-     * @return \Rancher\Model\DnsLabelRestrictedModel
+     * @return string
      */
     public function getName()
     {
@@ -683,7 +683,7 @@ class CronJobModel implements ArrayAccess
 
     /**
      * Sets name
-     * @param \Rancher\Model\DnsLabelRestrictedModel $name
+     * @param string $name
      * @return $this
      */
     public function setName($name)

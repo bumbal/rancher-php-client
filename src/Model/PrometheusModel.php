@@ -42,7 +42,7 @@ class PrometheusModel implements ArrayAccess
         'labels' => 'map[string]',
         'listenLocal' => 'boolean',
         'logLevel' => 'string',
-        'name' => '\Rancher\Model\DnsLabelRestrictedModel',
+        'name' => 'string',
         'namespaceId' => 'string',
         'nodeSelector' => 'map[string]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
@@ -662,7 +662,7 @@ class PrometheusModel implements ArrayAccess
 
     /**
      * Gets name
-     * @return \Rancher\Model\DnsLabelRestrictedModel
+     * @return string
      */
     public function getName()
     {
@@ -671,7 +671,7 @@ class PrometheusModel implements ArrayAccess
 
     /**
      * Sets name
-     * @param \Rancher\Model\DnsLabelRestrictedModel $name
+     * @param string $name
      * @return $this
      */
     public function setName($name)

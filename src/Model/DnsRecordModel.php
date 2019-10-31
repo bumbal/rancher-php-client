@@ -31,7 +31,7 @@ class DnsRecordModel implements ArrayAccess
         'hostname' => 'string',
         'ipAddresses' => 'string[]',
         'labels' => 'map[string]',
-        'name' => '\Rancher\Model\DnsLabelRestrictedModel',
+        'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'ports' => '\Rancher\Model\ServicePortModel[]',
@@ -320,7 +320,7 @@ class DnsRecordModel implements ArrayAccess
 
     /**
      * Gets name
-     * @return \Rancher\Model\DnsLabelRestrictedModel
+     * @return string
      */
     public function getName()
     {
@@ -329,7 +329,7 @@ class DnsRecordModel implements ArrayAccess
 
     /**
      * Sets name
-     * @param \Rancher\Model\DnsLabelRestrictedModel $name
+     * @param string $name
      * @return $this
      */
     public function setName($name)

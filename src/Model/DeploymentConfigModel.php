@@ -23,8 +23,8 @@ class DeploymentConfigModel implements ArrayAccess
     protected $container = [];
 
     protected static $typeMap = [
-        'maxSurge' => '\Rancher\Model\IntOrStringModel',
-        'maxUnavailable' => '\Rancher\Model\IntOrStringModel',
+        'maxSurge' => 'string',
+        'maxUnavailable' => 'string',
         'minReadySeconds' => 'int',
         'progressDeadlineSeconds' => 'int',
         'revisionHistoryLimit' => 'int',
@@ -76,7 +76,7 @@ class DeploymentConfigModel implements ArrayAccess
 
     /**
      * Gets maxSurge
-     * @return \Rancher\Model\IntOrStringModel
+     * @return string
      */
     public function getMaxSurge()
     {
@@ -85,7 +85,7 @@ class DeploymentConfigModel implements ArrayAccess
 
     /**
      * Sets maxSurge
-     * @param \Rancher\Model\IntOrStringModel $maxSurge
+     * @param string $maxSurge
      * @return $this
      */
     public function setMaxSurge($maxSurge)
@@ -98,7 +98,7 @@ class DeploymentConfigModel implements ArrayAccess
 
     /**
      * Gets maxUnavailable
-     * @return \Rancher\Model\IntOrStringModel
+     * @return string
      */
     public function getMaxUnavailable()
     {
@@ -107,7 +107,7 @@ class DeploymentConfigModel implements ArrayAccess
 
     /**
      * Sets maxUnavailable
-     * @param \Rancher\Model\IntOrStringModel $maxUnavailable
+     * @param string $maxUnavailable
      * @return $this
      */
     public function setMaxUnavailable($maxUnavailable)

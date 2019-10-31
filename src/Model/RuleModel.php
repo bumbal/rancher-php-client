@@ -25,7 +25,7 @@ class RuleModel implements ArrayAccess
     protected static $typeMap = [
         'alert' => 'string',
         'annotations' => 'map[string]',
-        'expr' => '\Rancher\Model\IntOrStringModel',
+        'expr' => 'string',
         'for' => 'string',
         'labels' => 'map[string]',
         'record' => 'string',
@@ -120,7 +120,7 @@ class RuleModel implements ArrayAccess
 
     /**
      * Gets expr
-     * @return \Rancher\Model\IntOrStringModel
+     * @return string
      */
     public function getExpr()
     {
@@ -129,7 +129,7 @@ class RuleModel implements ArrayAccess
 
     /**
      * Sets expr
-     * @param \Rancher\Model\IntOrStringModel $expr
+     * @param string $expr
      * @return $this
      */
     public function setExpr($expr)

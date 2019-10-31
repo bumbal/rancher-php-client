@@ -42,7 +42,7 @@ class JobModel implements ArrayAccess
         'jobConfig' => '\Rancher\Model\JobConfigModel',
         'jobStatus' => '\Rancher\Model\JobStatusModel',
         'labels' => 'map[string]',
-        'name' => '\Rancher\Model\DnsLabelRestrictedModel',
+        'name' => 'string',
         'namespaceId' => 'string',
         'nodeId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
@@ -674,7 +674,7 @@ class JobModel implements ArrayAccess
 
     /**
      * Gets name
-     * @return \Rancher\Model\DnsLabelRestrictedModel
+     * @return string
      */
     public function getName()
     {
@@ -683,7 +683,7 @@ class JobModel implements ArrayAccess
 
     /**
      * Sets name
-     * @param \Rancher\Model\DnsLabelRestrictedModel $name
+     * @param string $name
      * @return $this
      */
     public function setName($name)

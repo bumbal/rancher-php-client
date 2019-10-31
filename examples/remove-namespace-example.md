@@ -12,6 +12,6 @@ try
 }
 catch (\Rancher\RancherException $e)
 {
-    echo $e->getMessage();
+    print_r([$e->getStatusCode(), $e->getMessage()]);
 }
 ```
