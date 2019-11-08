@@ -23,6 +23,6 @@
         "guzzlehttp/guzzle": "^6.3"
     },
     "autoload": {
-        "psr-4": { "Racher\\" : "src/" }
+        "psr-4": { "Rancher\\" : "src/" }
     }
 }
