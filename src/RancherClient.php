@@ -86,8 +86,8 @@ class RancherClient
                             unset($params[$key]);
                         }
                     }
-                    $payload = ["json"=>$params];
 
+                    $payload = ["json"=>$params];
                     $response = $this->client->post($endpoint, $payload);
                 }
                 break;

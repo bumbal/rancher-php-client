@@ -114,13 +114,13 @@ class PrometheusResource
             $filterArray = $filter->toArray();
         }
 
-        $queryString = http_build_query([
+        $params = array_merge([
             'order' => $sortOrder,
             'limit' => $limit,
             'marker' => $marker,
-        ]);
+        ], $filterArray);
 
-        $response = $this->client->request('POST', $this->constructPath(false, true) . '?'.$queryString, $filterArray);
+        $response = $this->client->request('GET', $this->constructPath(true, true), $params);
 
         $collection->filters = $response->filters;
         $collection->pagination = $response->pagination;
