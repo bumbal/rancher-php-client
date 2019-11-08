@@ -17,12 +17,16 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 ```
 {
   "require": {
-    "freightlive/rancher-php-client": "*@dev"
+    "bumbal/rancher-php-client": "*@dev"
   }
 }
 ```
 
 Then run `composer install`
+
+or
+
+`composer require bumbal/rancher-php-client`
 
 ## Getting Started
 
