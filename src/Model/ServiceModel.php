@@ -49,8 +49,8 @@ class ServiceModel implements ArrayAccess
         'sessionAffinity' => 'string',
         'sessionAffinityConfig' => '\Rancher\Model\SessionAffinityConfigModel',
         'state' => 'string',
-        'targetDnsRecordIds' => '\Rancher\Model\Reference[dnsRecord]Model[]',
-        'targetWorkloadIds' => '\Rancher\Model\Reference[workload]Model[]',
+        'targetDnsRecordIds' => 'string[]',
+        'targetWorkloadIds' => 'string[]',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'uuid' => 'string',
@@ -752,7 +752,7 @@ class ServiceModel implements ArrayAccess
 
     /**
      * Gets targetDnsRecordIds
-     * @return \Rancher\Model\Reference[dnsRecord]Model[]
+     * @return string[]
      */
     public function getTargetDnsRecordIds()
     {
@@ -761,7 +761,7 @@ class ServiceModel implements ArrayAccess
 
     /**
      * Sets targetDnsRecordIds
-     * @param \Rancher\Model\Reference[dnsRecord]Model[] $targetDnsRecordIds
+     * @param string[] $targetDnsRecordIds
      * @return $this
      */
     public function setTargetDnsRecordIds($targetDnsRecordIds)
@@ -774,7 +774,7 @@ class ServiceModel implements ArrayAccess
 
     /**
      * Gets targetWorkloadIds
-     * @return \Rancher\Model\Reference[workload]Model[]
+     * @return string[]
      */
     public function getTargetWorkloadIds()
     {
@@ -783,7 +783,7 @@ class ServiceModel implements ArrayAccess
 
     /**
      * Sets targetWorkloadIds
-     * @param \Rancher\Model\Reference[workload]Model[] $targetWorkloadIds
+     * @param string[] $targetWorkloadIds
      * @return $this
      */
     public function setTargetWorkloadIds($targetWorkloadIds)

@@ -24,7 +24,7 @@ class QueryClusterGraphModel implements ArrayAccess
 
     protected static $typeMap = [
         'graphID' => 'string',
-        'series' => '\Rancher\Model\Reference[timeSeries]Model[]',
+        'series' => 'string[]',
     ];
 
     public static function typeMap()
@@ -82,7 +82,7 @@ class QueryClusterGraphModel implements ArrayAccess
 
     /**
      * Gets series
-     * @return \Rancher\Model\Reference[timeSeries]Model[]
+     * @return string[]
      */
     public function getSeries()
     {
@@ -91,7 +91,7 @@ class QueryClusterGraphModel implements ArrayAccess
 
     /**
      * Sets series
-     * @param \Rancher\Model\Reference[timeSeries]Model[] $series
+     * @param string[] $series
      * @return $this
      */
     public function setSeries($series)

@@ -33,7 +33,7 @@ class MultiClusterAppModel implements ArrayAccess
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
         'revisionHistoryLimit' => 'int',
-        'roles' => '\Rancher\Model\Reference[roleTemplate]Model[]',
+        'roles' => 'string[]',
         'state' => 'string',
         'status' => '\Rancher\Model\MultiClusterAppStatusModel',
         'targets' => '\Rancher\Model\TargetModel[]',
@@ -348,7 +348,7 @@ class MultiClusterAppModel implements ArrayAccess
 
     /**
      * Gets roles
-     * @return \Rancher\Model\Reference[roleTemplate]Model[]
+     * @return string[]
      */
     public function getRoles()
     {
@@ -357,7 +357,7 @@ class MultiClusterAppModel implements ArrayAccess
 
     /**
      * Sets roles
-     * @param \Rancher\Model\Reference[roleTemplate]Model[] $roles
+     * @param string[] $roles
      * @return $this
      */
     public function setRoles($roles)

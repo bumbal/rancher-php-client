@@ -24,7 +24,7 @@ class UpdateMultiClusterAppTargetsInputModel implements ArrayAccess
 
     protected static $typeMap = [
         'answers' => '\Rancher\Model\AnswerModel[]',
-        'projects' => '\Rancher\Model\Reference[project]Model[]',
+        'projects' => 'string[]',
     ];
 
     public static function typeMap()
@@ -82,7 +82,7 @@ class UpdateMultiClusterAppTargetsInputModel implements ArrayAccess
 
     /**
      * Gets projects
-     * @return \Rancher\Model\Reference[project]Model[]
+     * @return string[]
      */
     public function getProjects()
     {
@@ -91,7 +91,7 @@ class UpdateMultiClusterAppTargetsInputModel implements ArrayAccess
 
     /**
      * Sets projects
-     * @param \Rancher\Model\Reference[project]Model[] $projects
+     * @param string[] $projects
      * @return $this
      */
     public function setProjects($projects)

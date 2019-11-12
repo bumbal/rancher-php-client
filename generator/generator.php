@@ -93,20 +93,27 @@ class APIGenerator
             {
                 $type = substr($property['type'], 6, -1);
 
-                if(!in_array($type, ['bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void']))
+                if($this->startsWith( $type, 'reference'))
                 {
-                    if($type == 'enum')
-                    {
-                        $type = 'string[]';
-                    }
-                    else
-                    {
-                        $type = '\Rancher\Model\\' . ucfirst($type) . 'Model[]';
-                    }
+                    $type = "string[]";
                 }
                 else
                 {
-                    $type = $type . '[]';
+                    if(!in_array($type, ['bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void']))
+                    {
+                        if($type == 'enum')
+                        {
+                            $type = 'string[]';
+                        }
+                        else
+                        {
+                            $type = '\Rancher\Model\\' . ucfirst($type) . 'Model[]';
+                        }
+                    }
+                    else
+                    {
+                        $type = $type . '[]';
+                    }
                 }
             }
             elseif($this->startsWith($property['type'], 'map'))

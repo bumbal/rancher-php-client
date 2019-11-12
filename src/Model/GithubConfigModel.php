@@ -24,7 +24,7 @@ class GithubConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessMode' => 'string',
-        'allowedPrincipalIds' => '\Rancher\Model\Reference[principal]Model[]',
+        'allowedPrincipalIds' => 'string[]',
         'annotations' => 'map[string]',
         'clientId' => 'string',
         'clientSecret' => '\Rancher\Model\PasswordModel',
@@ -138,7 +138,7 @@ class GithubConfigModel implements ArrayAccess
 
     /**
      * Gets allowedPrincipalIds
-     * @return \Rancher\Model\Reference[principal]Model[]
+     * @return string[]
      */
     public function getAllowedPrincipalIds()
     {
@@ -147,7 +147,7 @@ class GithubConfigModel implements ArrayAccess
 
     /**
      * Sets allowedPrincipalIds
-     * @param \Rancher\Model\Reference[principal]Model[] $allowedPrincipalIds
+     * @param string[] $allowedPrincipalIds
      * @return $this
      */
     public function setAllowedPrincipalIds($allowedPrincipalIds)

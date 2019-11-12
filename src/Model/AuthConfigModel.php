@@ -24,7 +24,7 @@ class AuthConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessMode' => 'string',
-        'allowedPrincipalIds' => '\Rancher\Model\Reference[principal]Model[]',
+        'allowedPrincipalIds' => 'string[]',
         'annotations' => 'map[string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
@@ -122,7 +122,7 @@ class AuthConfigModel implements ArrayAccess
 
     /**
      * Gets allowedPrincipalIds
-     * @return \Rancher\Model\Reference[principal]Model[]
+     * @return string[]
      */
     public function getAllowedPrincipalIds()
     {
@@ -131,7 +131,7 @@ class AuthConfigModel implements ArrayAccess
 
     /**
      * Sets allowedPrincipalIds
-     * @param \Rancher\Model\Reference[principal]Model[] $allowedPrincipalIds
+     * @param string[] $allowedPrincipalIds
      * @return $this
      */
     public function setAllowedPrincipalIds($allowedPrincipalIds)

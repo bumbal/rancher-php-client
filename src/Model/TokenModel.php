@@ -33,7 +33,7 @@ class TokenModel implements ArrayAccess
         'enabled' => 'boolean',
         'expired' => 'boolean',
         'expiresAt' => 'string',
-        'groupPrincipals' => '\Rancher\Model\Reference[principal]Model[]',
+        'groupPrincipals' => 'string[]',
         'isDerived' => 'boolean',
         'labels' => 'map[string]',
         'lastUpdateTime' => 'string',
@@ -364,7 +364,7 @@ class TokenModel implements ArrayAccess
 
     /**
      * Gets groupPrincipals
-     * @return \Rancher\Model\Reference[principal]Model[]
+     * @return string[]
      */
     public function getGroupPrincipals()
     {
@@ -373,7 +373,7 @@ class TokenModel implements ArrayAccess
 
     /**
      * Sets groupPrincipals
-     * @param \Rancher\Model\Reference[principal]Model[] $groupPrincipals
+     * @param string[] $groupPrincipals
      * @return $this
      */
     public function setGroupPrincipals($groupPrincipals)

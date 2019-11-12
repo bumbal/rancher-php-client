@@ -32,7 +32,7 @@ class GlobalDnsModel implements ArrayAccess
         'multiClusterAppId' => 'string',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
-        'projectIds' => '\Rancher\Model\Reference[project]Model[]',
+        'projectIds' => 'string[]',
         'providerId' => 'string',
         'removed' => '\DateTime',
         'state' => 'string',
@@ -322,7 +322,7 @@ class GlobalDnsModel implements ArrayAccess
 
     /**
      * Gets projectIds
-     * @return \Rancher\Model\Reference[project]Model[]
+     * @return string[]
      */
     public function getProjectIds()
     {
@@ -331,7 +331,7 @@ class GlobalDnsModel implements ArrayAccess
 
     /**
      * Sets projectIds
-     * @param \Rancher\Model\Reference[project]Model[] $projectIds
+     * @param string[] $projectIds
      * @return $this
      */
     public function setProjectIds($projectIds)

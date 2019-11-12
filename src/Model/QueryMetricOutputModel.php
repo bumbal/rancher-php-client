@@ -23,7 +23,7 @@ class QueryMetricOutputModel implements ArrayAccess
     protected $container = [];
 
     protected static $typeMap = [
-        'series' => '\Rancher\Model\Reference[timeSeries]Model[]',
+        'series' => 'string[]',
         'type' => 'string',
     ];
 
@@ -60,7 +60,7 @@ class QueryMetricOutputModel implements ArrayAccess
 
     /**
      * Gets series
-     * @return \Rancher\Model\Reference[timeSeries]Model[]
+     * @return string[]
      */
     public function getSeries()
     {
@@ -69,7 +69,7 @@ class QueryMetricOutputModel implements ArrayAccess
 
     /**
      * Sets series
-     * @param \Rancher\Model\Reference[timeSeries]Model[] $series
+     * @param string[] $series
      * @return $this
      */
     public function setSeries($series)

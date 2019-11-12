@@ -26,7 +26,7 @@ class HttpIngressPathModel implements ArrayAccess
         'path' => 'string',
         'serviceId' => 'string',
         'targetPort' => 'string',
-        'workloadIds' => '\Rancher\Model\Reference[workload]Model[]',
+        'workloadIds' => 'string[]',
     ];
 
     public static function typeMap()
@@ -134,7 +134,7 @@ class HttpIngressPathModel implements ArrayAccess
 
     /**
      * Gets workloadIds
-     * @return \Rancher\Model\Reference[workload]Model[]
+     * @return string[]
      */
     public function getWorkloadIds()
     {
@@ -143,7 +143,7 @@ class HttpIngressPathModel implements ArrayAccess
 
     /**
      * Sets workloadIds
-     * @param \Rancher\Model\Reference[workload]Model[] $workloadIds
+     * @param string[] $workloadIds
      * @return $this
      */
     public function setWorkloadIds($workloadIds)

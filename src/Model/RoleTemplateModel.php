@@ -40,7 +40,7 @@ class RoleTemplateModel implements ArrayAccess
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'projectCreatorDefault' => 'boolean',
         'removed' => '\DateTime',
-        'roleTemplateIds' => '\Rancher\Model\Reference[roleTemplate]Model[]',
+        'roleTemplateIds' => 'string[]',
         'rules' => '\Rancher\Model\PolicyRuleModel[]',
         'uuid' => 'string',
     ];
@@ -506,7 +506,7 @@ class RoleTemplateModel implements ArrayAccess
 
     /**
      * Gets roleTemplateIds
-     * @return \Rancher\Model\Reference[roleTemplate]Model[]
+     * @return string[]
      */
     public function getRoleTemplateIds()
     {
@@ -515,7 +515,7 @@ class RoleTemplateModel implements ArrayAccess
 
     /**
      * Sets roleTemplateIds
-     * @param \Rancher\Model\Reference[roleTemplate]Model[] $roleTemplateIds
+     * @param string[] $roleTemplateIds
      * @return $this
      */
     public function setRoleTemplateIds($roleTemplateIds)

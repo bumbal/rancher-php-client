@@ -24,7 +24,7 @@ class OktaConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessMode' => 'string',
-        'allowedPrincipalIds' => '\Rancher\Model\Reference[principal]Model[]',
+        'allowedPrincipalIds' => 'string[]',
         'annotations' => 'map[string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
@@ -154,7 +154,7 @@ class OktaConfigModel implements ArrayAccess
 
     /**
      * Gets allowedPrincipalIds
-     * @return \Rancher\Model\Reference[principal]Model[]
+     * @return string[]
      */
     public function getAllowedPrincipalIds()
     {
@@ -163,7 +163,7 @@ class OktaConfigModel implements ArrayAccess
 
     /**
      * Sets allowedPrincipalIds
-     * @param \Rancher\Model\Reference[principal]Model[] $allowedPrincipalIds
+     * @param string[] $allowedPrincipalIds
      * @return $this
      */
     public function setAllowedPrincipalIds($allowedPrincipalIds)

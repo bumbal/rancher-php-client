@@ -25,7 +25,7 @@ class IngressBackendModel implements ArrayAccess
     protected static $typeMap = [
         'serviceId' => 'string',
         'targetPort' => 'string',
-        'workloadIds' => '\Rancher\Model\Reference[workload]Model[]',
+        'workloadIds' => 'string[]',
     ];
 
     public static function typeMap()
@@ -108,7 +108,7 @@ class IngressBackendModel implements ArrayAccess
 
     /**
      * Gets workloadIds
-     * @return \Rancher\Model\Reference[workload]Model[]
+     * @return string[]
      */
     public function getWorkloadIds()
     {
@@ -117,7 +117,7 @@ class IngressBackendModel implements ArrayAccess
 
     /**
      * Sets workloadIds
-     * @param \Rancher\Model\Reference[workload]Model[] $workloadIds
+     * @param string[] $workloadIds
      * @return $this
      */
     public function setWorkloadIds($workloadIds)

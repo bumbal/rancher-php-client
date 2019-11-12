@@ -24,7 +24,7 @@ class ActiveDirectoryConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessMode' => 'string',
-        'allowedPrincipalIds' => '\Rancher\Model\Reference[principal]Model[]',
+        'allowedPrincipalIds' => 'string[]',
         'annotations' => 'map[string]',
         'certificate' => 'string',
         'connectionTimeout' => 'int',
@@ -222,7 +222,7 @@ class ActiveDirectoryConfigModel implements ArrayAccess
 
     /**
      * Gets allowedPrincipalIds
-     * @return \Rancher\Model\Reference[principal]Model[]
+     * @return string[]
      */
     public function getAllowedPrincipalIds()
     {
@@ -231,7 +231,7 @@ class ActiveDirectoryConfigModel implements ArrayAccess
 
     /**
      * Sets allowedPrincipalIds
-     * @param \Rancher\Model\Reference[principal]Model[] $allowedPrincipalIds
+     * @param string[] $allowedPrincipalIds
      * @return $this
      */
     public function setAllowedPrincipalIds($allowedPrincipalIds)

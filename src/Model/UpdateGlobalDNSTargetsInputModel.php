@@ -23,7 +23,7 @@ class UpdateGlobalDNSTargetsInputModel implements ArrayAccess
     protected $container = [];
 
     protected static $typeMap = [
-        'projectIds' => '\Rancher\Model\Reference[project]Model[]',
+        'projectIds' => 'string[]',
     ];
 
     public static function typeMap()
@@ -56,7 +56,7 @@ class UpdateGlobalDNSTargetsInputModel implements ArrayAccess
 
     /**
      * Gets projectIds
-     * @return \Rancher\Model\Reference[project]Model[]
+     * @return string[]
      */
     public function getProjectIds()
     {
@@ -65,7 +65,7 @@ class UpdateGlobalDNSTargetsInputModel implements ArrayAccess
 
     /**
      * Sets projectIds
-     * @param \Rancher\Model\Reference[project]Model[] $projectIds
+     * @param string[] $projectIds
      * @return $this
      */
     public function setProjectIds($projectIds)

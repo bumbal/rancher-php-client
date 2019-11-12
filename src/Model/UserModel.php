@@ -36,7 +36,7 @@ class UserModel implements ArrayAccess
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'password' => 'string',
-        'principalIds' => '\Rancher\Model\Reference[principal]Model[]',
+        'principalIds' => 'string[]',
         'removed' => '\DateTime',
         'state' => 'string',
         'transitioning' => 'string',
@@ -418,7 +418,7 @@ class UserModel implements ArrayAccess
 
     /**
      * Gets principalIds
-     * @return \Rancher\Model\Reference[principal]Model[]
+     * @return string[]
      */
     public function getPrincipalIds()
     {
@@ -427,7 +427,7 @@ class UserModel implements ArrayAccess
 
     /**
      * Sets principalIds
-     * @param \Rancher\Model\Reference[principal]Model[] $principalIds
+     * @param string[] $principalIds
      * @return $this
      */
     public function setPrincipalIds($principalIds)
