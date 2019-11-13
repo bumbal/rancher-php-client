@@ -22,6 +22,58 @@ class ClusterAlertModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'clusterId',
+        'description',
+        'displayName',
+        'initialWaitSeconds',
+        'labels',
+        'name',
+        'namespaceId',
+        'recipients',
+        'repeatIntervalSeconds',
+        'severity',
+        'targetEvent',
+        'targetNode',
+        'targetSystemService',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'clusterId',
+        'description',
+        'displayName',
+        'initialWaitSeconds',
+        'labels',
+        'recipients',
+        'repeatIntervalSeconds',
+        'severity',
+        'targetEvent',
+        'targetNode',
+        'targetSystemService',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'clusterId' => 'string',

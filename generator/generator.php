@@ -77,7 +77,9 @@ class APIGenerator
 
         $content = [
             'name' => $schemeName,
-            'properties' => []
+            'properties' => [],
+            'can_be_created' => [],
+            'can_be_updated' => []
         ];
 
         foreach ($scheme['resourceFields'] as $name => $property)
@@ -161,6 +163,16 @@ class APIGenerator
             )
             {
                 $type = "string";
+            }
+
+            if($property['create'])
+            {
+                $content['can_be_created'][] = $name;
+            }
+
+            if($property['update'])
+            {
+                $content['can_be_updated'][] = $name;
             }
 
             $content['properties'][] = [

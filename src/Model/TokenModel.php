@@ -22,6 +22,65 @@ class TokenModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'authProvider',
+        'clusterId',
+        'current',
+        'description',
+        'enabled',
+        'expired',
+        'expiresAt',
+        'groupPrincipals',
+        'isDerived',
+        'labels',
+        'lastUpdateTime',
+        'name',
+        'providerInfo',
+        'token',
+        'ttl',
+        'userId',
+        'userPrincipal',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'authProvider',
+        'current',
+        'description',
+        'enabled',
+        'expired',
+        'expiresAt',
+        'groupPrincipals',
+        'isDerived',
+        'labels',
+        'lastUpdateTime',
+        'providerInfo',
+        'ttl',
+        'userId',
+        'userPrincipal',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'authProvider' => 'string',

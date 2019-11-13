@@ -22,6 +22,109 @@ class DaemonSetModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'activeDeadlineSeconds',
+        'annotations',
+        'automountServiceAccountToken',
+        'containers',
+        'daemonSetConfig',
+        'dnsConfig',
+        'dnsPolicy',
+        'fsgid',
+        'gids',
+        'hostAliases',
+        'hostIPC',
+        'hostNetwork',
+        'hostPID',
+        'hostname',
+        'imagePullSecrets',
+        'labels',
+        'name',
+        'namespaceId',
+        'nodeId',
+        'priority',
+        'priorityClassName',
+        'projectId',
+        'readinessGates',
+        'restartPolicy',
+        'runAsGroup',
+        'runAsNonRoot',
+        'runtimeClassName',
+        'schedulerName',
+        'scheduling',
+        'selector',
+        'serviceAccountName',
+        'shareProcessNamespace',
+        'subdomain',
+        'sysctls',
+        'terminationGracePeriodSeconds',
+        'uid',
+        'volumes',
+        'workloadAnnotations',
+        'workloadLabels',
+        'workloadMetrics',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'activeDeadlineSeconds',
+        'annotations',
+        'automountServiceAccountToken',
+        'containers',
+        'daemonSetConfig',
+        'dnsConfig',
+        'dnsPolicy',
+        'fsgid',
+        'gids',
+        'hostAliases',
+        'hostIPC',
+        'hostNetwork',
+        'hostPID',
+        'hostname',
+        'imagePullSecrets',
+        'labels',
+        'nodeId',
+        'priority',
+        'priorityClassName',
+        'readinessGates',
+        'restartPolicy',
+        'runAsGroup',
+        'runAsNonRoot',
+        'runtimeClassName',
+        'schedulerName',
+        'scheduling',
+        'selector',
+        'serviceAccountName',
+        'shareProcessNamespace',
+        'subdomain',
+        'sysctls',
+        'terminationGracePeriodSeconds',
+        'uid',
+        'volumes',
+        'workloadAnnotations',
+        'workloadLabels',
+        'workloadMetrics',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'activeDeadlineSeconds' => 'int',
         'annotations' => 'map[string]',

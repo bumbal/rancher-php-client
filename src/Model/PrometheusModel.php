@@ -22,6 +22,109 @@ class PrometheusModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'additionalAlertManagerConfigs',
+        'additionalAlertRelabelConfigs',
+        'additionalScrapeConfigs',
+        'affinity',
+        'alerting',
+        'annotations',
+        'baseImage',
+        'configMaps',
+        'containers',
+        'description',
+        'evaluationInterval',
+        'externalLabels',
+        'externalUrl',
+        'imagePullSecrets',
+        'labels',
+        'listenLocal',
+        'logLevel',
+        'name',
+        'namespaceId',
+        'nodeSelector',
+        'podMetadata',
+        'priorityClassName',
+        'projectId',
+        'remoteRead',
+        'remoteWrite',
+        'replicas',
+        'resources',
+        'retention',
+        'routePrefix',
+        'ruleSelector',
+        'scrapeInterval',
+        'secrets',
+        'securityContext',
+        'serviceAccountName',
+        'serviceMonitorSelector',
+        'sha',
+        'storage',
+        'tag',
+        'tolerations',
+        'version',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'additionalAlertManagerConfigs',
+        'additionalAlertRelabelConfigs',
+        'additionalScrapeConfigs',
+        'affinity',
+        'alerting',
+        'annotations',
+        'baseImage',
+        'configMaps',
+        'containers',
+        'description',
+        'evaluationInterval',
+        'externalLabels',
+        'externalUrl',
+        'imagePullSecrets',
+        'labels',
+        'listenLocal',
+        'logLevel',
+        'nodeSelector',
+        'podMetadata',
+        'priorityClassName',
+        'remoteRead',
+        'remoteWrite',
+        'replicas',
+        'resources',
+        'retention',
+        'routePrefix',
+        'ruleSelector',
+        'scrapeInterval',
+        'secrets',
+        'securityContext',
+        'serviceAccountName',
+        'serviceMonitorSelector',
+        'sha',
+        'storage',
+        'tag',
+        'tolerations',
+        'version',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'additionalAlertManagerConfigs' => '\Rancher\Model\SecretKeySelectorModel',
         'additionalAlertRelabelConfigs' => '\Rancher\Model\SecretKeySelectorModel',

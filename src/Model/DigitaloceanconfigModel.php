@@ -22,6 +22,60 @@ class DigitaloceanconfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessToken',
+        'backups',
+        'image',
+        'ipv6',
+        'monitoring',
+        'privateNetworking',
+        'region',
+        'size',
+        'sshKeyContents',
+        'sshKeyFingerprint',
+        'sshPort',
+        'sshUser',
+        'tags',
+        'userdata',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'accessToken',
+        'backups',
+        'image',
+        'ipv6',
+        'monitoring',
+        'privateNetworking',
+        'region',
+        'size',
+        'sshKeyContents',
+        'sshKeyFingerprint',
+        'sshPort',
+        'sshUser',
+        'tags',
+        'userdata',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessToken' => '\Rancher\Model\PasswordModel',
         'backups' => 'boolean',

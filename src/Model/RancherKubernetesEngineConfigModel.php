@@ -22,6 +22,74 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'addonJobTimeout',
+        'addons',
+        'addonsInclude',
+        'authentication',
+        'authorization',
+        'bastionHost',
+        'cloudProvider',
+        'clusterName',
+        'dns',
+        'ignoreDockerVersion',
+        'ingress',
+        'kubernetesVersion',
+        'monitoring',
+        'network',
+        'nodes',
+        'prefixPath',
+        'privateRegistries',
+        'restore',
+        'rotateCertificates',
+        'services',
+        'sshAgentAuth',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'addonJobTimeout',
+        'addons',
+        'addonsInclude',
+        'authentication',
+        'authorization',
+        'bastionHost',
+        'cloudProvider',
+        'clusterName',
+        'dns',
+        'ignoreDockerVersion',
+        'ingress',
+        'kubernetesVersion',
+        'monitoring',
+        'network',
+        'nodes',
+        'prefixPath',
+        'privateRegistries',
+        'restore',
+        'rotateCertificates',
+        'services',
+        'sshAgentAuth',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'addonJobTimeout' => 'int',
         'addons' => 'string',

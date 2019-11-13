@@ -16,13 +16,14 @@ class ObjectSerializer
     /**
      * Serialize data
      *
-     * @param mixed  $data   the data to serialize
-     * @param string $type   the SwaggerType of the data
-     * @param string $format the format of the Swagger type of the data
+     * @param mixed  $data          the data to serialize
+     * @param string $type          the Type of the data
+     * @param string $format        the format of the type of the data
+     * @param string $actionType    the type of action create or update
      *
      * @return string|object serialized form of $data
      */
-    public static function sanitizeForSerialization($data, $type = null, $format = null)
+    public static function sanitizeForSerialization($data, $type = null, $format = null, $actionType = 'create')
     {
         if (is_scalar($data) || null === $data)
         {
@@ -36,7 +37,7 @@ class ObjectSerializer
         {
             foreach ($data as $property => $value)
             {
-                $data[$property] = self::sanitizeForSerialization($value);
+                $data[$property] = self::sanitizeForSerialization($value, $type, $format, $actionType);
             }
 
             return $data;
@@ -48,19 +49,40 @@ class ObjectSerializer
 
             foreach ($data::typeMap() as $property => $objType)
             {
-                $getter = $data::getters()[$property];
+                $skipProperty = false;
 
-                $value = $data->$getter();
-
-                if ($value !== null && method_exists($objType, 'getAllowableEnumValues') && !in_array($value, $objType::getAllowableEnumValues()))
+                if($actionType == 'create')
                 {
-                    $imploded = implode("', '", $objType::getAllowableEnumValues());
-                    throw new \InvalidArgumentException("Invalid value for enum '$objType', must be one of: '$imploded'");
+                    if(!in_array($property, $data::canBeCreated()))
+                    {
+                        $skipProperty = true;
+                    }
                 }
 
-                if ($value !== null)
+                if($actionType == 'update')
                 {
-                    $values[$property] = self::sanitizeForSerialization($value, $objType, $formats[$property]);
+                    if(!in_array($property, $data::canBeUpdated()))
+                    {
+                        $skipProperty = true;
+                    }
+                }
+
+                if(!$skipProperty)
+                {
+                    $getter = $data::getters()[$property];
+
+                    $value = $data->$getter();
+
+                    if ($value !== null && method_exists($objType, 'getAllowableEnumValues') && !in_array($value, $objType::getAllowableEnumValues()))
+                    {
+                        $imploded = implode("', '", $objType::getAllowableEnumValues());
+                        throw new \InvalidArgumentException("Invalid value for enum '$objType', must be one of: '$imploded'");
+                    }
+
+                    if ($value !== null)
+                    {
+                        $values[$property] = self::sanitizeForSerialization($value, $objType, $formats[$property], $actionType);
+                    }
                 }
             }
 

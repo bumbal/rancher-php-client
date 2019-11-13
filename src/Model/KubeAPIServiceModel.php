@@ -22,6 +22,48 @@ class KubeAPIServiceModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'alwaysPullImages',
+        'extraArgs',
+        'extraBinds',
+        'extraEnv',
+        'image',
+        'podSecurityPolicy',
+        'serviceClusterIpRange',
+        'serviceNodePortRange',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'alwaysPullImages',
+        'extraArgs',
+        'extraBinds',
+        'extraEnv',
+        'image',
+        'podSecurityPolicy',
+        'serviceClusterIpRange',
+        'serviceNodePortRange',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'alwaysPullImages' => 'boolean',
         'extraArgs' => 'map[string]',

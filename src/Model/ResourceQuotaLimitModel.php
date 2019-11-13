@@ -22,6 +22,58 @@ class ResourceQuotaLimitModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'configMaps',
+        'limitsCpu',
+        'limitsMemory',
+        'persistentVolumeClaims',
+        'pods',
+        'replicationControllers',
+        'requestsCpu',
+        'requestsMemory',
+        'requestsStorage',
+        'secrets',
+        'services',
+        'servicesLoadBalancers',
+        'servicesNodePorts',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'configMaps',
+        'limitsCpu',
+        'limitsMemory',
+        'persistentVolumeClaims',
+        'pods',
+        'replicationControllers',
+        'requestsCpu',
+        'requestsMemory',
+        'requestsStorage',
+        'secrets',
+        'services',
+        'servicesLoadBalancers',
+        'servicesNodePorts',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'configMaps' => 'string',
         'limitsCpu' => 'string',

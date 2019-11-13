@@ -22,6 +22,44 @@ class QueryGraphInputModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'filters',
+        'from',
+        'interval',
+        'isDetails',
+        'metricParams',
+        'to',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'filters',
+        'from',
+        'interval',
+        'isDetails',
+        'metricParams',
+        'to',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'filters' => 'map[string]',
         'from' => 'string',

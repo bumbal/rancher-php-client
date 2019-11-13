@@ -22,6 +22,90 @@ class OpenLdapConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessMode',
+        'allowedPrincipalIds',
+        'annotations',
+        'certificate',
+        'connectionTimeout',
+        'enabled',
+        'groupDNAttribute',
+        'groupMemberMappingAttribute',
+        'groupMemberUserAttribute',
+        'groupNameAttribute',
+        'groupObjectClass',
+        'groupSearchAttribute',
+        'groupSearchBase',
+        'labels',
+        'name',
+        'nestedGroupMembershipEnabled',
+        'port',
+        'servers',
+        'serviceAccountDistinguishedName',
+        'serviceAccountPassword',
+        'tls',
+        'type',
+        'userDisabledBitMask',
+        'userEnabledAttribute',
+        'userLoginAttribute',
+        'userMemberAttribute',
+        'userNameAttribute',
+        'userObjectClass',
+        'userSearchAttribute',
+        'userSearchBase',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'accessMode',
+        'allowedPrincipalIds',
+        'annotations',
+        'certificate',
+        'connectionTimeout',
+        'enabled',
+        'groupDNAttribute',
+        'groupMemberMappingAttribute',
+        'groupMemberUserAttribute',
+        'groupNameAttribute',
+        'groupObjectClass',
+        'groupSearchAttribute',
+        'groupSearchBase',
+        'labels',
+        'nestedGroupMembershipEnabled',
+        'port',
+        'servers',
+        'serviceAccountDistinguishedName',
+        'serviceAccountPassword',
+        'tls',
+        'userDisabledBitMask',
+        'userEnabledAttribute',
+        'userLoginAttribute',
+        'userMemberAttribute',
+        'userNameAttribute',
+        'userObjectClass',
+        'userSearchAttribute',
+        'userSearchBase',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessMode' => 'string',
         'allowedPrincipalIds' => 'string[]',

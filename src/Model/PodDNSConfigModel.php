@@ -22,6 +22,38 @@ class PodDNSConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'nameservers',
+        'options',
+        'searches',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'nameservers',
+        'options',
+        'searches',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'nameservers' => 'string[]',
         'options' => '\Rancher\Model\PodDNSConfigOptionModel[]',

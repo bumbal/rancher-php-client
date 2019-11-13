@@ -22,6 +22,36 @@ class LabelSelectorModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'matchExpressions',
+        'matchLabels',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'matchExpressions',
+        'matchLabels',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'matchExpressions' => '\Rancher\Model\LabelSelectorRequirementModel[]',
         'matchLabels' => 'map[string]',

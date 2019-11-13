@@ -22,6 +22,94 @@ class ActiveDirectoryConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessMode',
+        'allowedPrincipalIds',
+        'annotations',
+        'certificate',
+        'connectionTimeout',
+        'defaultLoginDomain',
+        'enabled',
+        'groupDNAttribute',
+        'groupMemberMappingAttribute',
+        'groupMemberUserAttribute',
+        'groupNameAttribute',
+        'groupObjectClass',
+        'groupSearchAttribute',
+        'groupSearchBase',
+        'groupSearchFilter',
+        'labels',
+        'name',
+        'nestedGroupMembershipEnabled',
+        'port',
+        'servers',
+        'serviceAccountPassword',
+        'serviceAccountUsername',
+        'tls',
+        'type',
+        'userDisabledBitMask',
+        'userEnabledAttribute',
+        'userLoginAttribute',
+        'userNameAttribute',
+        'userObjectClass',
+        'userSearchAttribute',
+        'userSearchBase',
+        'userSearchFilter',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'accessMode',
+        'allowedPrincipalIds',
+        'annotations',
+        'certificate',
+        'connectionTimeout',
+        'defaultLoginDomain',
+        'enabled',
+        'groupDNAttribute',
+        'groupMemberMappingAttribute',
+        'groupMemberUserAttribute',
+        'groupNameAttribute',
+        'groupObjectClass',
+        'groupSearchAttribute',
+        'groupSearchBase',
+        'groupSearchFilter',
+        'labels',
+        'nestedGroupMembershipEnabled',
+        'port',
+        'servers',
+        'serviceAccountPassword',
+        'serviceAccountUsername',
+        'tls',
+        'userDisabledBitMask',
+        'userEnabledAttribute',
+        'userLoginAttribute',
+        'userNameAttribute',
+        'userObjectClass',
+        'userSearchAttribute',
+        'userSearchBase',
+        'userSearchFilter',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessMode' => 'string',
         'allowedPrincipalIds' => 'string[]',

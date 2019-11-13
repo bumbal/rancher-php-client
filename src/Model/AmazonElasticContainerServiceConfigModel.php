@@ -22,6 +22,70 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessKey',
+        'ami',
+        'associateWorkerNodePublicIp',
+        'displayName',
+        'driverName',
+        'instanceType',
+        'keyPairName',
+        'kubernetesVersion',
+        'maximumNodes',
+        'minimumNodes',
+        'nodeVolumeSize',
+        'region',
+        'secretKey',
+        'securityGroups',
+        'serviceRole',
+        'sessionToken',
+        'subnets',
+        'userData',
+        'virtualNetwork',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'accessKey',
+        'ami',
+        'associateWorkerNodePublicIp',
+        'displayName',
+        'driverName',
+        'instanceType',
+        'keyPairName',
+        'kubernetesVersion',
+        'maximumNodes',
+        'minimumNodes',
+        'nodeVolumeSize',
+        'region',
+        'secretKey',
+        'securityGroups',
+        'serviceRole',
+        'sessionToken',
+        'subnets',
+        'userData',
+        'virtualNetwork',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessKey' => 'string',
         'ami' => 'string',

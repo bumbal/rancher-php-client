@@ -22,6 +22,42 @@ class TargetNodeModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'condition',
+        'cpuThreshold',
+        'memThreshold',
+        'nodeId',
+        'selector',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'condition',
+        'cpuThreshold',
+        'memThreshold',
+        'nodeId',
+        'selector',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'condition' => 'string',
         'cpuThreshold' => 'int',

@@ -22,6 +22,44 @@ class NotificationModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'message',
+        'pagerdutyConfig',
+        'slackConfig',
+        'smtpConfig',
+        'webhookConfig',
+        'wechatConfig',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'message',
+        'pagerdutyConfig',
+        'slackConfig',
+        'smtpConfig',
+        'webhookConfig',
+        'wechatConfig',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'message' => 'string',
         'pagerdutyConfig' => '\Rancher\Model\PagerdutyConfigModel',

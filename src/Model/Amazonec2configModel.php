@@ -22,6 +22,94 @@ class Amazonec2configModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessKey',
+        'ami',
+        'blockDurationMinutes',
+        'deviceName',
+        'endpoint',
+        'iamInstanceProfile',
+        'insecureTransport',
+        'instanceType',
+        'keypairName',
+        'monitoring',
+        'openPort',
+        'privateAddressOnly',
+        'region',
+        'requestSpotInstance',
+        'retries',
+        'rootSize',
+        'secretKey',
+        'securityGroup',
+        'securityGroupReadonly',
+        'sessionToken',
+        'spotPrice',
+        'sshKeyContents',
+        'sshUser',
+        'subnetId',
+        'tags',
+        'useEbsOptimizedInstance',
+        'usePrivateAddress',
+        'userdata',
+        'volumeType',
+        'vpcId',
+        'zone',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'accessKey',
+        'ami',
+        'blockDurationMinutes',
+        'deviceName',
+        'endpoint',
+        'iamInstanceProfile',
+        'insecureTransport',
+        'instanceType',
+        'keypairName',
+        'monitoring',
+        'openPort',
+        'privateAddressOnly',
+        'region',
+        'requestSpotInstance',
+        'retries',
+        'rootSize',
+        'secretKey',
+        'securityGroup',
+        'securityGroupReadonly',
+        'sessionToken',
+        'spotPrice',
+        'sshKeyContents',
+        'sshUser',
+        'subnetId',
+        'tags',
+        'useEbsOptimizedInstance',
+        'usePrivateAddress',
+        'userdata',
+        'volumeType',
+        'vpcId',
+        'zone',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessKey' => 'string',
         'ami' => 'string',

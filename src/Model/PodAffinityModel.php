@@ -22,6 +22,36 @@ class PodAffinityModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'preferredDuringSchedulingIgnoredDuringExecution',
+        'requiredDuringSchedulingIgnoredDuringExecution',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'preferredDuringSchedulingIgnoredDuringExecution',
+        'requiredDuringSchedulingIgnoredDuringExecution',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'preferredDuringSchedulingIgnoredDuringExecution' => '\Rancher\Model\WeightedPodAffinityTermModel[]',
         'requiredDuringSchedulingIgnoredDuringExecution' => '\Rancher\Model\PodAffinityTermModel[]',

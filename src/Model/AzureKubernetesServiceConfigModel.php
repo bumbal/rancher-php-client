@@ -22,6 +22,112 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'aadClientAppId',
+        'aadServerAppId',
+        'aadServerAppSecret',
+        'aadTenantId',
+        'adminUsername',
+        'agentDnsPrefix',
+        'agentOsdiskSize',
+        'agentPoolName',
+        'agentStorageProfile',
+        'agentVmSize',
+        'authBaseUrl',
+        'baseUrl',
+        'clientId',
+        'clientSecret',
+        'count',
+        'displayName',
+        'dnsServiceIp',
+        'dockerBridgeCidr',
+        'driverName',
+        'enableHttpApplicationRouting',
+        'enableMonitoring',
+        'kubernetesVersion',
+        'location',
+        'logAnalyticsWorkspace',
+        'logAnalyticsWorkspaceResourceGroup',
+        'masterDnsPrefix',
+        'maxPods',
+        'name',
+        'networkPlugin',
+        'networkPolicy',
+        'podCidr',
+        'resourceGroup',
+        'serviceCidr',
+        'sshPublicKeyContents',
+        'subnet',
+        'subscriptionId',
+        'tags',
+        'tenantId',
+        'virtualNetwork',
+        'virtualNetworkResourceGroup',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'aadClientAppId',
+        'aadServerAppId',
+        'aadServerAppSecret',
+        'aadTenantId',
+        'adminUsername',
+        'agentDnsPrefix',
+        'agentOsdiskSize',
+        'agentPoolName',
+        'agentStorageProfile',
+        'agentVmSize',
+        'authBaseUrl',
+        'baseUrl',
+        'clientId',
+        'clientSecret',
+        'count',
+        'displayName',
+        'dnsServiceIp',
+        'dockerBridgeCidr',
+        'driverName',
+        'enableHttpApplicationRouting',
+        'enableMonitoring',
+        'kubernetesVersion',
+        'location',
+        'logAnalyticsWorkspace',
+        'logAnalyticsWorkspaceResourceGroup',
+        'masterDnsPrefix',
+        'maxPods',
+        'name',
+        'networkPlugin',
+        'networkPolicy',
+        'podCidr',
+        'resourceGroup',
+        'serviceCidr',
+        'sshPublicKeyContents',
+        'subnet',
+        'subscriptionId',
+        'tags',
+        'tenantId',
+        'virtualNetwork',
+        'virtualNetworkResourceGroup',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'aadClientAppId' => 'string',
         'aadServerAppId' => 'string',

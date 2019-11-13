@@ -22,6 +22,46 @@ class PublishCatalogConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'catalogTemplate',
+        'gitAuthor',
+        'gitBranch',
+        'gitEmail',
+        'gitUrl',
+        'path',
+        'version',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'catalogTemplate',
+        'gitAuthor',
+        'gitBranch',
+        'gitEmail',
+        'gitUrl',
+        'path',
+        'version',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'catalogTemplate' => 'string',
         'gitAuthor' => 'string',

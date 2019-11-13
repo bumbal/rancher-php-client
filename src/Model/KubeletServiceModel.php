@@ -22,6 +22,48 @@ class KubeletServiceModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'clusterDnsServer',
+        'clusterDomain',
+        'extraArgs',
+        'extraBinds',
+        'extraEnv',
+        'failSwapOn',
+        'image',
+        'infraContainerImage',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'clusterDnsServer',
+        'clusterDomain',
+        'extraArgs',
+        'extraBinds',
+        'extraEnv',
+        'failSwapOn',
+        'image',
+        'infraContainerImage',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'clusterDnsServer' => 'string',
         'clusterDomain' => 'string',

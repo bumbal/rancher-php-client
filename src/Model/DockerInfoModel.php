@@ -22,6 +22,68 @@ class DockerInfoModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'architecture',
+        'cgroupDriver',
+        'debug',
+        'dockerRootDir',
+        'driver',
+        'experimentalBuild',
+        'httpProxy',
+        'httpsProxy',
+        'id',
+        'indexServerAddress',
+        'kernelVersion',
+        'labels',
+        'loggingDriver',
+        'name',
+        'noProxy',
+        'operatingSystem',
+        'osType',
+        'serverVersion',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'architecture',
+        'cgroupDriver',
+        'debug',
+        'dockerRootDir',
+        'driver',
+        'experimentalBuild',
+        'httpProxy',
+        'httpsProxy',
+        'id',
+        'indexServerAddress',
+        'kernelVersion',
+        'labels',
+        'loggingDriver',
+        'name',
+        'noProxy',
+        'operatingSystem',
+        'osType',
+        'serverVersion',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'architecture' => 'string',
         'cgroupDriver' => 'string',

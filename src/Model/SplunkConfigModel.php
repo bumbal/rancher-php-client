@@ -22,6 +22,50 @@ class SplunkConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'certificate',
+        'clientCert',
+        'clientKey',
+        'clientKeyPass',
+        'endpoint',
+        'index',
+        'source',
+        'sslVerify',
+        'token',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'certificate',
+        'clientCert',
+        'clientKey',
+        'clientKeyPass',
+        'endpoint',
+        'index',
+        'source',
+        'sslVerify',
+        'token',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'certificate' => 'string',
         'clientCert' => 'string',

@@ -22,6 +22,58 @@ class EtcdServiceModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'backupConfig',
+        'caCert',
+        'cert',
+        'creation',
+        'externalUrls',
+        'extraArgs',
+        'extraBinds',
+        'extraEnv',
+        'image',
+        'key',
+        'path',
+        'retention',
+        'snapshot',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'backupConfig',
+        'caCert',
+        'cert',
+        'creation',
+        'externalUrls',
+        'extraArgs',
+        'extraBinds',
+        'extraEnv',
+        'image',
+        'key',
+        'path',
+        'retention',
+        'snapshot',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'backupConfig' => '\Rancher\Model\BackupConfigModel',
         'caCert' => 'string',

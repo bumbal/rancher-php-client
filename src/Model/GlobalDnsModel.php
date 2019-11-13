@@ -22,6 +22,48 @@ class GlobalDnsModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'fqdn',
+        'labels',
+        'members',
+        'multiClusterAppId',
+        'name',
+        'projectIds',
+        'providerId',
+        'ttl',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'fqdn',
+        'labels',
+        'members',
+        'multiClusterAppId',
+        'providerId',
+        'ttl',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'created' => '\DateTime',

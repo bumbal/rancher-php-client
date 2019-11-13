@@ -22,6 +22,44 @@ class NodeConditionModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'lastHeartbeatTime',
+        'lastTransitionTime',
+        'message',
+        'reason',
+        'status',
+        'type',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'lastHeartbeatTime',
+        'lastTransitionTime',
+        'message',
+        'reason',
+        'status',
+        'type',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'lastHeartbeatTime' => '\DateTime',
         'lastTransitionTime' => '\DateTime',

@@ -22,6 +22,88 @@ class AzureCloudProviderModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'aadClientCertPassword',
+        'aadClientCertPath',
+        'aadClientId',
+        'aadClientSecret',
+        'cloud',
+        'cloudProviderBackoff',
+        'cloudProviderBackoffDuration',
+        'cloudProviderBackoffExponent',
+        'cloudProviderBackoffJitter',
+        'cloudProviderBackoffRetries',
+        'cloudProviderRateLimit',
+        'cloudProviderRateLimitBucket',
+        'cloudProviderRateLimitQPS',
+        'location',
+        'maximumLoadBalancerRuleCount',
+        'primaryAvailabilitySetName',
+        'primaryScaleSetName',
+        'resourceGroup',
+        'routeTableName',
+        'securityGroupName',
+        'subnetName',
+        'subscriptionId',
+        'tenantId',
+        'useInstanceMetadata',
+        'useManagedIdentityExtension',
+        'vmType',
+        'vnetName',
+        'vnetResourceGroup',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'aadClientCertPassword',
+        'aadClientCertPath',
+        'aadClientId',
+        'aadClientSecret',
+        'cloud',
+        'cloudProviderBackoff',
+        'cloudProviderBackoffDuration',
+        'cloudProviderBackoffExponent',
+        'cloudProviderBackoffJitter',
+        'cloudProviderBackoffRetries',
+        'cloudProviderRateLimit',
+        'cloudProviderRateLimitBucket',
+        'cloudProviderRateLimitQPS',
+        'location',
+        'maximumLoadBalancerRuleCount',
+        'primaryAvailabilitySetName',
+        'primaryScaleSetName',
+        'resourceGroup',
+        'routeTableName',
+        'securityGroupName',
+        'subnetName',
+        'subscriptionId',
+        'tenantId',
+        'useInstanceMetadata',
+        'useManagedIdentityExtension',
+        'vmType',
+        'vnetName',
+        'vnetResourceGroup',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'aadClientCertPassword' => '\Rancher\Model\PasswordModel',
         'aadClientCertPath' => 'string',

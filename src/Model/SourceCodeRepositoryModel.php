@@ -22,6 +22,53 @@ class SourceCodeRepositoryModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'defaultBranch',
+        'labels',
+        'language',
+        'name',
+        'permissions',
+        'projectId',
+        'sourceCodeCredentialId',
+        'sourceCodeType',
+        'url',
+        'userId',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'defaultBranch',
+        'labels',
+        'language',
+        'permissions',
+        'projectId',
+        'sourceCodeCredentialId',
+        'sourceCodeType',
+        'url',
+        'userId',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'created' => '\DateTime',

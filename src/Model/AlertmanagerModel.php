@@ -22,6 +22,89 @@ class AlertmanagerModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'additionalPeers',
+        'affinity',
+        'annotations',
+        'baseImage',
+        'configMaps',
+        'containers',
+        'externalUrl',
+        'imagePullSecrets',
+        'labels',
+        'listenLocal',
+        'logLevel',
+        'name',
+        'namespaceId',
+        'nodeSelector',
+        'paused',
+        'podMetadata',
+        'priorityClassName',
+        'projectId',
+        'replicas',
+        'resources',
+        'retention',
+        'routePrefix',
+        'secrets',
+        'securityContext',
+        'serviceAccountName',
+        'sha',
+        'storage',
+        'tag',
+        'tolerations',
+        'version',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'additionalPeers',
+        'affinity',
+        'annotations',
+        'baseImage',
+        'configMaps',
+        'containers',
+        'externalUrl',
+        'imagePullSecrets',
+        'labels',
+        'listenLocal',
+        'logLevel',
+        'nodeSelector',
+        'paused',
+        'podMetadata',
+        'priorityClassName',
+        'replicas',
+        'resources',
+        'retention',
+        'routePrefix',
+        'secrets',
+        'securityContext',
+        'serviceAccountName',
+        'sha',
+        'storage',
+        'tag',
+        'tolerations',
+        'version',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'additionalPeers' => 'string[]',
         'affinity' => '\Rancher\Model\AffinityModel',

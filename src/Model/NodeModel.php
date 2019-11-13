@@ -22,6 +22,54 @@ class NodeModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'amazonec2Config',
+        'azureConfig',
+        'clusterId',
+        'controlPlane',
+        'customConfig',
+        'description',
+        'digitaloceanConfig',
+        'etcd',
+        'imported',
+        'labels',
+        'name',
+        'namespaceId',
+        'nodeTemplateId',
+        'requestedHostname',
+        'vmwarevsphereConfig',
+        'worker',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'customConfig',
+        'description',
+        'imported',
+        'labels',
+        'name',
+        'taints',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'allocatable' => 'map[string]',
         'amazonec2Config' => '\Rancher\Model\Amazonec2configModel',

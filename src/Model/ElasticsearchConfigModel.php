@@ -22,6 +22,54 @@ class ElasticsearchConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'authPassword',
+        'authUsername',
+        'certificate',
+        'clientCert',
+        'clientKey',
+        'clientKeyPass',
+        'dateFormat',
+        'endpoint',
+        'indexPrefix',
+        'sslVerify',
+        'sslVersion',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'authPassword',
+        'authUsername',
+        'certificate',
+        'clientCert',
+        'clientKey',
+        'clientKeyPass',
+        'dateFormat',
+        'endpoint',
+        'indexPrefix',
+        'sslVerify',
+        'sslVersion',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'authPassword' => '\Rancher\Model\PasswordModel',
         'authUsername' => 'string',

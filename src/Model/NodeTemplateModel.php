@@ -22,6 +22,71 @@ class NodeTemplateModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'amazonec2Config',
+        'annotations',
+        'authCertificateAuthority',
+        'authKey',
+        'azureConfig',
+        'cloudCredentialId',
+        'description',
+        'digitaloceanConfig',
+        'dockerVersion',
+        'engineEnv',
+        'engineInsecureRegistry',
+        'engineInstallURL',
+        'engineLabel',
+        'engineOpt',
+        'engineRegistryMirror',
+        'engineStorageDriver',
+        'labels',
+        'name',
+        'useInternalIpAddress',
+        'vmwarevsphereConfig',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'amazonec2Config',
+        'annotations',
+        'authCertificateAuthority',
+        'authKey',
+        'azureConfig',
+        'cloudCredentialId',
+        'description',
+        'digitaloceanConfig',
+        'dockerVersion',
+        'engineEnv',
+        'engineInsecureRegistry',
+        'engineInstallURL',
+        'engineLabel',
+        'engineOpt',
+        'engineRegistryMirror',
+        'engineStorageDriver',
+        'labels',
+        'name',
+        'vmwarevsphereConfig',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'amazonec2Config' => '\Rancher\Model\Amazonec2configModel',
         'annotations' => 'map[string]',

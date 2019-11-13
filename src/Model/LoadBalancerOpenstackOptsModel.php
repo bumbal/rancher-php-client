@@ -22,6 +22,54 @@ class LoadBalancerOpenstackOptsModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'create-monitor',
+        'floating-network-id',
+        'lb-method',
+        'lb-provider',
+        'lb-version',
+        'manage-security-groups',
+        'monitor-delay',
+        'monitor-max-retries',
+        'monitor-timeout',
+        'subnet-id',
+        'use-octavia',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'create-monitor',
+        'floating-network-id',
+        'lb-method',
+        'lb-provider',
+        'lb-version',
+        'manage-security-groups',
+        'monitor-delay',
+        'monitor-max-retries',
+        'monitor-timeout',
+        'subnet-id',
+        'use-octavia',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'create-monitor' => 'boolean',
         'floating-network-id' => 'string',

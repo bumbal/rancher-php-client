@@ -22,6 +22,52 @@ class TemplateVersionSpecModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'digest',
+        'externalId',
+        'kubeVersion',
+        'rancherVersion',
+        'requiredNamespace',
+        'upgradeVersionLinks',
+        'version',
+        'versionDir',
+        'versionName',
+        'versionUrls',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'digest',
+        'externalId',
+        'kubeVersion',
+        'rancherVersion',
+        'requiredNamespace',
+        'upgradeVersionLinks',
+        'version',
+        'versionDir',
+        'versionName',
+        'versionUrls',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'appReadme' => 'string',
         'digest' => 'string',

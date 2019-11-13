@@ -22,6 +22,72 @@ class VmwarevsphereconfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'boot2dockerUrl',
+        'cfgparam',
+        'cloudinit',
+        'cpuCount',
+        'datacenter',
+        'datastore',
+        'diskSize',
+        'folder',
+        'hostsystem',
+        'memorySize',
+        'network',
+        'password',
+        'pool',
+        'username',
+        'vappIpallocationpolicy',
+        'vappIpprotocol',
+        'vappProperty',
+        'vappTransport',
+        'vcenter',
+        'vcenterPort',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'boot2dockerUrl',
+        'cfgparam',
+        'cloudinit',
+        'cpuCount',
+        'datacenter',
+        'datastore',
+        'diskSize',
+        'folder',
+        'hostsystem',
+        'memorySize',
+        'network',
+        'password',
+        'pool',
+        'username',
+        'vappIpallocationpolicy',
+        'vappIpprotocol',
+        'vappProperty',
+        'vappTransport',
+        'vcenter',
+        'vcenterPort',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'boot2dockerUrl' => 'string',
         'cfgparam' => 'string[]',

@@ -22,6 +22,142 @@ class GoogleKubernetesEngineConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'clusterIpv4Cidr',
+        'credential',
+        'description',
+        'diskSizeGb',
+        'diskType',
+        'displayName',
+        'driverName',
+        'enableAlphaFeature',
+        'enableAutoRepair',
+        'enableAutoUpgrade',
+        'enableHorizontalPodAutoscaling',
+        'enableHttpLoadBalancing',
+        'enableKubernetesDashboard',
+        'enableLegacyAbac',
+        'enableMasterAuthorizedNetwork',
+        'enableNetworkPolicyConfig',
+        'enableNodepoolAutoscaling',
+        'enablePrivateEndpoint',
+        'enablePrivateNodes',
+        'enableStackdriverLogging',
+        'enableStackdriverMonitoring',
+        'imageType',
+        'ipPolicyClusterIpv4CidrBlock',
+        'ipPolicyClusterSecondaryRangeName',
+        'ipPolicyCreateSubnetwork',
+        'ipPolicyNodeIpv4CidrBlock',
+        'ipPolicyServicesIpv4CidrBlock',
+        'ipPolicyServicesSecondaryRangeName',
+        'ipPolicySubnetworkName',
+        'issueClientCertificate',
+        'kubernetesDashboard',
+        'labels',
+        'localSsdCount',
+        'locations',
+        'machineType',
+        'maintenanceWindow',
+        'masterAuthorizedNetworkCidrBlocks',
+        'masterIpv4CidrBlock',
+        'masterVersion',
+        'maxNodeCount',
+        'minNodeCount',
+        'name',
+        'network',
+        'nodeCount',
+        'nodePool',
+        'nodeVersion',
+        'oauthScopes',
+        'preemptible',
+        'projectId',
+        'resourceLabels',
+        'serviceAccount',
+        'subNetwork',
+        'taints',
+        'useIpAliases',
+        'zone',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'clusterIpv4Cidr',
+        'credential',
+        'description',
+        'diskSizeGb',
+        'diskType',
+        'displayName',
+        'driverName',
+        'enableAlphaFeature',
+        'enableAutoRepair',
+        'enableAutoUpgrade',
+        'enableHorizontalPodAutoscaling',
+        'enableHttpLoadBalancing',
+        'enableKubernetesDashboard',
+        'enableLegacyAbac',
+        'enableMasterAuthorizedNetwork',
+        'enableNetworkPolicyConfig',
+        'enableNodepoolAutoscaling',
+        'enablePrivateEndpoint',
+        'enablePrivateNodes',
+        'enableStackdriverLogging',
+        'enableStackdriverMonitoring',
+        'imageType',
+        'ipPolicyClusterIpv4CidrBlock',
+        'ipPolicyClusterSecondaryRangeName',
+        'ipPolicyCreateSubnetwork',
+        'ipPolicyNodeIpv4CidrBlock',
+        'ipPolicyServicesIpv4CidrBlock',
+        'ipPolicyServicesSecondaryRangeName',
+        'ipPolicySubnetworkName',
+        'issueClientCertificate',
+        'kubernetesDashboard',
+        'labels',
+        'localSsdCount',
+        'locations',
+        'machineType',
+        'maintenanceWindow',
+        'masterAuthorizedNetworkCidrBlocks',
+        'masterIpv4CidrBlock',
+        'masterVersion',
+        'maxNodeCount',
+        'minNodeCount',
+        'name',
+        'network',
+        'nodeCount',
+        'nodePool',
+        'nodeVersion',
+        'oauthScopes',
+        'preemptible',
+        'projectId',
+        'resourceLabels',
+        'serviceAccount',
+        'subNetwork',
+        'taints',
+        'useIpAliases',
+        'zone',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'clusterIpv4Cidr' => 'string',
         'credential' => '\Rancher\Model\PasswordModel',

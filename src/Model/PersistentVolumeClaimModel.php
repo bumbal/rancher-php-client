@@ -22,6 +22,53 @@ class PersistentVolumeClaimModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessModes',
+        'annotations',
+        'dataSource',
+        'labels',
+        'name',
+        'namespaceId',
+        'projectId',
+        'resources',
+        'selector',
+        'storageClassId',
+        'volumeId',
+        'volumeMode',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'accessModes',
+        'annotations',
+        'dataSource',
+        'labels',
+        'resources',
+        'selector',
+        'storageClassId',
+        'volumeId',
+        'volumeMode',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessModes' => 'string[]',
         'annotations' => 'map[string]',

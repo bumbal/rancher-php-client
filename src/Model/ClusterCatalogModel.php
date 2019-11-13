@@ -22,6 +22,52 @@ class ClusterCatalogModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'branch',
+        'clusterId',
+        'description',
+        'kind',
+        'labels',
+        'name',
+        'namespaceId',
+        'password',
+        'url',
+        'username',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'branch',
+        'clusterId',
+        'description',
+        'kind',
+        'labels',
+        'password',
+        'url',
+        'username',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'branch' => 'string',

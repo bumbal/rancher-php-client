@@ -22,6 +22,52 @@ class GlobalAwsOptsModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'disable-security-group-ingress',
+        'disable-strict-zone-check',
+        'elb-security-group',
+        'kubernetes-cluster-id',
+        'kubernetes-cluster-tag',
+        'role-arn',
+        'routetable-id',
+        'subnet-id',
+        'vpc',
+        'zone',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'disable-security-group-ingress',
+        'disable-strict-zone-check',
+        'elb-security-group',
+        'kubernetes-cluster-id',
+        'kubernetes-cluster-tag',
+        'role-arn',
+        'routetable-id',
+        'subnet-id',
+        'vpc',
+        'zone',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'disable-security-group-ingress' => 'boolean',
         'disable-strict-zone-check' => 'boolean',

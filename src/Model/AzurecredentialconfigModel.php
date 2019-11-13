@@ -22,6 +22,38 @@ class AzurecredentialconfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'clientId',
+        'clientSecret',
+        'subscriptionId',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'clientId',
+        'clientSecret',
+        'subscriptionId',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'clientId' => 'string',
         'clientSecret' => '\Rancher\Model\PasswordModel',

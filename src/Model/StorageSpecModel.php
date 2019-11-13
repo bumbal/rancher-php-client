@@ -22,6 +22,36 @@ class StorageSpecModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'emptyDir',
+        'volumeClaimTemplate',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'emptyDir',
+        'volumeClaimTemplate',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'emptyDir' => '\Rancher\Model\EmptyDirVolumeSourceModel',
         'volumeClaimTemplate' => '\Rancher\Model\PersistentVolumeClaimModel',

@@ -22,6 +22,44 @@ class StatefulSetConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'partition',
+        'podManagementPolicy',
+        'revisionHistoryLimit',
+        'serviceName',
+        'strategy',
+        'volumeClaimTemplates',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'partition',
+        'podManagementPolicy',
+        'revisionHistoryLimit',
+        'serviceName',
+        'strategy',
+        'volumeClaimTemplates',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'partition' => 'int',
         'podManagementPolicy' => 'string',

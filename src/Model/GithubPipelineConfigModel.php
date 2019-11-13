@@ -22,6 +22,50 @@ class GithubPipelineConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'clientId',
+        'clientSecret',
+        'enabled',
+        'hostname',
+        'inherit',
+        'labels',
+        'name',
+        'namespaceId',
+        'projectId',
+        'tls',
+        'type',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'enabled',
+        'hostname',
+        'labels',
+        'projectId',
+        'tls',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'clientId' => 'string',

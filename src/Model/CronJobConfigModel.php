@@ -22,6 +22,50 @@ class CronJobConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'concurrencyPolicy',
+        'failedJobsHistoryLimit',
+        'jobAnnotations',
+        'jobConfig',
+        'jobLabels',
+        'schedule',
+        'startingDeadlineSeconds',
+        'successfulJobsHistoryLimit',
+        'suspend',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'concurrencyPolicy',
+        'failedJobsHistoryLimit',
+        'jobAnnotations',
+        'jobConfig',
+        'jobLabels',
+        'schedule',
+        'startingDeadlineSeconds',
+        'successfulJobsHistoryLimit',
+        'suspend',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'concurrencyPolicy' => 'string',
         'failedJobsHistoryLimit' => 'int',

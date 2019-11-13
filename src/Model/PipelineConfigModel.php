@@ -22,6 +22,40 @@ class PipelineConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'branch',
+        'notification',
+        'stages',
+        'timeout',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'branch',
+        'notification',
+        'stages',
+        'timeout',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'branch' => '\Rancher\Model\ConstraintModel',
         'notification' => '\Rancher\Model\PipelineNotificationModel',

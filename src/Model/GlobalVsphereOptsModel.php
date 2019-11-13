@@ -22,6 +22,56 @@ class GlobalVsphereOptsModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'datacenter',
+        'datacenters',
+        'datastore',
+        'insecure-flag',
+        'password',
+        'port',
+        'server',
+        'soap-roundtrip-count',
+        'user',
+        'vm-name',
+        'vm-uuid',
+        'working-dir',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'datacenter',
+        'datacenters',
+        'datastore',
+        'insecure-flag',
+        'password',
+        'port',
+        'server',
+        'soap-roundtrip-count',
+        'user',
+        'vm-name',
+        'vm-uuid',
+        'working-dir',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'datacenter' => 'string',
         'datacenters' => 'string',

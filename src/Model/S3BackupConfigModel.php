@@ -22,6 +22,46 @@ class S3BackupConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessKey',
+        'bucketName',
+        'customCa',
+        'endpoint',
+        'folder',
+        'region',
+        'secretKey',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'accessKey',
+        'bucketName',
+        'customCa',
+        'endpoint',
+        'folder',
+        'region',
+        'secretKey',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessKey' => 'string',
         'bucketName' => 'string',

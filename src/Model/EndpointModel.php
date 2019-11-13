@@ -22,6 +22,46 @@ class EndpointModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'interval',
+        'params',
+        'path',
+        'relabelings',
+        'scheme',
+        'scrapeTimeout',
+        'targetPort',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'interval',
+        'params',
+        'path',
+        'relabelings',
+        'scheme',
+        'scrapeTimeout',
+        'targetPort',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'interval' => 'string',
         'params' => 'map[\Rancher\Model\Array[string]Model]',

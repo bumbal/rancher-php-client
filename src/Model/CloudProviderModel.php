@@ -22,6 +22,44 @@ class CloudProviderModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'awsCloudProvider',
+        'azureCloudProvider',
+        'customCloudProvider',
+        'name',
+        'openstackCloudProvider',
+        'vsphereCloudProvider',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'awsCloudProvider',
+        'azureCloudProvider',
+        'customCloudProvider',
+        'name',
+        'openstackCloudProvider',
+        'vsphereCloudProvider',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'awsCloudProvider' => '\Rancher\Model\AwsCloudProviderModel',
         'azureCloudProvider' => '\Rancher\Model\AzureCloudProviderModel',

@@ -22,6 +22,50 @@ class InfoModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'buildDate',
+        'compiler',
+        'gitCommit',
+        'gitTreeState',
+        'gitVersion',
+        'goVersion',
+        'major',
+        'minor',
+        'platform',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'buildDate',
+        'compiler',
+        'gitCommit',
+        'gitTreeState',
+        'gitVersion',
+        'goVersion',
+        'major',
+        'minor',
+        'platform',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'buildDate' => 'string',
         'compiler' => 'string',

@@ -22,6 +22,66 @@ class ClusterModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'amazonElasticContainerServiceConfig',
+        'annotations',
+        'azureKubernetesServiceConfig',
+        'defaultClusterRoleForProjectMembers',
+        'defaultPodSecurityPolicyTemplateId',
+        'description',
+        'desiredAgentImage',
+        'desiredAuthImage',
+        'dockerRootDir',
+        'enableClusterAlerting',
+        'enableClusterMonitoring',
+        'enableNetworkPolicy',
+        'googleKubernetesEngineConfig',
+        'labels',
+        'localClusterAuthEndpoint',
+        'name',
+        'rancherKubernetesEngineConfig',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'amazonElasticContainerServiceConfig',
+        'annotations',
+        'azureKubernetesServiceConfig',
+        'defaultClusterRoleForProjectMembers',
+        'defaultPodSecurityPolicyTemplateId',
+        'description',
+        'desiredAgentImage',
+        'desiredAuthImage',
+        'dockerRootDir',
+        'enableClusterAlerting',
+        'enableClusterMonitoring',
+        'enableNetworkPolicy',
+        'googleKubernetesEngineConfig',
+        'labels',
+        'localClusterAuthEndpoint',
+        'name',
+        'rancherKubernetesEngineConfig',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'agentImage' => 'string',
         'allocatable' => 'map[string]',

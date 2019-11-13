@@ -22,6 +22,76 @@ class TemplateModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'catalogId',
+        'categories',
+        'category',
+        'clusterCatalogId',
+        'clusterId',
+        'defaultTemplateVersionId',
+        'defaultVersion',
+        'description',
+        'folderName',
+        'icon',
+        'iconFilename',
+        'labels',
+        'maintainer',
+        'name',
+        'path',
+        'projectCatalogId',
+        'projectId',
+        'projectURL',
+        'upgradeFrom',
+        'versionLinks',
+        'versions',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'catalogId',
+        'categories',
+        'category',
+        'clusterCatalogId',
+        'clusterId',
+        'defaultTemplateVersionId',
+        'defaultVersion',
+        'description',
+        'folderName',
+        'icon',
+        'iconFilename',
+        'labels',
+        'maintainer',
+        'name',
+        'path',
+        'projectCatalogId',
+        'projectId',
+        'projectURL',
+        'upgradeFrom',
+        'versionLinks',
+        'versions',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'catalogId' => 'string',

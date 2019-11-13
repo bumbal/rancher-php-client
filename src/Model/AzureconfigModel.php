@@ -22,6 +22,76 @@ class AzureconfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'availabilitySet',
+        'clientId',
+        'clientSecret',
+        'customData',
+        'dns',
+        'dockerPort',
+        'environment',
+        'image',
+        'location',
+        'noPublicIp',
+        'openPort',
+        'privateIpAddress',
+        'resourceGroup',
+        'size',
+        'sshUser',
+        'staticPublicIp',
+        'storageType',
+        'subnet',
+        'subnetPrefix',
+        'subscriptionId',
+        'usePrivateIp',
+        'vnet',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'availabilitySet',
+        'clientId',
+        'clientSecret',
+        'customData',
+        'dns',
+        'dockerPort',
+        'environment',
+        'image',
+        'location',
+        'noPublicIp',
+        'openPort',
+        'privateIpAddress',
+        'resourceGroup',
+        'size',
+        'sshUser',
+        'staticPublicIp',
+        'storageType',
+        'subnet',
+        'subnetPrefix',
+        'subscriptionId',
+        'usePrivateIp',
+        'vnet',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'availabilitySet' => 'string',
         'clientId' => 'string',

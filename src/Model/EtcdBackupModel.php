@@ -22,6 +22,46 @@ class EtcdBackupModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'backupConfig',
+        'clusterId',
+        'filename',
+        'labels',
+        'manual',
+        'name',
+        'namespaceId',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'backupConfig',
+        'clusterId',
+        'filename',
+        'labels',
+        'manual',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'backupConfig' => '\Rancher\Model\BackupConfigModel',

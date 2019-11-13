@@ -22,6 +22,58 @@ class AppModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'answers',
+        'appRevisionId',
+        'description',
+        'externalId',
+        'files',
+        'labels',
+        'multiClusterAppId',
+        'name',
+        'namespaceId',
+        'projectId',
+        'prune',
+        'targetNamespace',
+        'valuesYaml',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'answers',
+        'appRevisionId',
+        'description',
+        'externalId',
+        'files',
+        'labels',
+        'multiClusterAppId',
+        'projectId',
+        'prune',
+        'targetNamespace',
+        'valuesYaml',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'answers' => 'map[string]',

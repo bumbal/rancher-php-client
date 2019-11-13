@@ -22,6 +22,38 @@ class ContainerStateModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'running',
+        'terminated',
+        'waiting',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'running',
+        'terminated',
+        'waiting',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'running' => '\Rancher\Model\ContainerStateRunningModel',
         'terminated' => '\Rancher\Model\ContainerStateTerminatedModel',

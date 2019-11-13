@@ -22,6 +22,56 @@ class ProbeModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'command',
+        'failureThreshold',
+        'host',
+        'httpHeaders',
+        'initialDelaySeconds',
+        'path',
+        'periodSeconds',
+        'port',
+        'scheme',
+        'successThreshold',
+        'tcp',
+        'timeoutSeconds',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'command',
+        'failureThreshold',
+        'host',
+        'httpHeaders',
+        'initialDelaySeconds',
+        'path',
+        'periodSeconds',
+        'port',
+        'scheme',
+        'successThreshold',
+        'tcp',
+        'timeoutSeconds',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'command' => 'string[]',
         'failureThreshold' => 'int',

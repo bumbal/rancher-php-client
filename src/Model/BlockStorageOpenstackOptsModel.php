@@ -22,6 +22,38 @@ class BlockStorageOpenstackOptsModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'bs-version',
+        'ignore-volume-az',
+        'trust-device-path',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'bs-version',
+        'ignore-volume-az',
+        'trust-device-path',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'bs-version' => 'string',
         'ignore-volume-az' => 'boolean',

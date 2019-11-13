@@ -160,7 +160,7 @@ class PodSecurityPolicyTemplateResource
      */
     public function create($data)
     {
-        $postData =  (array) \Rancher\ObjectSerializer::sanitizeForSerialization($data);
+        $postData =  (array) \Rancher\ObjectSerializer::sanitizeForSerialization($data, null, null, 'create');
 
         $response = $this->client->request('POST', $this->constructPath(true, true), $postData);
 
@@ -178,7 +178,7 @@ class PodSecurityPolicyTemplateResource
      */
     public function update($id, $data)
     {
-        $putData =  (array) \Rancher\ObjectSerializer::sanitizeForSerialization($data);
+        $putData =  (array) \Rancher\ObjectSerializer::sanitizeForSerialization($data, null, null, 'update');
 
         $response = $this->client->request('PUT', $this->constructPath(true, true) . $id, $putData);
 

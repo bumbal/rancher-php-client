@@ -22,6 +22,56 @@ class ClusterMonitorGraphModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'clusterId',
+        'description',
+        'detailsMetricsSelector',
+        'displayResourceType',
+        'graphType',
+        'labels',
+        'metricsSelector',
+        'name',
+        'namespaceId',
+        'priority',
+        'resourceType',
+        'yAxis',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'clusterId',
+        'description',
+        'detailsMetricsSelector',
+        'displayResourceType',
+        'graphType',
+        'labels',
+        'metricsSelector',
+        'priority',
+        'resourceType',
+        'yAxis',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'clusterId' => 'string',

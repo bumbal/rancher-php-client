@@ -22,6 +22,44 @@ class JobConditionModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'lastProbeTime',
+        'lastTransitionTime',
+        'message',
+        'reason',
+        'status',
+        'type',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'lastProbeTime',
+        'lastTransitionTime',
+        'message',
+        'reason',
+        'status',
+        'type',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'lastProbeTime' => '\DateTime',
         'lastTransitionTime' => '\DateTime',

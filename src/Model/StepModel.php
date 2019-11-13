@@ -22,6 +22,60 @@ class StepModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'applyAppConfig',
+        'applyYamlConfig',
+        'cpuLimit',
+        'cpuRequest',
+        'env',
+        'envFrom',
+        'memoryLimit',
+        'memoryRequest',
+        'privileged',
+        'publishCatalogConfig',
+        'publishImageConfig',
+        'runScriptConfig',
+        'sourceCodeConfig',
+        'when',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'applyAppConfig',
+        'applyYamlConfig',
+        'cpuLimit',
+        'cpuRequest',
+        'env',
+        'envFrom',
+        'memoryLimit',
+        'memoryRequest',
+        'privileged',
+        'publishCatalogConfig',
+        'publishImageConfig',
+        'runScriptConfig',
+        'sourceCodeConfig',
+        'when',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'applyAppConfig' => '\Rancher\Model\ApplyAppConfigModel',
         'applyYamlConfig' => '\Rancher\Model\ApplyYamlConfigModel',

@@ -22,6 +22,60 @@ class KeyCloakConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessMode',
+        'allowedPrincipalIds',
+        'annotations',
+        'displayNameField',
+        'enabled',
+        'groupsField',
+        'idpMetadataContent',
+        'labels',
+        'name',
+        'rancherApiHost',
+        'spCert',
+        'spKey',
+        'type',
+        'uidField',
+        'userNameField',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'accessMode',
+        'allowedPrincipalIds',
+        'annotations',
+        'displayNameField',
+        'enabled',
+        'groupsField',
+        'idpMetadataContent',
+        'labels',
+        'rancherApiHost',
+        'spCert',
+        'spKey',
+        'uidField',
+        'userNameField',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessMode' => 'string',
         'allowedPrincipalIds' => 'string[]',

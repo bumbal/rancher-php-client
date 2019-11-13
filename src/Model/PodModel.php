@@ -22,6 +22,103 @@ class PodModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'activeDeadlineSeconds',
+        'annotations',
+        'automountServiceAccountToken',
+        'containers',
+        'description',
+        'dnsConfig',
+        'dnsPolicy',
+        'fsgid',
+        'gids',
+        'hostAliases',
+        'hostIPC',
+        'hostNetwork',
+        'hostPID',
+        'hostname',
+        'imagePullSecrets',
+        'labels',
+        'name',
+        'namespaceId',
+        'nodeId',
+        'priority',
+        'priorityClassName',
+        'projectId',
+        'readinessGates',
+        'restartPolicy',
+        'runAsGroup',
+        'runAsNonRoot',
+        'runtimeClassName',
+        'schedulerName',
+        'scheduling',
+        'serviceAccountName',
+        'shareProcessNamespace',
+        'subdomain',
+        'sysctls',
+        'terminationGracePeriodSeconds',
+        'uid',
+        'volumes',
+        'workloadId',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'activeDeadlineSeconds',
+        'annotations',
+        'automountServiceAccountToken',
+        'containers',
+        'description',
+        'dnsConfig',
+        'dnsPolicy',
+        'fsgid',
+        'gids',
+        'hostAliases',
+        'hostIPC',
+        'hostNetwork',
+        'hostPID',
+        'hostname',
+        'imagePullSecrets',
+        'labels',
+        'nodeId',
+        'priority',
+        'priorityClassName',
+        'readinessGates',
+        'restartPolicy',
+        'runAsGroup',
+        'runAsNonRoot',
+        'runtimeClassName',
+        'schedulerName',
+        'scheduling',
+        'serviceAccountName',
+        'shareProcessNamespace',
+        'subdomain',
+        'sysctls',
+        'terminationGracePeriodSeconds',
+        'uid',
+        'volumes',
+        'workloadId',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'activeDeadlineSeconds' => 'int',
         'annotations' => 'map[string]',

@@ -22,6 +22,59 @@ class ClusterLoggingModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'clusterId',
+        'customTargetConfig',
+        'elasticsearchConfig',
+        'fluentForwarderConfig',
+        'includeSystemComponent',
+        'kafkaConfig',
+        'labels',
+        'name',
+        'namespaceId',
+        'outputFlushInterval',
+        'outputTags',
+        'splunkConfig',
+        'syslogConfig',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'clusterId',
+        'customTargetConfig',
+        'elasticsearchConfig',
+        'fluentForwarderConfig',
+        'includeSystemComponent',
+        'kafkaConfig',
+        'labels',
+        'name',
+        'outputFlushInterval',
+        'outputTags',
+        'splunkConfig',
+        'syslogConfig',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'appliedSpec' => '\Rancher\Model\ClusterLoggingSpecModel',

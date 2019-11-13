@@ -22,6 +22,42 @@ class PolicyRuleModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'apiGroups',
+        'nonResourceURLs',
+        'resourceNames',
+        'resources',
+        'verbs',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'apiGroups',
+        'nonResourceURLs',
+        'resourceNames',
+        'resources',
+        'verbs',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'apiGroups' => 'string[]',
         'nonResourceURLs' => 'string[]',

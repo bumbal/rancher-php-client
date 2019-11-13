@@ -22,6 +22,50 @@ class MultiClusterAppModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'answers',
+        'labels',
+        'members',
+        'name',
+        'revisionHistoryLimit',
+        'roles',
+        'targets',
+        'templateVersionId',
+        'upgradeStrategy',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'answers',
+        'labels',
+        'members',
+        'revisionHistoryLimit',
+        'roles',
+        'templateVersionId',
+        'upgradeStrategy',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'answers' => '\Rancher\Model\AnswerModel[]',

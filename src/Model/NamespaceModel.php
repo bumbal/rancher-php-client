@@ -22,6 +22,44 @@ class NamespaceModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'containerDefaultResourceLimit',
+        'description',
+        'labels',
+        'name',
+        'projectId',
+        'resourceQuota',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'containerDefaultResourceLimit',
+        'description',
+        'labels',
+        'resourceQuota',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'containerDefaultResourceLimit' => '\Rancher\Model\ContainerResourceLimitModel',

@@ -22,6 +22,60 @@ class AzureADConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessMode',
+        'allowedPrincipalIds',
+        'annotations',
+        'applicationId',
+        'applicationSecret',
+        'authEndpoint',
+        'enabled',
+        'endpoint',
+        'graphEndpoint',
+        'labels',
+        'name',
+        'rancherUrl',
+        'tenantId',
+        'tokenEndpoint',
+        'type',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'accessMode',
+        'allowedPrincipalIds',
+        'annotations',
+        'applicationId',
+        'applicationSecret',
+        'authEndpoint',
+        'enabled',
+        'endpoint',
+        'graphEndpoint',
+        'labels',
+        'rancherUrl',
+        'tenantId',
+        'tokenEndpoint',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessMode' => 'string',
         'allowedPrincipalIds' => 'string[]',

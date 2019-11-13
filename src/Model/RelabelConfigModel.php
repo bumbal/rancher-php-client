@@ -22,6 +22,46 @@ class RelabelConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'action',
+        'modulus',
+        'regex',
+        'replacement',
+        'separator',
+        'sourceLabels',
+        'targetLabel',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'action',
+        'modulus',
+        'regex',
+        'replacement',
+        'separator',
+        'sourceLabels',
+        'targetLabel',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'action' => 'string',
         'modulus' => 'int',

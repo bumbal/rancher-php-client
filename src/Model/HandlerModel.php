@@ -22,6 +22,46 @@ class HandlerModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'command',
+        'host',
+        'httpHeaders',
+        'path',
+        'port',
+        'scheme',
+        'tcp',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'command',
+        'host',
+        'httpHeaders',
+        'path',
+        'port',
+        'scheme',
+        'tcp',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'command' => 'string[]',
         'host' => 'string',

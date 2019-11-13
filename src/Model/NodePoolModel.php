@@ -22,6 +22,57 @@ class NodePoolModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'clusterId',
+        'controlPlane',
+        'displayName',
+        'etcd',
+        'hostnamePrefix',
+        'labels',
+        'name',
+        'namespaceId',
+        'nodeAnnotations',
+        'nodeLabels',
+        'nodeTemplateId',
+        'quantity',
+        'worker',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'controlPlane',
+        'displayName',
+        'etcd',
+        'hostnamePrefix',
+        'labels',
+        'nodeAnnotations',
+        'nodeLabels',
+        'nodeTemplateId',
+        'quantity',
+        'worker',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'clusterId' => 'string',

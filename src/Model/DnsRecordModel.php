@@ -22,6 +22,51 @@ class DnsRecordModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'description',
+        'hostname',
+        'ipAddresses',
+        'labels',
+        'name',
+        'namespaceId',
+        'projectId',
+        'selector',
+        'targetDnsRecordIds',
+        'targetWorkloadIds',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'description',
+        'hostname',
+        'ipAddresses',
+        'labels',
+        'selector',
+        'targetDnsRecordIds',
+        'targetWorkloadIds',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'clusterIp' => 'string',

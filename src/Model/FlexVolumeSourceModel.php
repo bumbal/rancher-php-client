@@ -22,6 +22,42 @@ class FlexVolumeSourceModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'driver',
+        'fsType',
+        'options',
+        'readOnly',
+        'secretRef',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'driver',
+        'fsType',
+        'options',
+        'readOnly',
+        'secretRef',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'driver' => 'string',
         'fsType' => 'string',

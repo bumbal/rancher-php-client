@@ -22,6 +22,51 @@ class UserModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'description',
+        'enabled',
+        'labels',
+        'me',
+        'mustChangePassword',
+        'name',
+        'password',
+        'principalIds',
+        'username',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'description',
+        'enabled',
+        'labels',
+        'me',
+        'mustChangePassword',
+        'name',
+        'principalIds',
+        'username',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'conditions' => '\Rancher\Model\UserConditionModel[]',

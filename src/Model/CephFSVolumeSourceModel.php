@@ -22,6 +22,44 @@ class CephFSVolumeSourceModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'monitors',
+        'path',
+        'readOnly',
+        'secretFile',
+        'secretRef',
+        'user',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'monitors',
+        'path',
+        'readOnly',
+        'secretFile',
+        'secretRef',
+        'user',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'monitors' => 'string[]',
         'path' => 'string',

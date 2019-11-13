@@ -22,6 +22,88 @@ class VolumeModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'awsElasticBlockStore',
+        'azureDisk',
+        'azureFile',
+        'cephfs',
+        'cinder',
+        'configMap',
+        'downwardAPI',
+        'emptyDir',
+        'fc',
+        'flexVolume',
+        'flocker',
+        'gcePersistentDisk',
+        'gitRepo',
+        'glusterfs',
+        'hostPath',
+        'iscsi',
+        'name',
+        'nfs',
+        'persistentVolumeClaim',
+        'photonPersistentDisk',
+        'portworxVolume',
+        'projected',
+        'quobyte',
+        'rbd',
+        'scaleIO',
+        'secret',
+        'storageos',
+        'vsphereVolume',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'awsElasticBlockStore',
+        'azureDisk',
+        'azureFile',
+        'cephfs',
+        'cinder',
+        'configMap',
+        'downwardAPI',
+        'emptyDir',
+        'fc',
+        'flexVolume',
+        'flocker',
+        'gcePersistentDisk',
+        'gitRepo',
+        'glusterfs',
+        'hostPath',
+        'iscsi',
+        'name',
+        'nfs',
+        'persistentVolumeClaim',
+        'photonPersistentDisk',
+        'portworxVolume',
+        'projected',
+        'quobyte',
+        'rbd',
+        'scaleIO',
+        'secret',
+        'storageos',
+        'vsphereVolume',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'awsElasticBlockStore' => '\Rancher\Model\AwsElasticBlockStoreVolumeSourceModel',
         'azureDisk' => '\Rancher\Model\AzureDiskVolumeSourceModel',

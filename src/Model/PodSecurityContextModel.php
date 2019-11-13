@@ -22,6 +22,44 @@ class PodSecurityContextModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'fsgid',
+        'gids',
+        'runAsGroup',
+        'runAsNonRoot',
+        'sysctls',
+        'uid',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'fsgid',
+        'gids',
+        'runAsGroup',
+        'runAsNonRoot',
+        'sysctls',
+        'uid',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'fsgid' => 'int',
         'gids' => 'int[]',

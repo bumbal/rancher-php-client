@@ -22,6 +22,40 @@ class NodeInfoModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'cpu',
+        'kubernetes',
+        'memory',
+        'os',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'cpu',
+        'kubernetes',
+        'memory',
+        'os',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'cpu' => '\Rancher\Model\CpuInfoModel',
         'kubernetes' => '\Rancher\Model\KubernetesInfoModel',

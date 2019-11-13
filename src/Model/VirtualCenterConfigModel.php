@@ -22,6 +22,42 @@ class VirtualCenterConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'datacenters',
+        'password',
+        'port',
+        'soap-roundtrip-count',
+        'user',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'datacenters',
+        'password',
+        'port',
+        'soap-roundtrip-count',
+        'user',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'datacenters' => 'string',
         'password' => '\Rancher\Model\PasswordModel',

@@ -22,6 +22,64 @@ class FieldModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'create',
+        'default',
+        'description',
+        'dynamicField',
+        'invalidChars',
+        'max',
+        'maxLength',
+        'min',
+        'minLength',
+        'nullable',
+        'options',
+        'required',
+        'type',
+        'unique',
+        'update',
+        'validChars',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'create',
+        'default',
+        'description',
+        'dynamicField',
+        'invalidChars',
+        'max',
+        'maxLength',
+        'min',
+        'minLength',
+        'nullable',
+        'options',
+        'required',
+        'type',
+        'unique',
+        'update',
+        'validChars',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'create' => 'boolean',
         'default' => '\Rancher\Model\ValuesModel',

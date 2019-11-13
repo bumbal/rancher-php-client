@@ -22,6 +22,104 @@ class ContainerModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'allowPrivilegeEscalation',
+        'capAdd',
+        'capDrop',
+        'command',
+        'entrypoint',
+        'environment',
+        'environmentFrom',
+        'exitCode',
+        'image',
+        'imagePullPolicy',
+        'initContainer',
+        'livenessProbe',
+        'name',
+        'ports',
+        'postStart',
+        'preStop',
+        'privileged',
+        'procMount',
+        'readOnly',
+        'readinessProbe',
+        'resources',
+        'restartCount',
+        'runAsGroup',
+        'runAsNonRoot',
+        'state',
+        'stdin',
+        'stdinOnce',
+        'terminationMessagePath',
+        'terminationMessagePolicy',
+        'transitioning',
+        'transitioningMessage',
+        'tty',
+        'uid',
+        'volumeDevices',
+        'volumeMounts',
+        'workingDir',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'allowPrivilegeEscalation',
+        'capAdd',
+        'capDrop',
+        'command',
+        'entrypoint',
+        'environment',
+        'environmentFrom',
+        'exitCode',
+        'image',
+        'imagePullPolicy',
+        'initContainer',
+        'livenessProbe',
+        'name',
+        'ports',
+        'postStart',
+        'preStop',
+        'privileged',
+        'procMount',
+        'readOnly',
+        'readinessProbe',
+        'resources',
+        'restartCount',
+        'runAsGroup',
+        'runAsNonRoot',
+        'state',
+        'stdin',
+        'stdinOnce',
+        'terminationMessagePath',
+        'terminationMessagePolicy',
+        'transitioning',
+        'transitioningMessage',
+        'tty',
+        'uid',
+        'volumeDevices',
+        'volumeMounts',
+        'workingDir',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'allowPrivilegeEscalation' => 'boolean',
         'capAdd' => 'string[]',

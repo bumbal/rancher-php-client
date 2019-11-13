@@ -22,6 +22,58 @@ class SourceCodeCredentialModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessToken',
+        'annotations',
+        'avatarUrl',
+        'displayName',
+        'expiry',
+        'gitCloneToken',
+        'gitLoginName',
+        'htmlUrl',
+        'labels',
+        'loginName',
+        'name',
+        'projectId',
+        'refreshToken',
+        'sourceCodeType',
+        'userId',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'avatarUrl',
+        'displayName',
+        'expiry',
+        'gitLoginName',
+        'htmlUrl',
+        'labels',
+        'loginName',
+        'projectId',
+        'sourceCodeType',
+        'userId',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessToken' => 'string',
         'annotations' => 'map[string]',

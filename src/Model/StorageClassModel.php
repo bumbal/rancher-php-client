@@ -22,6 +22,53 @@ class StorageClassModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'allowVolumeExpansion',
+        'allowedTopologies',
+        'annotations',
+        'description',
+        'labels',
+        'mountOptions',
+        'name',
+        'parameters',
+        'provisioner',
+        'reclaimPolicy',
+        'volumeBindingMode',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'allowVolumeExpansion',
+        'allowedTopologies',
+        'annotations',
+        'description',
+        'labels',
+        'mountOptions',
+        'parameters',
+        'provisioner',
+        'reclaimPolicy',
+        'volumeBindingMode',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'allowVolumeExpansion' => 'boolean',
         'allowedTopologies' => '\Rancher\Model\TopologySelectorTermModel[]',

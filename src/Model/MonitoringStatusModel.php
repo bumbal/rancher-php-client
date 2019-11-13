@@ -22,6 +22,36 @@ class MonitoringStatusModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'conditions',
+        'grafanaEndpoint',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'conditions',
+        'grafanaEndpoint',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'conditions' => '\Rancher\Model\MonitoringConditionModel[]',
         'grafanaEndpoint' => 'string',

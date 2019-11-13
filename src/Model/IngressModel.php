@@ -22,6 +22,47 @@ class IngressModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'annotations',
+        'defaultBackend',
+        'description',
+        'labels',
+        'name',
+        'namespaceId',
+        'projectId',
+        'rules',
+        'tls',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'annotations',
+        'defaultBackend',
+        'description',
+        'labels',
+        'rules',
+        'tls',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'annotations' => 'map[string]',
         'created' => '\DateTime',

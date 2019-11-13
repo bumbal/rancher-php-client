@@ -22,6 +22,40 @@ class ImportClusterYamlInputModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'defaultNamespace',
+        'namespace',
+        'projectId',
+        'yaml',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'defaultNamespace',
+        'namespace',
+        'projectId',
+        'yaml',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'defaultNamespace' => 'string',
         'namespace' => 'string',

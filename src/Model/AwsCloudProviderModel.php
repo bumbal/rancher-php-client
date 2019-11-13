@@ -22,6 +22,36 @@ class AwsCloudProviderModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'global',
+        'serviceOverride',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'global',
+        'serviceOverride',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'global' => '\Rancher\Model\GlobalAwsOptsModel',
         'serviceOverride' => 'map[\Rancher\Model\ServiceOverrideModel]',

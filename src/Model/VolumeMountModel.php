@@ -22,6 +22,42 @@ class VolumeMountModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'mountPath',
+        'mountPropagation',
+        'name',
+        'readOnly',
+        'subPath',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'mountPath',
+        'mountPropagation',
+        'name',
+        'readOnly',
+        'subPath',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'mountPath' => 'string',
         'mountPropagation' => 'string',

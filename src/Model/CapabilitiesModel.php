@@ -22,6 +22,40 @@ class CapabilitiesModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'ingressCapabilities',
+        'loadBalancerCapabilities',
+        'nodePoolScalingSupported',
+        'nodePortRange',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'ingressCapabilities',
+        'loadBalancerCapabilities',
+        'nodePoolScalingSupported',
+        'nodePortRange',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'ingressCapabilities' => '\Rancher\Model\IngressCapabilitiesModel[]',
         'loadBalancerCapabilities' => '\Rancher\Model\LoadBalancerCapabilitiesModel',

@@ -22,6 +22,52 @@ class GithubConfigModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessMode',
+        'allowedPrincipalIds',
+        'annotations',
+        'clientId',
+        'clientSecret',
+        'enabled',
+        'hostname',
+        'labels',
+        'name',
+        'tls',
+        'type',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'accessMode',
+        'allowedPrincipalIds',
+        'annotations',
+        'clientId',
+        'clientSecret',
+        'enabled',
+        'hostname',
+        'labels',
+        'tls',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessMode' => 'string',
         'allowedPrincipalIds' => 'string[]',

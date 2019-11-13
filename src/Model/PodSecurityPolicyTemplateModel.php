@@ -22,6 +22,81 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'allowPrivilegeEscalation',
+        'allowedCapabilities',
+        'allowedFlexVolumes',
+        'allowedHostPaths',
+        'allowedProcMountTypes',
+        'allowedUnsafeSysctls',
+        'annotations',
+        'defaultAddCapabilities',
+        'defaultAllowPrivilegeEscalation',
+        'description',
+        'forbiddenSysctls',
+        'fsGroup',
+        'hostIPC',
+        'hostNetwork',
+        'hostPID',
+        'hostPorts',
+        'labels',
+        'name',
+        'privileged',
+        'readOnlyRootFilesystem',
+        'requiredDropCapabilities',
+        'runAsUser',
+        'seLinux',
+        'supplementalGroups',
+        'volumes',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'allowPrivilegeEscalation',
+        'allowedCapabilities',
+        'allowedFlexVolumes',
+        'allowedHostPaths',
+        'allowedProcMountTypes',
+        'allowedUnsafeSysctls',
+        'annotations',
+        'defaultAddCapabilities',
+        'defaultAllowPrivilegeEscalation',
+        'description',
+        'forbiddenSysctls',
+        'fsGroup',
+        'hostIPC',
+        'hostNetwork',
+        'hostPID',
+        'hostPorts',
+        'labels',
+        'privileged',
+        'readOnlyRootFilesystem',
+        'requiredDropCapabilities',
+        'runAsUser',
+        'seLinux',
+        'supplementalGroups',
+        'volumes',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'allowPrivilegeEscalation' => 'boolean',
         'allowedCapabilities' => 'string[]',

@@ -22,6 +22,76 @@ class PersistentVolumeModel implements ArrayAccess
      */
     protected $container = [];
 
+    /**
+     * Properties that can be created
+     *
+     * @var array
+     */
+    protected static $canBeCreated = [
+        'accessModes',
+        'annotations',
+        'awsElasticBlockStore',
+        'azureDisk',
+        'azureFile',
+        'capacity',
+        'cephfs',
+        'cinder',
+        'claimRef',
+        'csi',
+        'description',
+        'fc',
+        'flexVolume',
+        'flocker',
+        'gcePersistentDisk',
+        'glusterfs',
+        'hostPath',
+        'iscsi',
+        'labels',
+        'local',
+        'mountOptions',
+        'name',
+        'nfs',
+        'nodeAffinity',
+        'persistentVolumeReclaimPolicy',
+        'photonPersistentDisk',
+        'portworxVolume',
+        'quobyte',
+        'rbd',
+        'scaleIO',
+        'storageClassId',
+        'storageos',
+        'volumeMode',
+        'vsphereVolume',
+    ];
+
+    public static function canBeCreated()
+    {
+        return self::$canBeCreated;
+    }
+
+    /**
+     * Properties that can be updated
+     *
+     * @var array
+     */
+    protected static $canBeUpdated = [
+        'accessModes',
+        'annotations',
+        'capacity',
+        'claimRef',
+        'description',
+        'labels',
+        'mountOptions',
+        'nodeAffinity',
+        'persistentVolumeReclaimPolicy',
+        'storageClassId',
+    ];
+
+    public static function canBeUpdated()
+    {
+        return self::$canBeUpdated;
+    }
+
     protected static $typeMap = [
         'accessModes' => 'string[]',
         'annotations' => 'map[string]',
