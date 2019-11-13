@@ -145,7 +145,7 @@ class GroupResource
      */
     public function get($id)
     {
-        $response = $this->client->request('GET', $this->constructPath() . $id, []);
+        $response = $this->client->request('GET', $this->constructPath(true, false) . $id, []);
 
         return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\GroupModel');
     }
