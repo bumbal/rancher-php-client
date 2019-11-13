@@ -304,8 +304,6 @@ class ObjectSerializer
         }
         else
         {
-            print_r($class . "\n");
-
             $instance = new $class();
 
             foreach ($instance::typeMap() as $property => $type)
