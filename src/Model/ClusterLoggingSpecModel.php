@@ -79,7 +79,7 @@ class ClusterLoggingSpecModel implements ArrayAccess
         'includeSystemComponent' => 'boolean',
         'kafkaConfig' => '\Rancher\Model\KafkaConfigModel',
         'outputFlushInterval' => 'int',
-        'outputTags' => 'map[string]',
+        'outputTags' => 'map[string,string]',
         'splunkConfig' => '\Rancher\Model\SplunkConfigModel',
         'syslogConfig' => '\Rancher\Model\SyslogConfigModel',
     ];

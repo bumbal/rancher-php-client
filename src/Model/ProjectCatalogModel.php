@@ -69,7 +69,7 @@ class ProjectCatalogModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'branch' => 'string',
         'commit' => 'string',
         'conditions' => '\Rancher\Model\CatalogConditionModel[]',
@@ -77,7 +77,7 @@ class ProjectCatalogModel implements ArrayAccess
         'creatorId' => 'string',
         'description' => 'string',
         'kind' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'lastRefreshTimestamp' => 'string',
         'name' => 'string',
         'namespaceId' => 'string',

@@ -68,7 +68,7 @@ class KontainerDriverModel implements ArrayAccess
     protected static $typeMap = [
         'active' => 'boolean',
         'actualUrl' => 'string',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'builtIn' => 'boolean',
         'checksum' => 'string',
         'conditions' => '\Rancher\Model\ConditionModel[]',
@@ -76,7 +76,7 @@ class KontainerDriverModel implements ArrayAccess
         'creatorId' => 'string',
         'executablePath' => 'string',
         'id' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',

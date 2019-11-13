@@ -57,7 +57,7 @@ class AnswerModel implements ArrayAccess
     protected static $typeMap = [
         'clusterId' => 'string',
         'projectId' => 'string',
-        'values' => 'map[string]',
+        'values' => 'map[string,string]',
     ];
 
     public static function typeMap()

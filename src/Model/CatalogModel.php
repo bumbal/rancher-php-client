@@ -66,7 +66,7 @@ class CatalogModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'branch' => 'string',
         'commit' => 'string',
         'conditions' => '\Rancher\Model\CatalogConditionModel[]',
@@ -74,7 +74,7 @@ class CatalogModel implements ArrayAccess
         'creatorId' => 'string',
         'description' => 'string',
         'kind' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'lastRefreshTimestamp' => 'string',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

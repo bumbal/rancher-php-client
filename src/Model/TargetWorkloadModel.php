@@ -56,7 +56,7 @@ class TargetWorkloadModel implements ArrayAccess
 
     protected static $typeMap = [
         'availablePercentage' => 'int',
-        'selector' => 'map[string]',
+        'selector' => 'map[string,string]',
         'workloadId' => 'string',
     ];
 

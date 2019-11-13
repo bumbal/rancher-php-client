@@ -61,11 +61,11 @@ class QueryGraphInputModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'filters' => 'map[string]',
+        'filters' => 'map[string,string]',
         'from' => 'string',
         'interval' => 'string',
         'isDetails' => 'boolean',
-        'metricParams' => 'map[string]',
+        'metricParams' => 'map[string,string]',
         'to' => 'string',
     ];
 

@@ -57,7 +57,7 @@ class DnsConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'nodeSelector' => 'map[string]',
+        'nodeSelector' => 'map[string,string]',
         'provider' => 'string',
         'reversecidrs' => 'string[]',
         'upstreamnameservers' => 'string[]',

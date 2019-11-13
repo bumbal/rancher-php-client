@@ -53,8 +53,8 @@ class ResourceRequirementsModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'limits' => 'map[string]',
-        'requests' => 'map[string]',
+        'limits' => 'map[string,string]',
+        'requests' => 'map[string,string]',
     ];
 
     public static function typeMap()

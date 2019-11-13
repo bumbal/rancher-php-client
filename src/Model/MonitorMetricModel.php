@@ -61,12 +61,12 @@ class MonitorMetricModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
         'expression' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'legendFormat' => 'string',
         'name' => 'string',
         'namespaceId' => 'string',

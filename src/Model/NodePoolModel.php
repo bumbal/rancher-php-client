@@ -74,7 +74,7 @@ class NodePoolModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'clusterId' => 'string',
         'controlPlane' => 'boolean',
         'created' => '\DateTime',
@@ -82,11 +82,11 @@ class NodePoolModel implements ArrayAccess
         'displayName' => 'string',
         'etcd' => 'boolean',
         'hostnamePrefix' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
-        'nodeAnnotations' => 'map[string]',
-        'nodeLabels' => 'map[string]',
+        'nodeAnnotations' => 'map[string,string]',
+        'nodeLabels' => 'map[string,string]',
         'nodeTemplateId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'quantity' => 'int',

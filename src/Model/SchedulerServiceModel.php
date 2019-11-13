@@ -57,7 +57,7 @@ class SchedulerServiceModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'extraArgs' => 'map[string]',
+        'extraArgs' => 'map[string,string]',
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
         'image' => 'string',

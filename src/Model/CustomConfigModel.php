@@ -66,7 +66,7 @@ class CustomConfigModel implements ArrayAccess
         'address' => 'string',
         'dockerSocket' => 'string',
         'internalAddress' => 'string',
-        'label' => 'map[string]',
+        'label' => 'map[string,string]',
         'sshCert' => 'string',
         'sshKey' => '\Rancher\Model\PasswordModel',
         'user' => 'string',

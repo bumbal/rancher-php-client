@@ -60,12 +60,12 @@ class SshAuthModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'certFingerprint' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

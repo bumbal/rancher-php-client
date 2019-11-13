@@ -67,11 +67,11 @@ class MultiClusterAppModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'answers' => '\Rancher\Model\AnswerModel[]',
         'created' => '\DateTime',
         'creatorId' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'members' => '\Rancher\Model\MemberModel[]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

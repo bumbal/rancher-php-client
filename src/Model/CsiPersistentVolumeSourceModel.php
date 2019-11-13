@@ -63,7 +63,7 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
         'nodePublishSecretRef' => '\Rancher\Model\SecretReferenceModel',
         'nodeStageSecretRef' => '\Rancher\Model\SecretReferenceModel',
         'readOnly' => 'boolean',
-        'volumeAttributes' => 'map[string]',
+        'volumeAttributes' => 'map[string,string]',
         'volumeHandle' => 'string',
     ];
 

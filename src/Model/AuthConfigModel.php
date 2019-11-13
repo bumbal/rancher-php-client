@@ -63,11 +63,11 @@ class AuthConfigModel implements ArrayAccess
     protected static $typeMap = [
         'accessMode' => 'string',
         'allowedPrincipalIds' => 'string[]',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'enabled' => 'boolean',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',

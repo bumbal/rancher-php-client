@@ -68,7 +68,7 @@ class ProjectModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'clusterId' => 'string',
         'conditions' => '\Rancher\Model\ProjectConditionModel[]',
         'containerDefaultResourceLimit' => '\Rancher\Model\ContainerResourceLimitModel',
@@ -77,7 +77,7 @@ class ProjectModel implements ArrayAccess
         'description' => 'string',
         'enableProjectMonitoring' => 'boolean',
         'id' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'monitoringStatus' => '\Rancher\Model\MonitoringStatusModel',
         'name' => 'string',
         'namespaceDefaultResourceQuota' => '\Rancher\Model\NamespaceResourceQuotaModel',

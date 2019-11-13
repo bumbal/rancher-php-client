@@ -62,7 +62,7 @@ class VsphereCloudProviderModel implements ArrayAccess
         'disk' => '\Rancher\Model\DiskVsphereOptsModel',
         'global' => '\Rancher\Model\GlobalVsphereOptsModel',
         'network' => '\Rancher\Model\NetworkVshpereOptsModel',
-        'virtualCenter' => 'map[\Rancher\Model\VirtualCenterConfigModel]',
+        'virtualCenter' => 'map[string,\Rancher\Model\VirtualCenterConfigModel]',
         'workspace' => '\Rancher\Model\WorkspaceVsphereOptsModel',
     ];
 

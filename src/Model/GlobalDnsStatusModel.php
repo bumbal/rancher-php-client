@@ -49,7 +49,7 @@ class GlobalDnsStatusModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'clusterEndpoints' => 'map[\Rancher\Model\Array[string]Model]',
+        'clusterEndpoints' => 'map[string,\Rancher\Model\Array[string]Model]',
         'endpoints' => 'string[]',
     ];
 

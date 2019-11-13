@@ -74,15 +74,15 @@ class TemplateVersionModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'appReadme' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'digest' => 'string',
         'externalId' => 'string',
-        'files' => 'map[string]',
+        'files' => 'map[string,string]',
         'kubeVersion' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'questions' => '\Rancher\Model\QuestionModel[]',
@@ -94,7 +94,7 @@ class TemplateVersionModel implements ArrayAccess
         'status' => '\Rancher\Model\TemplateVersionStatusModel',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
-        'upgradeVersionLinks' => 'map[string]',
+        'upgradeVersionLinks' => 'map[string,string]',
         'uuid' => 'string',
         'version' => 'string',
         'versionDir' => 'string',

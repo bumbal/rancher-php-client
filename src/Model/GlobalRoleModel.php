@@ -59,12 +59,12 @@ class GlobalRoleModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
         'id' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'newUserDefault' => 'boolean',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

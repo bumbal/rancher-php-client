@@ -81,7 +81,7 @@ class StepModel implements ArrayAccess
         'applyYamlConfig' => '\Rancher\Model\ApplyYamlConfigModel',
         'cpuLimit' => 'string',
         'cpuRequest' => 'string',
-        'env' => 'map[string]',
+        'env' => 'map[string,string]',
         'envFrom' => '\Rancher\Model\EnvFromModel[]',
         'memoryLimit' => 'string',
         'memoryRequest' => 'string',

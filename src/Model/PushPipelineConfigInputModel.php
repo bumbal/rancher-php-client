@@ -51,7 +51,7 @@ class PushPipelineConfigInputModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'configs' => 'map[\Rancher\Model\PipelineConfigModel]',
+        'configs' => 'map[string,\Rancher\Model\PipelineConfigModel]',
     ];
 
     public static function typeMap()

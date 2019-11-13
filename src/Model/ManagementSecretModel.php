@@ -60,15 +60,15 @@ class ManagementSecretModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
-        'data' => 'map[\Rancher\Model\Base64Model]',
-        'labels' => 'map[string]',
+        'data' => 'map[string,\Rancher\Model\Base64Model]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
-        'stringData' => 'map[string]',
+        'stringData' => 'map[string,string]',
         'type' => 'string',
         'uuid' => 'string',
     ];

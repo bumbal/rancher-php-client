@@ -126,7 +126,7 @@ class ContainerModel implements ArrayAccess
         'capDrop' => 'string[]',
         'command' => 'string[]',
         'entrypoint' => 'string[]',
-        'environment' => 'map[string]',
+        'environment' => 'map[string,string]',
         'environmentFrom' => '\Rancher\Model\EnvironmentFromModel[]',
         'exitCode' => 'int',
         'image' => 'string',

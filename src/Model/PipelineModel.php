@@ -67,11 +67,11 @@ class PipelineModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'id' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'lastExecutionId' => 'string',
         'lastRunState' => 'string',
         'lastStarted' => 'string',

@@ -62,10 +62,10 @@ class RuleModel implements ArrayAccess
 
     protected static $typeMap = [
         'alert' => 'string',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'expr' => 'string',
         'for' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'record' => 'string',
     ];
 

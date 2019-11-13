@@ -243,7 +243,8 @@ class ObjectSerializer
             return null;
         }
         elseif (substr($class, 0, 4) === 'map[')
-        { // for associative array e.g. map[string,int]
+        {
+            // for associative array e.g. map[string,int]
             $inner = substr($class, 4, -1);
             $deserialized = [];
 
@@ -303,6 +304,8 @@ class ObjectSerializer
         }
         else
         {
+            print_r($class . "\n");
+
             $instance = new $class();
 
             foreach ($instance::typeMap() as $property => $type)

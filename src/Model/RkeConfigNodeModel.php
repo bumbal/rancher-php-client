@@ -81,7 +81,7 @@ class RkeConfigNodeModel implements ArrayAccess
         'dockerSocket' => 'string',
         'hostnameOverride' => 'string',
         'internalAddress' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'nodeId' => 'string',
         'port' => 'string',
         'role' => 'string[]',

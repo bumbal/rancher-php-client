@@ -49,10 +49,10 @@ class AppRevisionStatusModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'answers' => 'map[string]',
+        'answers' => 'map[string,string]',
         'digest' => 'string',
         'externalId' => 'string',
-        'files' => 'map[string]',
+        'files' => 'map[string,string]',
         'projectId' => 'string',
         'valuesYaml' => 'string',
     ];

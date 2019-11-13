@@ -76,7 +76,7 @@ class SourceCodeCredentialModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessToken' => 'string',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'avatarUrl' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
@@ -85,7 +85,7 @@ class SourceCodeCredentialModel implements ArrayAccess
         'gitCloneToken' => 'string',
         'gitLoginName' => 'string',
         'htmlUrl' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'loginName' => 'string',
         'logout' => 'boolean',
         'name' => 'string',

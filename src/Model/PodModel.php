@@ -121,7 +121,7 @@ class PodModel implements ArrayAccess
 
     protected static $typeMap = [
         'activeDeadlineSeconds' => 'int',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'automountServiceAccountToken' => 'boolean',
         'containers' => '\Rancher\Model\ContainerModel[]',
         'created' => '\DateTime',
@@ -137,7 +137,7 @@ class PodModel implements ArrayAccess
         'hostPID' => 'boolean',
         'hostname' => 'string',
         'imagePullSecrets' => '\Rancher\Model\LocalObjectReferenceModel[]',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeId' => 'string',

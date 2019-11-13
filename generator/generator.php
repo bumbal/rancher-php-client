@@ -126,18 +126,18 @@ class APIGenerator
                 {
                     if($tmpType == 'enum')
                     {
-                        $type = 'map[string]';
+                        $type = 'map[string,string]';
                         $docType = 'string[]';
                     }
                     else
                     {
-                        $type = 'map[\Rancher\Model\\' . ucfirst($tmpType) . 'Model]';
+                        $type = 'map[string,\Rancher\Model\\' . ucfirst($tmpType) . 'Model]';
                         $docType = '\Rancher\Model\\' . ucfirst($tmpType) . 'Model[]';
                     }
                 }
                 else
                 {
-                    $type = 'map['.$tmpType.']';
+                    $type = 'map[string,'.$tmpType.']';
                     $docType = $tmpType . '[]';
                 }
             }

@@ -79,7 +79,7 @@ class ClusterAlertRuleModel implements ArrayAccess
 
     protected static $typeMap = [
         'alertState' => 'string',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'clusterId' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
@@ -89,7 +89,7 @@ class ClusterAlertRuleModel implements ArrayAccess
         'groupWaitSeconds' => 'int',
         'id' => 'string',
         'inherited' => 'boolean',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'metricRule' => '\Rancher\Model\MetricRuleModel',
         'name' => 'string',
         'namespaceId' => 'string',

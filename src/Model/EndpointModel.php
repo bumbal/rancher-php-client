@@ -64,7 +64,7 @@ class EndpointModel implements ArrayAccess
 
     protected static $typeMap = [
         'interval' => 'string',
-        'params' => 'map[\Rancher\Model\Array[string]Model]',
+        'params' => 'map[string,\Rancher\Model\Array[string]Model]',
         'path' => 'string',
         'relabelings' => '\Rancher\Model\RelabelConfigModel[]',
         'scheme' => 'string',

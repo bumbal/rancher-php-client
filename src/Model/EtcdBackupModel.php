@@ -63,13 +63,13 @@ class EtcdBackupModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'backupConfig' => '\Rancher\Model\BackupConfigModel',
         'clusterId' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'filename' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'manual' => 'boolean',
         'name' => 'string',
         'namespaceId' => 'string',

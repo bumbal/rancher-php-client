@@ -57,9 +57,9 @@ class IngressConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'extraArgs' => 'map[string]',
-        'nodeSelector' => 'map[string]',
-        'options' => 'map[string]',
+        'extraArgs' => 'map[string,string]',
+        'nodeSelector' => 'map[string,string]',
+        'options' => 'map[string,string]',
         'provider' => 'string',
     ];
 

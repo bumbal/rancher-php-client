@@ -76,7 +76,7 @@ class RoleTemplateModel implements ArrayAccess
 
     protected static $typeMap = [
         'administrative' => 'boolean',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'builtin' => 'boolean',
         'clusterCreatorDefault' => 'boolean',
         'context' => 'string',
@@ -86,7 +86,7 @@ class RoleTemplateModel implements ArrayAccess
         'external' => 'boolean',
         'hidden' => 'boolean',
         'id' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'locked' => 'boolean',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

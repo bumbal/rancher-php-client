@@ -70,11 +70,11 @@ class SourceCodeRepositoryModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'defaultBranch' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'language' => 'string',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

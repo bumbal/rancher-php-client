@@ -64,19 +64,19 @@ class SecretModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
-        'data' => 'map[\Rancher\Model\Base64Model]',
+        'data' => 'map[string,\Rancher\Model\Base64Model]',
         'description' => 'string',
         'kind' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'projectId' => 'string',
         'removed' => '\DateTime',
-        'stringData' => 'map[string]',
+        'stringData' => 'map[string,string]',
         'uuid' => 'string',
     ];
 

@@ -65,11 +65,11 @@ class GlobalDnsModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'fqdn' => '\Rancher\Model\HostnameModel',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'members' => '\Rancher\Model\MemberModel[]',
         'multiClusterAppId' => 'string',
         'name' => 'string',

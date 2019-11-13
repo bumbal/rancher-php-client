@@ -69,7 +69,7 @@ class ProjectTestInputModel implements ArrayAccess
         'elasticsearchConfig' => '\Rancher\Model\ElasticsearchConfigModel',
         'fluentForwarderConfig' => '\Rancher\Model\FluentForwarderConfigModel',
         'kafkaConfig' => '\Rancher\Model\KafkaConfigModel',
-        'outputTags' => 'map[string]',
+        'outputTags' => 'map[string,string]',
         'projectId' => 'string',
         'splunkConfig' => '\Rancher\Model\SplunkConfigModel',
         'syslogConfig' => '\Rancher\Model\SyslogConfigModel',

@@ -54,7 +54,7 @@ class LabelSelectorModel implements ArrayAccess
 
     protected static $typeMap = [
         'matchExpressions' => '\Rancher\Model\LabelSelectorRequirementModel[]',
-        'matchLabels' => 'map[string]',
+        'matchLabels' => 'map[string,string]',
     ];
 
     public static function typeMap()

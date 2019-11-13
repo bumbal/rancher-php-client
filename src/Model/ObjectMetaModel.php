@@ -55,10 +55,10 @@ class ObjectMetaModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'finalizers' => 'string[]',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespace' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

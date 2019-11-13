@@ -63,13 +63,13 @@ class BitbucketCloudPipelineConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'clientId' => 'string',
         'clientSecret' => '\Rancher\Model\PasswordModel',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'enabled' => 'boolean',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

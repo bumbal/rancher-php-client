@@ -63,7 +63,7 @@ class TargetNodeModel implements ArrayAccess
         'cpuThreshold' => 'int',
         'memThreshold' => 'int',
         'nodeId' => 'string',
-        'selector' => 'map[string]',
+        'selector' => 'map[string,string]',
     ];
 
     public static function typeMap()

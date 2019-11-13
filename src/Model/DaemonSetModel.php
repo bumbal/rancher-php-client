@@ -127,7 +127,7 @@ class DaemonSetModel implements ArrayAccess
 
     protected static $typeMap = [
         'activeDeadlineSeconds' => 'int',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'automountServiceAccountToken' => 'boolean',
         'containers' => '\Rancher\Model\ContainerModel[]',
         'created' => '\DateTime',
@@ -144,7 +144,7 @@ class DaemonSetModel implements ArrayAccess
         'hostPID' => 'boolean',
         'hostname' => 'string',
         'imagePullSecrets' => '\Rancher\Model\LocalObjectReferenceModel[]',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeId' => 'string',
@@ -173,8 +173,8 @@ class DaemonSetModel implements ArrayAccess
         'uid' => 'int',
         'uuid' => 'string',
         'volumes' => '\Rancher\Model\VolumeModel[]',
-        'workloadAnnotations' => 'map[string]',
-        'workloadLabels' => 'map[string]',
+        'workloadAnnotations' => 'map[string,string]',
+        'workloadLabels' => 'map[string,string]',
         'workloadMetrics' => '\Rancher\Model\WorkloadMetricModel[]',
     ];
 

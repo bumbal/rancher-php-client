@@ -79,7 +79,7 @@ class AzureADConfigModel implements ArrayAccess
     protected static $typeMap = [
         'accessMode' => 'string',
         'allowedPrincipalIds' => 'string[]',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'applicationId' => 'string',
         'applicationSecret' => '\Rancher\Model\PasswordModel',
         'authEndpoint' => 'string',
@@ -88,7 +88,7 @@ class AzureADConfigModel implements ArrayAccess
         'enabled' => 'boolean',
         'endpoint' => 'string',
         'graphEndpoint' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'rancherUrl' => 'string',

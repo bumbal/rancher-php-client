@@ -54,7 +54,7 @@ class AwsCloudProviderModel implements ArrayAccess
 
     protected static $typeMap = [
         'global' => '\Rancher\Model\GlobalAwsOptsModel',
-        'serviceOverride' => 'map[\Rancher\Model\ServiceOverrideModel]',
+        'serviceOverride' => 'map[string,\Rancher\Model\ServiceOverrideModel]',
     ];
 
     public static function typeMap()

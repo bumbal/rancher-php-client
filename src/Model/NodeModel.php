@@ -71,11 +71,11 @@ class NodeModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'allocatable' => 'map[string]',
+        'allocatable' => 'map[string,string]',
         'amazonec2Config' => '\Rancher\Model\Amazonec2configModel',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'azureConfig' => '\Rancher\Model\AzureconfigModel',
-        'capacity' => 'map[string]',
+        'capacity' => 'map[string,string]',
         'clusterId' => 'string',
         'conditions' => '\Rancher\Model\NodeConditionModel[]',
         'controlPlane' => 'boolean',
@@ -92,8 +92,8 @@ class NodeModel implements ArrayAccess
         'imported' => 'boolean',
         'info' => '\Rancher\Model\NodeInfoModel',
         'ipAddress' => 'string',
-        'labels' => 'map[string]',
-        'limits' => 'map[string]',
+        'labels' => 'map[string,string]',
+        'limits' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeName' => 'string',
@@ -105,7 +105,7 @@ class NodeModel implements ArrayAccess
         'providerId' => 'string',
         'publicEndpoints' => '\Rancher\Model\PublicEndpointModel[]',
         'removed' => '\DateTime',
-        'requested' => 'map[string]',
+        'requested' => 'map[string,string]',
         'requestedHostname' => '\Rancher\Model\HostnameModel',
         'sshUser' => 'string',
         'state' => 'string',
@@ -115,7 +115,7 @@ class NodeModel implements ArrayAccess
         'unschedulable' => 'boolean',
         'uuid' => 'string',
         'vmwarevsphereConfig' => '\Rancher\Model\VmwarevsphereconfigModel',
-        'volumesAttached' => 'map[\Rancher\Model\AttachedVolumeModel]',
+        'volumesAttached' => 'map[string,\Rancher\Model\AttachedVolumeModel]',
         'volumesInUse' => 'string[]',
         'worker' => 'boolean',
     ];

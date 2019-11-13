@@ -68,14 +68,14 @@ class DnsRecordModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'clusterIp' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
         'hostname' => 'string',
         'ipAddresses' => 'string[]',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
@@ -83,7 +83,7 @@ class DnsRecordModel implements ArrayAccess
         'projectId' => 'string',
         'publicEndpoints' => '\Rancher\Model\PublicEndpointModel[]',
         'removed' => '\DateTime',
-        'selector' => 'map[string]',
+        'selector' => 'map[string,string]',
         'state' => 'string',
         'targetDnsRecordIds' => 'string[]',
         'targetWorkloadIds' => 'string[]',

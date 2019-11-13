@@ -74,7 +74,7 @@ class ProjectLoggingModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'customTargetConfig' => '\Rancher\Model\CustomTargetConfigModel',
@@ -82,11 +82,11 @@ class ProjectLoggingModel implements ArrayAccess
         'fluentForwarderConfig' => '\Rancher\Model\FluentForwarderConfigModel',
         'id' => 'string',
         'kafkaConfig' => '\Rancher\Model\KafkaConfigModel',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'outputFlushInterval' => 'int',
-        'outputTags' => 'map[string]',
+        'outputTags' => 'map[string,string]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'projectId' => 'string',
         'removed' => '\DateTime',

@@ -89,7 +89,7 @@ class PipelineExecutionModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'author' => 'string',
         'avatarUrl' => 'string',
         'branch' => 'string',
@@ -102,7 +102,7 @@ class PipelineExecutionModel implements ArrayAccess
         'event' => 'string',
         'executionState' => 'string',
         'htmlLink' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'message' => 'string',
         'name' => 'string',
         'namespaceId' => 'string',

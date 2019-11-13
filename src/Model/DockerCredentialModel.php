@@ -60,16 +60,16 @@ class DockerCredentialModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'projectId' => 'string',
-        'registries' => 'map[\Rancher\Model\RegistryCredentialModel]',
+        'registries' => 'map[string,\Rancher\Model\RegistryCredentialModel]',
         'removed' => '\DateTime',
         'uuid' => 'string',
     ];

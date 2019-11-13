@@ -69,9 +69,9 @@ class CronJobConfigModel implements ArrayAccess
     protected static $typeMap = [
         'concurrencyPolicy' => 'string',
         'failedJobsHistoryLimit' => 'int',
-        'jobAnnotations' => 'map[string]',
+        'jobAnnotations' => 'map[string,string]',
         'jobConfig' => '\Rancher\Model\JobConfigModel',
-        'jobLabels' => 'map[string]',
+        'jobLabels' => 'map[string,string]',
         'schedule' => 'string',
         'startingDeadlineSeconds' => 'int',
         'successfulJobsHistoryLimit' => 'int',

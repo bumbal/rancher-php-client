@@ -66,7 +66,7 @@ class KubeAPIServiceModel implements ArrayAccess
 
     protected static $typeMap = [
         'alwaysPullImages' => 'boolean',
-        'extraArgs' => 'map[string]',
+        'extraArgs' => 'map[string,string]',
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
         'image' => 'string',

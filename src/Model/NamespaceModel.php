@@ -61,12 +61,12 @@ class NamespaceModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'containerDefaultResourceLimit' => '\Rancher\Model\ContainerResourceLimitModel',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'projectId' => 'string',

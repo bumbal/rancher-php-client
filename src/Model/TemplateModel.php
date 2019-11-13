@@ -93,7 +93,7 @@ class TemplateModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'catalogId' => 'string',
         'categories' => 'string[]',
         'category' => 'string',
@@ -108,7 +108,7 @@ class TemplateModel implements ArrayAccess
         'icon' => 'string',
         'iconFilename' => 'string',
         'id' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'maintainer' => 'string',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
@@ -124,7 +124,7 @@ class TemplateModel implements ArrayAccess
         'transitioningMessage' => 'string',
         'upgradeFrom' => 'string',
         'uuid' => 'string',
-        'versionLinks' => 'map[string]',
+        'versionLinks' => 'map[string,string]',
         'versions' => '\Rancher\Model\TemplateVersionSpecModel[]',
     ];
 

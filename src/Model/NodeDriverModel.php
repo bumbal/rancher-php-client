@@ -72,7 +72,7 @@ class NodeDriverModel implements ArrayAccess
 
     protected static $typeMap = [
         'active' => 'boolean',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'builtin' => 'boolean',
         'checksum' => 'string',
         'created' => '\DateTime',
@@ -80,7 +80,7 @@ class NodeDriverModel implements ArrayAccess
         'description' => 'string',
         'externalId' => 'string',
         'id' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',

@@ -54,7 +54,7 @@ class AuthzConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'mode' => 'string',
-        'options' => 'map[string]',
+        'options' => 'map[string,string]',
     ];
 
     public static function typeMap()

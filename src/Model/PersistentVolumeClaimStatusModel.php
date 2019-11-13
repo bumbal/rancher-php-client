@@ -50,7 +50,7 @@ class PersistentVolumeClaimStatusModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessModes' => 'string[]',
-        'capacity' => 'map[string]',
+        'capacity' => 'map[string,string]',
         'conditions' => '\Rancher\Model\PersistentVolumeClaimConditionModel[]',
         'phase' => 'string',
     ];

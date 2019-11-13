@@ -71,12 +71,12 @@ class PrincipalModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
-        'extraInfo' => 'map[string]',
+        'extraInfo' => 'map[string,string]',
         'id' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'loginName' => 'string',
         'me' => 'boolean',
         'memberOf' => 'boolean',

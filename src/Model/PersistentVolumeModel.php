@@ -94,11 +94,11 @@ class PersistentVolumeModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessModes' => 'string[]',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'awsElasticBlockStore' => '\Rancher\Model\AwsElasticBlockStoreVolumeSourceModel',
         'azureDisk' => '\Rancher\Model\AzureDiskVolumeSourceModel',
         'azureFile' => '\Rancher\Model\AzureFilePersistentVolumeSourceModel',
-        'capacity' => 'map[string]',
+        'capacity' => 'map[string,string]',
         'cephfs' => '\Rancher\Model\CephFSPersistentVolumeSourceModel',
         'cinder' => '\Rancher\Model\CinderPersistentVolumeSourceModel',
         'claimRef' => '\Rancher\Model\ObjectReferenceModel',
@@ -113,7 +113,7 @@ class PersistentVolumeModel implements ArrayAccess
         'glusterfs' => '\Rancher\Model\GlusterfsVolumeSourceModel',
         'hostPath' => '\Rancher\Model\HostPathVolumeSourceModel',
         'iscsi' => '\Rancher\Model\IscsiPersistentVolumeSourceModel',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'local' => '\Rancher\Model\LocalVolumeSourceModel',
         'mountOptions' => 'string[]',
         'name' => 'string',

@@ -81,8 +81,8 @@ class ClusterSpecModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'amazonElasticContainerServiceConfig' => 'map[\Rancher\Model\JsonModel]',
-        'azureKubernetesServiceConfig' => 'map[\Rancher\Model\JsonModel]',
+        'amazonElasticContainerServiceConfig' => 'map[string,\Rancher\Model\JsonModel]',
+        'azureKubernetesServiceConfig' => 'map[string,\Rancher\Model\JsonModel]',
         'defaultClusterRoleForProjectMembers' => 'string',
         'defaultPodSecurityPolicyTemplateId' => 'string',
         'description' => 'string',
@@ -93,8 +93,8 @@ class ClusterSpecModel implements ArrayAccess
         'enableClusterAlerting' => 'boolean',
         'enableClusterMonitoring' => 'boolean',
         'enableNetworkPolicy' => 'boolean',
-        'genericEngineConfig' => 'map[\Rancher\Model\JsonModel]',
-        'googleKubernetesEngineConfig' => 'map[\Rancher\Model\JsonModel]',
+        'genericEngineConfig' => 'map[string,\Rancher\Model\JsonModel]',
+        'googleKubernetesEngineConfig' => 'map[string,\Rancher\Model\JsonModel]',
         'importedConfig' => '\Rancher\Model\ImportedConfigModel',
         'internal' => 'boolean',
         'localClusterAuthEndpoint' => '\Rancher\Model\LocalClusterAuthEndpointModel',

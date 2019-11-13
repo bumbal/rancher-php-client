@@ -64,7 +64,7 @@ class NetworkConfigModel implements ArrayAccess
         'calicoNetworkProvider' => '\Rancher\Model\CalicoNetworkProviderModel',
         'canalNetworkProvider' => '\Rancher\Model\CanalNetworkProviderModel',
         'flannelNetworkProvider' => '\Rancher\Model\FlannelNetworkProviderModel',
-        'options' => 'map[string]',
+        'options' => 'map[string,string]',
         'plugin' => 'string',
         'weaveNetworkProvider' => '\Rancher\Model\WeaveNetworkProviderModel',
     ];

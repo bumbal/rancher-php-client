@@ -62,7 +62,7 @@ class KubeControllerServiceModel implements ArrayAccess
 
     protected static $typeMap = [
         'clusterCidr' => 'string',
-        'extraArgs' => 'map[string]',
+        'extraArgs' => 'map[string,string]',
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
         'image' => 'string',

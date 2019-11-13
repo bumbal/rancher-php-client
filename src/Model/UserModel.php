@@ -68,14 +68,14 @@ class UserModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'conditions' => '\Rancher\Model\UserConditionModel[]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
         'enabled' => 'boolean',
         'id' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'me' => 'boolean',
         'mustChangePassword' => 'boolean',
         'name' => 'string',

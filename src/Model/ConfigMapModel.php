@@ -60,12 +60,12 @@ class ConfigMapModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
-        'binaryData' => 'map[\Rancher\Model\Base64Model]',
+        'annotations' => 'map[string,string]',
+        'binaryData' => 'map[string,\Rancher\Model\Base64Model]',
         'created' => '\DateTime',
         'creatorId' => 'string',
-        'data' => 'map[string]',
-        'labels' => 'map[string]',
+        'data' => 'map[string,string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

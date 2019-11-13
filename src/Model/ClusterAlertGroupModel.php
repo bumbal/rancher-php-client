@@ -69,7 +69,7 @@ class ClusterAlertGroupModel implements ArrayAccess
 
     protected static $typeMap = [
         'alertState' => 'string',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'clusterId' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
@@ -77,7 +77,7 @@ class ClusterAlertGroupModel implements ArrayAccess
         'groupIntervalSeconds' => 'int',
         'groupWaitSeconds' => 'int',
         'id' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

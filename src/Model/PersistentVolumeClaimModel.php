@@ -71,11 +71,11 @@ class PersistentVolumeClaimModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessModes' => 'string[]',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'dataSource' => '\Rancher\Model\TypedLocalObjectReferenceModel',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

@@ -69,7 +69,7 @@ class ClusterCatalogModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'branch' => 'string',
         'clusterId' => 'string',
         'commit' => 'string',
@@ -78,7 +78,7 @@ class ClusterCatalogModel implements ArrayAccess
         'creatorId' => 'string',
         'description' => 'string',
         'kind' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'lastRefreshTimestamp' => 'string',
         'name' => 'string',
         'namespaceId' => 'string',

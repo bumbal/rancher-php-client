@@ -109,7 +109,7 @@ class LdapConfigModel implements ArrayAccess
     protected static $typeMap = [
         'accessMode' => 'string',
         'allowedPrincipalIds' => 'string[]',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'certificate' => 'string',
         'connectionTimeout' => 'int',
         'created' => '\DateTime',
@@ -122,7 +122,7 @@ class LdapConfigModel implements ArrayAccess
         'groupObjectClass' => 'string',
         'groupSearchAttribute' => 'string',
         'groupSearchBase' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'nestedGroupMembershipEnabled' => 'boolean',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

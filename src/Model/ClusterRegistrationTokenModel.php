@@ -57,13 +57,13 @@ class ClusterRegistrationTokenModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'clusterId' => 'string',
         'command' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'insecureCommand' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'manifestUrl' => 'string',
         'name' => 'string',
         'namespaceId' => 'string',

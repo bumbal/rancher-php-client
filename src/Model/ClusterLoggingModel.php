@@ -76,7 +76,7 @@ class ClusterLoggingModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'appliedSpec' => '\Rancher\Model\ClusterLoggingSpecModel',
         'clusterId' => 'string',
         'conditions' => '\Rancher\Model\LoggingConditionModel[]',
@@ -89,11 +89,11 @@ class ClusterLoggingModel implements ArrayAccess
         'id' => 'string',
         'includeSystemComponent' => 'boolean',
         'kafkaConfig' => '\Rancher\Model\KafkaConfigModel',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'outputFlushInterval' => 'int',
-        'outputTags' => 'map[string]',
+        'outputTags' => 'map[string,string]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
         'splunkConfig' => '\Rancher\Model\SplunkConfigModel',

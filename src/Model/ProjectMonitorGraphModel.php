@@ -73,15 +73,15 @@ class ProjectMonitorGraphModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
-        'detailsMetricsSelector' => 'map[string]',
+        'detailsMetricsSelector' => 'map[string,string]',
         'displayResourceType' => 'string',
         'graphType' => 'string',
-        'labels' => 'map[string]',
-        'metricsSelector' => 'map[string]',
+        'labels' => 'map[string,string]',
+        'metricsSelector' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

@@ -69,14 +69,14 @@ class ProjectAlertGroupModel implements ArrayAccess
 
     protected static $typeMap = [
         'alertState' => 'string',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
         'groupIntervalSeconds' => 'int',
         'groupWaitSeconds' => 'int',
         'id' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

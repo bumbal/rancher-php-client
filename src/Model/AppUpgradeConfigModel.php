@@ -59,9 +59,9 @@ class AppUpgradeConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'answers' => 'map[string]',
+        'answers' => 'map[string,string]',
         'externalId' => 'string',
-        'files' => 'map[string]',
+        'files' => 'map[string,string]',
         'forceUpgrade' => 'boolean',
         'valuesYaml' => 'string',
     ];

@@ -65,13 +65,13 @@ class CloudCredentialModel implements ArrayAccess
 
     protected static $typeMap = [
         'amazonec2credentialConfig' => '\Rancher\Model\Amazonec2credentialconfigModel',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'azurecredentialConfig' => '\Rancher\Model\AzurecredentialconfigModel',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
         'digitaloceancredentialConfig' => '\Rancher\Model\DigitaloceancredentialconfigModel',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',

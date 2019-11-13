@@ -53,7 +53,7 @@ class MonitoringConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'options' => 'map[string]',
+        'options' => 'map[string,string]',
         'provider' => 'string',
     ];
 

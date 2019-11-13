@@ -90,7 +90,7 @@ class ServiceModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'clusterIp' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
@@ -101,7 +101,7 @@ class ServiceModel implements ArrayAccess
         'hostname' => 'string',
         'ipAddresses' => 'string[]',
         'kind' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'loadBalancerIP' => 'string',
         'loadBalancerSourceRanges' => 'string[]',
         'name' => 'string',
@@ -112,7 +112,7 @@ class ServiceModel implements ArrayAccess
         'publicEndpoints' => '\Rancher\Model\PublicEndpointModel[]',
         'publishNotReadyAddresses' => 'boolean',
         'removed' => '\DateTime',
-        'selector' => 'map[string]',
+        'selector' => 'map[string,string]',
         'sessionAffinity' => 'string',
         'sessionAffinityConfig' => '\Rancher\Model\SessionAffinityConfigModel',
         'state' => 'string',

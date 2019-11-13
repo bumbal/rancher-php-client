@@ -65,11 +65,11 @@ class GlobalDnsProviderModel implements ArrayAccess
 
     protected static $typeMap = [
         'alidnsProviderConfig' => '\Rancher\Model\AlidnsProviderConfigModel',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'cloudflareProviderConfig' => '\Rancher\Model\CloudflareProviderConfigModel',
         'created' => '\DateTime',
         'creatorId' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'members' => '\Rancher\Model\MemberModel[]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

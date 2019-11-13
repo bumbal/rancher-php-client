@@ -82,7 +82,7 @@ class TokenModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'authProvider' => 'string',
         'clusterId' => 'string',
         'created' => '\DateTime',
@@ -94,11 +94,11 @@ class TokenModel implements ArrayAccess
         'expiresAt' => 'string',
         'groupPrincipals' => 'string[]',
         'isDerived' => 'boolean',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'lastUpdateTime' => 'string',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
-        'providerInfo' => 'map[string]',
+        'providerInfo' => 'map[string,string]',
         'removed' => '\DateTime',
         'token' => 'string',
         'ttl' => 'int',

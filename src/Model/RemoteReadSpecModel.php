@@ -73,7 +73,7 @@ class RemoteReadSpecModel implements ArrayAccess
         'proxyUrl' => 'string',
         'readRecent' => 'boolean',
         'remoteTimeout' => 'string',
-        'requiredMatchers' => 'map[string]',
+        'requiredMatchers' => 'map[string,string]',
         'tlsConfig' => '\Rancher\Model\TlsConfigModel',
         'url' => 'string',
     ];

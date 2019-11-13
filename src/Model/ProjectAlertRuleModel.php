@@ -77,7 +77,7 @@ class ProjectAlertRuleModel implements ArrayAccess
 
     protected static $typeMap = [
         'alertState' => 'string',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'groupId' => 'string',
@@ -85,7 +85,7 @@ class ProjectAlertRuleModel implements ArrayAccess
         'groupWaitSeconds' => 'int',
         'id' => 'string',
         'inherited' => 'boolean',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'metricRule' => '\Rancher\Model\MetricRuleModel',
         'name' => 'string',
         'namespaceId' => 'string',

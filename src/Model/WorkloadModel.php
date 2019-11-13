@@ -145,7 +145,7 @@ class WorkloadModel implements ArrayAccess
 
     protected static $typeMap = [
         'activeDeadlineSeconds' => 'int',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'automountServiceAccountToken' => 'boolean',
         'containers' => '\Rancher\Model\ContainerModel[]',
         'created' => '\DateTime',
@@ -168,7 +168,7 @@ class WorkloadModel implements ArrayAccess
         'imagePullSecrets' => '\Rancher\Model\LocalObjectReferenceModel[]',
         'jobConfig' => '\Rancher\Model\JobConfigModel',
         'jobStatus' => '\Rancher\Model\JobStatusModel',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeId' => 'string',
@@ -206,8 +206,8 @@ class WorkloadModel implements ArrayAccess
         'uid' => 'int',
         'uuid' => 'string',
         'volumes' => '\Rancher\Model\VolumeModel[]',
-        'workloadAnnotations' => 'map[string]',
-        'workloadLabels' => 'map[string]',
+        'workloadAnnotations' => 'map[string,string]',
+        'workloadLabels' => 'map[string,string]',
         'workloadMetrics' => '\Rancher\Model\WorkloadMetricModel[]',
     ];
 

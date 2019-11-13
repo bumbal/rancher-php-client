@@ -56,7 +56,7 @@ class FlexPersistentVolumeSourceModel implements ArrayAccess
     protected static $typeMap = [
         'driver' => 'string',
         'fsType' => 'string',
-        'options' => 'map[string]',
+        'options' => 'map[string,string]',
         'readOnly' => 'boolean',
         'secretRef' => '\Rancher\Model\SecretReferenceModel',
     ];

@@ -75,7 +75,7 @@ class ProjectLoggingSpecModel implements ArrayAccess
         'fluentForwarderConfig' => '\Rancher\Model\FluentForwarderConfigModel',
         'kafkaConfig' => '\Rancher\Model\KafkaConfigModel',
         'outputFlushInterval' => 'int',
-        'outputTags' => 'map[string]',
+        'outputTags' => 'map[string,string]',
         'projectId' => 'string',
         'splunkConfig' => '\Rancher\Model\SplunkConfigModel',
         'syslogConfig' => '\Rancher\Model\SyslogConfigModel',

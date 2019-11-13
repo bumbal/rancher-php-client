@@ -75,17 +75,17 @@ class AppModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
-        'answers' => 'map[string]',
+        'annotations' => 'map[string,string]',
+        'answers' => 'map[string,string]',
         'appRevisionId' => 'string',
-        'appliedFiles' => 'map[string]',
+        'appliedFiles' => 'map[string,string]',
         'conditions' => '\Rancher\Model\AppConditionModel[]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
         'externalId' => 'string',
-        'files' => 'map[string]',
-        'labels' => 'map[string]',
+        'files' => 'map[string,string]',
+        'labels' => 'map[string,string]',
         'lastAppliedTemplate' => 'string',
         'multiClusterAppId' => 'string',
         'name' => 'string',

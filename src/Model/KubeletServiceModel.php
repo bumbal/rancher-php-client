@@ -67,7 +67,7 @@ class KubeletServiceModel implements ArrayAccess
     protected static $typeMap = [
         'clusterDnsServer' => 'string',
         'clusterDomain' => 'string',
-        'extraArgs' => 'map[string]',
+        'extraArgs' => 'map[string,string]',
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
         'failSwapOn' => 'boolean',

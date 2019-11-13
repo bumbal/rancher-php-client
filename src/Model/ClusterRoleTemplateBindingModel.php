@@ -67,13 +67,13 @@ class ClusterRoleTemplateBindingModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'clusterId' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'groupId' => 'string',
         'groupPrincipalId' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

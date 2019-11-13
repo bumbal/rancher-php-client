@@ -80,7 +80,7 @@ class EtcdServiceModel implements ArrayAccess
         'cert' => 'string',
         'creation' => 'string',
         'externalUrls' => 'string[]',
-        'extraArgs' => 'map[string]',
+        'extraArgs' => 'map[string,string]',
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
         'image' => 'string',

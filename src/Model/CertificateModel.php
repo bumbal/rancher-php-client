@@ -63,7 +63,7 @@ class CertificateModel implements ArrayAccess
 
     protected static $typeMap = [
         'algorithm' => 'string',
-        'annotations' => 'map[string]',
+        'annotations' => 'map[string,string]',
         'certFingerprint' => 'string',
         'certs' => 'string',
         'cn' => 'string',
@@ -75,7 +75,7 @@ class CertificateModel implements ArrayAccess
         'issuer' => 'string',
         'key' => 'string',
         'keySize' => 'string',
-        'labels' => 'map[string]',
+        'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',

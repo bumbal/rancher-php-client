@@ -51,7 +51,7 @@ class MonitoringInputModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'answers' => 'map[string]',
+        'answers' => 'map[string,string]',
     ];
 
     public static function typeMap()

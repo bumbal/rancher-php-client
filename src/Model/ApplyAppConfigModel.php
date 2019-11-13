@@ -59,7 +59,7 @@ class ApplyAppConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'answers' => 'map[string]',
+        'answers' => 'map[string,string]',
         'catalogTemplate' => 'string',
         'name' => 'string',
         'targetNamespace' => 'string',
