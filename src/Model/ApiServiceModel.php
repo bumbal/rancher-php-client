@@ -69,7 +69,7 @@ class ApiServiceModel implements ArrayAccess
 
     protected static $typeMap = [
         'annotations' => 'map[string,string]',
-        'caBundle' => '\Rancher\Model\Base64Model',
+        'caBundle' => 'string',
         'conditions' => '\Rancher\Model\ApiServiceConditionModel[]',
         'created' => '\DateTime',
         'creatorId' => 'string',
@@ -195,7 +195,7 @@ class ApiServiceModel implements ArrayAccess
 
     /**
      * Gets caBundle
-     * @return \Rancher\Model\Base64Model
+     * @return string
      */
     public function getCaBundle()
     {
@@ -204,7 +204,7 @@ class ApiServiceModel implements ArrayAccess
 
     /**
      * Sets caBundle
-     * @param \Rancher\Model\Base64Model $caBundle
+     * @param string $caBundle
      * @return $this
      */
     public function setCaBundle($caBundle)

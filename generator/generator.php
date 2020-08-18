@@ -91,10 +91,6 @@ class APIGenerator
             {
                 $type = "string";
             }
-            elseif($this->startsWith( $property['type'], 'hostname'))
-            {
-                $type = "string";
-            }
             elseif($this->startsWith( $property['type'], 'array'))
             {
                 $type = substr($property['type'], 6, -1);
@@ -148,6 +144,14 @@ class APIGenerator
             elseif($property['type'] == 'date')
             {
                 $type = '\DateTime';
+            }
+            elseif($property['type'] == 'base64')
+            {
+                $type = "string";
+            }
+            elseif($property['type'] == 'hostname')
+            {
+                $type = "string";
             }
             elseif(!in_array($property['type'], ['bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void']))
             {
