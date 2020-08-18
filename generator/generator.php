@@ -91,6 +91,10 @@ class APIGenerator
             {
                 $type = "string";
             }
+            elseif($this->startsWith( $property['type'], 'hostname'))
+            {
+                $type = "string";
+            }
             elseif($this->startsWith( $property['type'], 'array'))
             {
                 $type = substr($property['type'], 6, -1);

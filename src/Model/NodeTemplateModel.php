@@ -46,6 +46,7 @@ class NodeTemplateModel implements ArrayAccess
         'engineStorageDriver',
         'labels',
         'name',
+        'nodeTaints',
         'useInternalIpAddress',
         'vmwarevsphereConfig',
     ];
@@ -79,6 +80,7 @@ class NodeTemplateModel implements ArrayAccess
         'engineStorageDriver',
         'labels',
         'name',
+        'nodeTaints',
         'vmwarevsphereConfig',
     ];
 
@@ -110,6 +112,7 @@ class NodeTemplateModel implements ArrayAccess
         'id' => 'string',
         'labels' => 'map[string,string]',
         'name' => 'string',
+        'nodeTaints' => '\Rancher\Model\TaintModel[]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
         'state' => 'string',
@@ -149,6 +152,7 @@ class NodeTemplateModel implements ArrayAccess
         'id' => 'setId',
         'labels' => 'setLabels',
         'name' => 'setName',
+        'nodeTaints' => 'setNodeTaints',
         'ownerReferences' => 'setOwnerReferences',
         'removed' => 'setRemoved',
         'state' => 'setState',
@@ -188,6 +192,7 @@ class NodeTemplateModel implements ArrayAccess
         'id' => 'getId',
         'labels' => 'getLabels',
         'name' => 'getName',
+        'nodeTaints' => 'getNodeTaints',
         'ownerReferences' => 'getOwnerReferences',
         'removed' => 'getRemoved',
         'state' => 'getState',
@@ -228,6 +233,7 @@ class NodeTemplateModel implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['nodeTaints'] = isset($data['nodeTaints']) ? $data['nodeTaints'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
@@ -718,6 +724,28 @@ class NodeTemplateModel implements ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodeTaints
+     * @return \Rancher\Model\TaintModel[]
+     */
+    public function getNodeTaints()
+    {
+        return $this->container['nodeTaints'];
+    }
+
+    /**
+     * Sets nodeTaints
+     * @param \Rancher\Model\TaintModel[] $nodeTaints
+     * @return $this
+     */
+    public function setNodeTaints($nodeTaints)
+    {
+        $this->container['nodeTaints'] = $nodeTaints;
 
         return $this;
     }

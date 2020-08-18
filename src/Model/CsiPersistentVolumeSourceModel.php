@@ -28,6 +28,7 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'controllerExpandSecretRef',
         'controllerPublishSecretRef',
         'driver',
         'fsType',
@@ -57,6 +58,7 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'controllerExpandSecretRef' => '\Rancher\Model\SecretReferenceModel',
         'controllerPublishSecretRef' => '\Rancher\Model\SecretReferenceModel',
         'driver' => 'string',
         'fsType' => 'string',
@@ -73,6 +75,7 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'controllerExpandSecretRef' => 'setControllerExpandSecretRef',
         'controllerPublishSecretRef' => 'setControllerPublishSecretRef',
         'driver' => 'setDriver',
         'fsType' => 'setFsType',
@@ -89,6 +92,7 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'controllerExpandSecretRef' => 'getControllerExpandSecretRef',
         'controllerPublishSecretRef' => 'getControllerPublishSecretRef',
         'driver' => 'getDriver',
         'fsType' => 'getFsType',
@@ -106,6 +110,7 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['controllerExpandSecretRef'] = isset($data['controllerExpandSecretRef']) ? $data['controllerExpandSecretRef'] : null;
         $this->container['controllerPublishSecretRef'] = isset($data['controllerPublishSecretRef']) ? $data['controllerPublishSecretRef'] : null;
         $this->container['driver'] = isset($data['driver']) ? $data['driver'] : null;
         $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
@@ -115,6 +120,28 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
         $this->container['volumeAttributes'] = isset($data['volumeAttributes']) ? $data['volumeAttributes'] : null;
         $this->container['volumeHandle'] = isset($data['volumeHandle']) ? $data['volumeHandle'] : null;
     }
+
+    /**
+     * Gets controllerExpandSecretRef
+     * @return \Rancher\Model\SecretReferenceModel
+     */
+    public function getControllerExpandSecretRef()
+    {
+        return $this->container['controllerExpandSecretRef'];
+    }
+
+    /**
+     * Sets controllerExpandSecretRef
+     * @param \Rancher\Model\SecretReferenceModel $controllerExpandSecretRef
+     * @return $this
+     */
+    public function setControllerExpandSecretRef($controllerExpandSecretRef)
+    {
+        $this->container['controllerExpandSecretRef'] = $controllerExpandSecretRef;
+
+        return $this;
+    }
+
 
     /**
      * Gets controllerPublishSecretRef

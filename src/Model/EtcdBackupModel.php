@@ -50,9 +50,6 @@ class EtcdBackupModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'annotations',
-        'backupConfig',
-        'clusterId',
-        'filename',
         'labels',
         'manual',
     ];

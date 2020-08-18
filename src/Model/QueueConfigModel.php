@@ -35,6 +35,7 @@ class QueueConfigModel implements ArrayAccess
         'maxSamplesPerSend',
         'maxShards',
         'minBackoff',
+        'minShards',
     ];
 
     public static function canBeCreated()
@@ -55,6 +56,7 @@ class QueueConfigModel implements ArrayAccess
         'maxSamplesPerSend',
         'maxShards',
         'minBackoff',
+        'minShards',
     ];
 
     public static function canBeUpdated()
@@ -70,6 +72,7 @@ class QueueConfigModel implements ArrayAccess
         'maxSamplesPerSend' => 'int',
         'maxShards' => 'int',
         'minBackoff' => 'string',
+        'minShards' => 'int',
     ];
 
     public static function typeMap()
@@ -85,6 +88,7 @@ class QueueConfigModel implements ArrayAccess
         'maxSamplesPerSend' => 'setMaxSamplesPerSend',
         'maxShards' => 'setMaxShards',
         'minBackoff' => 'setMinBackoff',
+        'minShards' => 'setMinShards',
     ];
 
     public static function setters()
@@ -100,6 +104,7 @@ class QueueConfigModel implements ArrayAccess
         'maxSamplesPerSend' => 'getMaxSamplesPerSend',
         'maxShards' => 'getMaxShards',
         'minBackoff' => 'getMinBackoff',
+        'minShards' => 'getMinShards',
     ];
 
     public static function getters()
@@ -116,6 +121,7 @@ class QueueConfigModel implements ArrayAccess
         $this->container['maxSamplesPerSend'] = isset($data['maxSamplesPerSend']) ? $data['maxSamplesPerSend'] : null;
         $this->container['maxShards'] = isset($data['maxShards']) ? $data['maxShards'] : null;
         $this->container['minBackoff'] = isset($data['minBackoff']) ? $data['minBackoff'] : null;
+        $this->container['minShards'] = isset($data['minShards']) ? $data['minShards'] : null;
     }
 
     /**
@@ -267,6 +273,28 @@ class QueueConfigModel implements ArrayAccess
     public function setMinBackoff($minBackoff)
     {
         $this->container['minBackoff'] = $minBackoff;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets minShards
+     * @return int
+     */
+    public function getMinShards()
+    {
+        return $this->container['minShards'];
+    }
+
+    /**
+     * Sets minShards
+     * @param int $minShards
+     * @return $this
+     */
+    public function setMinShards($minShards)
+    {
+        $this->container['minShards'] = $minShards;
 
         return $this;
     }

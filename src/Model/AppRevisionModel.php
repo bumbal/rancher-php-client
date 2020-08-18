@@ -32,6 +32,7 @@ class AppRevisionModel implements ArrayAccess
         'labels',
         'name',
         'namespaceId',
+        'projectId',
     ];
 
     public static function canBeCreated()
@@ -47,6 +48,7 @@ class AppRevisionModel implements ArrayAccess
     protected static $canBeUpdated = [
         'annotations',
         'labels',
+        'projectId',
     ];
 
     public static function canBeUpdated()
@@ -62,6 +64,7 @@ class AppRevisionModel implements ArrayAccess
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
+        'projectId' => 'string',
         'removed' => '\DateTime',
         'state' => 'string',
         'status' => '\Rancher\Model\AppRevisionStatusModel',
@@ -83,6 +86,7 @@ class AppRevisionModel implements ArrayAccess
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'ownerReferences' => 'setOwnerReferences',
+        'projectId' => 'setProjectId',
         'removed' => 'setRemoved',
         'state' => 'setState',
         'status' => 'setStatus',
@@ -104,6 +108,7 @@ class AppRevisionModel implements ArrayAccess
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'ownerReferences' => 'getOwnerReferences',
+        'projectId' => 'getProjectId',
         'removed' => 'getRemoved',
         'state' => 'getState',
         'status' => 'getStatus',
@@ -126,6 +131,7 @@ class AppRevisionModel implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
+        $this->container['projectId'] = isset($data['projectId']) ? $data['projectId'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -283,6 +289,28 @@ class AppRevisionModel implements ArrayAccess
     public function setOwnerReferences($ownerReferences)
     {
         $this->container['ownerReferences'] = $ownerReferences;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets projectId
+     * @return string
+     */
+    public function getProjectId()
+    {
+        return $this->container['projectId'];
+    }
+
+    /**
+     * Sets projectId
+     * @param string $projectId
+     * @return $this
+     */
+    public function setProjectId($projectId)
+    {
+        $this->container['projectId'] = $projectId;
 
         return $this;
     }

@@ -128,6 +128,34 @@ class PrometheusFilter extends AbstractFilter
 
 
     /**
+     * Gets enableAdminAPI
+     * @return string
+     */
+    public function getEnableAdminAPI()
+    {
+        return $this->container['enableAdminAPI'];
+    }
+
+    /**
+     * Sets enableAdminAPI
+     * @param string $enableAdminAPI
+     * @param string $option
+     * @return $this
+     */
+    public function setEnableAdminAPI($enableAdminAPI, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['enableAdminAPI'.$option] = $enableAdminAPI;
+
+        return $this;
+    }
+
+
+    /**
      * Gets evaluationInterval
      * @return string
      */
@@ -184,6 +212,34 @@ class PrometheusFilter extends AbstractFilter
 
 
     /**
+     * Gets image
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     * @param string $image
+     * @param string $option
+     * @return $this
+     */
+    public function setImage($image, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['image'.$option] = $image;
+
+        return $this;
+    }
+
+
+    /**
      * Gets listenLocal
      * @return string
      */
@@ -206,6 +262,34 @@ class PrometheusFilter extends AbstractFilter
         }
 
         $this->container['listenLocal'.$option] = $listenLocal;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets logFormat
+     * @return string
+     */
+    public function getLogFormat()
+    {
+        return $this->container['logFormat'];
+    }
+
+    /**
+     * Sets logFormat
+     * @param string $logFormat
+     * @param string $option
+     * @return $this
+     */
+    public function setLogFormat($logFormat, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['logFormat'.$option] = $logFormat;
 
         return $this;
     }
@@ -296,6 +380,34 @@ class PrometheusFilter extends AbstractFilter
 
 
     /**
+     * Gets portName
+     * @return string
+     */
+    public function getPortName()
+    {
+        return $this->container['portName'];
+    }
+
+    /**
+     * Sets portName
+     * @param string $portName
+     * @param string $option
+     * @return $this
+     */
+    public function setPortName($portName, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['portName'.$option] = $portName;
+
+        return $this;
+    }
+
+
+    /**
      * Gets priorityClassName
      * @return string
      */
@@ -352,6 +464,34 @@ class PrometheusFilter extends AbstractFilter
 
 
     /**
+     * Gets prometheusExternalLabelName
+     * @return string
+     */
+    public function getPrometheusExternalLabelName()
+    {
+        return $this->container['prometheusExternalLabelName'];
+    }
+
+    /**
+     * Sets prometheusExternalLabelName
+     * @param string $prometheusExternalLabelName
+     * @param string $option
+     * @return $this
+     */
+    public function setPrometheusExternalLabelName($prometheusExternalLabelName, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['prometheusExternalLabelName'.$option] = $prometheusExternalLabelName;
+
+        return $this;
+    }
+
+
+    /**
      * Gets removed
      * @return string
      */
@@ -374,6 +514,34 @@ class PrometheusFilter extends AbstractFilter
         }
 
         $this->container['removed'.$option] = $removed;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets replicaExternalLabelName
+     * @return string
+     */
+    public function getReplicaExternalLabelName()
+    {
+        return $this->container['replicaExternalLabelName'];
+    }
+
+    /**
+     * Sets replicaExternalLabelName
+     * @param string $replicaExternalLabelName
+     * @param string $option
+     * @return $this
+     */
+    public function setReplicaExternalLabelName($replicaExternalLabelName, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['replicaExternalLabelName'.$option] = $replicaExternalLabelName;
 
         return $this;
     }
@@ -430,6 +598,34 @@ class PrometheusFilter extends AbstractFilter
         }
 
         $this->container['retention'.$option] = $retention;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets retentionSize
+     * @return string
+     */
+    public function getRetentionSize()
+    {
+        return $this->container['retentionSize'];
+    }
+
+    /**
+     * Sets retentionSize
+     * @param string $retentionSize
+     * @param string $option
+     * @return $this
+     */
+    public function setRetentionSize($retentionSize, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['retentionSize'.$option] = $retentionSize;
 
         return $this;
     }
@@ -710,6 +906,34 @@ class PrometheusFilter extends AbstractFilter
         }
 
         $this->container['version'.$option] = $version;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets walCompression
+     * @return string
+     */
+    public function getWalCompression()
+    {
+        return $this->container['walCompression'];
+    }
+
+    /**
+     * Sets walCompression
+     * @param string $walCompression
+     * @param string $option
+     * @return $this
+     */
+    public function setWalCompression($walCompression, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['walCompression'.$option] = $walCompression;
 
         return $this;
     }

@@ -37,7 +37,9 @@ class MultiClusterAppModel implements ArrayAccess
         'roles',
         'targets',
         'templateVersionId',
+        'timeout',
         'upgradeStrategy',
+        'wait',
     ];
 
     public static function canBeCreated()
@@ -58,7 +60,9 @@ class MultiClusterAppModel implements ArrayAccess
         'revisionHistoryLimit',
         'roles',
         'templateVersionId',
+        'timeout',
         'upgradeStrategy',
+        'wait',
     ];
 
     public static function canBeUpdated()
@@ -82,10 +86,12 @@ class MultiClusterAppModel implements ArrayAccess
         'status' => '\Rancher\Model\MultiClusterAppStatusModel',
         'targets' => '\Rancher\Model\TargetModel[]',
         'templateVersionId' => 'string',
+        'timeout' => 'int',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'upgradeStrategy' => '\Rancher\Model\UpgradeStrategyModel',
         'uuid' => 'string',
+        'wait' => 'boolean',
     ];
 
     public static function typeMap()
@@ -109,10 +115,12 @@ class MultiClusterAppModel implements ArrayAccess
         'status' => 'setStatus',
         'targets' => 'setTargets',
         'templateVersionId' => 'setTemplateVersionId',
+        'timeout' => 'setTimeout',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'upgradeStrategy' => 'setUpgradeStrategy',
         'uuid' => 'setUuid',
+        'wait' => 'setWait',
     ];
 
     public static function setters()
@@ -136,10 +144,12 @@ class MultiClusterAppModel implements ArrayAccess
         'status' => 'getStatus',
         'targets' => 'getTargets',
         'templateVersionId' => 'getTemplateVersionId',
+        'timeout' => 'getTimeout',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'upgradeStrategy' => 'getUpgradeStrategy',
         'uuid' => 'getUuid',
+        'wait' => 'getWait',
     ];
 
     public static function getters()
@@ -164,10 +174,12 @@ class MultiClusterAppModel implements ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['targets'] = isset($data['targets']) ? $data['targets'] : null;
         $this->container['templateVersionId'] = isset($data['templateVersionId']) ? $data['templateVersionId'] : null;
+        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['upgradeStrategy'] = isset($data['upgradeStrategy']) ? $data['upgradeStrategy'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
+        $this->container['wait'] = isset($data['wait']) ? $data['wait'] : null;
     }
 
     /**
@@ -501,6 +513,28 @@ class MultiClusterAppModel implements ArrayAccess
 
 
     /**
+     * Gets timeout
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->container['timeout'];
+    }
+
+    /**
+     * Sets timeout
+     * @param int $timeout
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
+        $this->container['timeout'] = $timeout;
+
+        return $this;
+    }
+
+
+    /**
      * Gets transitioning
      * @return string
      */
@@ -583,6 +617,28 @@ class MultiClusterAppModel implements ArrayAccess
     public function setUuid($uuid)
     {
         $this->container['uuid'] = $uuid;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets wait
+     * @return boolean
+     */
+    public function getWait()
+    {
+        return $this->container['wait'];
+    }
+
+    /**
+     * Sets wait
+     * @param boolean $wait
+     * @return $this
+     */
+    public function setWait($wait)
+    {
+        $this->container['wait'] = $wait;
 
         return $this;
     }

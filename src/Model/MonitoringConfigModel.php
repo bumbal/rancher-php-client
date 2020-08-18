@@ -28,6 +28,7 @@ class MonitoringConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'nodeSelector',
         'options',
         'provider',
     ];
@@ -43,6 +44,7 @@ class MonitoringConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'nodeSelector',
         'options',
         'provider',
     ];
@@ -53,6 +55,7 @@ class MonitoringConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'nodeSelector' => 'map[string,string]',
         'options' => 'map[string,string]',
         'provider' => 'string',
     ];
@@ -63,6 +66,7 @@ class MonitoringConfigModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'nodeSelector' => 'setNodeSelector',
         'options' => 'setOptions',
         'provider' => 'setProvider',
     ];
@@ -73,6 +77,7 @@ class MonitoringConfigModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'nodeSelector' => 'getNodeSelector',
         'options' => 'getOptions',
         'provider' => 'getProvider',
     ];
@@ -84,9 +89,32 @@ class MonitoringConfigModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
     }
+
+    /**
+     * Gets nodeSelector
+     * @return string[]
+     */
+    public function getNodeSelector()
+    {
+        return $this->container['nodeSelector'];
+    }
+
+    /**
+     * Sets nodeSelector
+     * @param string[] $nodeSelector
+     * @return $this
+     */
+    public function setNodeSelector($nodeSelector)
+    {
+        $this->container['nodeSelector'] = $nodeSelector;
+
+        return $this;
+    }
+
 
     /**
      * Gets options

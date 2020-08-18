@@ -36,11 +36,13 @@ class EtcdServiceModel implements ArrayAccess
         'extraArgs',
         'extraBinds',
         'extraEnv',
+        'gid',
         'image',
         'key',
         'path',
         'retention',
         'snapshot',
+        'uid',
     ];
 
     public static function canBeCreated()
@@ -62,11 +64,13 @@ class EtcdServiceModel implements ArrayAccess
         'extraArgs',
         'extraBinds',
         'extraEnv',
+        'gid',
         'image',
         'key',
         'path',
         'retention',
         'snapshot',
+        'uid',
     ];
 
     public static function canBeUpdated()
@@ -83,11 +87,13 @@ class EtcdServiceModel implements ArrayAccess
         'extraArgs' => 'map[string,string]',
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
+        'gid' => 'int',
         'image' => 'string',
         'key' => 'string',
         'path' => 'string',
         'retention' => 'string',
         'snapshot' => 'boolean',
+        'uid' => 'int',
     ];
 
     public static function typeMap()
@@ -104,11 +110,13 @@ class EtcdServiceModel implements ArrayAccess
         'extraArgs' => 'setExtraArgs',
         'extraBinds' => 'setExtraBinds',
         'extraEnv' => 'setExtraEnv',
+        'gid' => 'setGid',
         'image' => 'setImage',
         'key' => 'setKey',
         'path' => 'setPath',
         'retention' => 'setRetention',
         'snapshot' => 'setSnapshot',
+        'uid' => 'setUid',
     ];
 
     public static function setters()
@@ -125,11 +133,13 @@ class EtcdServiceModel implements ArrayAccess
         'extraArgs' => 'getExtraArgs',
         'extraBinds' => 'getExtraBinds',
         'extraEnv' => 'getExtraEnv',
+        'gid' => 'getGid',
         'image' => 'getImage',
         'key' => 'getKey',
         'path' => 'getPath',
         'retention' => 'getRetention',
         'snapshot' => 'getSnapshot',
+        'uid' => 'getUid',
     ];
 
     public static function getters()
@@ -147,11 +157,13 @@ class EtcdServiceModel implements ArrayAccess
         $this->container['extraArgs'] = isset($data['extraArgs']) ? $data['extraArgs'] : null;
         $this->container['extraBinds'] = isset($data['extraBinds']) ? $data['extraBinds'] : null;
         $this->container['extraEnv'] = isset($data['extraEnv']) ? $data['extraEnv'] : null;
+        $this->container['gid'] = isset($data['gid']) ? $data['gid'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['retention'] = isset($data['retention']) ? $data['retention'] : null;
         $this->container['snapshot'] = isset($data['snapshot']) ? $data['snapshot'] : null;
+        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
     }
 
     /**
@@ -331,6 +343,28 @@ class EtcdServiceModel implements ArrayAccess
 
 
     /**
+     * Gets gid
+     * @return int
+     */
+    public function getGid()
+    {
+        return $this->container['gid'];
+    }
+
+    /**
+     * Sets gid
+     * @param int $gid
+     * @return $this
+     */
+    public function setGid($gid)
+    {
+        $this->container['gid'] = $gid;
+
+        return $this;
+    }
+
+
+    /**
      * Gets image
      * @return string
      */
@@ -435,6 +469,28 @@ class EtcdServiceModel implements ArrayAccess
     public function setSnapshot($snapshot)
     {
         $this->container['snapshot'] = $snapshot;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets uid
+     * @return int
+     */
+    public function getUid()
+    {
+        return $this->container['uid'];
+    }
+
+    /**
+     * Sets uid
+     * @param int $uid
+     * @return $this
+     */
+    public function setUid($uid)
+    {
+        $this->container['uid'] = $uid;
 
         return $this;
     }

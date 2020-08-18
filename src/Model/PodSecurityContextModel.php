@@ -34,6 +34,7 @@ class PodSecurityContextModel implements ArrayAccess
         'runAsNonRoot',
         'sysctls',
         'uid',
+        'windowsOptions',
     ];
 
     public static function canBeCreated()
@@ -53,6 +54,7 @@ class PodSecurityContextModel implements ArrayAccess
         'runAsNonRoot',
         'sysctls',
         'uid',
+        'windowsOptions',
     ];
 
     public static function canBeUpdated()
@@ -67,6 +69,7 @@ class PodSecurityContextModel implements ArrayAccess
         'runAsNonRoot' => 'boolean',
         'sysctls' => '\Rancher\Model\SysctlModel[]',
         'uid' => 'int',
+        'windowsOptions' => '\Rancher\Model\WindowsSecurityContextOptionsModel',
     ];
 
     public static function typeMap()
@@ -81,6 +84,7 @@ class PodSecurityContextModel implements ArrayAccess
         'runAsNonRoot' => 'setRunAsNonRoot',
         'sysctls' => 'setSysctls',
         'uid' => 'setUid',
+        'windowsOptions' => 'setWindowsOptions',
     ];
 
     public static function setters()
@@ -95,6 +99,7 @@ class PodSecurityContextModel implements ArrayAccess
         'runAsNonRoot' => 'getRunAsNonRoot',
         'sysctls' => 'getSysctls',
         'uid' => 'getUid',
+        'windowsOptions' => 'getWindowsOptions',
     ];
 
     public static function getters()
@@ -110,6 +115,7 @@ class PodSecurityContextModel implements ArrayAccess
         $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
         $this->container['sysctls'] = isset($data['sysctls']) ? $data['sysctls'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
+        $this->container['windowsOptions'] = isset($data['windowsOptions']) ? $data['windowsOptions'] : null;
     }
 
     /**
@@ -239,6 +245,28 @@ class PodSecurityContextModel implements ArrayAccess
     public function setUid($uid)
     {
         $this->container['uid'] = $uid;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets windowsOptions
+     * @return \Rancher\Model\WindowsSecurityContextOptionsModel
+     */
+    public function getWindowsOptions()
+    {
+        return $this->container['windowsOptions'];
+    }
+
+    /**
+     * Sets windowsOptions
+     * @param \Rancher\Model\WindowsSecurityContextOptionsModel $windowsOptions
+     * @return $this
+     */
+    public function setWindowsOptions($windowsOptions)
+    {
+        $this->container['windowsOptions'] = $windowsOptions;
 
         return $this;
     }

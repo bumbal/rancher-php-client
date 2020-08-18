@@ -32,6 +32,7 @@ class DnsRecordModel implements ArrayAccess
         'description',
         'hostname',
         'ipAddresses',
+        'ipFamily',
         'labels',
         'name',
         'namespaceId',
@@ -56,6 +57,7 @@ class DnsRecordModel implements ArrayAccess
         'description',
         'hostname',
         'ipAddresses',
+        'ipFamily',
         'labels',
         'selector',
         'targetDnsRecordIds',
@@ -75,6 +77,7 @@ class DnsRecordModel implements ArrayAccess
         'description' => 'string',
         'hostname' => 'string',
         'ipAddresses' => 'string[]',
+        'ipFamily' => 'string',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
@@ -106,6 +109,7 @@ class DnsRecordModel implements ArrayAccess
         'description' => 'setDescription',
         'hostname' => 'setHostname',
         'ipAddresses' => 'setIpAddresses',
+        'ipFamily' => 'setIpFamily',
         'labels' => 'setLabels',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
@@ -137,6 +141,7 @@ class DnsRecordModel implements ArrayAccess
         'description' => 'getDescription',
         'hostname' => 'getHostname',
         'ipAddresses' => 'getIpAddresses',
+        'ipFamily' => 'getIpFamily',
         'labels' => 'getLabels',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
@@ -169,6 +174,7 @@ class DnsRecordModel implements ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['ipAddresses'] = isset($data['ipAddresses']) ? $data['ipAddresses'] : null;
+        $this->container['ipFamily'] = isset($data['ipFamily']) ? $data['ipFamily'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
@@ -336,6 +342,28 @@ class DnsRecordModel implements ArrayAccess
     public function setIpAddresses($ipAddresses)
     {
         $this->container['ipAddresses'] = $ipAddresses;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ipFamily
+     * @return string
+     */
+    public function getIpFamily()
+    {
+        return $this->container['ipFamily'];
+    }
+
+    /**
+     * Sets ipFamily
+     * @param string $ipFamily
+     * @return $this
+     */
+    public function setIpFamily($ipFamily)
+    {
+        $this->container['ipFamily'] = $ipFamily;
 
         return $this;
     }

@@ -29,7 +29,9 @@ class ClusterSpecModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'amazonElasticContainerServiceConfig',
+        'answers',
         'azureKubernetesServiceConfig',
+        'clusterTemplateRevisionId',
         'defaultClusterRoleForProjectMembers',
         'defaultPodSecurityPolicyTemplateId',
         'description',
@@ -44,6 +46,7 @@ class ClusterSpecModel implements ArrayAccess
         'googleKubernetesEngineConfig',
         'localClusterAuthEndpoint',
         'rancherKubernetesEngineConfig',
+        'windowsPreferedCluster',
     ];
 
     public static function canBeCreated()
@@ -58,7 +61,9 @@ class ClusterSpecModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'amazonElasticContainerServiceConfig',
+        'answers',
         'azureKubernetesServiceConfig',
+        'clusterTemplateRevisionId',
         'defaultClusterRoleForProjectMembers',
         'defaultPodSecurityPolicyTemplateId',
         'description',
@@ -82,7 +87,10 @@ class ClusterSpecModel implements ArrayAccess
 
     protected static $typeMap = [
         'amazonElasticContainerServiceConfig' => 'map[string,\Rancher\Model\JsonModel]',
+        'answers' => '\Rancher\Model\AnswerModel',
         'azureKubernetesServiceConfig' => 'map[string,\Rancher\Model\JsonModel]',
+        'clusterTemplateId' => 'string',
+        'clusterTemplateRevisionId' => 'string',
         'defaultClusterRoleForProjectMembers' => 'string',
         'defaultPodSecurityPolicyTemplateId' => 'string',
         'description' => 'string',
@@ -98,7 +106,9 @@ class ClusterSpecModel implements ArrayAccess
         'importedConfig' => '\Rancher\Model\ImportedConfigModel',
         'internal' => 'boolean',
         'localClusterAuthEndpoint' => '\Rancher\Model\LocalClusterAuthEndpointModel',
+        'questions' => '\Rancher\Model\QuestionModel[]',
         'rancherKubernetesEngineConfig' => '\Rancher\Model\RancherKubernetesEngineConfigModel',
+        'windowsPreferedCluster' => 'boolean',
     ];
 
     public static function typeMap()
@@ -108,7 +118,10 @@ class ClusterSpecModel implements ArrayAccess
 
     protected static $setters = [
         'amazonElasticContainerServiceConfig' => 'setAmazonElasticContainerServiceConfig',
+        'answers' => 'setAnswers',
         'azureKubernetesServiceConfig' => 'setAzureKubernetesServiceConfig',
+        'clusterTemplateId' => 'setClusterTemplateId',
+        'clusterTemplateRevisionId' => 'setClusterTemplateRevisionId',
         'defaultClusterRoleForProjectMembers' => 'setDefaultClusterRoleForProjectMembers',
         'defaultPodSecurityPolicyTemplateId' => 'setDefaultPodSecurityPolicyTemplateId',
         'description' => 'setDescription',
@@ -124,7 +137,9 @@ class ClusterSpecModel implements ArrayAccess
         'importedConfig' => 'setImportedConfig',
         'internal' => 'setInternal',
         'localClusterAuthEndpoint' => 'setLocalClusterAuthEndpoint',
+        'questions' => 'setQuestions',
         'rancherKubernetesEngineConfig' => 'setRancherKubernetesEngineConfig',
+        'windowsPreferedCluster' => 'setWindowsPreferedCluster',
     ];
 
     public static function setters()
@@ -134,7 +149,10 @@ class ClusterSpecModel implements ArrayAccess
 
     protected static $getters = [
         'amazonElasticContainerServiceConfig' => 'getAmazonElasticContainerServiceConfig',
+        'answers' => 'getAnswers',
         'azureKubernetesServiceConfig' => 'getAzureKubernetesServiceConfig',
+        'clusterTemplateId' => 'getClusterTemplateId',
+        'clusterTemplateRevisionId' => 'getClusterTemplateRevisionId',
         'defaultClusterRoleForProjectMembers' => 'getDefaultClusterRoleForProjectMembers',
         'defaultPodSecurityPolicyTemplateId' => 'getDefaultPodSecurityPolicyTemplateId',
         'description' => 'getDescription',
@@ -150,7 +168,9 @@ class ClusterSpecModel implements ArrayAccess
         'importedConfig' => 'getImportedConfig',
         'internal' => 'getInternal',
         'localClusterAuthEndpoint' => 'getLocalClusterAuthEndpoint',
+        'questions' => 'getQuestions',
         'rancherKubernetesEngineConfig' => 'getRancherKubernetesEngineConfig',
+        'windowsPreferedCluster' => 'getWindowsPreferedCluster',
     ];
 
     public static function getters()
@@ -161,7 +181,10 @@ class ClusterSpecModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['amazonElasticContainerServiceConfig'] = isset($data['amazonElasticContainerServiceConfig']) ? $data['amazonElasticContainerServiceConfig'] : null;
+        $this->container['answers'] = isset($data['answers']) ? $data['answers'] : null;
         $this->container['azureKubernetesServiceConfig'] = isset($data['azureKubernetesServiceConfig']) ? $data['azureKubernetesServiceConfig'] : null;
+        $this->container['clusterTemplateId'] = isset($data['clusterTemplateId']) ? $data['clusterTemplateId'] : null;
+        $this->container['clusterTemplateRevisionId'] = isset($data['clusterTemplateRevisionId']) ? $data['clusterTemplateRevisionId'] : null;
         $this->container['defaultClusterRoleForProjectMembers'] = isset($data['defaultClusterRoleForProjectMembers']) ? $data['defaultClusterRoleForProjectMembers'] : null;
         $this->container['defaultPodSecurityPolicyTemplateId'] = isset($data['defaultPodSecurityPolicyTemplateId']) ? $data['defaultPodSecurityPolicyTemplateId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -177,7 +200,9 @@ class ClusterSpecModel implements ArrayAccess
         $this->container['importedConfig'] = isset($data['importedConfig']) ? $data['importedConfig'] : null;
         $this->container['internal'] = isset($data['internal']) ? $data['internal'] : null;
         $this->container['localClusterAuthEndpoint'] = isset($data['localClusterAuthEndpoint']) ? $data['localClusterAuthEndpoint'] : null;
+        $this->container['questions'] = isset($data['questions']) ? $data['questions'] : null;
         $this->container['rancherKubernetesEngineConfig'] = isset($data['rancherKubernetesEngineConfig']) ? $data['rancherKubernetesEngineConfig'] : null;
+        $this->container['windowsPreferedCluster'] = isset($data['windowsPreferedCluster']) ? $data['windowsPreferedCluster'] : null;
     }
 
     /**
@@ -203,6 +228,28 @@ class ClusterSpecModel implements ArrayAccess
 
 
     /**
+     * Gets answers
+     * @return \Rancher\Model\AnswerModel
+     */
+    public function getAnswers()
+    {
+        return $this->container['answers'];
+    }
+
+    /**
+     * Sets answers
+     * @param \Rancher\Model\AnswerModel $answers
+     * @return $this
+     */
+    public function setAnswers($answers)
+    {
+        $this->container['answers'] = $answers;
+
+        return $this;
+    }
+
+
+    /**
      * Gets azureKubernetesServiceConfig
      * @return \Rancher\Model\JsonModel[]
      */
@@ -219,6 +266,50 @@ class ClusterSpecModel implements ArrayAccess
     public function setAzureKubernetesServiceConfig($azureKubernetesServiceConfig)
     {
         $this->container['azureKubernetesServiceConfig'] = $azureKubernetesServiceConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterTemplateId
+     * @return string
+     */
+    public function getClusterTemplateId()
+    {
+        return $this->container['clusterTemplateId'];
+    }
+
+    /**
+     * Sets clusterTemplateId
+     * @param string $clusterTemplateId
+     * @return $this
+     */
+    public function setClusterTemplateId($clusterTemplateId)
+    {
+        $this->container['clusterTemplateId'] = $clusterTemplateId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterTemplateRevisionId
+     * @return string
+     */
+    public function getClusterTemplateRevisionId()
+    {
+        return $this->container['clusterTemplateRevisionId'];
+    }
+
+    /**
+     * Sets clusterTemplateRevisionId
+     * @param string $clusterTemplateRevisionId
+     * @return $this
+     */
+    public function setClusterTemplateRevisionId($clusterTemplateRevisionId)
+    {
+        $this->container['clusterTemplateRevisionId'] = $clusterTemplateRevisionId;
 
         return $this;
     }
@@ -555,6 +646,28 @@ class ClusterSpecModel implements ArrayAccess
 
 
     /**
+     * Gets questions
+     * @return \Rancher\Model\QuestionModel[]
+     */
+    public function getQuestions()
+    {
+        return $this->container['questions'];
+    }
+
+    /**
+     * Sets questions
+     * @param \Rancher\Model\QuestionModel[] $questions
+     * @return $this
+     */
+    public function setQuestions($questions)
+    {
+        $this->container['questions'] = $questions;
+
+        return $this;
+    }
+
+
+    /**
      * Gets rancherKubernetesEngineConfig
      * @return \Rancher\Model\RancherKubernetesEngineConfigModel
      */
@@ -571,6 +684,28 @@ class ClusterSpecModel implements ArrayAccess
     public function setRancherKubernetesEngineConfig($rancherKubernetesEngineConfig)
     {
         $this->container['rancherKubernetesEngineConfig'] = $rancherKubernetesEngineConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets windowsPreferedCluster
+     * @return boolean
+     */
+    public function getWindowsPreferedCluster()
+    {
+        return $this->container['windowsPreferedCluster'];
+    }
+
+    /**
+     * Sets windowsPreferedCluster
+     * @param boolean $windowsPreferedCluster
+     * @return $this
+     */
+    public function setWindowsPreferedCluster($windowsPreferedCluster)
+    {
+        $this->container['windowsPreferedCluster'] = $windowsPreferedCluster;
 
         return $this;
     }

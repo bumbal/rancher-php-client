@@ -29,9 +29,13 @@ class FluentForwarderConfigModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'certificate',
+        'clientCert',
+        'clientKey',
+        'clientKeyPass',
         'compress',
         'enableTls',
         'fluentServers',
+        'sslVerify',
     ];
 
     public static function canBeCreated()
@@ -46,9 +50,13 @@ class FluentForwarderConfigModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'certificate',
+        'clientCert',
+        'clientKey',
+        'clientKeyPass',
         'compress',
         'enableTls',
         'fluentServers',
+        'sslVerify',
     ];
 
     public static function canBeUpdated()
@@ -58,9 +66,13 @@ class FluentForwarderConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'certificate' => 'string',
+        'clientCert' => 'string',
+        'clientKey' => 'string',
+        'clientKeyPass' => 'string',
         'compress' => 'boolean',
         'enableTls' => 'boolean',
         'fluentServers' => '\Rancher\Model\FluentServerModel[]',
+        'sslVerify' => 'boolean',
     ];
 
     public static function typeMap()
@@ -70,9 +82,13 @@ class FluentForwarderConfigModel implements ArrayAccess
 
     protected static $setters = [
         'certificate' => 'setCertificate',
+        'clientCert' => 'setClientCert',
+        'clientKey' => 'setClientKey',
+        'clientKeyPass' => 'setClientKeyPass',
         'compress' => 'setCompress',
         'enableTls' => 'setEnableTls',
         'fluentServers' => 'setFluentServers',
+        'sslVerify' => 'setSslVerify',
     ];
 
     public static function setters()
@@ -82,9 +98,13 @@ class FluentForwarderConfigModel implements ArrayAccess
 
     protected static $getters = [
         'certificate' => 'getCertificate',
+        'clientCert' => 'getClientCert',
+        'clientKey' => 'getClientKey',
+        'clientKeyPass' => 'getClientKeyPass',
         'compress' => 'getCompress',
         'enableTls' => 'getEnableTls',
         'fluentServers' => 'getFluentServers',
+        'sslVerify' => 'getSslVerify',
     ];
 
     public static function getters()
@@ -95,9 +115,13 @@ class FluentForwarderConfigModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['certificate'] = isset($data['certificate']) ? $data['certificate'] : null;
+        $this->container['clientCert'] = isset($data['clientCert']) ? $data['clientCert'] : null;
+        $this->container['clientKey'] = isset($data['clientKey']) ? $data['clientKey'] : null;
+        $this->container['clientKeyPass'] = isset($data['clientKeyPass']) ? $data['clientKeyPass'] : null;
         $this->container['compress'] = isset($data['compress']) ? $data['compress'] : null;
         $this->container['enableTls'] = isset($data['enableTls']) ? $data['enableTls'] : null;
         $this->container['fluentServers'] = isset($data['fluentServers']) ? $data['fluentServers'] : null;
+        $this->container['sslVerify'] = isset($data['sslVerify']) ? $data['sslVerify'] : null;
     }
 
     /**
@@ -117,6 +141,72 @@ class FluentForwarderConfigModel implements ArrayAccess
     public function setCertificate($certificate)
     {
         $this->container['certificate'] = $certificate;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clientCert
+     * @return string
+     */
+    public function getClientCert()
+    {
+        return $this->container['clientCert'];
+    }
+
+    /**
+     * Sets clientCert
+     * @param string $clientCert
+     * @return $this
+     */
+    public function setClientCert($clientCert)
+    {
+        $this->container['clientCert'] = $clientCert;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clientKey
+     * @return string
+     */
+    public function getClientKey()
+    {
+        return $this->container['clientKey'];
+    }
+
+    /**
+     * Sets clientKey
+     * @param string $clientKey
+     * @return $this
+     */
+    public function setClientKey($clientKey)
+    {
+        $this->container['clientKey'] = $clientKey;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clientKeyPass
+     * @return string
+     */
+    public function getClientKeyPass()
+    {
+        return $this->container['clientKeyPass'];
+    }
+
+    /**
+     * Sets clientKeyPass
+     * @param string $clientKeyPass
+     * @return $this
+     */
+    public function setClientKeyPass($clientKeyPass)
+    {
+        $this->container['clientKeyPass'] = $clientKeyPass;
 
         return $this;
     }
@@ -183,6 +273,28 @@ class FluentForwarderConfigModel implements ArrayAccess
     public function setFluentServers($fluentServers)
     {
         $this->container['fluentServers'] = $fluentServers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets sslVerify
+     * @return boolean
+     */
+    public function getSslVerify()
+    {
+        return $this->container['sslVerify'];
+    }
+
+    /**
+     * Sets sslVerify
+     * @param boolean $sslVerify
+     * @return $this
+     */
+    public function setSslVerify($sslVerify)
+    {
+        $this->container['sslVerify'] = $sslVerify;
 
         return $this;
     }

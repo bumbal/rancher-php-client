@@ -28,6 +28,7 @@ class IngressConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'dnsPolicy',
         'extraArgs',
         'nodeSelector',
         'options',
@@ -45,6 +46,7 @@ class IngressConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'dnsPolicy',
         'extraArgs',
         'nodeSelector',
         'options',
@@ -57,6 +59,7 @@ class IngressConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'dnsPolicy' => 'string',
         'extraArgs' => 'map[string,string]',
         'nodeSelector' => 'map[string,string]',
         'options' => 'map[string,string]',
@@ -69,6 +72,7 @@ class IngressConfigModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'dnsPolicy' => 'setDnsPolicy',
         'extraArgs' => 'setExtraArgs',
         'nodeSelector' => 'setNodeSelector',
         'options' => 'setOptions',
@@ -81,6 +85,7 @@ class IngressConfigModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'dnsPolicy' => 'getDnsPolicy',
         'extraArgs' => 'getExtraArgs',
         'nodeSelector' => 'getNodeSelector',
         'options' => 'getOptions',
@@ -94,11 +99,34 @@ class IngressConfigModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['dnsPolicy'] = isset($data['dnsPolicy']) ? $data['dnsPolicy'] : null;
         $this->container['extraArgs'] = isset($data['extraArgs']) ? $data['extraArgs'] : null;
         $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
     }
+
+    /**
+     * Gets dnsPolicy
+     * @return string
+     */
+    public function getDnsPolicy()
+    {
+        return $this->container['dnsPolicy'];
+    }
+
+    /**
+     * Sets dnsPolicy
+     * @param string $dnsPolicy
+     * @return $this
+     */
+    public function setDnsPolicy($dnsPolicy)
+    {
+        $this->container['dnsPolicy'] = $dnsPolicy;
+
+        return $this;
+    }
+
 
     /**
      * Gets extraArgs

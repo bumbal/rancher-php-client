@@ -132,7 +132,7 @@ class Amazonec2configModel implements ArrayAccess
         'securityGroupReadonly' => 'boolean',
         'sessionToken' => 'string',
         'spotPrice' => 'string',
-        'sshKeyContents' => 'string',
+        'sshKeyContents' => '\Rancher\Model\PasswordModel',
         'sshUser' => 'string',
         'subnetId' => 'string',
         'tags' => 'string',
@@ -726,7 +726,7 @@ class Amazonec2configModel implements ArrayAccess
 
     /**
      * Gets sshKeyContents
-     * @return string
+     * @return \Rancher\Model\PasswordModel
      */
     public function getSshKeyContents()
     {
@@ -735,7 +735,7 @@ class Amazonec2configModel implements ArrayAccess
 
     /**
      * Sets sshKeyContents
-     * @param string $sshKeyContents
+     * @param \Rancher\Model\PasswordModel $sshKeyContents
      * @return $this
      */
     public function setSshKeyContents($sshKeyContents)

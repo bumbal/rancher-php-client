@@ -240,6 +240,34 @@ class NotifierFilter extends AbstractFilter
 
 
     /**
+     * Gets sendResolved
+     * @return string
+     */
+    public function getSendResolved()
+    {
+        return $this->container['sendResolved'];
+    }
+
+    /**
+     * Sets sendResolved
+     * @param string $sendResolved
+     * @param string $option
+     * @return $this
+     */
+    public function setSendResolved($sendResolved, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['sendResolved'.$option] = $sendResolved;
+
+        return $this;
+    }
+
+
+    /**
      * Gets state
      * @return string
      */

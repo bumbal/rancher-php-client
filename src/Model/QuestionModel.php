@@ -39,6 +39,7 @@ class QuestionModel implements ArrayAccess
         'minLength',
         'options',
         'required',
+        'satisfies',
         'showIf',
         'showSubquestionIf',
         'subquestions',
@@ -69,6 +70,7 @@ class QuestionModel implements ArrayAccess
         'minLength',
         'options',
         'required',
+        'satisfies',
         'showIf',
         'showSubquestionIf',
         'subquestions',
@@ -94,6 +96,7 @@ class QuestionModel implements ArrayAccess
         'minLength' => 'int',
         'options' => 'string[]',
         'required' => 'boolean',
+        'satisfies' => 'string',
         'showIf' => 'string',
         'showSubquestionIf' => 'string',
         'subquestions' => '\Rancher\Model\SubQuestionModel[]',
@@ -119,6 +122,7 @@ class QuestionModel implements ArrayAccess
         'minLength' => 'setMinLength',
         'options' => 'setOptions',
         'required' => 'setRequired',
+        'satisfies' => 'setSatisfies',
         'showIf' => 'setShowIf',
         'showSubquestionIf' => 'setShowSubquestionIf',
         'subquestions' => 'setSubquestions',
@@ -144,6 +148,7 @@ class QuestionModel implements ArrayAccess
         'minLength' => 'getMinLength',
         'options' => 'getOptions',
         'required' => 'getRequired',
+        'satisfies' => 'getSatisfies',
         'showIf' => 'getShowIf',
         'showSubquestionIf' => 'getShowSubquestionIf',
         'subquestions' => 'getSubquestions',
@@ -170,6 +175,7 @@ class QuestionModel implements ArrayAccess
         $this->container['minLength'] = isset($data['minLength']) ? $data['minLength'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['required'] = isset($data['required']) ? $data['required'] : null;
+        $this->container['satisfies'] = isset($data['satisfies']) ? $data['satisfies'] : null;
         $this->container['showIf'] = isset($data['showIf']) ? $data['showIf'] : null;
         $this->container['showSubquestionIf'] = isset($data['showSubquestionIf']) ? $data['showSubquestionIf'] : null;
         $this->container['subquestions'] = isset($data['subquestions']) ? $data['subquestions'] : null;
@@ -415,6 +421,28 @@ class QuestionModel implements ArrayAccess
     public function setRequired($required)
     {
         $this->container['required'] = $required;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets satisfies
+     * @return string
+     */
+    public function getSatisfies()
+    {
+        return $this->container['satisfies'];
+    }
+
+    /**
+     * Sets satisfies
+     * @param string $satisfies
+     * @return $this
+     */
+    public function setSatisfies($satisfies)
+    {
+        $this->container['satisfies'] = $satisfies;
 
         return $this;
     }

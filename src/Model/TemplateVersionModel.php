@@ -34,6 +34,8 @@ class TemplateVersionModel implements ArrayAccess
         'kubeVersion',
         'labels',
         'name',
+        'rancherMaxVersion',
+        'rancherMinVersion',
         'rancherVersion',
         'requiredNamespace',
         'upgradeVersionLinks',
@@ -59,6 +61,8 @@ class TemplateVersionModel implements ArrayAccess
         'externalId',
         'kubeVersion',
         'labels',
+        'rancherMaxVersion',
+        'rancherMinVersion',
         'rancherVersion',
         'requiredNamespace',
         'upgradeVersionLinks',
@@ -86,6 +90,8 @@ class TemplateVersionModel implements ArrayAccess
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'questions' => '\Rancher\Model\QuestionModel[]',
+        'rancherMaxVersion' => 'string',
+        'rancherMinVersion' => 'string',
         'rancherVersion' => 'string',
         'readme' => 'string',
         'removed' => '\DateTime',
@@ -120,6 +126,8 @@ class TemplateVersionModel implements ArrayAccess
         'name' => 'setName',
         'ownerReferences' => 'setOwnerReferences',
         'questions' => 'setQuestions',
+        'rancherMaxVersion' => 'setRancherMaxVersion',
+        'rancherMinVersion' => 'setRancherMinVersion',
         'rancherVersion' => 'setRancherVersion',
         'readme' => 'setReadme',
         'removed' => 'setRemoved',
@@ -154,6 +162,8 @@ class TemplateVersionModel implements ArrayAccess
         'name' => 'getName',
         'ownerReferences' => 'getOwnerReferences',
         'questions' => 'getQuestions',
+        'rancherMaxVersion' => 'getRancherMaxVersion',
+        'rancherMinVersion' => 'getRancherMinVersion',
         'rancherVersion' => 'getRancherVersion',
         'readme' => 'getReadme',
         'removed' => 'getRemoved',
@@ -189,6 +199,8 @@ class TemplateVersionModel implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['questions'] = isset($data['questions']) ? $data['questions'] : null;
+        $this->container['rancherMaxVersion'] = isset($data['rancherMaxVersion']) ? $data['rancherMaxVersion'] : null;
+        $this->container['rancherMinVersion'] = isset($data['rancherMinVersion']) ? $data['rancherMinVersion'] : null;
         $this->container['rancherVersion'] = isset($data['rancherVersion']) ? $data['rancherVersion'] : null;
         $this->container['readme'] = isset($data['readme']) ? $data['readme'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
@@ -464,6 +476,50 @@ class TemplateVersionModel implements ArrayAccess
     public function setQuestions($questions)
     {
         $this->container['questions'] = $questions;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets rancherMaxVersion
+     * @return string
+     */
+    public function getRancherMaxVersion()
+    {
+        return $this->container['rancherMaxVersion'];
+    }
+
+    /**
+     * Sets rancherMaxVersion
+     * @param string $rancherMaxVersion
+     * @return $this
+     */
+    public function setRancherMaxVersion($rancherMaxVersion)
+    {
+        $this->container['rancherMaxVersion'] = $rancherMaxVersion;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets rancherMinVersion
+     * @return string
+     */
+    public function getRancherMinVersion()
+    {
+        return $this->container['rancherMinVersion'];
+    }
+
+    /**
+     * Sets rancherMinVersion
+     * @param string $rancherMinVersion
+     * @return $this
+     */
+    public function setRancherMinVersion($rancherMinVersion)
+    {
+        $this->container['rancherMinVersion'] = $rancherMinVersion;
 
         return $this;
     }

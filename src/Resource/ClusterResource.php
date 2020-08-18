@@ -351,6 +351,21 @@ class ClusterResource
     }
 
     /**
+     * runSecurityScan
+     *
+     * @param string $id
+     *
+     * @throws RancherException
+     * @return void
+     */
+    public function runSecurityScan($id)
+    {
+        $this->client->request('POST', $this->constructPath() . $id . '?action=runSecurityScan', []);
+
+        return;
+    }
+
+    /**
      * viewMonitoring
      *
      * @param string $id

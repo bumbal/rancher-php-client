@@ -31,6 +31,7 @@ class NodePoolModel implements ArrayAccess
         'annotations',
         'clusterId',
         'controlPlane',
+        'deleteNotReadyAfterSecs',
         'displayName',
         'etcd',
         'hostnamePrefix',
@@ -39,6 +40,7 @@ class NodePoolModel implements ArrayAccess
         'namespaceId',
         'nodeAnnotations',
         'nodeLabels',
+        'nodeTaints',
         'nodeTemplateId',
         'quantity',
         'worker',
@@ -57,12 +59,14 @@ class NodePoolModel implements ArrayAccess
     protected static $canBeUpdated = [
         'annotations',
         'controlPlane',
+        'deleteNotReadyAfterSecs',
         'displayName',
         'etcd',
         'hostnamePrefix',
         'labels',
         'nodeAnnotations',
         'nodeLabels',
+        'nodeTaints',
         'nodeTemplateId',
         'quantity',
         'worker',
@@ -79,7 +83,9 @@ class NodePoolModel implements ArrayAccess
         'controlPlane' => 'boolean',
         'created' => '\DateTime',
         'creatorId' => 'string',
+        'deleteNotReadyAfterSecs' => 'int',
         'displayName' => 'string',
+        'driver' => 'string',
         'etcd' => 'boolean',
         'hostnamePrefix' => 'string',
         'labels' => 'map[string,string]',
@@ -87,6 +93,7 @@ class NodePoolModel implements ArrayAccess
         'namespaceId' => 'string',
         'nodeAnnotations' => 'map[string,string]',
         'nodeLabels' => 'map[string,string]',
+        'nodeTaints' => '\Rancher\Model\TaintModel[]',
         'nodeTemplateId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'quantity' => 'int',
@@ -110,7 +117,9 @@ class NodePoolModel implements ArrayAccess
         'controlPlane' => 'setControlPlane',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
+        'deleteNotReadyAfterSecs' => 'setDeleteNotReadyAfterSecs',
         'displayName' => 'setDisplayName',
+        'driver' => 'setDriver',
         'etcd' => 'setEtcd',
         'hostnamePrefix' => 'setHostnamePrefix',
         'labels' => 'setLabels',
@@ -118,6 +127,7 @@ class NodePoolModel implements ArrayAccess
         'namespaceId' => 'setNamespaceId',
         'nodeAnnotations' => 'setNodeAnnotations',
         'nodeLabels' => 'setNodeLabels',
+        'nodeTaints' => 'setNodeTaints',
         'nodeTemplateId' => 'setNodeTemplateId',
         'ownerReferences' => 'setOwnerReferences',
         'quantity' => 'setQuantity',
@@ -141,7 +151,9 @@ class NodePoolModel implements ArrayAccess
         'controlPlane' => 'getControlPlane',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
+        'deleteNotReadyAfterSecs' => 'getDeleteNotReadyAfterSecs',
         'displayName' => 'getDisplayName',
+        'driver' => 'getDriver',
         'etcd' => 'getEtcd',
         'hostnamePrefix' => 'getHostnamePrefix',
         'labels' => 'getLabels',
@@ -149,6 +161,7 @@ class NodePoolModel implements ArrayAccess
         'namespaceId' => 'getNamespaceId',
         'nodeAnnotations' => 'getNodeAnnotations',
         'nodeLabels' => 'getNodeLabels',
+        'nodeTaints' => 'getNodeTaints',
         'nodeTemplateId' => 'getNodeTemplateId',
         'ownerReferences' => 'getOwnerReferences',
         'quantity' => 'getQuantity',
@@ -173,7 +186,9 @@ class NodePoolModel implements ArrayAccess
         $this->container['controlPlane'] = isset($data['controlPlane']) ? $data['controlPlane'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
+        $this->container['deleteNotReadyAfterSecs'] = isset($data['deleteNotReadyAfterSecs']) ? $data['deleteNotReadyAfterSecs'] : null;
         $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
+        $this->container['driver'] = isset($data['driver']) ? $data['driver'] : null;
         $this->container['etcd'] = isset($data['etcd']) ? $data['etcd'] : null;
         $this->container['hostnamePrefix'] = isset($data['hostnamePrefix']) ? $data['hostnamePrefix'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
@@ -181,6 +196,7 @@ class NodePoolModel implements ArrayAccess
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['nodeAnnotations'] = isset($data['nodeAnnotations']) ? $data['nodeAnnotations'] : null;
         $this->container['nodeLabels'] = isset($data['nodeLabels']) ? $data['nodeLabels'] : null;
+        $this->container['nodeTaints'] = isset($data['nodeTaints']) ? $data['nodeTaints'] : null;
         $this->container['nodeTemplateId'] = isset($data['nodeTemplateId']) ? $data['nodeTemplateId'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
@@ -304,6 +320,28 @@ class NodePoolModel implements ArrayAccess
 
 
     /**
+     * Gets deleteNotReadyAfterSecs
+     * @return int
+     */
+    public function getDeleteNotReadyAfterSecs()
+    {
+        return $this->container['deleteNotReadyAfterSecs'];
+    }
+
+    /**
+     * Sets deleteNotReadyAfterSecs
+     * @param int $deleteNotReadyAfterSecs
+     * @return $this
+     */
+    public function setDeleteNotReadyAfterSecs($deleteNotReadyAfterSecs)
+    {
+        $this->container['deleteNotReadyAfterSecs'] = $deleteNotReadyAfterSecs;
+
+        return $this;
+    }
+
+
+    /**
      * Gets displayName
      * @return string
      */
@@ -320,6 +358,28 @@ class NodePoolModel implements ArrayAccess
     public function setDisplayName($displayName)
     {
         $this->container['displayName'] = $displayName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets driver
+     * @return string
+     */
+    public function getDriver()
+    {
+        return $this->container['driver'];
+    }
+
+    /**
+     * Sets driver
+     * @param string $driver
+     * @return $this
+     */
+    public function setDriver($driver)
+    {
+        $this->container['driver'] = $driver;
 
         return $this;
     }
@@ -474,6 +534,28 @@ class NodePoolModel implements ArrayAccess
     public function setNodeLabels($nodeLabels)
     {
         $this->container['nodeLabels'] = $nodeLabels;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodeTaints
+     * @return \Rancher\Model\TaintModel[]
+     */
+    public function getNodeTaints()
+    {
+        return $this->container['nodeTaints'];
+    }
+
+    /**
+     * Sets nodeTaints
+     * @param \Rancher\Model\TaintModel[] $nodeTaints
+     * @return $this
+     */
+    public function setNodeTaints($nodeTaints)
+    {
+        $this->container['nodeTaints'] = $nodeTaints;
 
         return $this;
     }

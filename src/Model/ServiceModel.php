@@ -36,6 +36,7 @@ class ServiceModel implements ArrayAccess
         'healthCheckNodePort',
         'hostname',
         'ipAddresses',
+        'ipFamily',
         'kind',
         'labels',
         'loadBalancerIP',
@@ -71,6 +72,7 @@ class ServiceModel implements ArrayAccess
         'healthCheckNodePort',
         'hostname',
         'ipAddresses',
+        'ipFamily',
         'kind',
         'labels',
         'loadBalancerIP',
@@ -100,6 +102,7 @@ class ServiceModel implements ArrayAccess
         'healthCheckNodePort' => 'int',
         'hostname' => 'string',
         'ipAddresses' => 'string[]',
+        'ipFamily' => 'string',
         'kind' => 'string',
         'labels' => 'map[string,string]',
         'loadBalancerIP' => 'string',
@@ -140,6 +143,7 @@ class ServiceModel implements ArrayAccess
         'healthCheckNodePort' => 'setHealthCheckNodePort',
         'hostname' => 'setHostname',
         'ipAddresses' => 'setIpAddresses',
+        'ipFamily' => 'setIpFamily',
         'kind' => 'setKind',
         'labels' => 'setLabels',
         'loadBalancerIP' => 'setLoadBalancerIP',
@@ -180,6 +184,7 @@ class ServiceModel implements ArrayAccess
         'healthCheckNodePort' => 'getHealthCheckNodePort',
         'hostname' => 'getHostname',
         'ipAddresses' => 'getIpAddresses',
+        'ipFamily' => 'getIpFamily',
         'kind' => 'getKind',
         'labels' => 'getLabels',
         'loadBalancerIP' => 'getLoadBalancerIP',
@@ -221,6 +226,7 @@ class ServiceModel implements ArrayAccess
         $this->container['healthCheckNodePort'] = isset($data['healthCheckNodePort']) ? $data['healthCheckNodePort'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['ipAddresses'] = isset($data['ipAddresses']) ? $data['ipAddresses'] : null;
+        $this->container['ipFamily'] = isset($data['ipFamily']) ? $data['ipFamily'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['loadBalancerIP'] = isset($data['loadBalancerIP']) ? $data['loadBalancerIP'] : null;
@@ -460,6 +466,28 @@ class ServiceModel implements ArrayAccess
     public function setIpAddresses($ipAddresses)
     {
         $this->container['ipAddresses'] = $ipAddresses;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ipFamily
+     * @return string
+     */
+    public function getIpFamily()
+    {
+        return $this->container['ipFamily'];
+    }
+
+    /**
+     * Sets ipFamily
+     * @param string $ipFamily
+     * @return $this
+     */
+    public function setIpFamily($ipFamily)
+    {
+        $this->container['ipFamily'] = $ipFamily;
 
         return $this;
     }

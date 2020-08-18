@@ -35,6 +35,8 @@ class CronJobModel implements ArrayAccess
         'cronJobConfig',
         'dnsConfig',
         'dnsPolicy',
+        'enableServiceLinks',
+        'ephemeralContainers',
         'fsgid',
         'gids',
         'hostAliases',
@@ -47,15 +49,14 @@ class CronJobModel implements ArrayAccess
         'name',
         'namespaceId',
         'nodeId',
-        'priority',
-        'priorityClassName',
+        'overhead',
+        'preemptionPolicy',
         'projectId',
         'readinessGates',
         'restartPolicy',
         'runAsGroup',
         'runAsNonRoot',
         'runtimeClassName',
-        'schedulerName',
         'scheduling',
         'selector',
         'serviceAccountName',
@@ -63,9 +64,11 @@ class CronJobModel implements ArrayAccess
         'subdomain',
         'sysctls',
         'terminationGracePeriodSeconds',
+        'topologySpreadConstraints',
         'ttlSecondsAfterFinished',
         'uid',
         'volumes',
+        'windowsOptions',
         'workloadAnnotations',
         'workloadLabels',
         'workloadMetrics',
@@ -89,6 +92,8 @@ class CronJobModel implements ArrayAccess
         'cronJobConfig',
         'dnsConfig',
         'dnsPolicy',
+        'enableServiceLinks',
+        'ephemeralContainers',
         'fsgid',
         'gids',
         'hostAliases',
@@ -99,14 +104,13 @@ class CronJobModel implements ArrayAccess
         'imagePullSecrets',
         'labels',
         'nodeId',
-        'priority',
-        'priorityClassName',
+        'overhead',
+        'preemptionPolicy',
         'readinessGates',
         'restartPolicy',
         'runAsGroup',
         'runAsNonRoot',
         'runtimeClassName',
-        'schedulerName',
         'scheduling',
         'selector',
         'serviceAccountName',
@@ -114,9 +118,11 @@ class CronJobModel implements ArrayAccess
         'subdomain',
         'sysctls',
         'terminationGracePeriodSeconds',
+        'topologySpreadConstraints',
         'ttlSecondsAfterFinished',
         'uid',
         'volumes',
+        'windowsOptions',
         'workloadAnnotations',
         'workloadLabels',
         'workloadMetrics',
@@ -138,6 +144,8 @@ class CronJobModel implements ArrayAccess
         'cronJobStatus' => '\Rancher\Model\CronJobStatusModel',
         'dnsConfig' => '\Rancher\Model\PodDNSConfigModel',
         'dnsPolicy' => 'string',
+        'enableServiceLinks' => 'boolean',
+        'ephemeralContainers' => '\Rancher\Model\EphemeralContainerModel[]',
         'fsgid' => 'int',
         'gids' => 'int[]',
         'hostAliases' => '\Rancher\Model\HostAliasModel[]',
@@ -150,9 +158,9 @@ class CronJobModel implements ArrayAccess
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeId' => 'string',
+        'overhead' => 'map[string,string]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
-        'priority' => 'int',
-        'priorityClassName' => 'string',
+        'preemptionPolicy' => 'string',
         'projectId' => 'string',
         'publicEndpoints' => '\Rancher\Model\PublicEndpointModel[]',
         'readinessGates' => '\Rancher\Model\PodReadinessGateModel[]',
@@ -161,7 +169,6 @@ class CronJobModel implements ArrayAccess
         'runAsGroup' => 'int',
         'runAsNonRoot' => 'boolean',
         'runtimeClassName' => 'string',
-        'schedulerName' => 'string',
         'scheduling' => '\Rancher\Model\SchedulingModel',
         'selector' => '\Rancher\Model\LabelSelectorModel',
         'serviceAccountName' => 'string',
@@ -170,12 +177,14 @@ class CronJobModel implements ArrayAccess
         'subdomain' => 'string',
         'sysctls' => '\Rancher\Model\SysctlModel[]',
         'terminationGracePeriodSeconds' => 'int',
+        'topologySpreadConstraints' => '\Rancher\Model\TopologySpreadConstraintModel[]',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'ttlSecondsAfterFinished' => 'int',
         'uid' => 'int',
         'uuid' => 'string',
         'volumes' => '\Rancher\Model\VolumeModel[]',
+        'windowsOptions' => '\Rancher\Model\WindowsSecurityContextOptionsModel',
         'workloadAnnotations' => 'map[string,string]',
         'workloadLabels' => 'map[string,string]',
         'workloadMetrics' => '\Rancher\Model\WorkloadMetricModel[]',
@@ -197,6 +206,8 @@ class CronJobModel implements ArrayAccess
         'cronJobStatus' => 'setCronJobStatus',
         'dnsConfig' => 'setDnsConfig',
         'dnsPolicy' => 'setDnsPolicy',
+        'enableServiceLinks' => 'setEnableServiceLinks',
+        'ephemeralContainers' => 'setEphemeralContainers',
         'fsgid' => 'setFsgid',
         'gids' => 'setGids',
         'hostAliases' => 'setHostAliases',
@@ -209,9 +220,9 @@ class CronJobModel implements ArrayAccess
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'nodeId' => 'setNodeId',
+        'overhead' => 'setOverhead',
         'ownerReferences' => 'setOwnerReferences',
-        'priority' => 'setPriority',
-        'priorityClassName' => 'setPriorityClassName',
+        'preemptionPolicy' => 'setPreemptionPolicy',
         'projectId' => 'setProjectId',
         'publicEndpoints' => 'setPublicEndpoints',
         'readinessGates' => 'setReadinessGates',
@@ -220,7 +231,6 @@ class CronJobModel implements ArrayAccess
         'runAsGroup' => 'setRunAsGroup',
         'runAsNonRoot' => 'setRunAsNonRoot',
         'runtimeClassName' => 'setRuntimeClassName',
-        'schedulerName' => 'setSchedulerName',
         'scheduling' => 'setScheduling',
         'selector' => 'setSelector',
         'serviceAccountName' => 'setServiceAccountName',
@@ -229,12 +239,14 @@ class CronJobModel implements ArrayAccess
         'subdomain' => 'setSubdomain',
         'sysctls' => 'setSysctls',
         'terminationGracePeriodSeconds' => 'setTerminationGracePeriodSeconds',
+        'topologySpreadConstraints' => 'setTopologySpreadConstraints',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'ttlSecondsAfterFinished' => 'setTtlSecondsAfterFinished',
         'uid' => 'setUid',
         'uuid' => 'setUuid',
         'volumes' => 'setVolumes',
+        'windowsOptions' => 'setWindowsOptions',
         'workloadAnnotations' => 'setWorkloadAnnotations',
         'workloadLabels' => 'setWorkloadLabels',
         'workloadMetrics' => 'setWorkloadMetrics',
@@ -256,6 +268,8 @@ class CronJobModel implements ArrayAccess
         'cronJobStatus' => 'getCronJobStatus',
         'dnsConfig' => 'getDnsConfig',
         'dnsPolicy' => 'getDnsPolicy',
+        'enableServiceLinks' => 'getEnableServiceLinks',
+        'ephemeralContainers' => 'getEphemeralContainers',
         'fsgid' => 'getFsgid',
         'gids' => 'getGids',
         'hostAliases' => 'getHostAliases',
@@ -268,9 +282,9 @@ class CronJobModel implements ArrayAccess
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'nodeId' => 'getNodeId',
+        'overhead' => 'getOverhead',
         'ownerReferences' => 'getOwnerReferences',
-        'priority' => 'getPriority',
-        'priorityClassName' => 'getPriorityClassName',
+        'preemptionPolicy' => 'getPreemptionPolicy',
         'projectId' => 'getProjectId',
         'publicEndpoints' => 'getPublicEndpoints',
         'readinessGates' => 'getReadinessGates',
@@ -279,7 +293,6 @@ class CronJobModel implements ArrayAccess
         'runAsGroup' => 'getRunAsGroup',
         'runAsNonRoot' => 'getRunAsNonRoot',
         'runtimeClassName' => 'getRuntimeClassName',
-        'schedulerName' => 'getSchedulerName',
         'scheduling' => 'getScheduling',
         'selector' => 'getSelector',
         'serviceAccountName' => 'getServiceAccountName',
@@ -288,12 +301,14 @@ class CronJobModel implements ArrayAccess
         'subdomain' => 'getSubdomain',
         'sysctls' => 'getSysctls',
         'terminationGracePeriodSeconds' => 'getTerminationGracePeriodSeconds',
+        'topologySpreadConstraints' => 'getTopologySpreadConstraints',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'ttlSecondsAfterFinished' => 'getTtlSecondsAfterFinished',
         'uid' => 'getUid',
         'uuid' => 'getUuid',
         'volumes' => 'getVolumes',
+        'windowsOptions' => 'getWindowsOptions',
         'workloadAnnotations' => 'getWorkloadAnnotations',
         'workloadLabels' => 'getWorkloadLabels',
         'workloadMetrics' => 'getWorkloadMetrics',
@@ -316,6 +331,8 @@ class CronJobModel implements ArrayAccess
         $this->container['cronJobStatus'] = isset($data['cronJobStatus']) ? $data['cronJobStatus'] : null;
         $this->container['dnsConfig'] = isset($data['dnsConfig']) ? $data['dnsConfig'] : null;
         $this->container['dnsPolicy'] = isset($data['dnsPolicy']) ? $data['dnsPolicy'] : null;
+        $this->container['enableServiceLinks'] = isset($data['enableServiceLinks']) ? $data['enableServiceLinks'] : null;
+        $this->container['ephemeralContainers'] = isset($data['ephemeralContainers']) ? $data['ephemeralContainers'] : null;
         $this->container['fsgid'] = isset($data['fsgid']) ? $data['fsgid'] : null;
         $this->container['gids'] = isset($data['gids']) ? $data['gids'] : null;
         $this->container['hostAliases'] = isset($data['hostAliases']) ? $data['hostAliases'] : null;
@@ -328,9 +345,9 @@ class CronJobModel implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['nodeId'] = isset($data['nodeId']) ? $data['nodeId'] : null;
+        $this->container['overhead'] = isset($data['overhead']) ? $data['overhead'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
-        $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
-        $this->container['priorityClassName'] = isset($data['priorityClassName']) ? $data['priorityClassName'] : null;
+        $this->container['preemptionPolicy'] = isset($data['preemptionPolicy']) ? $data['preemptionPolicy'] : null;
         $this->container['projectId'] = isset($data['projectId']) ? $data['projectId'] : null;
         $this->container['publicEndpoints'] = isset($data['publicEndpoints']) ? $data['publicEndpoints'] : null;
         $this->container['readinessGates'] = isset($data['readinessGates']) ? $data['readinessGates'] : null;
@@ -339,7 +356,6 @@ class CronJobModel implements ArrayAccess
         $this->container['runAsGroup'] = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
         $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
         $this->container['runtimeClassName'] = isset($data['runtimeClassName']) ? $data['runtimeClassName'] : null;
-        $this->container['schedulerName'] = isset($data['schedulerName']) ? $data['schedulerName'] : null;
         $this->container['scheduling'] = isset($data['scheduling']) ? $data['scheduling'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
         $this->container['serviceAccountName'] = isset($data['serviceAccountName']) ? $data['serviceAccountName'] : null;
@@ -348,12 +364,14 @@ class CronJobModel implements ArrayAccess
         $this->container['subdomain'] = isset($data['subdomain']) ? $data['subdomain'] : null;
         $this->container['sysctls'] = isset($data['sysctls']) ? $data['sysctls'] : null;
         $this->container['terminationGracePeriodSeconds'] = isset($data['terminationGracePeriodSeconds']) ? $data['terminationGracePeriodSeconds'] : null;
+        $this->container['topologySpreadConstraints'] = isset($data['topologySpreadConstraints']) ? $data['topologySpreadConstraints'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['ttlSecondsAfterFinished'] = isset($data['ttlSecondsAfterFinished']) ? $data['ttlSecondsAfterFinished'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['volumes'] = isset($data['volumes']) ? $data['volumes'] : null;
+        $this->container['windowsOptions'] = isset($data['windowsOptions']) ? $data['windowsOptions'] : null;
         $this->container['workloadAnnotations'] = isset($data['workloadAnnotations']) ? $data['workloadAnnotations'] : null;
         $this->container['workloadLabels'] = isset($data['workloadLabels']) ? $data['workloadLabels'] : null;
         $this->container['workloadMetrics'] = isset($data['workloadMetrics']) ? $data['workloadMetrics'] : null;
@@ -574,6 +592,50 @@ class CronJobModel implements ArrayAccess
     public function setDnsPolicy($dnsPolicy)
     {
         $this->container['dnsPolicy'] = $dnsPolicy;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enableServiceLinks
+     * @return boolean
+     */
+    public function getEnableServiceLinks()
+    {
+        return $this->container['enableServiceLinks'];
+    }
+
+    /**
+     * Sets enableServiceLinks
+     * @param boolean $enableServiceLinks
+     * @return $this
+     */
+    public function setEnableServiceLinks($enableServiceLinks)
+    {
+        $this->container['enableServiceLinks'] = $enableServiceLinks;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ephemeralContainers
+     * @return \Rancher\Model\EphemeralContainerModel[]
+     */
+    public function getEphemeralContainers()
+    {
+        return $this->container['ephemeralContainers'];
+    }
+
+    /**
+     * Sets ephemeralContainers
+     * @param \Rancher\Model\EphemeralContainerModel[] $ephemeralContainers
+     * @return $this
+     */
+    public function setEphemeralContainers($ephemeralContainers)
+    {
+        $this->container['ephemeralContainers'] = $ephemeralContainers;
 
         return $this;
     }
@@ -844,6 +906,28 @@ class CronJobModel implements ArrayAccess
 
 
     /**
+     * Gets overhead
+     * @return string[]
+     */
+    public function getOverhead()
+    {
+        return $this->container['overhead'];
+    }
+
+    /**
+     * Sets overhead
+     * @param string[] $overhead
+     * @return $this
+     */
+    public function setOverhead($overhead)
+    {
+        $this->container['overhead'] = $overhead;
+
+        return $this;
+    }
+
+
+    /**
      * Gets ownerReferences
      * @return \Rancher\Model\OwnerReferenceModel[]
      */
@@ -866,44 +950,22 @@ class CronJobModel implements ArrayAccess
 
 
     /**
-     * Gets priority
-     * @return int
-     */
-    public function getPriority()
-    {
-        return $this->container['priority'];
-    }
-
-    /**
-     * Sets priority
-     * @param int $priority
-     * @return $this
-     */
-    public function setPriority($priority)
-    {
-        $this->container['priority'] = $priority;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets priorityClassName
+     * Gets preemptionPolicy
      * @return string
      */
-    public function getPriorityClassName()
+    public function getPreemptionPolicy()
     {
-        return $this->container['priorityClassName'];
+        return $this->container['preemptionPolicy'];
     }
 
     /**
-     * Sets priorityClassName
-     * @param string $priorityClassName
+     * Sets preemptionPolicy
+     * @param string $preemptionPolicy
      * @return $this
      */
-    public function setPriorityClassName($priorityClassName)
+    public function setPreemptionPolicy($preemptionPolicy)
     {
-        $this->container['priorityClassName'] = $priorityClassName;
+        $this->container['preemptionPolicy'] = $preemptionPolicy;
 
         return $this;
     }
@@ -1086,28 +1148,6 @@ class CronJobModel implements ArrayAccess
 
 
     /**
-     * Gets schedulerName
-     * @return string
-     */
-    public function getSchedulerName()
-    {
-        return $this->container['schedulerName'];
-    }
-
-    /**
-     * Sets schedulerName
-     * @param string $schedulerName
-     * @return $this
-     */
-    public function setSchedulerName($schedulerName)
-    {
-        $this->container['schedulerName'] = $schedulerName;
-
-        return $this;
-    }
-
-
-    /**
      * Gets scheduling
      * @return \Rancher\Model\SchedulingModel
      */
@@ -1284,6 +1324,28 @@ class CronJobModel implements ArrayAccess
 
 
     /**
+     * Gets topologySpreadConstraints
+     * @return \Rancher\Model\TopologySpreadConstraintModel[]
+     */
+    public function getTopologySpreadConstraints()
+    {
+        return $this->container['topologySpreadConstraints'];
+    }
+
+    /**
+     * Sets topologySpreadConstraints
+     * @param \Rancher\Model\TopologySpreadConstraintModel[] $topologySpreadConstraints
+     * @return $this
+     */
+    public function setTopologySpreadConstraints($topologySpreadConstraints)
+    {
+        $this->container['topologySpreadConstraints'] = $topologySpreadConstraints;
+
+        return $this;
+    }
+
+
+    /**
      * Gets transitioning
      * @return string
      */
@@ -1410,6 +1472,28 @@ class CronJobModel implements ArrayAccess
     public function setVolumes($volumes)
     {
         $this->container['volumes'] = $volumes;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets windowsOptions
+     * @return \Rancher\Model\WindowsSecurityContextOptionsModel
+     */
+    public function getWindowsOptions()
+    {
+        return $this->container['windowsOptions'];
+    }
+
+    /**
+     * Sets windowsOptions
+     * @param \Rancher\Model\WindowsSecurityContextOptionsModel $windowsOptions
+     * @return $this
+     */
+    public function setWindowsOptions($windowsOptions)
+    {
+        $this->container['windowsOptions'] = $windowsOptions;
 
         return $this;
     }

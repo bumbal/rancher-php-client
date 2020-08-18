@@ -34,6 +34,7 @@ class VolumeModel implements ArrayAccess
         'cephfs',
         'cinder',
         'configMap',
+        'csi',
         'downwardAPI',
         'emptyDir',
         'fc',
@@ -75,6 +76,7 @@ class VolumeModel implements ArrayAccess
         'cephfs',
         'cinder',
         'configMap',
+        'csi',
         'downwardAPI',
         'emptyDir',
         'fc',
@@ -111,6 +113,7 @@ class VolumeModel implements ArrayAccess
         'cephfs' => '\Rancher\Model\CephFSVolumeSourceModel',
         'cinder' => '\Rancher\Model\CinderVolumeSourceModel',
         'configMap' => '\Rancher\Model\ConfigMapVolumeSourceModel',
+        'csi' => '\Rancher\Model\CsiVolumeSourceModel',
         'downwardAPI' => '\Rancher\Model\DownwardAPIVolumeSourceModel',
         'emptyDir' => '\Rancher\Model\EmptyDirVolumeSourceModel',
         'fc' => '\Rancher\Model\FcVolumeSourceModel',
@@ -147,6 +150,7 @@ class VolumeModel implements ArrayAccess
         'cephfs' => 'setCephfs',
         'cinder' => 'setCinder',
         'configMap' => 'setConfigMap',
+        'csi' => 'setCsi',
         'downwardAPI' => 'setDownwardAPI',
         'emptyDir' => 'setEmptyDir',
         'fc' => 'setFc',
@@ -183,6 +187,7 @@ class VolumeModel implements ArrayAccess
         'cephfs' => 'getCephfs',
         'cinder' => 'getCinder',
         'configMap' => 'getConfigMap',
+        'csi' => 'getCsi',
         'downwardAPI' => 'getDownwardAPI',
         'emptyDir' => 'getEmptyDir',
         'fc' => 'getFc',
@@ -220,6 +225,7 @@ class VolumeModel implements ArrayAccess
         $this->container['cephfs'] = isset($data['cephfs']) ? $data['cephfs'] : null;
         $this->container['cinder'] = isset($data['cinder']) ? $data['cinder'] : null;
         $this->container['configMap'] = isset($data['configMap']) ? $data['configMap'] : null;
+        $this->container['csi'] = isset($data['csi']) ? $data['csi'] : null;
         $this->container['downwardAPI'] = isset($data['downwardAPI']) ? $data['downwardAPI'] : null;
         $this->container['emptyDir'] = isset($data['emptyDir']) ? $data['emptyDir'] : null;
         $this->container['fc'] = isset($data['fc']) ? $data['fc'] : null;
@@ -371,6 +377,28 @@ class VolumeModel implements ArrayAccess
     public function setConfigMap($configMap)
     {
         $this->container['configMap'] = $configMap;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets csi
+     * @return \Rancher\Model\CsiVolumeSourceModel
+     */
+    public function getCsi()
+    {
+        return $this->container['csi'];
+    }
+
+    /**
+     * Sets csi
+     * @param \Rancher\Model\CsiVolumeSourceModel $csi
+     * @return $this
+     */
+    public function setCsi($csi)
+    {
+        $this->container['csi'] = $csi;
 
         return $this;
     }

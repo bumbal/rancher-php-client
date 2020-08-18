@@ -52,6 +52,7 @@ class ContainerModel implements ArrayAccess
         'restartCount',
         'runAsGroup',
         'runAsNonRoot',
+        'startupProbe',
         'state',
         'stdin',
         'stdinOnce',
@@ -63,6 +64,7 @@ class ContainerModel implements ArrayAccess
         'uid',
         'volumeDevices',
         'volumeMounts',
+        'windowsOptions',
         'workingDir',
     ];
 
@@ -101,6 +103,7 @@ class ContainerModel implements ArrayAccess
         'restartCount',
         'runAsGroup',
         'runAsNonRoot',
+        'startupProbe',
         'state',
         'stdin',
         'stdinOnce',
@@ -112,6 +115,7 @@ class ContainerModel implements ArrayAccess
         'uid',
         'volumeDevices',
         'volumeMounts',
+        'windowsOptions',
         'workingDir',
     ];
 
@@ -145,6 +149,7 @@ class ContainerModel implements ArrayAccess
         'restartCount' => 'int',
         'runAsGroup' => 'int',
         'runAsNonRoot' => 'boolean',
+        'startupProbe' => '\Rancher\Model\ProbeModel',
         'state' => 'string',
         'stdin' => 'boolean',
         'stdinOnce' => 'boolean',
@@ -156,6 +161,7 @@ class ContainerModel implements ArrayAccess
         'uid' => 'int',
         'volumeDevices' => '\Rancher\Model\VolumeDeviceModel[]',
         'volumeMounts' => '\Rancher\Model\VolumeMountModel[]',
+        'windowsOptions' => '\Rancher\Model\WindowsSecurityContextOptionsModel',
         'workingDir' => 'string',
     ];
 
@@ -189,6 +195,7 @@ class ContainerModel implements ArrayAccess
         'restartCount' => 'setRestartCount',
         'runAsGroup' => 'setRunAsGroup',
         'runAsNonRoot' => 'setRunAsNonRoot',
+        'startupProbe' => 'setStartupProbe',
         'state' => 'setState',
         'stdin' => 'setStdin',
         'stdinOnce' => 'setStdinOnce',
@@ -200,6 +207,7 @@ class ContainerModel implements ArrayAccess
         'uid' => 'setUid',
         'volumeDevices' => 'setVolumeDevices',
         'volumeMounts' => 'setVolumeMounts',
+        'windowsOptions' => 'setWindowsOptions',
         'workingDir' => 'setWorkingDir',
     ];
 
@@ -233,6 +241,7 @@ class ContainerModel implements ArrayAccess
         'restartCount' => 'getRestartCount',
         'runAsGroup' => 'getRunAsGroup',
         'runAsNonRoot' => 'getRunAsNonRoot',
+        'startupProbe' => 'getStartupProbe',
         'state' => 'getState',
         'stdin' => 'getStdin',
         'stdinOnce' => 'getStdinOnce',
@@ -244,6 +253,7 @@ class ContainerModel implements ArrayAccess
         'uid' => 'getUid',
         'volumeDevices' => 'getVolumeDevices',
         'volumeMounts' => 'getVolumeMounts',
+        'windowsOptions' => 'getWindowsOptions',
         'workingDir' => 'getWorkingDir',
     ];
 
@@ -278,6 +288,7 @@ class ContainerModel implements ArrayAccess
         $this->container['restartCount'] = isset($data['restartCount']) ? $data['restartCount'] : null;
         $this->container['runAsGroup'] = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
         $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
+        $this->container['startupProbe'] = isset($data['startupProbe']) ? $data['startupProbe'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['stdin'] = isset($data['stdin']) ? $data['stdin'] : null;
         $this->container['stdinOnce'] = isset($data['stdinOnce']) ? $data['stdinOnce'] : null;
@@ -289,6 +300,7 @@ class ContainerModel implements ArrayAccess
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['volumeDevices'] = isset($data['volumeDevices']) ? $data['volumeDevices'] : null;
         $this->container['volumeMounts'] = isset($data['volumeMounts']) ? $data['volumeMounts'] : null;
+        $this->container['windowsOptions'] = isset($data['windowsOptions']) ? $data['windowsOptions'] : null;
         $this->container['workingDir'] = isset($data['workingDir']) ? $data['workingDir'] : null;
     }
 
@@ -821,6 +833,28 @@ class ContainerModel implements ArrayAccess
 
 
     /**
+     * Gets startupProbe
+     * @return \Rancher\Model\ProbeModel
+     */
+    public function getStartupProbe()
+    {
+        return $this->container['startupProbe'];
+    }
+
+    /**
+     * Sets startupProbe
+     * @param \Rancher\Model\ProbeModel $startupProbe
+     * @return $this
+     */
+    public function setStartupProbe($startupProbe)
+    {
+        $this->container['startupProbe'] = $startupProbe;
+
+        return $this;
+    }
+
+
+    /**
      * Gets state
      * @return string
      */
@@ -1057,6 +1091,28 @@ class ContainerModel implements ArrayAccess
     public function setVolumeMounts($volumeMounts)
     {
         $this->container['volumeMounts'] = $volumeMounts;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets windowsOptions
+     * @return \Rancher\Model\WindowsSecurityContextOptionsModel
+     */
+    public function getWindowsOptions()
+    {
+        return $this->container['windowsOptions'];
+    }
+
+    /**
+     * Sets windowsOptions
+     * @param \Rancher\Model\WindowsSecurityContextOptionsModel $windowsOptions
+     * @return $this
+     */
+    public function setWindowsOptions($windowsOptions)
+    {
+        $this->container['windowsOptions'] = $windowsOptions;
 
         return $this;
     }

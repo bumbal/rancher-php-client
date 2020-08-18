@@ -34,6 +34,7 @@ class CustomConfigModel implements ArrayAccess
         'label',
         'sshCert',
         'sshKey',
+        'taints',
         'user',
     ];
 
@@ -54,6 +55,7 @@ class CustomConfigModel implements ArrayAccess
         'label',
         'sshCert',
         'sshKey',
+        'taints',
         'user',
     ];
 
@@ -69,6 +71,7 @@ class CustomConfigModel implements ArrayAccess
         'label' => 'map[string,string]',
         'sshCert' => 'string',
         'sshKey' => '\Rancher\Model\PasswordModel',
+        'taints' => 'string[]',
         'user' => 'string',
     ];
 
@@ -84,6 +87,7 @@ class CustomConfigModel implements ArrayAccess
         'label' => 'setLabel',
         'sshCert' => 'setSshCert',
         'sshKey' => 'setSshKey',
+        'taints' => 'setTaints',
         'user' => 'setUser',
     ];
 
@@ -99,6 +103,7 @@ class CustomConfigModel implements ArrayAccess
         'label' => 'getLabel',
         'sshCert' => 'getSshCert',
         'sshKey' => 'getSshKey',
+        'taints' => 'getTaints',
         'user' => 'getUser',
     ];
 
@@ -115,6 +120,7 @@ class CustomConfigModel implements ArrayAccess
         $this->container['label'] = isset($data['label']) ? $data['label'] : null;
         $this->container['sshCert'] = isset($data['sshCert']) ? $data['sshCert'] : null;
         $this->container['sshKey'] = isset($data['sshKey']) ? $data['sshKey'] : null;
+        $this->container['taints'] = isset($data['taints']) ? $data['taints'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
     }
 
@@ -245,6 +251,28 @@ class CustomConfigModel implements ArrayAccess
     public function setSshKey($sshKey)
     {
         $this->container['sshKey'] = $sshKey;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets taints
+     * @return string[]
+     */
+    public function getTaints()
+    {
+        return $this->container['taints'];
+    }
+
+    /**
+     * Sets taints
+     * @param string[] $taints
+     * @return $this
+     */
+    public function setTaints($taints)
+    {
+        $this->container['taints'] = $taints;
 
         return $this;
     }

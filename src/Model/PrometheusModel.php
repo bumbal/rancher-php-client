@@ -38,26 +38,38 @@ class PrometheusModel implements ArrayAccess
         'configMaps',
         'containers',
         'description',
+        'enableAdminAPI',
         'evaluationInterval',
         'externalLabels',
         'externalUrl',
+        'image',
         'imagePullSecrets',
+        'initContainers',
         'labels',
         'listenLocal',
+        'logFormat',
         'logLevel',
         'name',
         'namespaceId',
         'nodeSelector',
         'podMetadata',
+        'podMonitorNamespaceSelector',
+        'podMonitorSelector',
+        'portName',
         'priorityClassName',
         'projectId',
+        'prometheusExternalLabelName',
+        'query',
         'remoteRead',
         'remoteWrite',
+        'replicaExternalLabelName',
         'replicas',
         'resources',
         'retention',
+        'retentionSize',
         'routePrefix',
         'ruleSelector',
+        'rules',
         'scrapeInterval',
         'secrets',
         'securityContext',
@@ -68,6 +80,8 @@ class PrometheusModel implements ArrayAccess
         'tag',
         'tolerations',
         'version',
+        'volumes',
+        'walCompression',
     ];
 
     public static function canBeCreated()
@@ -91,23 +105,35 @@ class PrometheusModel implements ArrayAccess
         'configMaps',
         'containers',
         'description',
+        'enableAdminAPI',
         'evaluationInterval',
         'externalLabels',
         'externalUrl',
+        'image',
         'imagePullSecrets',
+        'initContainers',
         'labels',
         'listenLocal',
+        'logFormat',
         'logLevel',
         'nodeSelector',
         'podMetadata',
+        'podMonitorNamespaceSelector',
+        'podMonitorSelector',
+        'portName',
         'priorityClassName',
+        'prometheusExternalLabelName',
+        'query',
         'remoteRead',
         'remoteWrite',
+        'replicaExternalLabelName',
         'replicas',
         'resources',
         'retention',
+        'retentionSize',
         'routePrefix',
         'ruleSelector',
+        'rules',
         'scrapeInterval',
         'secrets',
         'securityContext',
@@ -118,6 +144,8 @@ class PrometheusModel implements ArrayAccess
         'tag',
         'tolerations',
         'version',
+        'volumes',
+        'walCompression',
     ];
 
     public static function canBeUpdated()
@@ -138,28 +166,40 @@ class PrometheusModel implements ArrayAccess
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
+        'enableAdminAPI' => 'boolean',
         'evaluationInterval' => 'string',
         'externalLabels' => 'map[string,string]',
         'externalUrl' => 'string',
+        'image' => 'string',
         'imagePullSecrets' => '\Rancher\Model\LocalObjectReferenceModel[]',
+        'initContainers' => '\Rancher\Model\ContainerModel[]',
         'labels' => 'map[string,string]',
         'listenLocal' => 'boolean',
+        'logFormat' => 'string',
         'logLevel' => 'string',
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeSelector' => 'map[string,string]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'podMetadata' => '\Rancher\Model\ObjectMetaModel',
+        'podMonitorNamespaceSelector' => '\Rancher\Model\LabelSelectorModel',
+        'podMonitorSelector' => '\Rancher\Model\LabelSelectorModel',
+        'portName' => 'string',
         'priorityClassName' => 'string',
         'projectId' => 'string',
+        'prometheusExternalLabelName' => 'string',
+        'query' => '\Rancher\Model\QuerySpecModel',
         'remoteRead' => '\Rancher\Model\RemoteReadSpecModel[]',
         'remoteWrite' => '\Rancher\Model\RemoteWriteSpecModel[]',
         'removed' => '\DateTime',
+        'replicaExternalLabelName' => 'string',
         'replicas' => 'int',
         'resources' => '\Rancher\Model\ResourceRequirementsModel',
         'retention' => 'string',
+        'retentionSize' => 'string',
         'routePrefix' => 'string',
         'ruleSelector' => '\Rancher\Model\LabelSelectorModel',
+        'rules' => '\Rancher\Model\RulesModel',
         'scrapeInterval' => 'string',
         'secrets' => 'string[]',
         'securityContext' => '\Rancher\Model\PodSecurityContextModel',
@@ -174,6 +214,8 @@ class PrometheusModel implements ArrayAccess
         'transitioningMessage' => 'string',
         'uuid' => 'string',
         'version' => 'string',
+        'volumes' => '\Rancher\Model\VolumeModel[]',
+        'walCompression' => 'boolean',
     ];
 
     public static function typeMap()
@@ -194,28 +236,40 @@ class PrometheusModel implements ArrayAccess
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'description' => 'setDescription',
+        'enableAdminAPI' => 'setEnableAdminAPI',
         'evaluationInterval' => 'setEvaluationInterval',
         'externalLabels' => 'setExternalLabels',
         'externalUrl' => 'setExternalUrl',
+        'image' => 'setImage',
         'imagePullSecrets' => 'setImagePullSecrets',
+        'initContainers' => 'setInitContainers',
         'labels' => 'setLabels',
         'listenLocal' => 'setListenLocal',
+        'logFormat' => 'setLogFormat',
         'logLevel' => 'setLogLevel',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'nodeSelector' => 'setNodeSelector',
         'ownerReferences' => 'setOwnerReferences',
         'podMetadata' => 'setPodMetadata',
+        'podMonitorNamespaceSelector' => 'setPodMonitorNamespaceSelector',
+        'podMonitorSelector' => 'setPodMonitorSelector',
+        'portName' => 'setPortName',
         'priorityClassName' => 'setPriorityClassName',
         'projectId' => 'setProjectId',
+        'prometheusExternalLabelName' => 'setPrometheusExternalLabelName',
+        'query' => 'setQuery',
         'remoteRead' => 'setRemoteRead',
         'remoteWrite' => 'setRemoteWrite',
         'removed' => 'setRemoved',
+        'replicaExternalLabelName' => 'setReplicaExternalLabelName',
         'replicas' => 'setReplicas',
         'resources' => 'setResources',
         'retention' => 'setRetention',
+        'retentionSize' => 'setRetentionSize',
         'routePrefix' => 'setRoutePrefix',
         'ruleSelector' => 'setRuleSelector',
+        'rules' => 'setRules',
         'scrapeInterval' => 'setScrapeInterval',
         'secrets' => 'setSecrets',
         'securityContext' => 'setSecurityContext',
@@ -230,6 +284,8 @@ class PrometheusModel implements ArrayAccess
         'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
         'version' => 'setVersion',
+        'volumes' => 'setVolumes',
+        'walCompression' => 'setWalCompression',
     ];
 
     public static function setters()
@@ -250,28 +306,40 @@ class PrometheusModel implements ArrayAccess
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'description' => 'getDescription',
+        'enableAdminAPI' => 'getEnableAdminAPI',
         'evaluationInterval' => 'getEvaluationInterval',
         'externalLabels' => 'getExternalLabels',
         'externalUrl' => 'getExternalUrl',
+        'image' => 'getImage',
         'imagePullSecrets' => 'getImagePullSecrets',
+        'initContainers' => 'getInitContainers',
         'labels' => 'getLabels',
         'listenLocal' => 'getListenLocal',
+        'logFormat' => 'getLogFormat',
         'logLevel' => 'getLogLevel',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'nodeSelector' => 'getNodeSelector',
         'ownerReferences' => 'getOwnerReferences',
         'podMetadata' => 'getPodMetadata',
+        'podMonitorNamespaceSelector' => 'getPodMonitorNamespaceSelector',
+        'podMonitorSelector' => 'getPodMonitorSelector',
+        'portName' => 'getPortName',
         'priorityClassName' => 'getPriorityClassName',
         'projectId' => 'getProjectId',
+        'prometheusExternalLabelName' => 'getPrometheusExternalLabelName',
+        'query' => 'getQuery',
         'remoteRead' => 'getRemoteRead',
         'remoteWrite' => 'getRemoteWrite',
         'removed' => 'getRemoved',
+        'replicaExternalLabelName' => 'getReplicaExternalLabelName',
         'replicas' => 'getReplicas',
         'resources' => 'getResources',
         'retention' => 'getRetention',
+        'retentionSize' => 'getRetentionSize',
         'routePrefix' => 'getRoutePrefix',
         'ruleSelector' => 'getRuleSelector',
+        'rules' => 'getRules',
         'scrapeInterval' => 'getScrapeInterval',
         'secrets' => 'getSecrets',
         'securityContext' => 'getSecurityContext',
@@ -286,6 +354,8 @@ class PrometheusModel implements ArrayAccess
         'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
         'version' => 'getVersion',
+        'volumes' => 'getVolumes',
+        'walCompression' => 'getWalCompression',
     ];
 
     public static function getters()
@@ -307,28 +377,40 @@ class PrometheusModel implements ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enableAdminAPI'] = isset($data['enableAdminAPI']) ? $data['enableAdminAPI'] : null;
         $this->container['evaluationInterval'] = isset($data['evaluationInterval']) ? $data['evaluationInterval'] : null;
         $this->container['externalLabels'] = isset($data['externalLabels']) ? $data['externalLabels'] : null;
         $this->container['externalUrl'] = isset($data['externalUrl']) ? $data['externalUrl'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['imagePullSecrets'] = isset($data['imagePullSecrets']) ? $data['imagePullSecrets'] : null;
+        $this->container['initContainers'] = isset($data['initContainers']) ? $data['initContainers'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['listenLocal'] = isset($data['listenLocal']) ? $data['listenLocal'] : null;
+        $this->container['logFormat'] = isset($data['logFormat']) ? $data['logFormat'] : null;
         $this->container['logLevel'] = isset($data['logLevel']) ? $data['logLevel'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['podMetadata'] = isset($data['podMetadata']) ? $data['podMetadata'] : null;
+        $this->container['podMonitorNamespaceSelector'] = isset($data['podMonitorNamespaceSelector']) ? $data['podMonitorNamespaceSelector'] : null;
+        $this->container['podMonitorSelector'] = isset($data['podMonitorSelector']) ? $data['podMonitorSelector'] : null;
+        $this->container['portName'] = isset($data['portName']) ? $data['portName'] : null;
         $this->container['priorityClassName'] = isset($data['priorityClassName']) ? $data['priorityClassName'] : null;
         $this->container['projectId'] = isset($data['projectId']) ? $data['projectId'] : null;
+        $this->container['prometheusExternalLabelName'] = isset($data['prometheusExternalLabelName']) ? $data['prometheusExternalLabelName'] : null;
+        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
         $this->container['remoteRead'] = isset($data['remoteRead']) ? $data['remoteRead'] : null;
         $this->container['remoteWrite'] = isset($data['remoteWrite']) ? $data['remoteWrite'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
+        $this->container['replicaExternalLabelName'] = isset($data['replicaExternalLabelName']) ? $data['replicaExternalLabelName'] : null;
         $this->container['replicas'] = isset($data['replicas']) ? $data['replicas'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
         $this->container['retention'] = isset($data['retention']) ? $data['retention'] : null;
+        $this->container['retentionSize'] = isset($data['retentionSize']) ? $data['retentionSize'] : null;
         $this->container['routePrefix'] = isset($data['routePrefix']) ? $data['routePrefix'] : null;
         $this->container['ruleSelector'] = isset($data['ruleSelector']) ? $data['ruleSelector'] : null;
+        $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
         $this->container['scrapeInterval'] = isset($data['scrapeInterval']) ? $data['scrapeInterval'] : null;
         $this->container['secrets'] = isset($data['secrets']) ? $data['secrets'] : null;
         $this->container['securityContext'] = isset($data['securityContext']) ? $data['securityContext'] : null;
@@ -343,6 +425,8 @@ class PrometheusModel implements ArrayAccess
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['volumes'] = isset($data['volumes']) ? $data['volumes'] : null;
+        $this->container['walCompression'] = isset($data['walCompression']) ? $data['walCompression'] : null;
     }
 
     /**
@@ -610,6 +694,28 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets enableAdminAPI
+     * @return boolean
+     */
+    public function getEnableAdminAPI()
+    {
+        return $this->container['enableAdminAPI'];
+    }
+
+    /**
+     * Sets enableAdminAPI
+     * @param boolean $enableAdminAPI
+     * @return $this
+     */
+    public function setEnableAdminAPI($enableAdminAPI)
+    {
+        $this->container['enableAdminAPI'] = $enableAdminAPI;
+
+        return $this;
+    }
+
+
+    /**
      * Gets evaluationInterval
      * @return string
      */
@@ -676,6 +782,28 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets image
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     * @param string $image
+     * @return $this
+     */
+    public function setImage($image)
+    {
+        $this->container['image'] = $image;
+
+        return $this;
+    }
+
+
+    /**
      * Gets imagePullSecrets
      * @return \Rancher\Model\LocalObjectReferenceModel[]
      */
@@ -692,6 +820,28 @@ class PrometheusModel implements ArrayAccess
     public function setImagePullSecrets($imagePullSecrets)
     {
         $this->container['imagePullSecrets'] = $imagePullSecrets;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets initContainers
+     * @return \Rancher\Model\ContainerModel[]
+     */
+    public function getInitContainers()
+    {
+        return $this->container['initContainers'];
+    }
+
+    /**
+     * Sets initContainers
+     * @param \Rancher\Model\ContainerModel[] $initContainers
+     * @return $this
+     */
+    public function setInitContainers($initContainers)
+    {
+        $this->container['initContainers'] = $initContainers;
 
         return $this;
     }
@@ -736,6 +886,28 @@ class PrometheusModel implements ArrayAccess
     public function setListenLocal($listenLocal)
     {
         $this->container['listenLocal'] = $listenLocal;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets logFormat
+     * @return string
+     */
+    public function getLogFormat()
+    {
+        return $this->container['logFormat'];
+    }
+
+    /**
+     * Sets logFormat
+     * @param string $logFormat
+     * @return $this
+     */
+    public function setLogFormat($logFormat)
+    {
+        $this->container['logFormat'] = $logFormat;
 
         return $this;
     }
@@ -874,6 +1046,72 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets podMonitorNamespaceSelector
+     * @return \Rancher\Model\LabelSelectorModel
+     */
+    public function getPodMonitorNamespaceSelector()
+    {
+        return $this->container['podMonitorNamespaceSelector'];
+    }
+
+    /**
+     * Sets podMonitorNamespaceSelector
+     * @param \Rancher\Model\LabelSelectorModel $podMonitorNamespaceSelector
+     * @return $this
+     */
+    public function setPodMonitorNamespaceSelector($podMonitorNamespaceSelector)
+    {
+        $this->container['podMonitorNamespaceSelector'] = $podMonitorNamespaceSelector;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets podMonitorSelector
+     * @return \Rancher\Model\LabelSelectorModel
+     */
+    public function getPodMonitorSelector()
+    {
+        return $this->container['podMonitorSelector'];
+    }
+
+    /**
+     * Sets podMonitorSelector
+     * @param \Rancher\Model\LabelSelectorModel $podMonitorSelector
+     * @return $this
+     */
+    public function setPodMonitorSelector($podMonitorSelector)
+    {
+        $this->container['podMonitorSelector'] = $podMonitorSelector;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets portName
+     * @return string
+     */
+    public function getPortName()
+    {
+        return $this->container['portName'];
+    }
+
+    /**
+     * Sets portName
+     * @param string $portName
+     * @return $this
+     */
+    public function setPortName($portName)
+    {
+        $this->container['portName'] = $portName;
+
+        return $this;
+    }
+
+
+    /**
      * Gets priorityClassName
      * @return string
      */
@@ -912,6 +1150,50 @@ class PrometheusModel implements ArrayAccess
     public function setProjectId($projectId)
     {
         $this->container['projectId'] = $projectId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets prometheusExternalLabelName
+     * @return string
+     */
+    public function getPrometheusExternalLabelName()
+    {
+        return $this->container['prometheusExternalLabelName'];
+    }
+
+    /**
+     * Sets prometheusExternalLabelName
+     * @param string $prometheusExternalLabelName
+     * @return $this
+     */
+    public function setPrometheusExternalLabelName($prometheusExternalLabelName)
+    {
+        $this->container['prometheusExternalLabelName'] = $prometheusExternalLabelName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets query
+     * @return \Rancher\Model\QuerySpecModel
+     */
+    public function getQuery()
+    {
+        return $this->container['query'];
+    }
+
+    /**
+     * Sets query
+     * @param \Rancher\Model\QuerySpecModel $query
+     * @return $this
+     */
+    public function setQuery($query)
+    {
+        $this->container['query'] = $query;
 
         return $this;
     }
@@ -984,6 +1266,28 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets replicaExternalLabelName
+     * @return string
+     */
+    public function getReplicaExternalLabelName()
+    {
+        return $this->container['replicaExternalLabelName'];
+    }
+
+    /**
+     * Sets replicaExternalLabelName
+     * @param string $replicaExternalLabelName
+     * @return $this
+     */
+    public function setReplicaExternalLabelName($replicaExternalLabelName)
+    {
+        $this->container['replicaExternalLabelName'] = $replicaExternalLabelName;
+
+        return $this;
+    }
+
+
+    /**
      * Gets replicas
      * @return int
      */
@@ -1050,6 +1354,28 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets retentionSize
+     * @return string
+     */
+    public function getRetentionSize()
+    {
+        return $this->container['retentionSize'];
+    }
+
+    /**
+     * Sets retentionSize
+     * @param string $retentionSize
+     * @return $this
+     */
+    public function setRetentionSize($retentionSize)
+    {
+        $this->container['retentionSize'] = $retentionSize;
+
+        return $this;
+    }
+
+
+    /**
      * Gets routePrefix
      * @return string
      */
@@ -1088,6 +1414,28 @@ class PrometheusModel implements ArrayAccess
     public function setRuleSelector($ruleSelector)
     {
         $this->container['ruleSelector'] = $ruleSelector;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets rules
+     * @return \Rancher\Model\RulesModel
+     */
+    public function getRules()
+    {
+        return $this->container['rules'];
+    }
+
+    /**
+     * Sets rules
+     * @param \Rancher\Model\RulesModel $rules
+     * @return $this
+     */
+    public function setRules($rules)
+    {
+        $this->container['rules'] = $rules;
 
         return $this;
     }
@@ -1396,6 +1744,50 @@ class PrometheusModel implements ArrayAccess
     public function setVersion($version)
     {
         $this->container['version'] = $version;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets volumes
+     * @return \Rancher\Model\VolumeModel[]
+     */
+    public function getVolumes()
+    {
+        return $this->container['volumes'];
+    }
+
+    /**
+     * Sets volumes
+     * @param \Rancher\Model\VolumeModel[] $volumes
+     * @return $this
+     */
+    public function setVolumes($volumes)
+    {
+        $this->container['volumes'] = $volumes;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets walCompression
+     * @return boolean
+     */
+    public function getWalCompression()
+    {
+        return $this->container['walCompression'];
+    }
+
+    /**
+     * Sets walCompression
+     * @param boolean $walCompression
+     * @return $this
+     */
+    public function setWalCompression($walCompression)
+    {
+        $this->container['walCompression'] = $walCompression;
 
         return $this;
     }

@@ -85,7 +85,7 @@ class DigitaloceanconfigModel implements ArrayAccess
         'privateNetworking' => 'boolean',
         'region' => 'string',
         'size' => 'string',
-        'sshKeyContents' => 'string',
+        'sshKeyContents' => '\Rancher\Model\PasswordModel',
         'sshKeyFingerprint' => 'string',
         'sshPort' => 'string',
         'sshUser' => 'string',
@@ -338,7 +338,7 @@ class DigitaloceanconfigModel implements ArrayAccess
 
     /**
      * Gets sshKeyContents
-     * @return string
+     * @return \Rancher\Model\PasswordModel
      */
     public function getSshKeyContents()
     {
@@ -347,7 +347,7 @@ class DigitaloceanconfigModel implements ArrayAccess
 
     /**
      * Sets sshKeyContents
-     * @param string $sshKeyContents
+     * @param \Rancher\Model\PasswordModel $sshKeyContents
      * @return $this
      */
     public function setSshKeyContents($sshKeyContents)

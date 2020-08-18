@@ -39,6 +39,7 @@ class SubQuestionModel implements ArrayAccess
         'minLength',
         'options',
         'required',
+        'satisfies',
         'showIf',
         'type',
         'validChars',
@@ -67,6 +68,7 @@ class SubQuestionModel implements ArrayAccess
         'minLength',
         'options',
         'required',
+        'satisfies',
         'showIf',
         'type',
         'validChars',
@@ -90,6 +92,7 @@ class SubQuestionModel implements ArrayAccess
         'minLength' => 'int',
         'options' => 'string[]',
         'required' => 'boolean',
+        'satisfies' => 'string',
         'showIf' => 'string',
         'type' => 'string',
         'validChars' => 'string',
@@ -113,6 +116,7 @@ class SubQuestionModel implements ArrayAccess
         'minLength' => 'setMinLength',
         'options' => 'setOptions',
         'required' => 'setRequired',
+        'satisfies' => 'setSatisfies',
         'showIf' => 'setShowIf',
         'type' => 'setType',
         'validChars' => 'setValidChars',
@@ -136,6 +140,7 @@ class SubQuestionModel implements ArrayAccess
         'minLength' => 'getMinLength',
         'options' => 'getOptions',
         'required' => 'getRequired',
+        'satisfies' => 'getSatisfies',
         'showIf' => 'getShowIf',
         'type' => 'getType',
         'validChars' => 'getValidChars',
@@ -160,6 +165,7 @@ class SubQuestionModel implements ArrayAccess
         $this->container['minLength'] = isset($data['minLength']) ? $data['minLength'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['required'] = isset($data['required']) ? $data['required'] : null;
+        $this->container['satisfies'] = isset($data['satisfies']) ? $data['satisfies'] : null;
         $this->container['showIf'] = isset($data['showIf']) ? $data['showIf'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['validChars'] = isset($data['validChars']) ? $data['validChars'] : null;
@@ -403,6 +409,28 @@ class SubQuestionModel implements ArrayAccess
     public function setRequired($required)
     {
         $this->container['required'] = $required;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets satisfies
+     * @return string
+     */
+    public function getSatisfies()
+    {
+        return $this->container['satisfies'];
+    }
+
+    /**
+     * Sets satisfies
+     * @param string $satisfies
+     * @return $this
+     */
+    public function setSatisfies($satisfies)
+    {
+        $this->container['satisfies'] = $satisfies;
 
         return $this;
     }

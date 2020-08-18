@@ -41,7 +41,9 @@ class AppModel implements ArrayAccess
         'projectId',
         'prune',
         'targetNamespace',
+        'timeout',
         'valuesYaml',
+        'wait',
     ];
 
     public static function canBeCreated()
@@ -66,7 +68,9 @@ class AppModel implements ArrayAccess
         'projectId',
         'prune',
         'targetNamespace',
+        'timeout',
         'valuesYaml',
+        'wait',
     ];
 
     public static function canBeUpdated()
@@ -97,10 +101,12 @@ class AppModel implements ArrayAccess
         'removed' => '\DateTime',
         'state' => 'string',
         'targetNamespace' => 'string',
+        'timeout' => 'int',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'uuid' => 'string',
         'valuesYaml' => 'string',
+        'wait' => 'boolean',
     ];
 
     public static function typeMap()
@@ -131,10 +137,12 @@ class AppModel implements ArrayAccess
         'removed' => 'setRemoved',
         'state' => 'setState',
         'targetNamespace' => 'setTargetNamespace',
+        'timeout' => 'setTimeout',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
         'valuesYaml' => 'setValuesYaml',
+        'wait' => 'setWait',
     ];
 
     public static function setters()
@@ -165,10 +173,12 @@ class AppModel implements ArrayAccess
         'removed' => 'getRemoved',
         'state' => 'getState',
         'targetNamespace' => 'getTargetNamespace',
+        'timeout' => 'getTimeout',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
         'valuesYaml' => 'getValuesYaml',
+        'wait' => 'getWait',
     ];
 
     public static function getters()
@@ -200,10 +210,12 @@ class AppModel implements ArrayAccess
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['targetNamespace'] = isset($data['targetNamespace']) ? $data['targetNamespace'] : null;
+        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['valuesYaml'] = isset($data['valuesYaml']) ? $data['valuesYaml'] : null;
+        $this->container['wait'] = isset($data['wait']) ? $data['wait'] : null;
     }
 
     /**
@@ -691,6 +703,28 @@ class AppModel implements ArrayAccess
 
 
     /**
+     * Gets timeout
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->container['timeout'];
+    }
+
+    /**
+     * Sets timeout
+     * @param int $timeout
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
+        $this->container['timeout'] = $timeout;
+
+        return $this;
+    }
+
+
+    /**
      * Gets transitioning
      * @return string
      */
@@ -773,6 +807,28 @@ class AppModel implements ArrayAccess
     public function setValuesYaml($valuesYaml)
     {
         $this->container['valuesYaml'] = $valuesYaml;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets wait
+     * @return boolean
+     */
+    public function getWait()
+    {
+        return $this->container['wait'];
+    }
+
+    /**
+     * Sets wait
+     * @param boolean $wait
+     * @return $this
+     */
+    public function setWait($wait)
+    {
+        $this->container['wait'] = $wait;
 
         return $this;
     }

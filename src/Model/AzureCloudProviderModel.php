@@ -41,6 +41,8 @@ class AzureCloudProviderModel implements ArrayAccess
         'cloudProviderRateLimit',
         'cloudProviderRateLimitBucket',
         'cloudProviderRateLimitQPS',
+        'excludeMasterFromStandardLB',
+        'loadBalancerSku',
         'location',
         'maximumLoadBalancerRuleCount',
         'primaryAvailabilitySetName',
@@ -53,6 +55,7 @@ class AzureCloudProviderModel implements ArrayAccess
         'tenantId',
         'useInstanceMetadata',
         'useManagedIdentityExtension',
+        'userAssignedIdentityID',
         'vmType',
         'vnetName',
         'vnetResourceGroup',
@@ -82,6 +85,8 @@ class AzureCloudProviderModel implements ArrayAccess
         'cloudProviderRateLimit',
         'cloudProviderRateLimitBucket',
         'cloudProviderRateLimitQPS',
+        'excludeMasterFromStandardLB',
+        'loadBalancerSku',
         'location',
         'maximumLoadBalancerRuleCount',
         'primaryAvailabilitySetName',
@@ -94,6 +99,7 @@ class AzureCloudProviderModel implements ArrayAccess
         'tenantId',
         'useInstanceMetadata',
         'useManagedIdentityExtension',
+        'userAssignedIdentityID',
         'vmType',
         'vnetName',
         'vnetResourceGroup',
@@ -118,6 +124,8 @@ class AzureCloudProviderModel implements ArrayAccess
         'cloudProviderRateLimit' => 'boolean',
         'cloudProviderRateLimitBucket' => 'int',
         'cloudProviderRateLimitQPS' => 'int',
+        'excludeMasterFromStandardLB' => 'boolean',
+        'loadBalancerSku' => 'string',
         'location' => 'string',
         'maximumLoadBalancerRuleCount' => 'int',
         'primaryAvailabilitySetName' => 'string',
@@ -130,6 +138,7 @@ class AzureCloudProviderModel implements ArrayAccess
         'tenantId' => 'string',
         'useInstanceMetadata' => 'boolean',
         'useManagedIdentityExtension' => 'boolean',
+        'userAssignedIdentityID' => 'string',
         'vmType' => 'string',
         'vnetName' => 'string',
         'vnetResourceGroup' => 'string',
@@ -154,6 +163,8 @@ class AzureCloudProviderModel implements ArrayAccess
         'cloudProviderRateLimit' => 'setCloudProviderRateLimit',
         'cloudProviderRateLimitBucket' => 'setCloudProviderRateLimitBucket',
         'cloudProviderRateLimitQPS' => 'setCloudProviderRateLimitQPS',
+        'excludeMasterFromStandardLB' => 'setExcludeMasterFromStandardLB',
+        'loadBalancerSku' => 'setLoadBalancerSku',
         'location' => 'setLocation',
         'maximumLoadBalancerRuleCount' => 'setMaximumLoadBalancerRuleCount',
         'primaryAvailabilitySetName' => 'setPrimaryAvailabilitySetName',
@@ -166,6 +177,7 @@ class AzureCloudProviderModel implements ArrayAccess
         'tenantId' => 'setTenantId',
         'useInstanceMetadata' => 'setUseInstanceMetadata',
         'useManagedIdentityExtension' => 'setUseManagedIdentityExtension',
+        'userAssignedIdentityID' => 'setUserAssignedIdentityID',
         'vmType' => 'setVmType',
         'vnetName' => 'setVnetName',
         'vnetResourceGroup' => 'setVnetResourceGroup',
@@ -190,6 +202,8 @@ class AzureCloudProviderModel implements ArrayAccess
         'cloudProviderRateLimit' => 'getCloudProviderRateLimit',
         'cloudProviderRateLimitBucket' => 'getCloudProviderRateLimitBucket',
         'cloudProviderRateLimitQPS' => 'getCloudProviderRateLimitQPS',
+        'excludeMasterFromStandardLB' => 'getExcludeMasterFromStandardLB',
+        'loadBalancerSku' => 'getLoadBalancerSku',
         'location' => 'getLocation',
         'maximumLoadBalancerRuleCount' => 'getMaximumLoadBalancerRuleCount',
         'primaryAvailabilitySetName' => 'getPrimaryAvailabilitySetName',
@@ -202,6 +216,7 @@ class AzureCloudProviderModel implements ArrayAccess
         'tenantId' => 'getTenantId',
         'useInstanceMetadata' => 'getUseInstanceMetadata',
         'useManagedIdentityExtension' => 'getUseManagedIdentityExtension',
+        'userAssignedIdentityID' => 'getUserAssignedIdentityID',
         'vmType' => 'getVmType',
         'vnetName' => 'getVnetName',
         'vnetResourceGroup' => 'getVnetResourceGroup',
@@ -227,6 +242,8 @@ class AzureCloudProviderModel implements ArrayAccess
         $this->container['cloudProviderRateLimit'] = isset($data['cloudProviderRateLimit']) ? $data['cloudProviderRateLimit'] : null;
         $this->container['cloudProviderRateLimitBucket'] = isset($data['cloudProviderRateLimitBucket']) ? $data['cloudProviderRateLimitBucket'] : null;
         $this->container['cloudProviderRateLimitQPS'] = isset($data['cloudProviderRateLimitQPS']) ? $data['cloudProviderRateLimitQPS'] : null;
+        $this->container['excludeMasterFromStandardLB'] = isset($data['excludeMasterFromStandardLB']) ? $data['excludeMasterFromStandardLB'] : null;
+        $this->container['loadBalancerSku'] = isset($data['loadBalancerSku']) ? $data['loadBalancerSku'] : null;
         $this->container['location'] = isset($data['location']) ? $data['location'] : null;
         $this->container['maximumLoadBalancerRuleCount'] = isset($data['maximumLoadBalancerRuleCount']) ? $data['maximumLoadBalancerRuleCount'] : null;
         $this->container['primaryAvailabilitySetName'] = isset($data['primaryAvailabilitySetName']) ? $data['primaryAvailabilitySetName'] : null;
@@ -239,6 +256,7 @@ class AzureCloudProviderModel implements ArrayAccess
         $this->container['tenantId'] = isset($data['tenantId']) ? $data['tenantId'] : null;
         $this->container['useInstanceMetadata'] = isset($data['useInstanceMetadata']) ? $data['useInstanceMetadata'] : null;
         $this->container['useManagedIdentityExtension'] = isset($data['useManagedIdentityExtension']) ? $data['useManagedIdentityExtension'] : null;
+        $this->container['userAssignedIdentityID'] = isset($data['userAssignedIdentityID']) ? $data['userAssignedIdentityID'] : null;
         $this->container['vmType'] = isset($data['vmType']) ? $data['vmType'] : null;
         $this->container['vnetName'] = isset($data['vnetName']) ? $data['vnetName'] : null;
         $this->container['vnetResourceGroup'] = isset($data['vnetResourceGroup']) ? $data['vnetResourceGroup'] : null;
@@ -531,6 +549,50 @@ class AzureCloudProviderModel implements ArrayAccess
 
 
     /**
+     * Gets excludeMasterFromStandardLB
+     * @return boolean
+     */
+    public function getExcludeMasterFromStandardLB()
+    {
+        return $this->container['excludeMasterFromStandardLB'];
+    }
+
+    /**
+     * Sets excludeMasterFromStandardLB
+     * @param boolean $excludeMasterFromStandardLB
+     * @return $this
+     */
+    public function setExcludeMasterFromStandardLB($excludeMasterFromStandardLB)
+    {
+        $this->container['excludeMasterFromStandardLB'] = $excludeMasterFromStandardLB;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets loadBalancerSku
+     * @return string
+     */
+    public function getLoadBalancerSku()
+    {
+        return $this->container['loadBalancerSku'];
+    }
+
+    /**
+     * Sets loadBalancerSku
+     * @param string $loadBalancerSku
+     * @return $this
+     */
+    public function setLoadBalancerSku($loadBalancerSku)
+    {
+        $this->container['loadBalancerSku'] = $loadBalancerSku;
+
+        return $this;
+    }
+
+
+    /**
      * Gets location
      * @return string
      */
@@ -789,6 +851,28 @@ class AzureCloudProviderModel implements ArrayAccess
     public function setUseManagedIdentityExtension($useManagedIdentityExtension)
     {
         $this->container['useManagedIdentityExtension'] = $useManagedIdentityExtension;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets userAssignedIdentityID
+     * @return string
+     */
+    public function getUserAssignedIdentityID()
+    {
+        return $this->container['userAssignedIdentityID'];
+    }
+
+    /**
+     * Sets userAssignedIdentityID
+     * @param string $userAssignedIdentityID
+     * @return $this
+     */
+    public function setUserAssignedIdentityID($userAssignedIdentityID)
+    {
+        $this->container['userAssignedIdentityID'] = $userAssignedIdentityID;
 
         return $this;
     }

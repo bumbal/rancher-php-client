@@ -110,7 +110,7 @@ class PersistentVolumeModel implements ArrayAccess
         'flexVolume' => '\Rancher\Model\FlexPersistentVolumeSourceModel',
         'flocker' => '\Rancher\Model\FlockerVolumeSourceModel',
         'gcePersistentDisk' => '\Rancher\Model\GcePersistentDiskVolumeSourceModel',
-        'glusterfs' => '\Rancher\Model\GlusterfsVolumeSourceModel',
+        'glusterfs' => '\Rancher\Model\GlusterfsPersistentVolumeSourceModel',
         'hostPath' => '\Rancher\Model\HostPathVolumeSourceModel',
         'iscsi' => '\Rancher\Model\IscsiPersistentVolumeSourceModel',
         'labels' => 'map[string,string]',
@@ -668,7 +668,7 @@ class PersistentVolumeModel implements ArrayAccess
 
     /**
      * Gets glusterfs
-     * @return \Rancher\Model\GlusterfsVolumeSourceModel
+     * @return \Rancher\Model\GlusterfsPersistentVolumeSourceModel
      */
     public function getGlusterfs()
     {
@@ -677,7 +677,7 @@ class PersistentVolumeModel implements ArrayAccess
 
     /**
      * Sets glusterfs
-     * @param \Rancher\Model\GlusterfsVolumeSourceModel $glusterfs
+     * @param \Rancher\Model\GlusterfsPersistentVolumeSourceModel $glusterfs
      * @return $this
      */
     public function setGlusterfs($glusterfs)

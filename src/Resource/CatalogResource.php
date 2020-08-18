@@ -206,12 +206,12 @@ class CatalogResource
      * @param string $id
      *
      * @throws RancherException
-     * @return void
+     * @return \Rancher\Model\CatalogRefreshModel
      */
     public function refresh($id)
     {
-        $this->client->request('POST', $this->constructPath() . $id . '?action=refresh', []);
+        $response = $this->client->request('POST', $this->constructPath() . $id . '?action=refresh', []);
 
-        return;
+        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\CatalogRefreshModel');
     }
 }

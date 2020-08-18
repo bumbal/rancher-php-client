@@ -100,6 +100,34 @@ class CloudCredentialFilter extends AbstractFilter
 
 
     /**
+     * Gets id
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     * @param string $id
+     * @param string $option
+     * @return $this
+     */
+    public function setId($id, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['id'.$option] = $id;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */

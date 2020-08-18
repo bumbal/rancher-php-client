@@ -156,6 +156,34 @@ class ReplicaSetFilter extends AbstractFilter
 
 
     /**
+     * Gets enableServiceLinks
+     * @return string
+     */
+    public function getEnableServiceLinks()
+    {
+        return $this->container['enableServiceLinks'];
+    }
+
+    /**
+     * Sets enableServiceLinks
+     * @param string $enableServiceLinks
+     * @param string $option
+     * @return $this
+     */
+    public function setEnableServiceLinks($enableServiceLinks, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['enableServiceLinks'.$option] = $enableServiceLinks;
+
+        return $this;
+    }
+
+
+    /**
      * Gets fsgid
      * @return string
      */
@@ -380,56 +408,28 @@ class ReplicaSetFilter extends AbstractFilter
 
 
     /**
-     * Gets priority
+     * Gets preemptionPolicy
      * @return string
      */
-    public function getPriority()
+    public function getPreemptionPolicy()
     {
-        return $this->container['priority'];
+        return $this->container['preemptionPolicy'];
     }
 
     /**
-     * Sets priority
-     * @param string $priority
+     * Sets preemptionPolicy
+     * @param string $preemptionPolicy
      * @param string $option
      * @return $this
      */
-    public function setPriority($priority, $option = '')
+    public function setPreemptionPolicy($preemptionPolicy, $option = '')
     {
         if(!empty($option) && in_array($option, $this->allowedOptions))
         {
             $option = '_'.$option;
         }
 
-        $this->container['priority'.$option] = $priority;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets priorityClassName
-     * @return string
-     */
-    public function getPriorityClassName()
-    {
-        return $this->container['priorityClassName'];
-    }
-
-    /**
-     * Sets priorityClassName
-     * @param string $priorityClassName
-     * @param string $option
-     * @return $this
-     */
-    public function setPriorityClassName($priorityClassName, $option = '')
-    {
-        if(!empty($option) && in_array($option, $this->allowedOptions))
-        {
-            $option = '_'.$option;
-        }
-
-        $this->container['priorityClassName'.$option] = $priorityClassName;
+        $this->container['preemptionPolicy'.$option] = $preemptionPolicy;
 
         return $this;
     }
@@ -626,34 +626,6 @@ class ReplicaSetFilter extends AbstractFilter
         }
 
         $this->container['scale'.$option] = $scale;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets schedulerName
-     * @return string
-     */
-    public function getSchedulerName()
-    {
-        return $this->container['schedulerName'];
-    }
-
-    /**
-     * Sets schedulerName
-     * @param string $schedulerName
-     * @param string $option
-     * @return $this
-     */
-    public function setSchedulerName($schedulerName, $option = '')
-    {
-        if(!empty($option) && in_array($option, $this->allowedOptions))
-        {
-            $option = '_'.$option;
-        }
-
-        $this->container['schedulerName'.$option] = $schedulerName;
 
         return $this;
     }

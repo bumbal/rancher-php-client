@@ -33,7 +33,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'aadServerAppSecret',
         'aadTenantId',
         'adminUsername',
-        'agentDnsPrefix',
         'agentOsdiskSize',
         'agentPoolName',
         'agentStorageProfile',
@@ -86,7 +85,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'aadServerAppSecret',
         'aadTenantId',
         'adminUsername',
-        'agentDnsPrefix',
         'agentOsdiskSize',
         'agentPoolName',
         'agentStorageProfile',
@@ -134,7 +132,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'aadServerAppSecret' => 'string',
         'aadTenantId' => 'string',
         'adminUsername' => 'string',
-        'agentDnsPrefix' => 'string',
         'agentOsdiskSize' => 'int',
         'agentPoolName' => 'string',
         'agentStorageProfile' => 'string',
@@ -182,7 +179,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'aadServerAppSecret' => 'setAadServerAppSecret',
         'aadTenantId' => 'setAadTenantId',
         'adminUsername' => 'setAdminUsername',
-        'agentDnsPrefix' => 'setAgentDnsPrefix',
         'agentOsdiskSize' => 'setAgentOsdiskSize',
         'agentPoolName' => 'setAgentPoolName',
         'agentStorageProfile' => 'setAgentStorageProfile',
@@ -230,7 +226,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'aadServerAppSecret' => 'getAadServerAppSecret',
         'aadTenantId' => 'getAadTenantId',
         'adminUsername' => 'getAdminUsername',
-        'agentDnsPrefix' => 'getAgentDnsPrefix',
         'agentOsdiskSize' => 'getAgentOsdiskSize',
         'agentPoolName' => 'getAgentPoolName',
         'agentStorageProfile' => 'getAgentStorageProfile',
@@ -279,7 +274,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         $this->container['aadServerAppSecret'] = isset($data['aadServerAppSecret']) ? $data['aadServerAppSecret'] : null;
         $this->container['aadTenantId'] = isset($data['aadTenantId']) ? $data['aadTenantId'] : null;
         $this->container['adminUsername'] = isset($data['adminUsername']) ? $data['adminUsername'] : null;
-        $this->container['agentDnsPrefix'] = isset($data['agentDnsPrefix']) ? $data['agentDnsPrefix'] : null;
         $this->container['agentOsdiskSize'] = isset($data['agentOsdiskSize']) ? $data['agentOsdiskSize'] : null;
         $this->container['agentPoolName'] = isset($data['agentPoolName']) ? $data['agentPoolName'] : null;
         $this->container['agentStorageProfile'] = isset($data['agentStorageProfile']) ? $data['agentStorageProfile'] : null;
@@ -421,28 +415,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
     public function setAdminUsername($adminUsername)
     {
         $this->container['adminUsername'] = $adminUsername;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets agentDnsPrefix
-     * @return string
-     */
-    public function getAgentDnsPrefix()
-    {
-        return $this->container['agentDnsPrefix'];
-    }
-
-    /**
-     * Sets agentDnsPrefix
-     * @param string $agentDnsPrefix
-     * @return $this
-     */
-    public function setAgentDnsPrefix($agentDnsPrefix)
-    {
-        $this->container['agentDnsPrefix'] = $agentDnsPrefix;
 
         return $this;
     }

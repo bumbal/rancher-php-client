@@ -29,6 +29,7 @@ class MonitoringOutputModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'answers',
+        'version',
     ];
 
     public static function canBeCreated()
@@ -43,6 +44,7 @@ class MonitoringOutputModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'answers',
+        'version',
     ];
 
     public static function canBeUpdated()
@@ -52,6 +54,7 @@ class MonitoringOutputModel implements ArrayAccess
 
     protected static $typeMap = [
         'answers' => 'map[string,string]',
+        'version' => 'string',
     ];
 
     public static function typeMap()
@@ -61,6 +64,7 @@ class MonitoringOutputModel implements ArrayAccess
 
     protected static $setters = [
         'answers' => 'setAnswers',
+        'version' => 'setVersion',
     ];
 
     public static function setters()
@@ -70,6 +74,7 @@ class MonitoringOutputModel implements ArrayAccess
 
     protected static $getters = [
         'answers' => 'getAnswers',
+        'version' => 'getVersion',
     ];
 
     public static function getters()
@@ -80,6 +85,7 @@ class MonitoringOutputModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['answers'] = isset($data['answers']) ? $data['answers'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -99,6 +105,28 @@ class MonitoringOutputModel implements ArrayAccess
     public function setAnswers($answers)
     {
         $this->container['answers'] = $answers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets version
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     * @param string $version
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
 
         return $this;
     }

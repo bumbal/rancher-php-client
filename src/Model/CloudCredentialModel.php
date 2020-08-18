@@ -55,6 +55,7 @@ class CloudCredentialModel implements ArrayAccess
         'description',
         'digitaloceancredentialConfig',
         'labels',
+        'name',
         'vmwarevspherecredentialConfig',
     ];
 
@@ -71,6 +72,7 @@ class CloudCredentialModel implements ArrayAccess
         'creatorId' => 'string',
         'description' => 'string',
         'digitaloceancredentialConfig' => '\Rancher\Model\DigitaloceancredentialconfigModel',
+        'id' => 'string',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
@@ -92,6 +94,7 @@ class CloudCredentialModel implements ArrayAccess
         'creatorId' => 'setCreatorId',
         'description' => 'setDescription',
         'digitaloceancredentialConfig' => 'setDigitaloceancredentialConfig',
+        'id' => 'setId',
         'labels' => 'setLabels',
         'name' => 'setName',
         'ownerReferences' => 'setOwnerReferences',
@@ -113,6 +116,7 @@ class CloudCredentialModel implements ArrayAccess
         'creatorId' => 'getCreatorId',
         'description' => 'getDescription',
         'digitaloceancredentialConfig' => 'getDigitaloceancredentialConfig',
+        'id' => 'getId',
         'labels' => 'getLabels',
         'name' => 'getName',
         'ownerReferences' => 'getOwnerReferences',
@@ -135,6 +139,7 @@ class CloudCredentialModel implements ArrayAccess
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['digitaloceancredentialConfig'] = isset($data['digitaloceancredentialConfig']) ? $data['digitaloceancredentialConfig'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
@@ -292,6 +297,28 @@ class CloudCredentialModel implements ArrayAccess
     public function setDigitaloceancredentialConfig($digitaloceancredentialConfig)
     {
         $this->container['digitaloceancredentialConfig'] = $digitaloceancredentialConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets id
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     * @param string $id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class NodeModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'amazonec2Config',
+        'annotations',
         'azureConfig',
         'clusterId',
         'controlPlane',
@@ -57,6 +58,7 @@ class NodeModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'annotations',
         'customConfig',
         'description',
         'imported',
@@ -102,11 +104,12 @@ class NodeModel implements ArrayAccess
         'nodeTemplateId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'podCidr' => 'string',
+        'podCidrs' => 'string[]',
         'providerId' => 'string',
         'publicEndpoints' => '\Rancher\Model\PublicEndpointModel[]',
         'removed' => '\DateTime',
         'requested' => 'map[string,string]',
-        'requestedHostname' => '\Rancher\Model\HostnameModel',
+        'requestedHostname' => 'string',
         'sshUser' => 'string',
         'state' => 'string',
         'taints' => '\Rancher\Model\TaintModel[]',
@@ -157,6 +160,7 @@ class NodeModel implements ArrayAccess
         'nodeTemplateId' => 'setNodeTemplateId',
         'ownerReferences' => 'setOwnerReferences',
         'podCidr' => 'setPodCidr',
+        'podCidrs' => 'setPodCidrs',
         'providerId' => 'setProviderId',
         'publicEndpoints' => 'setPublicEndpoints',
         'removed' => 'setRemoved',
@@ -212,6 +216,7 @@ class NodeModel implements ArrayAccess
         'nodeTemplateId' => 'getNodeTemplateId',
         'ownerReferences' => 'getOwnerReferences',
         'podCidr' => 'getPodCidr',
+        'podCidrs' => 'getPodCidrs',
         'providerId' => 'getProviderId',
         'publicEndpoints' => 'getPublicEndpoints',
         'removed' => 'getRemoved',
@@ -268,6 +273,7 @@ class NodeModel implements ArrayAccess
         $this->container['nodeTemplateId'] = isset($data['nodeTemplateId']) ? $data['nodeTemplateId'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['podCidr'] = isset($data['podCidr']) ? $data['podCidr'] : null;
+        $this->container['podCidrs'] = isset($data['podCidrs']) ? $data['podCidrs'] : null;
         $this->container['providerId'] = isset($data['providerId']) ? $data['providerId'] : null;
         $this->container['publicEndpoints'] = isset($data['publicEndpoints']) ? $data['publicEndpoints'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
@@ -969,6 +975,28 @@ class NodeModel implements ArrayAccess
 
 
     /**
+     * Gets podCidrs
+     * @return string[]
+     */
+    public function getPodCidrs()
+    {
+        return $this->container['podCidrs'];
+    }
+
+    /**
+     * Sets podCidrs
+     * @param string[] $podCidrs
+     * @return $this
+     */
+    public function setPodCidrs($podCidrs)
+    {
+        $this->container['podCidrs'] = $podCidrs;
+
+        return $this;
+    }
+
+
+    /**
      * Gets providerId
      * @return string
      */
@@ -1058,7 +1086,7 @@ class NodeModel implements ArrayAccess
 
     /**
      * Gets requestedHostname
-     * @return \Rancher\Model\HostnameModel
+     * @return string
      */
     public function getRequestedHostname()
     {
@@ -1067,7 +1095,7 @@ class NodeModel implements ArrayAccess
 
     /**
      * Sets requestedHostname
-     * @param \Rancher\Model\HostnameModel $requestedHostname
+     * @param string $requestedHostname
      * @return $this
      */
     public function setRequestedHostname($requestedHostname)

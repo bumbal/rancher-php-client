@@ -31,6 +31,7 @@ class DnsConfigModel implements ArrayAccess
         'nodeSelector',
         'provider',
         'reversecidrs',
+        'stubdomains',
         'upstreamnameservers',
     ];
 
@@ -48,6 +49,7 @@ class DnsConfigModel implements ArrayAccess
         'nodeSelector',
         'provider',
         'reversecidrs',
+        'stubdomains',
         'upstreamnameservers',
     ];
 
@@ -60,6 +62,7 @@ class DnsConfigModel implements ArrayAccess
         'nodeSelector' => 'map[string,string]',
         'provider' => 'string',
         'reversecidrs' => 'string[]',
+        'stubdomains' => 'map[string,\Rancher\Model\Array[string]Model]',
         'upstreamnameservers' => 'string[]',
     ];
 
@@ -72,6 +75,7 @@ class DnsConfigModel implements ArrayAccess
         'nodeSelector' => 'setNodeSelector',
         'provider' => 'setProvider',
         'reversecidrs' => 'setReversecidrs',
+        'stubdomains' => 'setStubdomains',
         'upstreamnameservers' => 'setUpstreamnameservers',
     ];
 
@@ -84,6 +88,7 @@ class DnsConfigModel implements ArrayAccess
         'nodeSelector' => 'getNodeSelector',
         'provider' => 'getProvider',
         'reversecidrs' => 'getReversecidrs',
+        'stubdomains' => 'getStubdomains',
         'upstreamnameservers' => 'getUpstreamnameservers',
     ];
 
@@ -97,6 +102,7 @@ class DnsConfigModel implements ArrayAccess
         $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['reversecidrs'] = isset($data['reversecidrs']) ? $data['reversecidrs'] : null;
+        $this->container['stubdomains'] = isset($data['stubdomains']) ? $data['stubdomains'] : null;
         $this->container['upstreamnameservers'] = isset($data['upstreamnameservers']) ? $data['upstreamnameservers'] : null;
     }
 
@@ -161,6 +167,28 @@ class DnsConfigModel implements ArrayAccess
     public function setReversecidrs($reversecidrs)
     {
         $this->container['reversecidrs'] = $reversecidrs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets stubdomains
+     * @return \Rancher\Model\Array[string]Model[]
+     */
+    public function getStubdomains()
+    {
+        return $this->container['stubdomains'];
+    }
+
+    /**
+     * Sets stubdomains
+     * @param \Rancher\Model\Array[string]Model[] $stubdomains
+     * @return $this
+     */
+    public function setStubdomains($stubdomains)
+    {
+        $this->container['stubdomains'] = $stubdomains;
 
         return $this;
     }

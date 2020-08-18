@@ -31,6 +31,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         'accessKey',
         'ami',
         'associateWorkerNodePublicIp',
+        'desiredNodes',
         'displayName',
         'driverName',
         'instanceType',
@@ -63,6 +64,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         'accessKey',
         'ami',
         'associateWorkerNodePublicIp',
+        'desiredNodes',
         'displayName',
         'driverName',
         'instanceType',
@@ -90,6 +92,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         'accessKey' => 'string',
         'ami' => 'string',
         'associateWorkerNodePublicIp' => 'boolean',
+        'desiredNodes' => 'int',
         'displayName' => 'string',
         'driverName' => 'string',
         'instanceType' => 'string',
@@ -117,6 +120,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         'accessKey' => 'setAccessKey',
         'ami' => 'setAmi',
         'associateWorkerNodePublicIp' => 'setAssociateWorkerNodePublicIp',
+        'desiredNodes' => 'setDesiredNodes',
         'displayName' => 'setDisplayName',
         'driverName' => 'setDriverName',
         'instanceType' => 'setInstanceType',
@@ -144,6 +148,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         'accessKey' => 'getAccessKey',
         'ami' => 'getAmi',
         'associateWorkerNodePublicIp' => 'getAssociateWorkerNodePublicIp',
+        'desiredNodes' => 'getDesiredNodes',
         'displayName' => 'getDisplayName',
         'driverName' => 'getDriverName',
         'instanceType' => 'getInstanceType',
@@ -172,6 +177,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         $this->container['accessKey'] = isset($data['accessKey']) ? $data['accessKey'] : null;
         $this->container['ami'] = isset($data['ami']) ? $data['ami'] : null;
         $this->container['associateWorkerNodePublicIp'] = isset($data['associateWorkerNodePublicIp']) ? $data['associateWorkerNodePublicIp'] : null;
+        $this->container['desiredNodes'] = isset($data['desiredNodes']) ? $data['desiredNodes'] : null;
         $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
         $this->container['driverName'] = isset($data['driverName']) ? $data['driverName'] : null;
         $this->container['instanceType'] = isset($data['instanceType']) ? $data['instanceType'] : null;
@@ -251,6 +257,28 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
     public function setAssociateWorkerNodePublicIp($associateWorkerNodePublicIp)
     {
         $this->container['associateWorkerNodePublicIp'] = $associateWorkerNodePublicIp;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets desiredNodes
+     * @return int
+     */
+    public function getDesiredNodes()
+    {
+        return $this->container['desiredNodes'];
+    }
+
+    /**
+     * Sets desiredNodes
+     * @param int $desiredNodes
+     * @return $this
+     */
+    public function setDesiredNodes($desiredNodes)
+    {
+        $this->container['desiredNodes'] = $desiredNodes;
 
         return $this;
     }

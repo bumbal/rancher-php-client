@@ -32,6 +32,7 @@ class BackupConfigModel implements ArrayAccess
         'intervalHours',
         'retention',
         's3BackupConfig',
+        'safeTimestamp',
     ];
 
     public static function canBeCreated()
@@ -49,6 +50,7 @@ class BackupConfigModel implements ArrayAccess
         'intervalHours',
         'retention',
         's3BackupConfig',
+        'safeTimestamp',
     ];
 
     public static function canBeUpdated()
@@ -61,6 +63,7 @@ class BackupConfigModel implements ArrayAccess
         'intervalHours' => 'int',
         'retention' => 'int',
         's3BackupConfig' => '\Rancher\Model\S3BackupConfigModel',
+        'safeTimestamp' => 'boolean',
     ];
 
     public static function typeMap()
@@ -73,6 +76,7 @@ class BackupConfigModel implements ArrayAccess
         'intervalHours' => 'setIntervalHours',
         'retention' => 'setRetention',
         's3BackupConfig' => 'setS3BackupConfig',
+        'safeTimestamp' => 'setSafeTimestamp',
     ];
 
     public static function setters()
@@ -85,6 +89,7 @@ class BackupConfigModel implements ArrayAccess
         'intervalHours' => 'getIntervalHours',
         'retention' => 'getRetention',
         's3BackupConfig' => 'getS3BackupConfig',
+        'safeTimestamp' => 'getSafeTimestamp',
     ];
 
     public static function getters()
@@ -98,6 +103,7 @@ class BackupConfigModel implements ArrayAccess
         $this->container['intervalHours'] = isset($data['intervalHours']) ? $data['intervalHours'] : null;
         $this->container['retention'] = isset($data['retention']) ? $data['retention'] : null;
         $this->container['s3BackupConfig'] = isset($data['s3BackupConfig']) ? $data['s3BackupConfig'] : null;
+        $this->container['safeTimestamp'] = isset($data['safeTimestamp']) ? $data['safeTimestamp'] : null;
     }
 
     /**
@@ -183,6 +189,28 @@ class BackupConfigModel implements ArrayAccess
     public function setS3BackupConfig($s3BackupConfig)
     {
         $this->container['s3BackupConfig'] = $s3BackupConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets safeTimestamp
+     * @return boolean
+     */
+    public function getSafeTimestamp()
+    {
+        return $this->container['safeTimestamp'];
+    }
+
+    /**
+     * Sets safeTimestamp
+     * @param boolean $safeTimestamp
+     * @return $this
+     */
+    public function setSafeTimestamp($safeTimestamp)
+    {
+        $this->container['safeTimestamp'] = $safeTimestamp;
 
         return $this;
     }

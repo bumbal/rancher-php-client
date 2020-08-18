@@ -32,11 +32,14 @@ class AzureconfigModel implements ArrayAccess
         'clientId',
         'clientSecret',
         'customData',
+        'diskSize',
         'dns',
         'dockerPort',
         'environment',
+        'faultDomainCount',
         'image',
         'location',
+        'managedDisks',
         'noPublicIp',
         'openPort',
         'privateIpAddress',
@@ -48,6 +51,7 @@ class AzureconfigModel implements ArrayAccess
         'subnet',
         'subnetPrefix',
         'subscriptionId',
+        'updateDomainCount',
         'usePrivateIp',
         'vnet',
     ];
@@ -67,11 +71,14 @@ class AzureconfigModel implements ArrayAccess
         'clientId',
         'clientSecret',
         'customData',
+        'diskSize',
         'dns',
         'dockerPort',
         'environment',
+        'faultDomainCount',
         'image',
         'location',
+        'managedDisks',
         'noPublicIp',
         'openPort',
         'privateIpAddress',
@@ -83,6 +90,7 @@ class AzureconfigModel implements ArrayAccess
         'subnet',
         'subnetPrefix',
         'subscriptionId',
+        'updateDomainCount',
         'usePrivateIp',
         'vnet',
     ];
@@ -97,11 +105,14 @@ class AzureconfigModel implements ArrayAccess
         'clientId' => 'string',
         'clientSecret' => '\Rancher\Model\PasswordModel',
         'customData' => 'string',
+        'diskSize' => 'string',
         'dns' => 'string',
         'dockerPort' => 'string',
         'environment' => 'string',
+        'faultDomainCount' => 'string',
         'image' => 'string',
         'location' => 'string',
+        'managedDisks' => 'boolean',
         'noPublicIp' => 'boolean',
         'openPort' => 'string[]',
         'privateIpAddress' => 'string',
@@ -113,6 +124,7 @@ class AzureconfigModel implements ArrayAccess
         'subnet' => 'string',
         'subnetPrefix' => 'string',
         'subscriptionId' => 'string',
+        'updateDomainCount' => 'string',
         'usePrivateIp' => 'boolean',
         'vnet' => 'string',
     ];
@@ -127,11 +139,14 @@ class AzureconfigModel implements ArrayAccess
         'clientId' => 'setClientId',
         'clientSecret' => 'setClientSecret',
         'customData' => 'setCustomData',
+        'diskSize' => 'setDiskSize',
         'dns' => 'setDns',
         'dockerPort' => 'setDockerPort',
         'environment' => 'setEnvironment',
+        'faultDomainCount' => 'setFaultDomainCount',
         'image' => 'setImage',
         'location' => 'setLocation',
+        'managedDisks' => 'setManagedDisks',
         'noPublicIp' => 'setNoPublicIp',
         'openPort' => 'setOpenPort',
         'privateIpAddress' => 'setPrivateIpAddress',
@@ -143,6 +158,7 @@ class AzureconfigModel implements ArrayAccess
         'subnet' => 'setSubnet',
         'subnetPrefix' => 'setSubnetPrefix',
         'subscriptionId' => 'setSubscriptionId',
+        'updateDomainCount' => 'setUpdateDomainCount',
         'usePrivateIp' => 'setUsePrivateIp',
         'vnet' => 'setVnet',
     ];
@@ -157,11 +173,14 @@ class AzureconfigModel implements ArrayAccess
         'clientId' => 'getClientId',
         'clientSecret' => 'getClientSecret',
         'customData' => 'getCustomData',
+        'diskSize' => 'getDiskSize',
         'dns' => 'getDns',
         'dockerPort' => 'getDockerPort',
         'environment' => 'getEnvironment',
+        'faultDomainCount' => 'getFaultDomainCount',
         'image' => 'getImage',
         'location' => 'getLocation',
+        'managedDisks' => 'getManagedDisks',
         'noPublicIp' => 'getNoPublicIp',
         'openPort' => 'getOpenPort',
         'privateIpAddress' => 'getPrivateIpAddress',
@@ -173,6 +192,7 @@ class AzureconfigModel implements ArrayAccess
         'subnet' => 'getSubnet',
         'subnetPrefix' => 'getSubnetPrefix',
         'subscriptionId' => 'getSubscriptionId',
+        'updateDomainCount' => 'getUpdateDomainCount',
         'usePrivateIp' => 'getUsePrivateIp',
         'vnet' => 'getVnet',
     ];
@@ -188,11 +208,14 @@ class AzureconfigModel implements ArrayAccess
         $this->container['clientId'] = isset($data['clientId']) ? $data['clientId'] : null;
         $this->container['clientSecret'] = isset($data['clientSecret']) ? $data['clientSecret'] : null;
         $this->container['customData'] = isset($data['customData']) ? $data['customData'] : null;
+        $this->container['diskSize'] = isset($data['diskSize']) ? $data['diskSize'] : null;
         $this->container['dns'] = isset($data['dns']) ? $data['dns'] : null;
         $this->container['dockerPort'] = isset($data['dockerPort']) ? $data['dockerPort'] : null;
         $this->container['environment'] = isset($data['environment']) ? $data['environment'] : null;
+        $this->container['faultDomainCount'] = isset($data['faultDomainCount']) ? $data['faultDomainCount'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['location'] = isset($data['location']) ? $data['location'] : null;
+        $this->container['managedDisks'] = isset($data['managedDisks']) ? $data['managedDisks'] : null;
         $this->container['noPublicIp'] = isset($data['noPublicIp']) ? $data['noPublicIp'] : null;
         $this->container['openPort'] = isset($data['openPort']) ? $data['openPort'] : null;
         $this->container['privateIpAddress'] = isset($data['privateIpAddress']) ? $data['privateIpAddress'] : null;
@@ -204,6 +227,7 @@ class AzureconfigModel implements ArrayAccess
         $this->container['subnet'] = isset($data['subnet']) ? $data['subnet'] : null;
         $this->container['subnetPrefix'] = isset($data['subnetPrefix']) ? $data['subnetPrefix'] : null;
         $this->container['subscriptionId'] = isset($data['subscriptionId']) ? $data['subscriptionId'] : null;
+        $this->container['updateDomainCount'] = isset($data['updateDomainCount']) ? $data['updateDomainCount'] : null;
         $this->container['usePrivateIp'] = isset($data['usePrivateIp']) ? $data['usePrivateIp'] : null;
         $this->container['vnet'] = isset($data['vnet']) ? $data['vnet'] : null;
     }
@@ -297,6 +321,28 @@ class AzureconfigModel implements ArrayAccess
 
 
     /**
+     * Gets diskSize
+     * @return string
+     */
+    public function getDiskSize()
+    {
+        return $this->container['diskSize'];
+    }
+
+    /**
+     * Sets diskSize
+     * @param string $diskSize
+     * @return $this
+     */
+    public function setDiskSize($diskSize)
+    {
+        $this->container['diskSize'] = $diskSize;
+
+        return $this;
+    }
+
+
+    /**
      * Gets dns
      * @return string
      */
@@ -363,6 +409,28 @@ class AzureconfigModel implements ArrayAccess
 
 
     /**
+     * Gets faultDomainCount
+     * @return string
+     */
+    public function getFaultDomainCount()
+    {
+        return $this->container['faultDomainCount'];
+    }
+
+    /**
+     * Sets faultDomainCount
+     * @param string $faultDomainCount
+     * @return $this
+     */
+    public function setFaultDomainCount($faultDomainCount)
+    {
+        $this->container['faultDomainCount'] = $faultDomainCount;
+
+        return $this;
+    }
+
+
+    /**
      * Gets image
      * @return string
      */
@@ -401,6 +469,28 @@ class AzureconfigModel implements ArrayAccess
     public function setLocation($location)
     {
         $this->container['location'] = $location;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets managedDisks
+     * @return boolean
+     */
+    public function getManagedDisks()
+    {
+        return $this->container['managedDisks'];
+    }
+
+    /**
+     * Sets managedDisks
+     * @param boolean $managedDisks
+     * @return $this
+     */
+    public function setManagedDisks($managedDisks)
+    {
+        $this->container['managedDisks'] = $managedDisks;
 
         return $this;
     }
@@ -643,6 +733,28 @@ class AzureconfigModel implements ArrayAccess
     public function setSubscriptionId($subscriptionId)
     {
         $this->container['subscriptionId'] = $subscriptionId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets updateDomainCount
+     * @return string
+     */
+    public function getUpdateDomainCount()
+    {
+        return $this->container['updateDomainCount'];
+    }
+
+    /**
+     * Sets updateDomainCount
+     * @param string $updateDomainCount
+     * @return $this
+     */
+    public function setUpdateDomainCount($updateDomainCount)
+    {
+        $this->container['updateDomainCount'] = $updateDomainCount;
 
         return $this;
     }

@@ -68,7 +68,7 @@ class GlobalDnsModel implements ArrayAccess
         'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
-        'fqdn' => '\Rancher\Model\HostnameModel',
+        'fqdn' => 'string',
         'labels' => 'map[string,string]',
         'members' => '\Rancher\Model\MemberModel[]',
         'multiClusterAppId' => 'string',
@@ -232,7 +232,7 @@ class GlobalDnsModel implements ArrayAccess
 
     /**
      * Gets fqdn
-     * @return \Rancher\Model\HostnameModel
+     * @return string
      */
     public function getFqdn()
     {
@@ -241,7 +241,7 @@ class GlobalDnsModel implements ArrayAccess
 
     /**
      * Sets fqdn
-     * @param \Rancher\Model\HostnameModel $fqdn
+     * @param string $fqdn
      * @return $this
      */
     public function setFqdn($fqdn)

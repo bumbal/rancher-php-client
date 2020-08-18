@@ -436,6 +436,34 @@ class AppFilter extends AbstractFilter
 
 
     /**
+     * Gets timeout
+     * @return string
+     */
+    public function getTimeout()
+    {
+        return $this->container['timeout'];
+    }
+
+    /**
+     * Sets timeout
+     * @param string $timeout
+     * @param string $option
+     * @return $this
+     */
+    public function setTimeout($timeout, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['timeout'.$option] = $timeout;
+
+        return $this;
+    }
+
+
+    /**
      * Gets transitioning
      * @return string
      */
@@ -542,6 +570,34 @@ class AppFilter extends AbstractFilter
         }
 
         $this->container['valuesYaml'.$option] = $valuesYaml;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets wait
+     * @return string
+     */
+    public function getWait()
+    {
+        return $this->container['wait'];
+    }
+
+    /**
+     * Sets wait
+     * @param string $wait
+     * @param string $option
+     * @return $this
+     */
+    public function setWait($wait, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['wait'.$option] = $wait;
 
         return $this;
     }

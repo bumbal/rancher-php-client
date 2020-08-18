@@ -212,6 +212,62 @@ class TemplateVersionFilter extends AbstractFilter
 
 
     /**
+     * Gets rancherMaxVersion
+     * @return string
+     */
+    public function getRancherMaxVersion()
+    {
+        return $this->container['rancherMaxVersion'];
+    }
+
+    /**
+     * Sets rancherMaxVersion
+     * @param string $rancherMaxVersion
+     * @param string $option
+     * @return $this
+     */
+    public function setRancherMaxVersion($rancherMaxVersion, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['rancherMaxVersion'.$option] = $rancherMaxVersion;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets rancherMinVersion
+     * @return string
+     */
+    public function getRancherMinVersion()
+    {
+        return $this->container['rancherMinVersion'];
+    }
+
+    /**
+     * Sets rancherMinVersion
+     * @param string $rancherMinVersion
+     * @param string $option
+     * @return $this
+     */
+    public function setRancherMinVersion($rancherMinVersion, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['rancherMinVersion'.$option] = $rancherMinVersion;
+
+        return $this;
+    }
+
+
+    /**
      * Gets rancherVersion
      * @return string
      */

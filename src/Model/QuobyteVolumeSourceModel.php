@@ -31,6 +31,7 @@ class QuobyteVolumeSourceModel implements ArrayAccess
         'group',
         'readOnly',
         'registry',
+        'tenant',
         'user',
         'volume',
     ];
@@ -49,6 +50,7 @@ class QuobyteVolumeSourceModel implements ArrayAccess
         'group',
         'readOnly',
         'registry',
+        'tenant',
         'user',
         'volume',
     ];
@@ -62,6 +64,7 @@ class QuobyteVolumeSourceModel implements ArrayAccess
         'group' => 'string',
         'readOnly' => 'boolean',
         'registry' => 'string',
+        'tenant' => 'string',
         'user' => 'string',
         'volume' => 'string',
     ];
@@ -75,6 +78,7 @@ class QuobyteVolumeSourceModel implements ArrayAccess
         'group' => 'setGroup',
         'readOnly' => 'setReadOnly',
         'registry' => 'setRegistry',
+        'tenant' => 'setTenant',
         'user' => 'setUser',
         'volume' => 'setVolume',
     ];
@@ -88,6 +92,7 @@ class QuobyteVolumeSourceModel implements ArrayAccess
         'group' => 'getGroup',
         'readOnly' => 'getReadOnly',
         'registry' => 'getRegistry',
+        'tenant' => 'getTenant',
         'user' => 'getUser',
         'volume' => 'getVolume',
     ];
@@ -102,6 +107,7 @@ class QuobyteVolumeSourceModel implements ArrayAccess
         $this->container['group'] = isset($data['group']) ? $data['group'] : null;
         $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
         $this->container['registry'] = isset($data['registry']) ? $data['registry'] : null;
+        $this->container['tenant'] = isset($data['tenant']) ? $data['tenant'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
     }
@@ -167,6 +173,28 @@ class QuobyteVolumeSourceModel implements ArrayAccess
     public function setRegistry($registry)
     {
         $this->container['registry'] = $registry;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets tenant
+     * @return string
+     */
+    public function getTenant()
+    {
+        return $this->container['tenant'];
+    }
+
+    /**
+     * Sets tenant
+     * @param string $tenant
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->container['tenant'] = $tenant;
 
         return $this;
     }

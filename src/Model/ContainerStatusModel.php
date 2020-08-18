@@ -35,6 +35,7 @@ class ContainerStatusModel implements ArrayAccess
         'name',
         'ready',
         'restartCount',
+        'started',
         'state',
     ];
 
@@ -56,6 +57,7 @@ class ContainerStatusModel implements ArrayAccess
         'name',
         'ready',
         'restartCount',
+        'started',
         'state',
     ];
 
@@ -72,6 +74,7 @@ class ContainerStatusModel implements ArrayAccess
         'name' => 'string',
         'ready' => 'boolean',
         'restartCount' => 'int',
+        'started' => 'boolean',
         'state' => '\Rancher\Model\ContainerStateModel',
     ];
 
@@ -88,6 +91,7 @@ class ContainerStatusModel implements ArrayAccess
         'name' => 'setName',
         'ready' => 'setReady',
         'restartCount' => 'setRestartCount',
+        'started' => 'setStarted',
         'state' => 'setState',
     ];
 
@@ -104,6 +108,7 @@ class ContainerStatusModel implements ArrayAccess
         'name' => 'getName',
         'ready' => 'getReady',
         'restartCount' => 'getRestartCount',
+        'started' => 'getStarted',
         'state' => 'getState',
     ];
 
@@ -121,6 +126,7 @@ class ContainerStatusModel implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ready'] = isset($data['ready']) ? $data['ready'] : null;
         $this->container['restartCount'] = isset($data['restartCount']) ? $data['restartCount'] : null;
+        $this->container['started'] = isset($data['started']) ? $data['started'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
     }
 
@@ -273,6 +279,28 @@ class ContainerStatusModel implements ArrayAccess
     public function setRestartCount($restartCount)
     {
         $this->container['restartCount'] = $restartCount;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets started
+     * @return boolean
+     */
+    public function getStarted()
+    {
+        return $this->container['started'];
+    }
+
+    /**
+     * Sets started
+     * @param boolean $started
+     * @return $this
+     */
+    public function setStarted($started)
+    {
+        $this->container['started'] = $started;
 
         return $this;
     }

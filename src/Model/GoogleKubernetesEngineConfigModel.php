@@ -77,6 +77,7 @@ class GoogleKubernetesEngineConfigModel implements ArrayAccess
         'oauthScopes',
         'preemptible',
         'projectId',
+        'region',
         'resourceLabels',
         'serviceAccount',
         'subNetwork',
@@ -145,6 +146,7 @@ class GoogleKubernetesEngineConfigModel implements ArrayAccess
         'oauthScopes',
         'preemptible',
         'projectId',
+        'region',
         'resourceLabels',
         'serviceAccount',
         'subNetwork',
@@ -208,6 +210,7 @@ class GoogleKubernetesEngineConfigModel implements ArrayAccess
         'oauthScopes' => 'string[]',
         'preemptible' => 'boolean',
         'projectId' => 'string',
+        'region' => 'string',
         'resourceLabels' => 'string[]',
         'serviceAccount' => 'string',
         'subNetwork' => 'string',
@@ -271,6 +274,7 @@ class GoogleKubernetesEngineConfigModel implements ArrayAccess
         'oauthScopes' => 'setOauthScopes',
         'preemptible' => 'setPreemptible',
         'projectId' => 'setProjectId',
+        'region' => 'setRegion',
         'resourceLabels' => 'setResourceLabels',
         'serviceAccount' => 'setServiceAccount',
         'subNetwork' => 'setSubNetwork',
@@ -334,6 +338,7 @@ class GoogleKubernetesEngineConfigModel implements ArrayAccess
         'oauthScopes' => 'getOauthScopes',
         'preemptible' => 'getPreemptible',
         'projectId' => 'getProjectId',
+        'region' => 'getRegion',
         'resourceLabels' => 'getResourceLabels',
         'serviceAccount' => 'getServiceAccount',
         'subNetwork' => 'getSubNetwork',
@@ -398,6 +403,7 @@ class GoogleKubernetesEngineConfigModel implements ArrayAccess
         $this->container['oauthScopes'] = isset($data['oauthScopes']) ? $data['oauthScopes'] : null;
         $this->container['preemptible'] = isset($data['preemptible']) ? $data['preemptible'] : null;
         $this->container['projectId'] = isset($data['projectId']) ? $data['projectId'] : null;
+        $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['resourceLabels'] = isset($data['resourceLabels']) ? $data['resourceLabels'] : null;
         $this->container['serviceAccount'] = isset($data['serviceAccount']) ? $data['serviceAccount'] : null;
         $this->container['subNetwork'] = isset($data['subNetwork']) ? $data['subNetwork'] : null;
@@ -1479,6 +1485,28 @@ class GoogleKubernetesEngineConfigModel implements ArrayAccess
     public function setProjectId($projectId)
     {
         $this->container['projectId'] = $projectId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets region
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     * @param string $region
+     * @return $this
+     */
+    public function setRegion($region)
+    {
+        $this->container['region'] = $region;
 
         return $this;
     }

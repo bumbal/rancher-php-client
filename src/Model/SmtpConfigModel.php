@@ -64,7 +64,7 @@ class SmtpConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'defaultRecipient' => 'string',
-        'host' => '\Rancher\Model\HostnameModel',
+        'host' => 'string',
         'password' => 'string',
         'port' => 'int',
         'sender' => 'string',
@@ -142,7 +142,7 @@ class SmtpConfigModel implements ArrayAccess
 
     /**
      * Gets host
-     * @return \Rancher\Model\HostnameModel
+     * @return string
      */
     public function getHost()
     {
@@ -151,7 +151,7 @@ class SmtpConfigModel implements ArrayAccess
 
     /**
      * Sets host
-     * @param \Rancher\Model\HostnameModel $host
+     * @param string $host
      * @return $this
      */
     public function setHost($host)

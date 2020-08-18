@@ -51,11 +51,13 @@ class PodStatusModel implements ArrayAccess
     protected static $typeMap = [
         'conditions' => '\Rancher\Model\PodConditionModel[]',
         'containerStatuses' => '\Rancher\Model\ContainerStatusModel[]',
+        'ephemeralContainerStatuses' => '\Rancher\Model\ContainerStatusModel[]',
         'initContainerStatuses' => '\Rancher\Model\ContainerStatusModel[]',
         'message' => 'string',
         'nodeIp' => 'string',
         'nominatedNodeName' => 'string',
         'phase' => 'string',
+        'podIPs' => '\Rancher\Model\PodIPModel[]',
         'podIp' => 'string',
         'qosClass' => 'string',
         'reason' => 'string',
@@ -70,11 +72,13 @@ class PodStatusModel implements ArrayAccess
     protected static $setters = [
         'conditions' => 'setConditions',
         'containerStatuses' => 'setContainerStatuses',
+        'ephemeralContainerStatuses' => 'setEphemeralContainerStatuses',
         'initContainerStatuses' => 'setInitContainerStatuses',
         'message' => 'setMessage',
         'nodeIp' => 'setNodeIp',
         'nominatedNodeName' => 'setNominatedNodeName',
         'phase' => 'setPhase',
+        'podIPs' => 'setPodIPs',
         'podIp' => 'setPodIp',
         'qosClass' => 'setQosClass',
         'reason' => 'setReason',
@@ -89,11 +93,13 @@ class PodStatusModel implements ArrayAccess
     protected static $getters = [
         'conditions' => 'getConditions',
         'containerStatuses' => 'getContainerStatuses',
+        'ephemeralContainerStatuses' => 'getEphemeralContainerStatuses',
         'initContainerStatuses' => 'getInitContainerStatuses',
         'message' => 'getMessage',
         'nodeIp' => 'getNodeIp',
         'nominatedNodeName' => 'getNominatedNodeName',
         'phase' => 'getPhase',
+        'podIPs' => 'getPodIPs',
         'podIp' => 'getPodIp',
         'qosClass' => 'getQosClass',
         'reason' => 'getReason',
@@ -109,11 +115,13 @@ class PodStatusModel implements ArrayAccess
     {
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['containerStatuses'] = isset($data['containerStatuses']) ? $data['containerStatuses'] : null;
+        $this->container['ephemeralContainerStatuses'] = isset($data['ephemeralContainerStatuses']) ? $data['ephemeralContainerStatuses'] : null;
         $this->container['initContainerStatuses'] = isset($data['initContainerStatuses']) ? $data['initContainerStatuses'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['nodeIp'] = isset($data['nodeIp']) ? $data['nodeIp'] : null;
         $this->container['nominatedNodeName'] = isset($data['nominatedNodeName']) ? $data['nominatedNodeName'] : null;
         $this->container['phase'] = isset($data['phase']) ? $data['phase'] : null;
+        $this->container['podIPs'] = isset($data['podIPs']) ? $data['podIPs'] : null;
         $this->container['podIp'] = isset($data['podIp']) ? $data['podIp'] : null;
         $this->container['qosClass'] = isset($data['qosClass']) ? $data['qosClass'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
@@ -159,6 +167,28 @@ class PodStatusModel implements ArrayAccess
     public function setContainerStatuses($containerStatuses)
     {
         $this->container['containerStatuses'] = $containerStatuses;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ephemeralContainerStatuses
+     * @return \Rancher\Model\ContainerStatusModel[]
+     */
+    public function getEphemeralContainerStatuses()
+    {
+        return $this->container['ephemeralContainerStatuses'];
+    }
+
+    /**
+     * Sets ephemeralContainerStatuses
+     * @param \Rancher\Model\ContainerStatusModel[] $ephemeralContainerStatuses
+     * @return $this
+     */
+    public function setEphemeralContainerStatuses($ephemeralContainerStatuses)
+    {
+        $this->container['ephemeralContainerStatuses'] = $ephemeralContainerStatuses;
 
         return $this;
     }
@@ -269,6 +299,28 @@ class PodStatusModel implements ArrayAccess
     public function setPhase($phase)
     {
         $this->container['phase'] = $phase;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets podIPs
+     * @return \Rancher\Model\PodIPModel[]
+     */
+    public function getPodIPs()
+    {
+        return $this->container['podIPs'];
+    }
+
+    /**
+     * Sets podIPs
+     * @param \Rancher\Model\PodIPModel[] $podIPs
+     * @return $this
+     */
+    public function setPodIPs($podIPs)
+    {
+        $this->container['podIPs'] = $podIPs;
 
         return $this;
     }

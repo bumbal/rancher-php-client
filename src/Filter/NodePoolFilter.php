@@ -128,6 +128,34 @@ class NodePoolFilter extends AbstractFilter
 
 
     /**
+     * Gets deleteNotReadyAfterSecs
+     * @return string
+     */
+    public function getDeleteNotReadyAfterSecs()
+    {
+        return $this->container['deleteNotReadyAfterSecs'];
+    }
+
+    /**
+     * Sets deleteNotReadyAfterSecs
+     * @param string $deleteNotReadyAfterSecs
+     * @param string $option
+     * @return $this
+     */
+    public function setDeleteNotReadyAfterSecs($deleteNotReadyAfterSecs, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['deleteNotReadyAfterSecs'.$option] = $deleteNotReadyAfterSecs;
+
+        return $this;
+    }
+
+
+    /**
      * Gets displayName
      * @return string
      */

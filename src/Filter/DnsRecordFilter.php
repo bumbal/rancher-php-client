@@ -156,6 +156,34 @@ class DnsRecordFilter extends AbstractFilter
 
 
     /**
+     * Gets ipFamily
+     * @return string
+     */
+    public function getIpFamily()
+    {
+        return $this->container['ipFamily'];
+    }
+
+    /**
+     * Sets ipFamily
+     * @param string $ipFamily
+     * @param string $option
+     * @return $this
+     */
+    public function setIpFamily($ipFamily, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['ipFamily'.$option] = $ipFamily;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */

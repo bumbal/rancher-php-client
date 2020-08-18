@@ -31,6 +31,7 @@ class NetworkConfigModel implements ArrayAccess
         'calicoNetworkProvider',
         'canalNetworkProvider',
         'flannelNetworkProvider',
+        'nodeSelector',
         'options',
         'plugin',
         'weaveNetworkProvider',
@@ -50,6 +51,7 @@ class NetworkConfigModel implements ArrayAccess
         'calicoNetworkProvider',
         'canalNetworkProvider',
         'flannelNetworkProvider',
+        'nodeSelector',
         'options',
         'plugin',
         'weaveNetworkProvider',
@@ -64,6 +66,7 @@ class NetworkConfigModel implements ArrayAccess
         'calicoNetworkProvider' => '\Rancher\Model\CalicoNetworkProviderModel',
         'canalNetworkProvider' => '\Rancher\Model\CanalNetworkProviderModel',
         'flannelNetworkProvider' => '\Rancher\Model\FlannelNetworkProviderModel',
+        'nodeSelector' => 'map[string,string]',
         'options' => 'map[string,string]',
         'plugin' => 'string',
         'weaveNetworkProvider' => '\Rancher\Model\WeaveNetworkProviderModel',
@@ -78,6 +81,7 @@ class NetworkConfigModel implements ArrayAccess
         'calicoNetworkProvider' => 'setCalicoNetworkProvider',
         'canalNetworkProvider' => 'setCanalNetworkProvider',
         'flannelNetworkProvider' => 'setFlannelNetworkProvider',
+        'nodeSelector' => 'setNodeSelector',
         'options' => 'setOptions',
         'plugin' => 'setPlugin',
         'weaveNetworkProvider' => 'setWeaveNetworkProvider',
@@ -92,6 +96,7 @@ class NetworkConfigModel implements ArrayAccess
         'calicoNetworkProvider' => 'getCalicoNetworkProvider',
         'canalNetworkProvider' => 'getCanalNetworkProvider',
         'flannelNetworkProvider' => 'getFlannelNetworkProvider',
+        'nodeSelector' => 'getNodeSelector',
         'options' => 'getOptions',
         'plugin' => 'getPlugin',
         'weaveNetworkProvider' => 'getWeaveNetworkProvider',
@@ -107,6 +112,7 @@ class NetworkConfigModel implements ArrayAccess
         $this->container['calicoNetworkProvider'] = isset($data['calicoNetworkProvider']) ? $data['calicoNetworkProvider'] : null;
         $this->container['canalNetworkProvider'] = isset($data['canalNetworkProvider']) ? $data['canalNetworkProvider'] : null;
         $this->container['flannelNetworkProvider'] = isset($data['flannelNetworkProvider']) ? $data['flannelNetworkProvider'] : null;
+        $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['plugin'] = isset($data['plugin']) ? $data['plugin'] : null;
         $this->container['weaveNetworkProvider'] = isset($data['weaveNetworkProvider']) ? $data['weaveNetworkProvider'] : null;
@@ -173,6 +179,28 @@ class NetworkConfigModel implements ArrayAccess
     public function setFlannelNetworkProvider($flannelNetworkProvider)
     {
         $this->container['flannelNetworkProvider'] = $flannelNetworkProvider;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodeSelector
+     * @return string[]
+     */
+    public function getNodeSelector()
+    {
+        return $this->container['nodeSelector'];
+    }
+
+    /**
+     * Sets nodeSelector
+     * @param string[] $nodeSelector
+     * @return $this
+     */
+    public function setNodeSelector($nodeSelector)
+    {
+        $this->container['nodeSelector'] = $nodeSelector;
 
         return $this;
     }

@@ -35,6 +35,7 @@ class NotifierModel implements ArrayAccess
         'name',
         'namespaceId',
         'pagerdutyConfig',
+        'sendResolved',
         'slackConfig',
         'smtpConfig',
         'webhookConfig',
@@ -58,6 +59,7 @@ class NotifierModel implements ArrayAccess
         'labels',
         'name',
         'pagerdutyConfig',
+        'sendResolved',
         'slackConfig',
         'smtpConfig',
         'webhookConfig',
@@ -82,6 +84,7 @@ class NotifierModel implements ArrayAccess
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'pagerdutyConfig' => '\Rancher\Model\PagerdutyConfigModel',
         'removed' => '\DateTime',
+        'sendResolved' => 'boolean',
         'slackConfig' => '\Rancher\Model\SlackConfigModel',
         'smtpConfig' => '\Rancher\Model\SmtpConfigModel',
         'state' => 'string',
@@ -111,6 +114,7 @@ class NotifierModel implements ArrayAccess
         'ownerReferences' => 'setOwnerReferences',
         'pagerdutyConfig' => 'setPagerdutyConfig',
         'removed' => 'setRemoved',
+        'sendResolved' => 'setSendResolved',
         'slackConfig' => 'setSlackConfig',
         'smtpConfig' => 'setSmtpConfig',
         'state' => 'setState',
@@ -140,6 +144,7 @@ class NotifierModel implements ArrayAccess
         'ownerReferences' => 'getOwnerReferences',
         'pagerdutyConfig' => 'getPagerdutyConfig',
         'removed' => 'getRemoved',
+        'sendResolved' => 'getSendResolved',
         'slackConfig' => 'getSlackConfig',
         'smtpConfig' => 'getSmtpConfig',
         'state' => 'getState',
@@ -170,6 +175,7 @@ class NotifierModel implements ArrayAccess
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['pagerdutyConfig'] = isset($data['pagerdutyConfig']) ? $data['pagerdutyConfig'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
+        $this->container['sendResolved'] = isset($data['sendResolved']) ? $data['sendResolved'] : null;
         $this->container['slackConfig'] = isset($data['slackConfig']) ? $data['slackConfig'] : null;
         $this->container['smtpConfig'] = isset($data['smtpConfig']) ? $data['smtpConfig'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
@@ -440,6 +446,28 @@ class NotifierModel implements ArrayAccess
     public function setRemoved($removed)
     {
         $this->container['removed'] = $removed;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets sendResolved
+     * @return boolean
+     */
+    public function getSendResolved()
+    {
+        return $this->container['sendResolved'];
+    }
+
+    /**
+     * Sets sendResolved
+     * @param boolean $sendResolved
+     * @return $this
+     */
+    public function setSendResolved($sendResolved)
+    {
+        $this->container['sendResolved'] = $sendResolved;
 
         return $this;
     }

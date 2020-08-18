@@ -128,6 +128,34 @@ class AppRevisionFilter extends AbstractFilter
 
 
     /**
+     * Gets projectId
+     * @return string
+     */
+    public function getProjectId()
+    {
+        return $this->container['projectId'];
+    }
+
+    /**
+     * Sets projectId
+     * @param string $projectId
+     * @param string $option
+     * @return $this
+     */
+    public function setProjectId($projectId, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['projectId'.$option] = $projectId;
+
+        return $this;
+    }
+
+
+    /**
      * Gets removed
      * @return string
      */

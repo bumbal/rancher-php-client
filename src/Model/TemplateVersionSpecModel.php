@@ -31,6 +31,8 @@ class TemplateVersionSpecModel implements ArrayAccess
         'digest',
         'externalId',
         'kubeVersion',
+        'rancherMaxVersion',
+        'rancherMinVersion',
         'rancherVersion',
         'requiredNamespace',
         'upgradeVersionLinks',
@@ -54,6 +56,8 @@ class TemplateVersionSpecModel implements ArrayAccess
         'digest',
         'externalId',
         'kubeVersion',
+        'rancherMaxVersion',
+        'rancherMinVersion',
         'rancherVersion',
         'requiredNamespace',
         'upgradeVersionLinks',
@@ -75,6 +79,8 @@ class TemplateVersionSpecModel implements ArrayAccess
         'files' => 'map[string,string]',
         'kubeVersion' => 'string',
         'questions' => '\Rancher\Model\QuestionModel[]',
+        'rancherMaxVersion' => 'string',
+        'rancherMinVersion' => 'string',
         'rancherVersion' => 'string',
         'readme' => 'string',
         'requiredNamespace' => 'string',
@@ -97,6 +103,8 @@ class TemplateVersionSpecModel implements ArrayAccess
         'files' => 'setFiles',
         'kubeVersion' => 'setKubeVersion',
         'questions' => 'setQuestions',
+        'rancherMaxVersion' => 'setRancherMaxVersion',
+        'rancherMinVersion' => 'setRancherMinVersion',
         'rancherVersion' => 'setRancherVersion',
         'readme' => 'setReadme',
         'requiredNamespace' => 'setRequiredNamespace',
@@ -119,6 +127,8 @@ class TemplateVersionSpecModel implements ArrayAccess
         'files' => 'getFiles',
         'kubeVersion' => 'getKubeVersion',
         'questions' => 'getQuestions',
+        'rancherMaxVersion' => 'getRancherMaxVersion',
+        'rancherMinVersion' => 'getRancherMinVersion',
         'rancherVersion' => 'getRancherVersion',
         'readme' => 'getReadme',
         'requiredNamespace' => 'getRequiredNamespace',
@@ -142,6 +152,8 @@ class TemplateVersionSpecModel implements ArrayAccess
         $this->container['files'] = isset($data['files']) ? $data['files'] : null;
         $this->container['kubeVersion'] = isset($data['kubeVersion']) ? $data['kubeVersion'] : null;
         $this->container['questions'] = isset($data['questions']) ? $data['questions'] : null;
+        $this->container['rancherMaxVersion'] = isset($data['rancherMaxVersion']) ? $data['rancherMaxVersion'] : null;
+        $this->container['rancherMinVersion'] = isset($data['rancherMinVersion']) ? $data['rancherMinVersion'] : null;
         $this->container['rancherVersion'] = isset($data['rancherVersion']) ? $data['rancherVersion'] : null;
         $this->container['readme'] = isset($data['readme']) ? $data['readme'] : null;
         $this->container['requiredNamespace'] = isset($data['requiredNamespace']) ? $data['requiredNamespace'] : null;
@@ -279,6 +291,50 @@ class TemplateVersionSpecModel implements ArrayAccess
     public function setQuestions($questions)
     {
         $this->container['questions'] = $questions;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets rancherMaxVersion
+     * @return string
+     */
+    public function getRancherMaxVersion()
+    {
+        return $this->container['rancherMaxVersion'];
+    }
+
+    /**
+     * Sets rancherMaxVersion
+     * @param string $rancherMaxVersion
+     * @return $this
+     */
+    public function setRancherMaxVersion($rancherMaxVersion)
+    {
+        $this->container['rancherMaxVersion'] = $rancherMaxVersion;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets rancherMinVersion
+     * @return string
+     */
+    public function getRancherMinVersion()
+    {
+        return $this->container['rancherMinVersion'];
+    }
+
+    /**
+     * Sets rancherMinVersion
+     * @param string $rancherMinVersion
+     * @return $this
+     */
+    public function setRancherMinVersion($rancherMinVersion)
+    {
+        $this->container['rancherMinVersion'] = $rancherMinVersion;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'allowPrivilegeEscalation',
+        'allowedCSIDrivers',
         'allowedCapabilities',
         'allowedFlexVolumes',
         'allowedHostPaths',
@@ -49,7 +50,9 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
         'privileged',
         'readOnlyRootFilesystem',
         'requiredDropCapabilities',
+        'runAsGroup',
         'runAsUser',
+        'runtimeClass',
         'seLinux',
         'supplementalGroups',
         'volumes',
@@ -67,6 +70,7 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'allowPrivilegeEscalation',
+        'allowedCSIDrivers',
         'allowedCapabilities',
         'allowedFlexVolumes',
         'allowedHostPaths',
@@ -86,7 +90,9 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
         'privileged',
         'readOnlyRootFilesystem',
         'requiredDropCapabilities',
+        'runAsGroup',
         'runAsUser',
+        'runtimeClass',
         'seLinux',
         'supplementalGroups',
         'volumes',
@@ -99,6 +105,7 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
 
     protected static $typeMap = [
         'allowPrivilegeEscalation' => 'boolean',
+        'allowedCSIDrivers' => '\Rancher\Model\AllowedCSIDriverModel[]',
         'allowedCapabilities' => 'string[]',
         'allowedFlexVolumes' => '\Rancher\Model\AllowedFlexVolumeModel[]',
         'allowedHostPaths' => '\Rancher\Model\AllowedHostPathModel[]',
@@ -123,7 +130,9 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
         'readOnlyRootFilesystem' => 'boolean',
         'removed' => '\DateTime',
         'requiredDropCapabilities' => 'string[]',
+        'runAsGroup' => '\Rancher\Model\RunAsGroupStrategyOptionsModel',
         'runAsUser' => '\Rancher\Model\RunAsUserStrategyOptionsModel',
+        'runtimeClass' => '\Rancher\Model\RuntimeClassStrategyOptionsModel',
         'seLinux' => '\Rancher\Model\SeLinuxStrategyOptionsModel',
         'supplementalGroups' => '\Rancher\Model\SupplementalGroupsStrategyOptionsModel',
         'uuid' => 'string',
@@ -137,6 +146,7 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
 
     protected static $setters = [
         'allowPrivilegeEscalation' => 'setAllowPrivilegeEscalation',
+        'allowedCSIDrivers' => 'setAllowedCSIDrivers',
         'allowedCapabilities' => 'setAllowedCapabilities',
         'allowedFlexVolumes' => 'setAllowedFlexVolumes',
         'allowedHostPaths' => 'setAllowedHostPaths',
@@ -161,7 +171,9 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
         'readOnlyRootFilesystem' => 'setReadOnlyRootFilesystem',
         'removed' => 'setRemoved',
         'requiredDropCapabilities' => 'setRequiredDropCapabilities',
+        'runAsGroup' => 'setRunAsGroup',
         'runAsUser' => 'setRunAsUser',
+        'runtimeClass' => 'setRuntimeClass',
         'seLinux' => 'setSeLinux',
         'supplementalGroups' => 'setSupplementalGroups',
         'uuid' => 'setUuid',
@@ -175,6 +187,7 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
 
     protected static $getters = [
         'allowPrivilegeEscalation' => 'getAllowPrivilegeEscalation',
+        'allowedCSIDrivers' => 'getAllowedCSIDrivers',
         'allowedCapabilities' => 'getAllowedCapabilities',
         'allowedFlexVolumes' => 'getAllowedFlexVolumes',
         'allowedHostPaths' => 'getAllowedHostPaths',
@@ -199,7 +212,9 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
         'readOnlyRootFilesystem' => 'getReadOnlyRootFilesystem',
         'removed' => 'getRemoved',
         'requiredDropCapabilities' => 'getRequiredDropCapabilities',
+        'runAsGroup' => 'getRunAsGroup',
         'runAsUser' => 'getRunAsUser',
+        'runtimeClass' => 'getRuntimeClass',
         'seLinux' => 'getSeLinux',
         'supplementalGroups' => 'getSupplementalGroups',
         'uuid' => 'getUuid',
@@ -214,6 +229,7 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['allowPrivilegeEscalation'] = isset($data['allowPrivilegeEscalation']) ? $data['allowPrivilegeEscalation'] : null;
+        $this->container['allowedCSIDrivers'] = isset($data['allowedCSIDrivers']) ? $data['allowedCSIDrivers'] : null;
         $this->container['allowedCapabilities'] = isset($data['allowedCapabilities']) ? $data['allowedCapabilities'] : null;
         $this->container['allowedFlexVolumes'] = isset($data['allowedFlexVolumes']) ? $data['allowedFlexVolumes'] : null;
         $this->container['allowedHostPaths'] = isset($data['allowedHostPaths']) ? $data['allowedHostPaths'] : null;
@@ -238,7 +254,9 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
         $this->container['readOnlyRootFilesystem'] = isset($data['readOnlyRootFilesystem']) ? $data['readOnlyRootFilesystem'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
         $this->container['requiredDropCapabilities'] = isset($data['requiredDropCapabilities']) ? $data['requiredDropCapabilities'] : null;
+        $this->container['runAsGroup'] = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
         $this->container['runAsUser'] = isset($data['runAsUser']) ? $data['runAsUser'] : null;
+        $this->container['runtimeClass'] = isset($data['runtimeClass']) ? $data['runtimeClass'] : null;
         $this->container['seLinux'] = isset($data['seLinux']) ? $data['seLinux'] : null;
         $this->container['supplementalGroups'] = isset($data['supplementalGroups']) ? $data['supplementalGroups'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
@@ -262,6 +280,28 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
     public function setAllowPrivilegeEscalation($allowPrivilegeEscalation)
     {
         $this->container['allowPrivilegeEscalation'] = $allowPrivilegeEscalation;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets allowedCSIDrivers
+     * @return \Rancher\Model\AllowedCSIDriverModel[]
+     */
+    public function getAllowedCSIDrivers()
+    {
+        return $this->container['allowedCSIDrivers'];
+    }
+
+    /**
+     * Sets allowedCSIDrivers
+     * @param \Rancher\Model\AllowedCSIDriverModel[] $allowedCSIDrivers
+     * @return $this
+     */
+    public function setAllowedCSIDrivers($allowedCSIDrivers)
+    {
+        $this->container['allowedCSIDrivers'] = $allowedCSIDrivers;
 
         return $this;
     }
@@ -796,6 +836,28 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
 
 
     /**
+     * Gets runAsGroup
+     * @return \Rancher\Model\RunAsGroupStrategyOptionsModel
+     */
+    public function getRunAsGroup()
+    {
+        return $this->container['runAsGroup'];
+    }
+
+    /**
+     * Sets runAsGroup
+     * @param \Rancher\Model\RunAsGroupStrategyOptionsModel $runAsGroup
+     * @return $this
+     */
+    public function setRunAsGroup($runAsGroup)
+    {
+        $this->container['runAsGroup'] = $runAsGroup;
+
+        return $this;
+    }
+
+
+    /**
      * Gets runAsUser
      * @return \Rancher\Model\RunAsUserStrategyOptionsModel
      */
@@ -812,6 +874,28 @@ class PodSecurityPolicyTemplateModel implements ArrayAccess
     public function setRunAsUser($runAsUser)
     {
         $this->container['runAsUser'] = $runAsUser;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets runtimeClass
+     * @return \Rancher\Model\RuntimeClassStrategyOptionsModel
+     */
+    public function getRuntimeClass()
+    {
+        return $this->container['runtimeClass'];
+    }
+
+    /**
+     * Sets runtimeClass
+     * @param \Rancher\Model\RuntimeClassStrategyOptionsModel $runtimeClass
+     * @return $this
+     */
+    public function setRuntimeClass($runtimeClass)
+    {
+        $this->container['runtimeClass'] = $runtimeClass;
 
         return $this;
     }

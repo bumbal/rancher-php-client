@@ -35,15 +35,19 @@ class AlertmanagerModel implements ArrayAccess
         'configMaps',
         'containers',
         'externalUrl',
+        'image',
         'imagePullSecrets',
+        'initContainers',
         'labels',
         'listenLocal',
+        'logFormat',
         'logLevel',
         'name',
         'namespaceId',
         'nodeSelector',
         'paused',
         'podMetadata',
+        'portName',
         'priorityClassName',
         'projectId',
         'replicas',
@@ -58,6 +62,8 @@ class AlertmanagerModel implements ArrayAccess
         'tag',
         'tolerations',
         'version',
+        'volumeMounts',
+        'volumes',
     ];
 
     public static function canBeCreated()
@@ -78,13 +84,17 @@ class AlertmanagerModel implements ArrayAccess
         'configMaps',
         'containers',
         'externalUrl',
+        'image',
         'imagePullSecrets',
+        'initContainers',
         'labels',
         'listenLocal',
+        'logFormat',
         'logLevel',
         'nodeSelector',
         'paused',
         'podMetadata',
+        'portName',
         'priorityClassName',
         'replicas',
         'resources',
@@ -98,6 +108,8 @@ class AlertmanagerModel implements ArrayAccess
         'tag',
         'tolerations',
         'version',
+        'volumeMounts',
+        'volumes',
     ];
 
     public static function canBeUpdated()
@@ -115,9 +127,12 @@ class AlertmanagerModel implements ArrayAccess
         'created' => '\DateTime',
         'creatorId' => 'string',
         'externalUrl' => 'string',
+        'image' => 'string',
         'imagePullSecrets' => '\Rancher\Model\LocalObjectReferenceModel[]',
+        'initContainers' => '\Rancher\Model\ContainerModel[]',
         'labels' => 'map[string,string]',
         'listenLocal' => 'boolean',
+        'logFormat' => 'string',
         'logLevel' => 'string',
         'name' => 'string',
         'namespaceId' => 'string',
@@ -125,6 +140,7 @@ class AlertmanagerModel implements ArrayAccess
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'paused' => 'boolean',
         'podMetadata' => '\Rancher\Model\ObjectMetaModel',
+        'portName' => 'string',
         'priorityClassName' => 'string',
         'projectId' => 'string',
         'removed' => '\DateTime',
@@ -144,6 +160,8 @@ class AlertmanagerModel implements ArrayAccess
         'transitioningMessage' => 'string',
         'uuid' => 'string',
         'version' => 'string',
+        'volumeMounts' => '\Rancher\Model\VolumeMountModel[]',
+        'volumes' => '\Rancher\Model\VolumeModel[]',
     ];
 
     public static function typeMap()
@@ -161,9 +179,12 @@ class AlertmanagerModel implements ArrayAccess
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'externalUrl' => 'setExternalUrl',
+        'image' => 'setImage',
         'imagePullSecrets' => 'setImagePullSecrets',
+        'initContainers' => 'setInitContainers',
         'labels' => 'setLabels',
         'listenLocal' => 'setListenLocal',
+        'logFormat' => 'setLogFormat',
         'logLevel' => 'setLogLevel',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
@@ -171,6 +192,7 @@ class AlertmanagerModel implements ArrayAccess
         'ownerReferences' => 'setOwnerReferences',
         'paused' => 'setPaused',
         'podMetadata' => 'setPodMetadata',
+        'portName' => 'setPortName',
         'priorityClassName' => 'setPriorityClassName',
         'projectId' => 'setProjectId',
         'removed' => 'setRemoved',
@@ -190,6 +212,8 @@ class AlertmanagerModel implements ArrayAccess
         'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
         'version' => 'setVersion',
+        'volumeMounts' => 'setVolumeMounts',
+        'volumes' => 'setVolumes',
     ];
 
     public static function setters()
@@ -207,9 +231,12 @@ class AlertmanagerModel implements ArrayAccess
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'externalUrl' => 'getExternalUrl',
+        'image' => 'getImage',
         'imagePullSecrets' => 'getImagePullSecrets',
+        'initContainers' => 'getInitContainers',
         'labels' => 'getLabels',
         'listenLocal' => 'getListenLocal',
+        'logFormat' => 'getLogFormat',
         'logLevel' => 'getLogLevel',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
@@ -217,6 +244,7 @@ class AlertmanagerModel implements ArrayAccess
         'ownerReferences' => 'getOwnerReferences',
         'paused' => 'getPaused',
         'podMetadata' => 'getPodMetadata',
+        'portName' => 'getPortName',
         'priorityClassName' => 'getPriorityClassName',
         'projectId' => 'getProjectId',
         'removed' => 'getRemoved',
@@ -236,6 +264,8 @@ class AlertmanagerModel implements ArrayAccess
         'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
         'version' => 'getVersion',
+        'volumeMounts' => 'getVolumeMounts',
+        'volumes' => 'getVolumes',
     ];
 
     public static function getters()
@@ -254,9 +284,12 @@ class AlertmanagerModel implements ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['externalUrl'] = isset($data['externalUrl']) ? $data['externalUrl'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['imagePullSecrets'] = isset($data['imagePullSecrets']) ? $data['imagePullSecrets'] : null;
+        $this->container['initContainers'] = isset($data['initContainers']) ? $data['initContainers'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['listenLocal'] = isset($data['listenLocal']) ? $data['listenLocal'] : null;
+        $this->container['logFormat'] = isset($data['logFormat']) ? $data['logFormat'] : null;
         $this->container['logLevel'] = isset($data['logLevel']) ? $data['logLevel'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
@@ -264,6 +297,7 @@ class AlertmanagerModel implements ArrayAccess
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['paused'] = isset($data['paused']) ? $data['paused'] : null;
         $this->container['podMetadata'] = isset($data['podMetadata']) ? $data['podMetadata'] : null;
+        $this->container['portName'] = isset($data['portName']) ? $data['portName'] : null;
         $this->container['priorityClassName'] = isset($data['priorityClassName']) ? $data['priorityClassName'] : null;
         $this->container['projectId'] = isset($data['projectId']) ? $data['projectId'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
@@ -283,6 +317,8 @@ class AlertmanagerModel implements ArrayAccess
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['volumeMounts'] = isset($data['volumeMounts']) ? $data['volumeMounts'] : null;
+        $this->container['volumes'] = isset($data['volumes']) ? $data['volumes'] : null;
     }
 
     /**
@@ -484,6 +520,28 @@ class AlertmanagerModel implements ArrayAccess
 
 
     /**
+     * Gets image
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     * @param string $image
+     * @return $this
+     */
+    public function setImage($image)
+    {
+        $this->container['image'] = $image;
+
+        return $this;
+    }
+
+
+    /**
      * Gets imagePullSecrets
      * @return \Rancher\Model\LocalObjectReferenceModel[]
      */
@@ -500,6 +558,28 @@ class AlertmanagerModel implements ArrayAccess
     public function setImagePullSecrets($imagePullSecrets)
     {
         $this->container['imagePullSecrets'] = $imagePullSecrets;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets initContainers
+     * @return \Rancher\Model\ContainerModel[]
+     */
+    public function getInitContainers()
+    {
+        return $this->container['initContainers'];
+    }
+
+    /**
+     * Sets initContainers
+     * @param \Rancher\Model\ContainerModel[] $initContainers
+     * @return $this
+     */
+    public function setInitContainers($initContainers)
+    {
+        $this->container['initContainers'] = $initContainers;
 
         return $this;
     }
@@ -544,6 +624,28 @@ class AlertmanagerModel implements ArrayAccess
     public function setListenLocal($listenLocal)
     {
         $this->container['listenLocal'] = $listenLocal;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets logFormat
+     * @return string
+     */
+    public function getLogFormat()
+    {
+        return $this->container['logFormat'];
+    }
+
+    /**
+     * Sets logFormat
+     * @param string $logFormat
+     * @return $this
+     */
+    public function setLogFormat($logFormat)
+    {
+        $this->container['logFormat'] = $logFormat;
 
         return $this;
     }
@@ -698,6 +800,28 @@ class AlertmanagerModel implements ArrayAccess
     public function setPodMetadata($podMetadata)
     {
         $this->container['podMetadata'] = $podMetadata;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets portName
+     * @return string
+     */
+    public function getPortName()
+    {
+        return $this->container['portName'];
+    }
+
+    /**
+     * Sets portName
+     * @param string $portName
+     * @return $this
+     */
+    public function setPortName($portName)
+    {
+        $this->container['portName'] = $portName;
 
         return $this;
     }
@@ -1116,6 +1240,50 @@ class AlertmanagerModel implements ArrayAccess
     public function setVersion($version)
     {
         $this->container['version'] = $version;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets volumeMounts
+     * @return \Rancher\Model\VolumeMountModel[]
+     */
+    public function getVolumeMounts()
+    {
+        return $this->container['volumeMounts'];
+    }
+
+    /**
+     * Sets volumeMounts
+     * @param \Rancher\Model\VolumeMountModel[] $volumeMounts
+     * @return $this
+     */
+    public function setVolumeMounts($volumeMounts)
+    {
+        $this->container['volumeMounts'] = $volumeMounts;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets volumes
+     * @return \Rancher\Model\VolumeModel[]
+     */
+    public function getVolumes()
+    {
+        return $this->container['volumes'];
+    }
+
+    /**
+     * Sets volumes
+     * @param \Rancher\Model\VolumeModel[] $volumes
+     * @return $this
+     */
+    public function setVolumes($volumes)
+    {
+        $this->container['volumes'] = $volumes;
 
         return $this;
     }

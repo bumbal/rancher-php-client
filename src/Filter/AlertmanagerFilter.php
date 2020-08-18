@@ -128,6 +128,34 @@ class AlertmanagerFilter extends AbstractFilter
 
 
     /**
+     * Gets image
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     * @param string $image
+     * @param string $option
+     * @return $this
+     */
+    public function setImage($image, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['image'.$option] = $image;
+
+        return $this;
+    }
+
+
+    /**
      * Gets listenLocal
      * @return string
      */
@@ -150,6 +178,34 @@ class AlertmanagerFilter extends AbstractFilter
         }
 
         $this->container['listenLocal'.$option] = $listenLocal;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets logFormat
+     * @return string
+     */
+    public function getLogFormat()
+    {
+        return $this->container['logFormat'];
+    }
+
+    /**
+     * Sets logFormat
+     * @param string $logFormat
+     * @param string $option
+     * @return $this
+     */
+    public function setLogFormat($logFormat, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['logFormat'.$option] = $logFormat;
 
         return $this;
     }
@@ -262,6 +318,34 @@ class AlertmanagerFilter extends AbstractFilter
         }
 
         $this->container['paused'.$option] = $paused;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets portName
+     * @return string
+     */
+    public function getPortName()
+    {
+        return $this->container['portName'];
+    }
+
+    /**
+     * Sets portName
+     * @param string $portName
+     * @param string $option
+     * @return $this
+     */
+    public function setPortName($portName, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['portName'.$option] = $portName;
 
         return $this;
     }

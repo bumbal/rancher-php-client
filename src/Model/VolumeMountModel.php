@@ -33,6 +33,7 @@ class VolumeMountModel implements ArrayAccess
         'name',
         'readOnly',
         'subPath',
+        'subPathExpr',
     ];
 
     public static function canBeCreated()
@@ -51,6 +52,7 @@ class VolumeMountModel implements ArrayAccess
         'name',
         'readOnly',
         'subPath',
+        'subPathExpr',
     ];
 
     public static function canBeUpdated()
@@ -64,6 +66,7 @@ class VolumeMountModel implements ArrayAccess
         'name' => 'string',
         'readOnly' => 'boolean',
         'subPath' => 'string',
+        'subPathExpr' => 'string',
     ];
 
     public static function typeMap()
@@ -77,6 +80,7 @@ class VolumeMountModel implements ArrayAccess
         'name' => 'setName',
         'readOnly' => 'setReadOnly',
         'subPath' => 'setSubPath',
+        'subPathExpr' => 'setSubPathExpr',
     ];
 
     public static function setters()
@@ -90,6 +94,7 @@ class VolumeMountModel implements ArrayAccess
         'name' => 'getName',
         'readOnly' => 'getReadOnly',
         'subPath' => 'getSubPath',
+        'subPathExpr' => 'getSubPathExpr',
     ];
 
     public static function getters()
@@ -104,6 +109,7 @@ class VolumeMountModel implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
         $this->container['subPath'] = isset($data['subPath']) ? $data['subPath'] : null;
+        $this->container['subPathExpr'] = isset($data['subPathExpr']) ? $data['subPathExpr'] : null;
     }
 
     /**
@@ -211,6 +217,28 @@ class VolumeMountModel implements ArrayAccess
     public function setSubPath($subPath)
     {
         $this->container['subPath'] = $subPath;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets subPathExpr
+     * @return string
+     */
+    public function getSubPathExpr()
+    {
+        return $this->container['subPathExpr'];
+    }
+
+    /**
+     * Sets subPathExpr
+     * @param string $subPathExpr
+     * @return $this
+     */
+    public function setSubPathExpr($subPathExpr)
+    {
+        $this->container['subPathExpr'] = $subPathExpr;
 
         return $this;
     }

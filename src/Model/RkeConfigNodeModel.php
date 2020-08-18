@@ -41,6 +41,7 @@ class RkeConfigNodeModel implements ArrayAccess
         'sshCertPath',
         'sshKey',
         'sshKeyPath',
+        'taints',
         'user',
     ];
 
@@ -68,6 +69,7 @@ class RkeConfigNodeModel implements ArrayAccess
         'sshCertPath',
         'sshKey',
         'sshKeyPath',
+        'taints',
         'user',
     ];
 
@@ -90,6 +92,7 @@ class RkeConfigNodeModel implements ArrayAccess
         'sshCertPath' => 'string',
         'sshKey' => '\Rancher\Model\PasswordModel',
         'sshKeyPath' => 'string',
+        'taints' => '\Rancher\Model\RkeTaintModel[]',
         'user' => 'string',
     ];
 
@@ -112,6 +115,7 @@ class RkeConfigNodeModel implements ArrayAccess
         'sshCertPath' => 'setSshCertPath',
         'sshKey' => 'setSshKey',
         'sshKeyPath' => 'setSshKeyPath',
+        'taints' => 'setTaints',
         'user' => 'setUser',
     ];
 
@@ -134,6 +138,7 @@ class RkeConfigNodeModel implements ArrayAccess
         'sshCertPath' => 'getSshCertPath',
         'sshKey' => 'getSshKey',
         'sshKeyPath' => 'getSshKeyPath',
+        'taints' => 'getTaints',
         'user' => 'getUser',
     ];
 
@@ -157,6 +162,7 @@ class RkeConfigNodeModel implements ArrayAccess
         $this->container['sshCertPath'] = isset($data['sshCertPath']) ? $data['sshCertPath'] : null;
         $this->container['sshKey'] = isset($data['sshKey']) ? $data['sshKey'] : null;
         $this->container['sshKeyPath'] = isset($data['sshKeyPath']) ? $data['sshKeyPath'] : null;
+        $this->container['taints'] = isset($data['taints']) ? $data['taints'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
     }
 
@@ -441,6 +447,28 @@ class RkeConfigNodeModel implements ArrayAccess
     public function setSshKeyPath($sshKeyPath)
     {
         $this->container['sshKeyPath'] = $sshKeyPath;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets taints
+     * @return \Rancher\Model\RkeTaintModel[]
+     */
+    public function getTaints()
+    {
+        return $this->container['taints'];
+    }
+
+    /**
+     * Sets taints
+     * @param \Rancher\Model\RkeTaintModel[] $taints
+     * @return $this
+     */
+    public function setTaints($taints)
+    {
+        $this->container['taints'] = $taints;
 
         return $this;
     }
