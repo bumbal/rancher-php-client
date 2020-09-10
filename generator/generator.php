@@ -6,15 +6,28 @@ use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Twig\TwigFilter;
 
+/**
+ * Class APIGenerator
+ */
 class APIGenerator
 {
+    /**
+     * @var array
+     */
     private $_config = null;
 
-    public function __construct($config)
+    /**
+     * APIGenerator constructor.
+     * @param array $config
+     */
+    public function __construct(array $config)
     {
         $this->_config = $config;
     }
 
+    /**
+     * public run function, builds your API
+     */
     public function run()
     {
         $groups = ['schemas/', 'clusters/schemas/', 'projects/schemas/'];
@@ -38,6 +51,14 @@ class APIGenerator
         }
     }
 
+    /**
+     * retrieveEndpoint
+     *
+     * retrieves an endpoint using CURL
+     *
+     * @param string $endpoint
+     * @return mixed
+     */
     private function retrieveEndpoint(string $endpoint)
     {
         $ch = curl_init();
@@ -54,11 +75,29 @@ class APIGenerator
         return json_decode($output, true);
     }
 
+    /**
+     * startsWith
+     *
+     * simple string comparison function
+     *
+     * @param $string
+     * @param $query
+     * @return bool
+     */
     private function startsWith($string, $query)
     {
         return substr($string, 0, strlen($query)) === $query;
     }
 
+    /**
+     * endsWith
+     *
+     * simple string comparison function
+     *
+     * @param $string
+     * @param $query
+     * @return bool
+     */
     private function endsWith($string, $query)
     {
         $length = strlen($query);
@@ -71,6 +110,13 @@ class APIGenerator
         return (substr($string, -$length) === $query);
     }
 
+    /**
+     * buildModelFromScheme
+     *
+     * main build function, uses scheme to build an PHP model class and writes it to disk
+     *
+     * @param $scheme
+     */
     private function buildModelFromScheme($scheme)
     {
         $schemeName = ucfirst($scheme['id']);
@@ -206,6 +252,13 @@ class APIGenerator
         }
     }
 
+    /**
+     * buildResourceFromScheme
+     *
+     * main build function, uses scheme to build an PHP model resource and writes it to disk
+     *
+     * @param $scheme
+     */
     private function buildResourceFromScheme($scheme)
     {
         // no methods? ignore
@@ -241,6 +294,13 @@ class APIGenerator
         }
     }
 
+    /**
+     * buildFilterFromScheme
+     *
+     * main build function, uses scheme to build an PHP filter class and writes it to disk
+     *
+     * @param $scheme
+     */
     private function buildFilterFromScheme($scheme)
     {
         // no methods? ignore
@@ -272,7 +332,14 @@ class APIGenerator
         }
     }
 
-    private function clearDirectory($path)
+    /**
+     * clearDirectory
+     *
+     * clear src directory before running the builders
+     *
+     * @param string $path
+     */
+    private function clearDirectory(string $path)
     {
         $files = glob($path);
 
