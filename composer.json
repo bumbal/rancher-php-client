@@ -7,11 +7,11 @@
         "client",
         "api"
     ],
-    "homepage": "https://github.com/freightlive/rancher-php-client",
+    "homepage": "https://github.com/bumbal/rancher-php-client",
     "license": "MIT",
     "authors": [
         {
-            "name": "Gerb Sterrenburg",
+            "name": "Gerbrand Sterrenburg",
             "homepage": "https://bumbal.eu/"
         }
     ],
