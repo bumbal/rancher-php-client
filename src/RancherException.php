@@ -41,10 +41,10 @@ class RancherException extends Exception
         {
             $rancherError = json_decode($response->getBody(), true);
 
-            $this->type = $rancherError['type'];
-            $this->statusCode = $rancherError['code'];
-            $this->code = $rancherError['status'];
-            $this->message = $rancherError['message'];
+            $this->type = array_key_exists('type', $rancherError) ? $rancherError['type'] : "";
+            $this->statusCode = array_key_exists('code', $rancherError) ? $rancherError['code'] : "";
+            $this->code = array_key_exists('status', $rancherError) ? $rancherError['status'] : "";
+            $this->message = array_key_exists('message', $rancherError) ? $rancherError['message'] : "";
         }
     }
 
