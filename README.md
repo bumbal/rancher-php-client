@@ -5,6 +5,13 @@ This client is largely based on the structure and code used by Swagger PHP. All 
 
 *Disclaimer: I am not in any way, shape or form associated with Rancher.*
 
+### Version mapping
+
+```
+1.0.* → Rancher v2.3.2
+1.1.* → Rancher v2.5.7
+```
+
 ## Requirements
 
 PHP 7.2.0 and later
