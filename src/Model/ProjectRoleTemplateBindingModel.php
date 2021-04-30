@@ -52,13 +52,8 @@ class ProjectRoleTemplateBindingModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'annotations',
-        'groupId',
-        'groupPrincipalId',
         'labels',
-        'projectId',
         'roleTemplateId',
-        'userId',
-        'userPrincipalId',
     ];
 
     public static function canBeUpdated()

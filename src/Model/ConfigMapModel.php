@@ -31,6 +31,7 @@ class ConfigMapModel implements ArrayAccess
         'annotations',
         'binaryData',
         'data',
+        'immutable',
         'labels',
         'name',
         'namespaceId',
@@ -51,6 +52,7 @@ class ConfigMapModel implements ArrayAccess
         'annotations',
         'binaryData',
         'data',
+        'immutable',
         'labels',
     ];
 
@@ -65,6 +67,7 @@ class ConfigMapModel implements ArrayAccess
         'created' => '\DateTime',
         'creatorId' => 'string',
         'data' => 'map[string,string]',
+        'immutable' => 'boolean',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
@@ -85,6 +88,7 @@ class ConfigMapModel implements ArrayAccess
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'data' => 'setData',
+        'immutable' => 'setImmutable',
         'labels' => 'setLabels',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
@@ -105,6 +109,7 @@ class ConfigMapModel implements ArrayAccess
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'data' => 'getData',
+        'immutable' => 'getImmutable',
         'labels' => 'getLabels',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
@@ -126,6 +131,7 @@ class ConfigMapModel implements ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['immutable'] = isset($data['immutable']) ? $data['immutable'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
@@ -240,6 +246,28 @@ class ConfigMapModel implements ArrayAccess
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets immutable
+     * @return boolean
+     */
+    public function getImmutable()
+    {
+        return $this->container['immutable'];
+    }
+
+    /**
+     * Sets immutable
+     * @param boolean $immutable
+     * @return $this
+     */
+    public function setImmutable($immutable)
+    {
+        $this->container['immutable'] = $immutable;
 
         return $this;
     }

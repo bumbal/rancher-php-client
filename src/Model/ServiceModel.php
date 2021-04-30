@@ -28,7 +28,9 @@ class ServiceModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'allocateLoadBalancerNodePorts',
         'annotations',
+        'clusterIPs',
         'clusterIp',
         'description',
         'externalIPs',
@@ -36,7 +38,8 @@ class ServiceModel implements ArrayAccess
         'healthCheckNodePort',
         'hostname',
         'ipAddresses',
-        'ipFamily',
+        'ipFamilies',
+        'ipFamilyPolicy',
         'kind',
         'labels',
         'loadBalancerIP',
@@ -51,6 +54,7 @@ class ServiceModel implements ArrayAccess
         'sessionAffinityConfig',
         'targetDnsRecordIds',
         'targetWorkloadIds',
+        'topologyKeys',
     ];
 
     public static function canBeCreated()
@@ -64,7 +68,9 @@ class ServiceModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'allocateLoadBalancerNodePorts',
         'annotations',
+        'clusterIPs',
         'clusterIp',
         'description',
         'externalIPs',
@@ -72,7 +78,8 @@ class ServiceModel implements ArrayAccess
         'healthCheckNodePort',
         'hostname',
         'ipAddresses',
-        'ipFamily',
+        'ipFamilies',
+        'ipFamilyPolicy',
         'kind',
         'labels',
         'loadBalancerIP',
@@ -84,6 +91,7 @@ class ServiceModel implements ArrayAccess
         'sessionAffinityConfig',
         'targetDnsRecordIds',
         'targetWorkloadIds',
+        'topologyKeys',
     ];
 
     public static function canBeUpdated()
@@ -92,7 +100,9 @@ class ServiceModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'allocateLoadBalancerNodePorts' => 'boolean',
         'annotations' => 'map[string,string]',
+        'clusterIPs' => 'string[]',
         'clusterIp' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
@@ -102,7 +112,8 @@ class ServiceModel implements ArrayAccess
         'healthCheckNodePort' => 'int',
         'hostname' => 'string',
         'ipAddresses' => 'string[]',
-        'ipFamily' => 'string',
+        'ipFamilies' => 'string[]',
+        'ipFamilyPolicy' => 'string',
         'kind' => 'string',
         'labels' => 'map[string,string]',
         'loadBalancerIP' => 'string',
@@ -121,6 +132,7 @@ class ServiceModel implements ArrayAccess
         'state' => 'string',
         'targetDnsRecordIds' => 'string[]',
         'targetWorkloadIds' => 'string[]',
+        'topologyKeys' => 'string[]',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'uuid' => 'string',
@@ -133,7 +145,9 @@ class ServiceModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'allocateLoadBalancerNodePorts' => 'setAllocateLoadBalancerNodePorts',
         'annotations' => 'setAnnotations',
+        'clusterIPs' => 'setClusterIPs',
         'clusterIp' => 'setClusterIp',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
@@ -143,7 +157,8 @@ class ServiceModel implements ArrayAccess
         'healthCheckNodePort' => 'setHealthCheckNodePort',
         'hostname' => 'setHostname',
         'ipAddresses' => 'setIpAddresses',
-        'ipFamily' => 'setIpFamily',
+        'ipFamilies' => 'setIpFamilies',
+        'ipFamilyPolicy' => 'setIpFamilyPolicy',
         'kind' => 'setKind',
         'labels' => 'setLabels',
         'loadBalancerIP' => 'setLoadBalancerIP',
@@ -162,6 +177,7 @@ class ServiceModel implements ArrayAccess
         'state' => 'setState',
         'targetDnsRecordIds' => 'setTargetDnsRecordIds',
         'targetWorkloadIds' => 'setTargetWorkloadIds',
+        'topologyKeys' => 'setTopologyKeys',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
@@ -174,7 +190,9 @@ class ServiceModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'allocateLoadBalancerNodePorts' => 'getAllocateLoadBalancerNodePorts',
         'annotations' => 'getAnnotations',
+        'clusterIPs' => 'getClusterIPs',
         'clusterIp' => 'getClusterIp',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
@@ -184,7 +202,8 @@ class ServiceModel implements ArrayAccess
         'healthCheckNodePort' => 'getHealthCheckNodePort',
         'hostname' => 'getHostname',
         'ipAddresses' => 'getIpAddresses',
-        'ipFamily' => 'getIpFamily',
+        'ipFamilies' => 'getIpFamilies',
+        'ipFamilyPolicy' => 'getIpFamilyPolicy',
         'kind' => 'getKind',
         'labels' => 'getLabels',
         'loadBalancerIP' => 'getLoadBalancerIP',
@@ -203,6 +222,7 @@ class ServiceModel implements ArrayAccess
         'state' => 'getState',
         'targetDnsRecordIds' => 'getTargetDnsRecordIds',
         'targetWorkloadIds' => 'getTargetWorkloadIds',
+        'topologyKeys' => 'getTopologyKeys',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
@@ -216,7 +236,9 @@ class ServiceModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['allocateLoadBalancerNodePorts'] = isset($data['allocateLoadBalancerNodePorts']) ? $data['allocateLoadBalancerNodePorts'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
+        $this->container['clusterIPs'] = isset($data['clusterIPs']) ? $data['clusterIPs'] : null;
         $this->container['clusterIp'] = isset($data['clusterIp']) ? $data['clusterIp'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
@@ -226,7 +248,8 @@ class ServiceModel implements ArrayAccess
         $this->container['healthCheckNodePort'] = isset($data['healthCheckNodePort']) ? $data['healthCheckNodePort'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['ipAddresses'] = isset($data['ipAddresses']) ? $data['ipAddresses'] : null;
-        $this->container['ipFamily'] = isset($data['ipFamily']) ? $data['ipFamily'] : null;
+        $this->container['ipFamilies'] = isset($data['ipFamilies']) ? $data['ipFamilies'] : null;
+        $this->container['ipFamilyPolicy'] = isset($data['ipFamilyPolicy']) ? $data['ipFamilyPolicy'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['loadBalancerIP'] = isset($data['loadBalancerIP']) ? $data['loadBalancerIP'] : null;
@@ -245,11 +268,34 @@ class ServiceModel implements ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['targetDnsRecordIds'] = isset($data['targetDnsRecordIds']) ? $data['targetDnsRecordIds'] : null;
         $this->container['targetWorkloadIds'] = isset($data['targetWorkloadIds']) ? $data['targetWorkloadIds'] : null;
+        $this->container['topologyKeys'] = isset($data['topologyKeys']) ? $data['topologyKeys'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['workloadId'] = isset($data['workloadId']) ? $data['workloadId'] : null;
     }
+
+    /**
+     * Gets allocateLoadBalancerNodePorts
+     * @return boolean
+     */
+    public function getAllocateLoadBalancerNodePorts()
+    {
+        return $this->container['allocateLoadBalancerNodePorts'];
+    }
+
+    /**
+     * Sets allocateLoadBalancerNodePorts
+     * @param boolean $allocateLoadBalancerNodePorts
+     * @return $this
+     */
+    public function setAllocateLoadBalancerNodePorts($allocateLoadBalancerNodePorts)
+    {
+        $this->container['allocateLoadBalancerNodePorts'] = $allocateLoadBalancerNodePorts;
+
+        return $this;
+    }
+
 
     /**
      * Gets annotations
@@ -268,6 +314,28 @@ class ServiceModel implements ArrayAccess
     public function setAnnotations($annotations)
     {
         $this->container['annotations'] = $annotations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterIPs
+     * @return string[]
+     */
+    public function getClusterIPs()
+    {
+        return $this->container['clusterIPs'];
+    }
+
+    /**
+     * Sets clusterIPs
+     * @param string[] $clusterIPs
+     * @return $this
+     */
+    public function setClusterIPs($clusterIPs)
+    {
+        $this->container['clusterIPs'] = $clusterIPs;
 
         return $this;
     }
@@ -472,22 +540,44 @@ class ServiceModel implements ArrayAccess
 
 
     /**
-     * Gets ipFamily
-     * @return string
+     * Gets ipFamilies
+     * @return string[]
      */
-    public function getIpFamily()
+    public function getIpFamilies()
     {
-        return $this->container['ipFamily'];
+        return $this->container['ipFamilies'];
     }
 
     /**
-     * Sets ipFamily
-     * @param string $ipFamily
+     * Sets ipFamilies
+     * @param string[] $ipFamilies
      * @return $this
      */
-    public function setIpFamily($ipFamily)
+    public function setIpFamilies($ipFamilies)
     {
-        $this->container['ipFamily'] = $ipFamily;
+        $this->container['ipFamilies'] = $ipFamilies;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ipFamilyPolicy
+     * @return string
+     */
+    public function getIpFamilyPolicy()
+    {
+        return $this->container['ipFamilyPolicy'];
+    }
+
+    /**
+     * Sets ipFamilyPolicy
+     * @param string $ipFamilyPolicy
+     * @return $this
+     */
+    public function setIpFamilyPolicy($ipFamilyPolicy)
+    {
+        $this->container['ipFamilyPolicy'] = $ipFamilyPolicy;
 
         return $this;
     }
@@ -884,6 +974,28 @@ class ServiceModel implements ArrayAccess
     public function setTargetWorkloadIds($targetWorkloadIds)
     {
         $this->container['targetWorkloadIds'] = $targetWorkloadIds;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets topologyKeys
+     * @return string[]
+     */
+    public function getTopologyKeys()
+    {
+        return $this->container['topologyKeys'];
+    }
+
+    /**
+     * Sets topologyKeys
+     * @param string[] $topologyKeys
+     * @return $this
+     */
+    public function setTopologyKeys($topologyKeys)
+    {
+        $this->container['topologyKeys'] = $topologyKeys;
 
         return $this;
     }

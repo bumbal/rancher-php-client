@@ -32,6 +32,7 @@ class ClusterLoggingSpecModel implements ArrayAccess
         'customTargetConfig',
         'displayName',
         'elasticsearchConfig',
+        'enableJSONParsing',
         'fluentForwarderConfig',
         'includeSystemComponent',
         'kafkaConfig',
@@ -56,6 +57,7 @@ class ClusterLoggingSpecModel implements ArrayAccess
         'customTargetConfig',
         'displayName',
         'elasticsearchConfig',
+        'enableJSONParsing',
         'fluentForwarderConfig',
         'includeSystemComponent',
         'kafkaConfig',
@@ -75,6 +77,7 @@ class ClusterLoggingSpecModel implements ArrayAccess
         'customTargetConfig' => '\Rancher\Model\CustomTargetConfigModel',
         'displayName' => 'string',
         'elasticsearchConfig' => '\Rancher\Model\ElasticsearchConfigModel',
+        'enableJSONParsing' => 'boolean',
         'fluentForwarderConfig' => '\Rancher\Model\FluentForwarderConfigModel',
         'includeSystemComponent' => 'boolean',
         'kafkaConfig' => '\Rancher\Model\KafkaConfigModel',
@@ -94,6 +97,7 @@ class ClusterLoggingSpecModel implements ArrayAccess
         'customTargetConfig' => 'setCustomTargetConfig',
         'displayName' => 'setDisplayName',
         'elasticsearchConfig' => 'setElasticsearchConfig',
+        'enableJSONParsing' => 'setEnableJSONParsing',
         'fluentForwarderConfig' => 'setFluentForwarderConfig',
         'includeSystemComponent' => 'setIncludeSystemComponent',
         'kafkaConfig' => 'setKafkaConfig',
@@ -113,6 +117,7 @@ class ClusterLoggingSpecModel implements ArrayAccess
         'customTargetConfig' => 'getCustomTargetConfig',
         'displayName' => 'getDisplayName',
         'elasticsearchConfig' => 'getElasticsearchConfig',
+        'enableJSONParsing' => 'getEnableJSONParsing',
         'fluentForwarderConfig' => 'getFluentForwarderConfig',
         'includeSystemComponent' => 'getIncludeSystemComponent',
         'kafkaConfig' => 'getKafkaConfig',
@@ -133,6 +138,7 @@ class ClusterLoggingSpecModel implements ArrayAccess
         $this->container['customTargetConfig'] = isset($data['customTargetConfig']) ? $data['customTargetConfig'] : null;
         $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
         $this->container['elasticsearchConfig'] = isset($data['elasticsearchConfig']) ? $data['elasticsearchConfig'] : null;
+        $this->container['enableJSONParsing'] = isset($data['enableJSONParsing']) ? $data['enableJSONParsing'] : null;
         $this->container['fluentForwarderConfig'] = isset($data['fluentForwarderConfig']) ? $data['fluentForwarderConfig'] : null;
         $this->container['includeSystemComponent'] = isset($data['includeSystemComponent']) ? $data['includeSystemComponent'] : null;
         $this->container['kafkaConfig'] = isset($data['kafkaConfig']) ? $data['kafkaConfig'] : null;
@@ -225,6 +231,28 @@ class ClusterLoggingSpecModel implements ArrayAccess
     public function setElasticsearchConfig($elasticsearchConfig)
     {
         $this->container['elasticsearchConfig'] = $elasticsearchConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enableJSONParsing
+     * @return boolean
+     */
+    public function getEnableJSONParsing()
+    {
+        return $this->container['enableJSONParsing'];
+    }
+
+    /**
+     * Sets enableJSONParsing
+     * @param boolean $enableJSONParsing
+     * @return $this
+     */
+    public function setEnableJSONParsing($enableJSONParsing)
+    {
+        $this->container['enableJSONParsing'] = $enableJSONParsing;
 
         return $this;
     }

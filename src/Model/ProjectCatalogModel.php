@@ -31,6 +31,7 @@ class ProjectCatalogModel implements ArrayAccess
         'annotations',
         'branch',
         'description',
+        'helmVersion',
         'kind',
         'labels',
         'name',
@@ -76,6 +77,7 @@ class ProjectCatalogModel implements ArrayAccess
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
+        'helmVersion' => 'string',
         'kind' => 'string',
         'labels' => 'map[string,string]',
         'lastRefreshTimestamp' => 'string',
@@ -106,6 +108,7 @@ class ProjectCatalogModel implements ArrayAccess
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'description' => 'setDescription',
+        'helmVersion' => 'setHelmVersion',
         'kind' => 'setKind',
         'labels' => 'setLabels',
         'lastRefreshTimestamp' => 'setLastRefreshTimestamp',
@@ -136,6 +139,7 @@ class ProjectCatalogModel implements ArrayAccess
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'description' => 'getDescription',
+        'helmVersion' => 'getHelmVersion',
         'kind' => 'getKind',
         'labels' => 'getLabels',
         'lastRefreshTimestamp' => 'getLastRefreshTimestamp',
@@ -167,6 +171,7 @@ class ProjectCatalogModel implements ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['helmVersion'] = isset($data['helmVersion']) ? $data['helmVersion'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['lastRefreshTimestamp'] = isset($data['lastRefreshTimestamp']) ? $data['lastRefreshTimestamp'] : null;
@@ -333,6 +338,28 @@ class ProjectCatalogModel implements ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets helmVersion
+     * @return string
+     */
+    public function getHelmVersion()
+    {
+        return $this->container['helmVersion'];
+    }
+
+    /**
+     * Sets helmVersion
+     * @param string $helmVersion
+     * @return $this
+     */
+    public function setHelmVersion($helmVersion)
+    {
+        $this->container['helmVersion'] = $helmVersion;
 
         return $this;
     }

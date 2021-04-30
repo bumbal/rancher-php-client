@@ -44,6 +44,146 @@ class AlertmanagerFilter extends AbstractFilter
 
 
     /**
+     * Gets clusterAdvertiseAddress
+     * @return string
+     */
+    public function getClusterAdvertiseAddress()
+    {
+        return $this->container['clusterAdvertiseAddress'];
+    }
+
+    /**
+     * Sets clusterAdvertiseAddress
+     * @param string $clusterAdvertiseAddress
+     * @param string $option
+     * @return $this
+     */
+    public function setClusterAdvertiseAddress($clusterAdvertiseAddress, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['clusterAdvertiseAddress'.$option] = $clusterAdvertiseAddress;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterGossipInterval
+     * @return string
+     */
+    public function getClusterGossipInterval()
+    {
+        return $this->container['clusterGossipInterval'];
+    }
+
+    /**
+     * Sets clusterGossipInterval
+     * @param string $clusterGossipInterval
+     * @param string $option
+     * @return $this
+     */
+    public function setClusterGossipInterval($clusterGossipInterval, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['clusterGossipInterval'.$option] = $clusterGossipInterval;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterPeerTimeout
+     * @return string
+     */
+    public function getClusterPeerTimeout()
+    {
+        return $this->container['clusterPeerTimeout'];
+    }
+
+    /**
+     * Sets clusterPeerTimeout
+     * @param string $clusterPeerTimeout
+     * @param string $option
+     * @return $this
+     */
+    public function setClusterPeerTimeout($clusterPeerTimeout, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['clusterPeerTimeout'.$option] = $clusterPeerTimeout;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterPushpullInterval
+     * @return string
+     */
+    public function getClusterPushpullInterval()
+    {
+        return $this->container['clusterPushpullInterval'];
+    }
+
+    /**
+     * Sets clusterPushpullInterval
+     * @param string $clusterPushpullInterval
+     * @param string $option
+     * @return $this
+     */
+    public function setClusterPushpullInterval($clusterPushpullInterval, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['clusterPushpullInterval'.$option] = $clusterPushpullInterval;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets configSecret
+     * @return string
+     */
+    public function getConfigSecret()
+    {
+        return $this->container['configSecret'];
+    }
+
+    /**
+     * Sets configSecret
+     * @param string $configSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setConfigSecret($configSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['configSecret'.$option] = $configSecret;
+
+        return $this;
+    }
+
+
+    /**
      * Gets created
      * @return string
      */
@@ -122,6 +262,34 @@ class AlertmanagerFilter extends AbstractFilter
         }
 
         $this->container['externalUrl'.$option] = $externalUrl;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets forceEnableClusterMode
+     * @return string
+     */
+    public function getForceEnableClusterMode()
+    {
+        return $this->container['forceEnableClusterMode'];
+    }
+
+    /**
+     * Sets forceEnableClusterMode
+     * @param string $forceEnableClusterMode
+     * @param string $option
+     * @return $this
+     */
+    public function setForceEnableClusterMode($forceEnableClusterMode, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['forceEnableClusterMode'.$option] = $forceEnableClusterMode;
 
         return $this;
     }

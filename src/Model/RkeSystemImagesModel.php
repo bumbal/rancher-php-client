@@ -28,6 +28,14 @@ class RkeSystemImagesModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'aciCniDeployContainer',
+        'aciControllerContainer',
+        'aciGbpServerContainer',
+        'aciHostContainer',
+        'aciMcastContainer',
+        'aciOpflexContainer',
+        'aciOpflexServerContainer',
+        'aciOvsContainer',
         'alpine',
         'calicoCni',
         'calicoControllers',
@@ -35,6 +43,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'calicoFlexVol',
         'calicoNode',
         'canalCni',
+        'canalControllers',
         'canalFlannel',
         'canalFlexVol',
         'canalNode',
@@ -54,6 +63,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'kubernetesServicesSidecar',
         'metricsServer',
         'nginxProxy',
+        'nodelocal',
         'podInfraContainer',
         'weaveCni',
         'weaveNode',
@@ -71,6 +81,14 @@ class RkeSystemImagesModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'aciCniDeployContainer',
+        'aciControllerContainer',
+        'aciGbpServerContainer',
+        'aciHostContainer',
+        'aciMcastContainer',
+        'aciOpflexContainer',
+        'aciOpflexServerContainer',
+        'aciOvsContainer',
         'alpine',
         'calicoCni',
         'calicoControllers',
@@ -78,6 +96,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'calicoFlexVol',
         'calicoNode',
         'canalCni',
+        'canalControllers',
         'canalFlannel',
         'canalFlexVol',
         'canalNode',
@@ -97,6 +116,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'kubernetesServicesSidecar',
         'metricsServer',
         'nginxProxy',
+        'nodelocal',
         'podInfraContainer',
         'weaveCni',
         'weaveNode',
@@ -109,6 +129,14 @@ class RkeSystemImagesModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'aciCniDeployContainer' => 'string',
+        'aciControllerContainer' => 'string',
+        'aciGbpServerContainer' => 'string',
+        'aciHostContainer' => 'string',
+        'aciMcastContainer' => 'string',
+        'aciOpflexContainer' => 'string',
+        'aciOpflexServerContainer' => 'string',
+        'aciOvsContainer' => 'string',
         'alpine' => 'string',
         'calicoCni' => 'string',
         'calicoControllers' => 'string',
@@ -116,6 +144,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'calicoFlexVol' => 'string',
         'calicoNode' => 'string',
         'canalCni' => 'string',
+        'canalControllers' => 'string',
         'canalFlannel' => 'string',
         'canalFlexVol' => 'string',
         'canalNode' => 'string',
@@ -135,6 +164,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'kubernetesServicesSidecar' => 'string',
         'metricsServer' => 'string',
         'nginxProxy' => 'string',
+        'nodelocal' => 'string',
         'podInfraContainer' => 'string',
         'weaveCni' => 'string',
         'weaveNode' => 'string',
@@ -147,6 +177,14 @@ class RkeSystemImagesModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'aciCniDeployContainer' => 'setAciCniDeployContainer',
+        'aciControllerContainer' => 'setAciControllerContainer',
+        'aciGbpServerContainer' => 'setAciGbpServerContainer',
+        'aciHostContainer' => 'setAciHostContainer',
+        'aciMcastContainer' => 'setAciMcastContainer',
+        'aciOpflexContainer' => 'setAciOpflexContainer',
+        'aciOpflexServerContainer' => 'setAciOpflexServerContainer',
+        'aciOvsContainer' => 'setAciOvsContainer',
         'alpine' => 'setAlpine',
         'calicoCni' => 'setCalicoCni',
         'calicoControllers' => 'setCalicoControllers',
@@ -154,6 +192,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'calicoFlexVol' => 'setCalicoFlexVol',
         'calicoNode' => 'setCalicoNode',
         'canalCni' => 'setCanalCni',
+        'canalControllers' => 'setCanalControllers',
         'canalFlannel' => 'setCanalFlannel',
         'canalFlexVol' => 'setCanalFlexVol',
         'canalNode' => 'setCanalNode',
@@ -173,6 +212,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'kubernetesServicesSidecar' => 'setKubernetesServicesSidecar',
         'metricsServer' => 'setMetricsServer',
         'nginxProxy' => 'setNginxProxy',
+        'nodelocal' => 'setNodelocal',
         'podInfraContainer' => 'setPodInfraContainer',
         'weaveCni' => 'setWeaveCni',
         'weaveNode' => 'setWeaveNode',
@@ -185,6 +225,14 @@ class RkeSystemImagesModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'aciCniDeployContainer' => 'getAciCniDeployContainer',
+        'aciControllerContainer' => 'getAciControllerContainer',
+        'aciGbpServerContainer' => 'getAciGbpServerContainer',
+        'aciHostContainer' => 'getAciHostContainer',
+        'aciMcastContainer' => 'getAciMcastContainer',
+        'aciOpflexContainer' => 'getAciOpflexContainer',
+        'aciOpflexServerContainer' => 'getAciOpflexServerContainer',
+        'aciOvsContainer' => 'getAciOvsContainer',
         'alpine' => 'getAlpine',
         'calicoCni' => 'getCalicoCni',
         'calicoControllers' => 'getCalicoControllers',
@@ -192,6 +240,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'calicoFlexVol' => 'getCalicoFlexVol',
         'calicoNode' => 'getCalicoNode',
         'canalCni' => 'getCanalCni',
+        'canalControllers' => 'getCanalControllers',
         'canalFlannel' => 'getCanalFlannel',
         'canalFlexVol' => 'getCanalFlexVol',
         'canalNode' => 'getCanalNode',
@@ -211,6 +260,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'kubernetesServicesSidecar' => 'getKubernetesServicesSidecar',
         'metricsServer' => 'getMetricsServer',
         'nginxProxy' => 'getNginxProxy',
+        'nodelocal' => 'getNodelocal',
         'podInfraContainer' => 'getPodInfraContainer',
         'weaveCni' => 'getWeaveCni',
         'weaveNode' => 'getWeaveNode',
@@ -224,6 +274,14 @@ class RkeSystemImagesModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['aciCniDeployContainer'] = isset($data['aciCniDeployContainer']) ? $data['aciCniDeployContainer'] : null;
+        $this->container['aciControllerContainer'] = isset($data['aciControllerContainer']) ? $data['aciControllerContainer'] : null;
+        $this->container['aciGbpServerContainer'] = isset($data['aciGbpServerContainer']) ? $data['aciGbpServerContainer'] : null;
+        $this->container['aciHostContainer'] = isset($data['aciHostContainer']) ? $data['aciHostContainer'] : null;
+        $this->container['aciMcastContainer'] = isset($data['aciMcastContainer']) ? $data['aciMcastContainer'] : null;
+        $this->container['aciOpflexContainer'] = isset($data['aciOpflexContainer']) ? $data['aciOpflexContainer'] : null;
+        $this->container['aciOpflexServerContainer'] = isset($data['aciOpflexServerContainer']) ? $data['aciOpflexServerContainer'] : null;
+        $this->container['aciOvsContainer'] = isset($data['aciOvsContainer']) ? $data['aciOvsContainer'] : null;
         $this->container['alpine'] = isset($data['alpine']) ? $data['alpine'] : null;
         $this->container['calicoCni'] = isset($data['calicoCni']) ? $data['calicoCni'] : null;
         $this->container['calicoControllers'] = isset($data['calicoControllers']) ? $data['calicoControllers'] : null;
@@ -231,6 +289,7 @@ class RkeSystemImagesModel implements ArrayAccess
         $this->container['calicoFlexVol'] = isset($data['calicoFlexVol']) ? $data['calicoFlexVol'] : null;
         $this->container['calicoNode'] = isset($data['calicoNode']) ? $data['calicoNode'] : null;
         $this->container['canalCni'] = isset($data['canalCni']) ? $data['canalCni'] : null;
+        $this->container['canalControllers'] = isset($data['canalControllers']) ? $data['canalControllers'] : null;
         $this->container['canalFlannel'] = isset($data['canalFlannel']) ? $data['canalFlannel'] : null;
         $this->container['canalFlexVol'] = isset($data['canalFlexVol']) ? $data['canalFlexVol'] : null;
         $this->container['canalNode'] = isset($data['canalNode']) ? $data['canalNode'] : null;
@@ -250,11 +309,188 @@ class RkeSystemImagesModel implements ArrayAccess
         $this->container['kubernetesServicesSidecar'] = isset($data['kubernetesServicesSidecar']) ? $data['kubernetesServicesSidecar'] : null;
         $this->container['metricsServer'] = isset($data['metricsServer']) ? $data['metricsServer'] : null;
         $this->container['nginxProxy'] = isset($data['nginxProxy']) ? $data['nginxProxy'] : null;
+        $this->container['nodelocal'] = isset($data['nodelocal']) ? $data['nodelocal'] : null;
         $this->container['podInfraContainer'] = isset($data['podInfraContainer']) ? $data['podInfraContainer'] : null;
         $this->container['weaveCni'] = isset($data['weaveCni']) ? $data['weaveCni'] : null;
         $this->container['weaveNode'] = isset($data['weaveNode']) ? $data['weaveNode'] : null;
         $this->container['windowsPodInfraContainer'] = isset($data['windowsPodInfraContainer']) ? $data['windowsPodInfraContainer'] : null;
     }
+
+    /**
+     * Gets aciCniDeployContainer
+     * @return string
+     */
+    public function getAciCniDeployContainer()
+    {
+        return $this->container['aciCniDeployContainer'];
+    }
+
+    /**
+     * Sets aciCniDeployContainer
+     * @param string $aciCniDeployContainer
+     * @return $this
+     */
+    public function setAciCniDeployContainer($aciCniDeployContainer)
+    {
+        $this->container['aciCniDeployContainer'] = $aciCniDeployContainer;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciControllerContainer
+     * @return string
+     */
+    public function getAciControllerContainer()
+    {
+        return $this->container['aciControllerContainer'];
+    }
+
+    /**
+     * Sets aciControllerContainer
+     * @param string $aciControllerContainer
+     * @return $this
+     */
+    public function setAciControllerContainer($aciControllerContainer)
+    {
+        $this->container['aciControllerContainer'] = $aciControllerContainer;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciGbpServerContainer
+     * @return string
+     */
+    public function getAciGbpServerContainer()
+    {
+        return $this->container['aciGbpServerContainer'];
+    }
+
+    /**
+     * Sets aciGbpServerContainer
+     * @param string $aciGbpServerContainer
+     * @return $this
+     */
+    public function setAciGbpServerContainer($aciGbpServerContainer)
+    {
+        $this->container['aciGbpServerContainer'] = $aciGbpServerContainer;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciHostContainer
+     * @return string
+     */
+    public function getAciHostContainer()
+    {
+        return $this->container['aciHostContainer'];
+    }
+
+    /**
+     * Sets aciHostContainer
+     * @param string $aciHostContainer
+     * @return $this
+     */
+    public function setAciHostContainer($aciHostContainer)
+    {
+        $this->container['aciHostContainer'] = $aciHostContainer;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciMcastContainer
+     * @return string
+     */
+    public function getAciMcastContainer()
+    {
+        return $this->container['aciMcastContainer'];
+    }
+
+    /**
+     * Sets aciMcastContainer
+     * @param string $aciMcastContainer
+     * @return $this
+     */
+    public function setAciMcastContainer($aciMcastContainer)
+    {
+        $this->container['aciMcastContainer'] = $aciMcastContainer;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciOpflexContainer
+     * @return string
+     */
+    public function getAciOpflexContainer()
+    {
+        return $this->container['aciOpflexContainer'];
+    }
+
+    /**
+     * Sets aciOpflexContainer
+     * @param string $aciOpflexContainer
+     * @return $this
+     */
+    public function setAciOpflexContainer($aciOpflexContainer)
+    {
+        $this->container['aciOpflexContainer'] = $aciOpflexContainer;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciOpflexServerContainer
+     * @return string
+     */
+    public function getAciOpflexServerContainer()
+    {
+        return $this->container['aciOpflexServerContainer'];
+    }
+
+    /**
+     * Sets aciOpflexServerContainer
+     * @param string $aciOpflexServerContainer
+     * @return $this
+     */
+    public function setAciOpflexServerContainer($aciOpflexServerContainer)
+    {
+        $this->container['aciOpflexServerContainer'] = $aciOpflexServerContainer;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciOvsContainer
+     * @return string
+     */
+    public function getAciOvsContainer()
+    {
+        return $this->container['aciOvsContainer'];
+    }
+
+    /**
+     * Sets aciOvsContainer
+     * @param string $aciOvsContainer
+     * @return $this
+     */
+    public function setAciOvsContainer($aciOvsContainer)
+    {
+        $this->container['aciOvsContainer'] = $aciOvsContainer;
+
+        return $this;
+    }
+
 
     /**
      * Gets alpine
@@ -405,6 +641,28 @@ class RkeSystemImagesModel implements ArrayAccess
     public function setCanalCni($canalCni)
     {
         $this->container['canalCni'] = $canalCni;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets canalControllers
+     * @return string
+     */
+    public function getCanalControllers()
+    {
+        return $this->container['canalControllers'];
+    }
+
+    /**
+     * Sets canalControllers
+     * @param string $canalControllers
+     * @return $this
+     */
+    public function setCanalControllers($canalControllers)
+    {
+        $this->container['canalControllers'] = $canalControllers;
 
         return $this;
     }
@@ -823,6 +1081,28 @@ class RkeSystemImagesModel implements ArrayAccess
     public function setNginxProxy($nginxProxy)
     {
         $this->container['nginxProxy'] = $nginxProxy;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodelocal
+     * @return string
+     */
+    public function getNodelocal()
+    {
+        return $this->container['nodelocal'];
+    }
+
+    /**
+     * Sets nodelocal
+     * @param string $nodelocal
+     * @return $this
+     */
+    public function setNodelocal($nodelocal)
+    {
+        $this->container['nodelocal'] = $nodelocal;
 
         return $this;
     }

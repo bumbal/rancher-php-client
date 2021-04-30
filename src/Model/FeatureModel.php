@@ -59,11 +59,14 @@ class FeatureModel implements ArrayAccess
         'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
-        'default' => 'boolean',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
+        'state' => 'string',
+        'status' => '\Rancher\Model\FeatureStatusModel',
+        'transitioning' => 'string',
+        'transitioningMessage' => 'string',
         'uuid' => 'string',
         'value' => 'boolean',
     ];
@@ -77,11 +80,14 @@ class FeatureModel implements ArrayAccess
         'annotations' => 'setAnnotations',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
-        'default' => 'setDefault',
         'labels' => 'setLabels',
         'name' => 'setName',
         'ownerReferences' => 'setOwnerReferences',
         'removed' => 'setRemoved',
+        'state' => 'setState',
+        'status' => 'setStatus',
+        'transitioning' => 'setTransitioning',
+        'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
         'value' => 'setValue',
     ];
@@ -95,11 +101,14 @@ class FeatureModel implements ArrayAccess
         'annotations' => 'getAnnotations',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
-        'default' => 'getDefault',
         'labels' => 'getLabels',
         'name' => 'getName',
         'ownerReferences' => 'getOwnerReferences',
         'removed' => 'getRemoved',
+        'state' => 'getState',
+        'status' => 'getStatus',
+        'transitioning' => 'getTransitioning',
+        'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
         'value' => 'getValue',
     ];
@@ -114,11 +123,14 @@ class FeatureModel implements ArrayAccess
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
-        $this->container['default'] = isset($data['default']) ? $data['default'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
+        $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
@@ -184,28 +196,6 @@ class FeatureModel implements ArrayAccess
     public function setCreatorId($creatorId)
     {
         $this->container['creatorId'] = $creatorId;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets default
-     * @return boolean
-     */
-    public function getDefault()
-    {
-        return $this->container['default'];
-    }
-
-    /**
-     * Sets default
-     * @param boolean $default
-     * @return $this
-     */
-    public function setDefault($default)
-    {
-        $this->container['default'] = $default;
 
         return $this;
     }
@@ -294,6 +284,94 @@ class FeatureModel implements ArrayAccess
     public function setRemoved($removed)
     {
         $this->container['removed'] = $removed;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets state
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     * @param string $state
+     * @return $this
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets status
+     * @return \Rancher\Model\FeatureStatusModel
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param \Rancher\Model\FeatureStatusModel $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets transitioning
+     * @return string
+     */
+    public function getTransitioning()
+    {
+        return $this->container['transitioning'];
+    }
+
+    /**
+     * Sets transitioning
+     * @param string $transitioning
+     * @return $this
+     */
+    public function setTransitioning($transitioning)
+    {
+        $this->container['transitioning'] = $transitioning;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets transitioningMessage
+     * @return string
+     */
+    public function getTransitioningMessage()
+    {
+        return $this->container['transitioningMessage'];
+    }
+
+    /**
+     * Sets transitioningMessage
+     * @param string $transitioningMessage
+     * @return $this
+     */
+    public function setTransitioningMessage($transitioningMessage)
+    {
+        $this->container['transitioningMessage'] = $transitioningMessage;
 
         return $this;
     }

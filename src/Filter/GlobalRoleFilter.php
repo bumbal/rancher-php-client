@@ -16,6 +16,34 @@ use Rancher\AbstractFilter;
 class GlobalRoleFilter extends AbstractFilter
 {
     /**
+     * Gets builtin
+     * @return string
+     */
+    public function getBuiltin()
+    {
+        return $this->container['builtin'];
+    }
+
+    /**
+     * Sets builtin
+     * @param string $builtin
+     * @param string $option
+     * @return $this
+     */
+    public function setBuiltin($builtin, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['builtin'.$option] = $builtin;
+
+        return $this;
+    }
+
+
+    /**
      * Gets created
      * @return string
      */

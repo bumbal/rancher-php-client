@@ -33,15 +33,22 @@ class PrometheusModel implements ArrayAccess
         'additionalScrapeConfigs',
         'affinity',
         'alerting',
+        'allowOverlappingBlocks',
         'annotations',
+        'arbitraryFSAccessThroughSMs',
         'baseImage',
         'configMaps',
         'containers',
         'description',
+        'disableCompaction',
         'enableAdminAPI',
+        'enforcedNamespaceLabel',
+        'enforcedSampleLimit',
+        'enforcedTargetLimit',
         'evaluationInterval',
         'externalLabels',
         'externalUrl',
+        'ignoreNamespaceSelectors',
         'image',
         'imagePullSecrets',
         'initContainers',
@@ -52,14 +59,20 @@ class PrometheusModel implements ArrayAccess
         'name',
         'namespaceId',
         'nodeSelector',
+        'overrideHonorLabels',
+        'overrideHonorTimestamps',
         'podMetadata',
         'podMonitorNamespaceSelector',
         'podMonitorSelector',
         'portName',
         'priorityClassName',
+        'probeNamespaceSelector',
+        'probeSelector',
         'projectId',
         'prometheusExternalLabelName',
+        'prometheusRulesExcludedFromEnforce',
         'query',
+        'queryLogFile',
         'remoteRead',
         'remoteWrite',
         'replicaExternalLabelName',
@@ -71,17 +84,22 @@ class PrometheusModel implements ArrayAccess
         'ruleSelector',
         'rules',
         'scrapeInterval',
+        'scrapeTimeout',
         'secrets',
         'securityContext',
         'serviceAccountName',
         'serviceMonitorSelector',
         'sha',
+        'shards',
         'storage',
         'tag',
         'tolerations',
+        'topologySpreadConstraints',
         'version',
+        'volumeMounts',
         'volumes',
         'walCompression',
+        'web',
     ];
 
     public static function canBeCreated()
@@ -100,15 +118,22 @@ class PrometheusModel implements ArrayAccess
         'additionalScrapeConfigs',
         'affinity',
         'alerting',
+        'allowOverlappingBlocks',
         'annotations',
+        'arbitraryFSAccessThroughSMs',
         'baseImage',
         'configMaps',
         'containers',
         'description',
+        'disableCompaction',
         'enableAdminAPI',
+        'enforcedNamespaceLabel',
+        'enforcedSampleLimit',
+        'enforcedTargetLimit',
         'evaluationInterval',
         'externalLabels',
         'externalUrl',
+        'ignoreNamespaceSelectors',
         'image',
         'imagePullSecrets',
         'initContainers',
@@ -117,13 +142,19 @@ class PrometheusModel implements ArrayAccess
         'logFormat',
         'logLevel',
         'nodeSelector',
+        'overrideHonorLabels',
+        'overrideHonorTimestamps',
         'podMetadata',
         'podMonitorNamespaceSelector',
         'podMonitorSelector',
         'portName',
         'priorityClassName',
+        'probeNamespaceSelector',
+        'probeSelector',
         'prometheusExternalLabelName',
+        'prometheusRulesExcludedFromEnforce',
         'query',
+        'queryLogFile',
         'remoteRead',
         'remoteWrite',
         'replicaExternalLabelName',
@@ -135,17 +166,22 @@ class PrometheusModel implements ArrayAccess
         'ruleSelector',
         'rules',
         'scrapeInterval',
+        'scrapeTimeout',
         'secrets',
         'securityContext',
         'serviceAccountName',
         'serviceMonitorSelector',
         'sha',
+        'shards',
         'storage',
         'tag',
         'tolerations',
+        'topologySpreadConstraints',
         'version',
+        'volumeMounts',
         'volumes',
         'walCompression',
+        'web',
     ];
 
     public static function canBeUpdated()
@@ -159,17 +195,24 @@ class PrometheusModel implements ArrayAccess
         'additionalScrapeConfigs' => '\Rancher\Model\SecretKeySelectorModel',
         'affinity' => '\Rancher\Model\AffinityModel',
         'alerting' => '\Rancher\Model\AlertingSpecModel',
+        'allowOverlappingBlocks' => 'boolean',
         'annotations' => 'map[string,string]',
+        'arbitraryFSAccessThroughSMs' => '\Rancher\Model\ArbitraryFSAccessThroughSMsConfigModel',
         'baseImage' => 'string',
         'configMaps' => 'string[]',
         'containers' => '\Rancher\Model\ContainerModel[]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
+        'disableCompaction' => 'boolean',
         'enableAdminAPI' => 'boolean',
+        'enforcedNamespaceLabel' => 'string',
+        'enforcedSampleLimit' => 'int',
+        'enforcedTargetLimit' => 'int',
         'evaluationInterval' => 'string',
         'externalLabels' => 'map[string,string]',
         'externalUrl' => 'string',
+        'ignoreNamespaceSelectors' => 'boolean',
         'image' => 'string',
         'imagePullSecrets' => '\Rancher\Model\LocalObjectReferenceModel[]',
         'initContainers' => '\Rancher\Model\ContainerModel[]',
@@ -180,15 +223,21 @@ class PrometheusModel implements ArrayAccess
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeSelector' => 'map[string,string]',
+        'overrideHonorLabels' => 'boolean',
+        'overrideHonorTimestamps' => 'boolean',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
-        'podMetadata' => '\Rancher\Model\ObjectMetaModel',
+        'podMetadata' => '\Rancher\Model\EmbeddedObjectMetadataModel',
         'podMonitorNamespaceSelector' => '\Rancher\Model\LabelSelectorModel',
         'podMonitorSelector' => '\Rancher\Model\LabelSelectorModel',
         'portName' => 'string',
         'priorityClassName' => 'string',
+        'probeNamespaceSelector' => '\Rancher\Model\LabelSelectorModel',
+        'probeSelector' => '\Rancher\Model\LabelSelectorModel',
         'projectId' => 'string',
         'prometheusExternalLabelName' => 'string',
+        'prometheusRulesExcludedFromEnforce' => '\Rancher\Model\PrometheusRuleExcludeConfigModel[]',
         'query' => '\Rancher\Model\QuerySpecModel',
+        'queryLogFile' => 'string',
         'remoteRead' => '\Rancher\Model\RemoteReadSpecModel[]',
         'remoteWrite' => '\Rancher\Model\RemoteWriteSpecModel[]',
         'removed' => '\DateTime',
@@ -201,21 +250,26 @@ class PrometheusModel implements ArrayAccess
         'ruleSelector' => '\Rancher\Model\LabelSelectorModel',
         'rules' => '\Rancher\Model\RulesModel',
         'scrapeInterval' => 'string',
+        'scrapeTimeout' => 'string',
         'secrets' => 'string[]',
         'securityContext' => '\Rancher\Model\PodSecurityContextModel',
         'serviceAccountName' => 'string',
         'serviceMonitorSelector' => '\Rancher\Model\LabelSelectorModel',
         'sha' => 'string',
+        'shards' => 'int',
         'state' => 'string',
         'storage' => '\Rancher\Model\StorageSpecModel',
         'tag' => 'string',
         'tolerations' => '\Rancher\Model\TolerationModel[]',
+        'topologySpreadConstraints' => '\Rancher\Model\TopologySpreadConstraintModel[]',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'uuid' => 'string',
         'version' => 'string',
+        'volumeMounts' => '\Rancher\Model\VolumeMountModel[]',
         'volumes' => '\Rancher\Model\VolumeModel[]',
         'walCompression' => 'boolean',
+        'web' => '\Rancher\Model\WebSpecModel',
     ];
 
     public static function typeMap()
@@ -229,17 +283,24 @@ class PrometheusModel implements ArrayAccess
         'additionalScrapeConfigs' => 'setAdditionalScrapeConfigs',
         'affinity' => 'setAffinity',
         'alerting' => 'setAlerting',
+        'allowOverlappingBlocks' => 'setAllowOverlappingBlocks',
         'annotations' => 'setAnnotations',
+        'arbitraryFSAccessThroughSMs' => 'setArbitraryFSAccessThroughSMs',
         'baseImage' => 'setBaseImage',
         'configMaps' => 'setConfigMaps',
         'containers' => 'setContainers',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'description' => 'setDescription',
+        'disableCompaction' => 'setDisableCompaction',
         'enableAdminAPI' => 'setEnableAdminAPI',
+        'enforcedNamespaceLabel' => 'setEnforcedNamespaceLabel',
+        'enforcedSampleLimit' => 'setEnforcedSampleLimit',
+        'enforcedTargetLimit' => 'setEnforcedTargetLimit',
         'evaluationInterval' => 'setEvaluationInterval',
         'externalLabels' => 'setExternalLabels',
         'externalUrl' => 'setExternalUrl',
+        'ignoreNamespaceSelectors' => 'setIgnoreNamespaceSelectors',
         'image' => 'setImage',
         'imagePullSecrets' => 'setImagePullSecrets',
         'initContainers' => 'setInitContainers',
@@ -250,15 +311,21 @@ class PrometheusModel implements ArrayAccess
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'nodeSelector' => 'setNodeSelector',
+        'overrideHonorLabels' => 'setOverrideHonorLabels',
+        'overrideHonorTimestamps' => 'setOverrideHonorTimestamps',
         'ownerReferences' => 'setOwnerReferences',
         'podMetadata' => 'setPodMetadata',
         'podMonitorNamespaceSelector' => 'setPodMonitorNamespaceSelector',
         'podMonitorSelector' => 'setPodMonitorSelector',
         'portName' => 'setPortName',
         'priorityClassName' => 'setPriorityClassName',
+        'probeNamespaceSelector' => 'setProbeNamespaceSelector',
+        'probeSelector' => 'setProbeSelector',
         'projectId' => 'setProjectId',
         'prometheusExternalLabelName' => 'setPrometheusExternalLabelName',
+        'prometheusRulesExcludedFromEnforce' => 'setPrometheusRulesExcludedFromEnforce',
         'query' => 'setQuery',
+        'queryLogFile' => 'setQueryLogFile',
         'remoteRead' => 'setRemoteRead',
         'remoteWrite' => 'setRemoteWrite',
         'removed' => 'setRemoved',
@@ -271,21 +338,26 @@ class PrometheusModel implements ArrayAccess
         'ruleSelector' => 'setRuleSelector',
         'rules' => 'setRules',
         'scrapeInterval' => 'setScrapeInterval',
+        'scrapeTimeout' => 'setScrapeTimeout',
         'secrets' => 'setSecrets',
         'securityContext' => 'setSecurityContext',
         'serviceAccountName' => 'setServiceAccountName',
         'serviceMonitorSelector' => 'setServiceMonitorSelector',
         'sha' => 'setSha',
+        'shards' => 'setShards',
         'state' => 'setState',
         'storage' => 'setStorage',
         'tag' => 'setTag',
         'tolerations' => 'setTolerations',
+        'topologySpreadConstraints' => 'setTopologySpreadConstraints',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
         'version' => 'setVersion',
+        'volumeMounts' => 'setVolumeMounts',
         'volumes' => 'setVolumes',
         'walCompression' => 'setWalCompression',
+        'web' => 'setWeb',
     ];
 
     public static function setters()
@@ -299,17 +371,24 @@ class PrometheusModel implements ArrayAccess
         'additionalScrapeConfigs' => 'getAdditionalScrapeConfigs',
         'affinity' => 'getAffinity',
         'alerting' => 'getAlerting',
+        'allowOverlappingBlocks' => 'getAllowOverlappingBlocks',
         'annotations' => 'getAnnotations',
+        'arbitraryFSAccessThroughSMs' => 'getArbitraryFSAccessThroughSMs',
         'baseImage' => 'getBaseImage',
         'configMaps' => 'getConfigMaps',
         'containers' => 'getContainers',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'description' => 'getDescription',
+        'disableCompaction' => 'getDisableCompaction',
         'enableAdminAPI' => 'getEnableAdminAPI',
+        'enforcedNamespaceLabel' => 'getEnforcedNamespaceLabel',
+        'enforcedSampleLimit' => 'getEnforcedSampleLimit',
+        'enforcedTargetLimit' => 'getEnforcedTargetLimit',
         'evaluationInterval' => 'getEvaluationInterval',
         'externalLabels' => 'getExternalLabels',
         'externalUrl' => 'getExternalUrl',
+        'ignoreNamespaceSelectors' => 'getIgnoreNamespaceSelectors',
         'image' => 'getImage',
         'imagePullSecrets' => 'getImagePullSecrets',
         'initContainers' => 'getInitContainers',
@@ -320,15 +399,21 @@ class PrometheusModel implements ArrayAccess
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'nodeSelector' => 'getNodeSelector',
+        'overrideHonorLabels' => 'getOverrideHonorLabels',
+        'overrideHonorTimestamps' => 'getOverrideHonorTimestamps',
         'ownerReferences' => 'getOwnerReferences',
         'podMetadata' => 'getPodMetadata',
         'podMonitorNamespaceSelector' => 'getPodMonitorNamespaceSelector',
         'podMonitorSelector' => 'getPodMonitorSelector',
         'portName' => 'getPortName',
         'priorityClassName' => 'getPriorityClassName',
+        'probeNamespaceSelector' => 'getProbeNamespaceSelector',
+        'probeSelector' => 'getProbeSelector',
         'projectId' => 'getProjectId',
         'prometheusExternalLabelName' => 'getPrometheusExternalLabelName',
+        'prometheusRulesExcludedFromEnforce' => 'getPrometheusRulesExcludedFromEnforce',
         'query' => 'getQuery',
+        'queryLogFile' => 'getQueryLogFile',
         'remoteRead' => 'getRemoteRead',
         'remoteWrite' => 'getRemoteWrite',
         'removed' => 'getRemoved',
@@ -341,21 +426,26 @@ class PrometheusModel implements ArrayAccess
         'ruleSelector' => 'getRuleSelector',
         'rules' => 'getRules',
         'scrapeInterval' => 'getScrapeInterval',
+        'scrapeTimeout' => 'getScrapeTimeout',
         'secrets' => 'getSecrets',
         'securityContext' => 'getSecurityContext',
         'serviceAccountName' => 'getServiceAccountName',
         'serviceMonitorSelector' => 'getServiceMonitorSelector',
         'sha' => 'getSha',
+        'shards' => 'getShards',
         'state' => 'getState',
         'storage' => 'getStorage',
         'tag' => 'getTag',
         'tolerations' => 'getTolerations',
+        'topologySpreadConstraints' => 'getTopologySpreadConstraints',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
         'version' => 'getVersion',
+        'volumeMounts' => 'getVolumeMounts',
         'volumes' => 'getVolumes',
         'walCompression' => 'getWalCompression',
+        'web' => 'getWeb',
     ];
 
     public static function getters()
@@ -370,17 +460,24 @@ class PrometheusModel implements ArrayAccess
         $this->container['additionalScrapeConfigs'] = isset($data['additionalScrapeConfigs']) ? $data['additionalScrapeConfigs'] : null;
         $this->container['affinity'] = isset($data['affinity']) ? $data['affinity'] : null;
         $this->container['alerting'] = isset($data['alerting']) ? $data['alerting'] : null;
+        $this->container['allowOverlappingBlocks'] = isset($data['allowOverlappingBlocks']) ? $data['allowOverlappingBlocks'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
+        $this->container['arbitraryFSAccessThroughSMs'] = isset($data['arbitraryFSAccessThroughSMs']) ? $data['arbitraryFSAccessThroughSMs'] : null;
         $this->container['baseImage'] = isset($data['baseImage']) ? $data['baseImage'] : null;
         $this->container['configMaps'] = isset($data['configMaps']) ? $data['configMaps'] : null;
         $this->container['containers'] = isset($data['containers']) ? $data['containers'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['disableCompaction'] = isset($data['disableCompaction']) ? $data['disableCompaction'] : null;
         $this->container['enableAdminAPI'] = isset($data['enableAdminAPI']) ? $data['enableAdminAPI'] : null;
+        $this->container['enforcedNamespaceLabel'] = isset($data['enforcedNamespaceLabel']) ? $data['enforcedNamespaceLabel'] : null;
+        $this->container['enforcedSampleLimit'] = isset($data['enforcedSampleLimit']) ? $data['enforcedSampleLimit'] : null;
+        $this->container['enforcedTargetLimit'] = isset($data['enforcedTargetLimit']) ? $data['enforcedTargetLimit'] : null;
         $this->container['evaluationInterval'] = isset($data['evaluationInterval']) ? $data['evaluationInterval'] : null;
         $this->container['externalLabels'] = isset($data['externalLabels']) ? $data['externalLabels'] : null;
         $this->container['externalUrl'] = isset($data['externalUrl']) ? $data['externalUrl'] : null;
+        $this->container['ignoreNamespaceSelectors'] = isset($data['ignoreNamespaceSelectors']) ? $data['ignoreNamespaceSelectors'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['imagePullSecrets'] = isset($data['imagePullSecrets']) ? $data['imagePullSecrets'] : null;
         $this->container['initContainers'] = isset($data['initContainers']) ? $data['initContainers'] : null;
@@ -391,15 +488,21 @@ class PrometheusModel implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
+        $this->container['overrideHonorLabels'] = isset($data['overrideHonorLabels']) ? $data['overrideHonorLabels'] : null;
+        $this->container['overrideHonorTimestamps'] = isset($data['overrideHonorTimestamps']) ? $data['overrideHonorTimestamps'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['podMetadata'] = isset($data['podMetadata']) ? $data['podMetadata'] : null;
         $this->container['podMonitorNamespaceSelector'] = isset($data['podMonitorNamespaceSelector']) ? $data['podMonitorNamespaceSelector'] : null;
         $this->container['podMonitorSelector'] = isset($data['podMonitorSelector']) ? $data['podMonitorSelector'] : null;
         $this->container['portName'] = isset($data['portName']) ? $data['portName'] : null;
         $this->container['priorityClassName'] = isset($data['priorityClassName']) ? $data['priorityClassName'] : null;
+        $this->container['probeNamespaceSelector'] = isset($data['probeNamespaceSelector']) ? $data['probeNamespaceSelector'] : null;
+        $this->container['probeSelector'] = isset($data['probeSelector']) ? $data['probeSelector'] : null;
         $this->container['projectId'] = isset($data['projectId']) ? $data['projectId'] : null;
         $this->container['prometheusExternalLabelName'] = isset($data['prometheusExternalLabelName']) ? $data['prometheusExternalLabelName'] : null;
+        $this->container['prometheusRulesExcludedFromEnforce'] = isset($data['prometheusRulesExcludedFromEnforce']) ? $data['prometheusRulesExcludedFromEnforce'] : null;
         $this->container['query'] = isset($data['query']) ? $data['query'] : null;
+        $this->container['queryLogFile'] = isset($data['queryLogFile']) ? $data['queryLogFile'] : null;
         $this->container['remoteRead'] = isset($data['remoteRead']) ? $data['remoteRead'] : null;
         $this->container['remoteWrite'] = isset($data['remoteWrite']) ? $data['remoteWrite'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
@@ -412,21 +515,26 @@ class PrometheusModel implements ArrayAccess
         $this->container['ruleSelector'] = isset($data['ruleSelector']) ? $data['ruleSelector'] : null;
         $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
         $this->container['scrapeInterval'] = isset($data['scrapeInterval']) ? $data['scrapeInterval'] : null;
+        $this->container['scrapeTimeout'] = isset($data['scrapeTimeout']) ? $data['scrapeTimeout'] : null;
         $this->container['secrets'] = isset($data['secrets']) ? $data['secrets'] : null;
         $this->container['securityContext'] = isset($data['securityContext']) ? $data['securityContext'] : null;
         $this->container['serviceAccountName'] = isset($data['serviceAccountName']) ? $data['serviceAccountName'] : null;
         $this->container['serviceMonitorSelector'] = isset($data['serviceMonitorSelector']) ? $data['serviceMonitorSelector'] : null;
         $this->container['sha'] = isset($data['sha']) ? $data['sha'] : null;
+        $this->container['shards'] = isset($data['shards']) ? $data['shards'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['storage'] = isset($data['storage']) ? $data['storage'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['tolerations'] = isset($data['tolerations']) ? $data['tolerations'] : null;
+        $this->container['topologySpreadConstraints'] = isset($data['topologySpreadConstraints']) ? $data['topologySpreadConstraints'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['volumeMounts'] = isset($data['volumeMounts']) ? $data['volumeMounts'] : null;
         $this->container['volumes'] = isset($data['volumes']) ? $data['volumes'] : null;
         $this->container['walCompression'] = isset($data['walCompression']) ? $data['walCompression'] : null;
+        $this->container['web'] = isset($data['web']) ? $data['web'] : null;
     }
 
     /**
@@ -540,6 +648,28 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets allowOverlappingBlocks
+     * @return boolean
+     */
+    public function getAllowOverlappingBlocks()
+    {
+        return $this->container['allowOverlappingBlocks'];
+    }
+
+    /**
+     * Sets allowOverlappingBlocks
+     * @param boolean $allowOverlappingBlocks
+     * @return $this
+     */
+    public function setAllowOverlappingBlocks($allowOverlappingBlocks)
+    {
+        $this->container['allowOverlappingBlocks'] = $allowOverlappingBlocks;
+
+        return $this;
+    }
+
+
+    /**
      * Gets annotations
      * @return string[]
      */
@@ -556,6 +686,28 @@ class PrometheusModel implements ArrayAccess
     public function setAnnotations($annotations)
     {
         $this->container['annotations'] = $annotations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets arbitraryFSAccessThroughSMs
+     * @return \Rancher\Model\ArbitraryFSAccessThroughSMsConfigModel
+     */
+    public function getArbitraryFSAccessThroughSMs()
+    {
+        return $this->container['arbitraryFSAccessThroughSMs'];
+    }
+
+    /**
+     * Sets arbitraryFSAccessThroughSMs
+     * @param \Rancher\Model\ArbitraryFSAccessThroughSMsConfigModel $arbitraryFSAccessThroughSMs
+     * @return $this
+     */
+    public function setArbitraryFSAccessThroughSMs($arbitraryFSAccessThroughSMs)
+    {
+        $this->container['arbitraryFSAccessThroughSMs'] = $arbitraryFSAccessThroughSMs;
 
         return $this;
     }
@@ -694,6 +846,28 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets disableCompaction
+     * @return boolean
+     */
+    public function getDisableCompaction()
+    {
+        return $this->container['disableCompaction'];
+    }
+
+    /**
+     * Sets disableCompaction
+     * @param boolean $disableCompaction
+     * @return $this
+     */
+    public function setDisableCompaction($disableCompaction)
+    {
+        $this->container['disableCompaction'] = $disableCompaction;
+
+        return $this;
+    }
+
+
+    /**
      * Gets enableAdminAPI
      * @return boolean
      */
@@ -710,6 +884,72 @@ class PrometheusModel implements ArrayAccess
     public function setEnableAdminAPI($enableAdminAPI)
     {
         $this->container['enableAdminAPI'] = $enableAdminAPI;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedNamespaceLabel
+     * @return string
+     */
+    public function getEnforcedNamespaceLabel()
+    {
+        return $this->container['enforcedNamespaceLabel'];
+    }
+
+    /**
+     * Sets enforcedNamespaceLabel
+     * @param string $enforcedNamespaceLabel
+     * @return $this
+     */
+    public function setEnforcedNamespaceLabel($enforcedNamespaceLabel)
+    {
+        $this->container['enforcedNamespaceLabel'] = $enforcedNamespaceLabel;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedSampleLimit
+     * @return int
+     */
+    public function getEnforcedSampleLimit()
+    {
+        return $this->container['enforcedSampleLimit'];
+    }
+
+    /**
+     * Sets enforcedSampleLimit
+     * @param int $enforcedSampleLimit
+     * @return $this
+     */
+    public function setEnforcedSampleLimit($enforcedSampleLimit)
+    {
+        $this->container['enforcedSampleLimit'] = $enforcedSampleLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedTargetLimit
+     * @return int
+     */
+    public function getEnforcedTargetLimit()
+    {
+        return $this->container['enforcedTargetLimit'];
+    }
+
+    /**
+     * Sets enforcedTargetLimit
+     * @param int $enforcedTargetLimit
+     * @return $this
+     */
+    public function setEnforcedTargetLimit($enforcedTargetLimit)
+    {
+        $this->container['enforcedTargetLimit'] = $enforcedTargetLimit;
 
         return $this;
     }
@@ -776,6 +1016,28 @@ class PrometheusModel implements ArrayAccess
     public function setExternalUrl($externalUrl)
     {
         $this->container['externalUrl'] = $externalUrl;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ignoreNamespaceSelectors
+     * @return boolean
+     */
+    public function getIgnoreNamespaceSelectors()
+    {
+        return $this->container['ignoreNamespaceSelectors'];
+    }
+
+    /**
+     * Sets ignoreNamespaceSelectors
+     * @param boolean $ignoreNamespaceSelectors
+     * @return $this
+     */
+    public function setIgnoreNamespaceSelectors($ignoreNamespaceSelectors)
+    {
+        $this->container['ignoreNamespaceSelectors'] = $ignoreNamespaceSelectors;
 
         return $this;
     }
@@ -1002,6 +1264,50 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets overrideHonorLabels
+     * @return boolean
+     */
+    public function getOverrideHonorLabels()
+    {
+        return $this->container['overrideHonorLabels'];
+    }
+
+    /**
+     * Sets overrideHonorLabels
+     * @param boolean $overrideHonorLabels
+     * @return $this
+     */
+    public function setOverrideHonorLabels($overrideHonorLabels)
+    {
+        $this->container['overrideHonorLabels'] = $overrideHonorLabels;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets overrideHonorTimestamps
+     * @return boolean
+     */
+    public function getOverrideHonorTimestamps()
+    {
+        return $this->container['overrideHonorTimestamps'];
+    }
+
+    /**
+     * Sets overrideHonorTimestamps
+     * @param boolean $overrideHonorTimestamps
+     * @return $this
+     */
+    public function setOverrideHonorTimestamps($overrideHonorTimestamps)
+    {
+        $this->container['overrideHonorTimestamps'] = $overrideHonorTimestamps;
+
+        return $this;
+    }
+
+
+    /**
      * Gets ownerReferences
      * @return \Rancher\Model\OwnerReferenceModel[]
      */
@@ -1025,7 +1331,7 @@ class PrometheusModel implements ArrayAccess
 
     /**
      * Gets podMetadata
-     * @return \Rancher\Model\ObjectMetaModel
+     * @return \Rancher\Model\EmbeddedObjectMetadataModel
      */
     public function getPodMetadata()
     {
@@ -1034,7 +1340,7 @@ class PrometheusModel implements ArrayAccess
 
     /**
      * Sets podMetadata
-     * @param \Rancher\Model\ObjectMetaModel $podMetadata
+     * @param \Rancher\Model\EmbeddedObjectMetadataModel $podMetadata
      * @return $this
      */
     public function setPodMetadata($podMetadata)
@@ -1134,6 +1440,50 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets probeNamespaceSelector
+     * @return \Rancher\Model\LabelSelectorModel
+     */
+    public function getProbeNamespaceSelector()
+    {
+        return $this->container['probeNamespaceSelector'];
+    }
+
+    /**
+     * Sets probeNamespaceSelector
+     * @param \Rancher\Model\LabelSelectorModel $probeNamespaceSelector
+     * @return $this
+     */
+    public function setProbeNamespaceSelector($probeNamespaceSelector)
+    {
+        $this->container['probeNamespaceSelector'] = $probeNamespaceSelector;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets probeSelector
+     * @return \Rancher\Model\LabelSelectorModel
+     */
+    public function getProbeSelector()
+    {
+        return $this->container['probeSelector'];
+    }
+
+    /**
+     * Sets probeSelector
+     * @param \Rancher\Model\LabelSelectorModel $probeSelector
+     * @return $this
+     */
+    public function setProbeSelector($probeSelector)
+    {
+        $this->container['probeSelector'] = $probeSelector;
+
+        return $this;
+    }
+
+
+    /**
      * Gets projectId
      * @return string
      */
@@ -1178,6 +1528,28 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets prometheusRulesExcludedFromEnforce
+     * @return \Rancher\Model\PrometheusRuleExcludeConfigModel[]
+     */
+    public function getPrometheusRulesExcludedFromEnforce()
+    {
+        return $this->container['prometheusRulesExcludedFromEnforce'];
+    }
+
+    /**
+     * Sets prometheusRulesExcludedFromEnforce
+     * @param \Rancher\Model\PrometheusRuleExcludeConfigModel[] $prometheusRulesExcludedFromEnforce
+     * @return $this
+     */
+    public function setPrometheusRulesExcludedFromEnforce($prometheusRulesExcludedFromEnforce)
+    {
+        $this->container['prometheusRulesExcludedFromEnforce'] = $prometheusRulesExcludedFromEnforce;
+
+        return $this;
+    }
+
+
+    /**
      * Gets query
      * @return \Rancher\Model\QuerySpecModel
      */
@@ -1194,6 +1566,28 @@ class PrometheusModel implements ArrayAccess
     public function setQuery($query)
     {
         $this->container['query'] = $query;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets queryLogFile
+     * @return string
+     */
+    public function getQueryLogFile()
+    {
+        return $this->container['queryLogFile'];
+    }
+
+    /**
+     * Sets queryLogFile
+     * @param string $queryLogFile
+     * @return $this
+     */
+    public function setQueryLogFile($queryLogFile)
+    {
+        $this->container['queryLogFile'] = $queryLogFile;
 
         return $this;
     }
@@ -1464,6 +1858,28 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets scrapeTimeout
+     * @return string
+     */
+    public function getScrapeTimeout()
+    {
+        return $this->container['scrapeTimeout'];
+    }
+
+    /**
+     * Sets scrapeTimeout
+     * @param string $scrapeTimeout
+     * @return $this
+     */
+    public function setScrapeTimeout($scrapeTimeout)
+    {
+        $this->container['scrapeTimeout'] = $scrapeTimeout;
+
+        return $this;
+    }
+
+
+    /**
      * Gets secrets
      * @return string[]
      */
@@ -1574,6 +1990,28 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets shards
+     * @return int
+     */
+    public function getShards()
+    {
+        return $this->container['shards'];
+    }
+
+    /**
+     * Sets shards
+     * @param int $shards
+     * @return $this
+     */
+    public function setShards($shards)
+    {
+        $this->container['shards'] = $shards;
+
+        return $this;
+    }
+
+
+    /**
      * Gets state
      * @return string
      */
@@ -1656,6 +2094,28 @@ class PrometheusModel implements ArrayAccess
     public function setTolerations($tolerations)
     {
         $this->container['tolerations'] = $tolerations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets topologySpreadConstraints
+     * @return \Rancher\Model\TopologySpreadConstraintModel[]
+     */
+    public function getTopologySpreadConstraints()
+    {
+        return $this->container['topologySpreadConstraints'];
+    }
+
+    /**
+     * Sets topologySpreadConstraints
+     * @param \Rancher\Model\TopologySpreadConstraintModel[] $topologySpreadConstraints
+     * @return $this
+     */
+    public function setTopologySpreadConstraints($topologySpreadConstraints)
+    {
+        $this->container['topologySpreadConstraints'] = $topologySpreadConstraints;
 
         return $this;
     }
@@ -1750,6 +2210,28 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets volumeMounts
+     * @return \Rancher\Model\VolumeMountModel[]
+     */
+    public function getVolumeMounts()
+    {
+        return $this->container['volumeMounts'];
+    }
+
+    /**
+     * Sets volumeMounts
+     * @param \Rancher\Model\VolumeMountModel[] $volumeMounts
+     * @return $this
+     */
+    public function setVolumeMounts($volumeMounts)
+    {
+        $this->container['volumeMounts'] = $volumeMounts;
+
+        return $this;
+    }
+
+
+    /**
      * Gets volumes
      * @return \Rancher\Model\VolumeModel[]
      */
@@ -1788,6 +2270,28 @@ class PrometheusModel implements ArrayAccess
     public function setWalCompression($walCompression)
     {
         $this->container['walCompression'] = $walCompression;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets web
+     * @return \Rancher\Model\WebSpecModel
+     */
+    public function getWeb()
+    {
+        return $this->container['web'];
+    }
+
+    /**
+     * Sets web
+     * @param \Rancher\Model\WebSpecModel $web
+     * @return $this
+     */
+    public function setWeb($web)
+    {
+        $this->container['web'] = $web;
 
         return $this;
     }

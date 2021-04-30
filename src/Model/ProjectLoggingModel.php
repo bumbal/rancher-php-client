@@ -31,6 +31,7 @@ class ProjectLoggingModel implements ArrayAccess
         'annotations',
         'customTargetConfig',
         'elasticsearchConfig',
+        'enableJSONParsing',
         'fluentForwarderConfig',
         'kafkaConfig',
         'labels',
@@ -57,6 +58,7 @@ class ProjectLoggingModel implements ArrayAccess
         'annotations',
         'customTargetConfig',
         'elasticsearchConfig',
+        'enableJSONParsing',
         'fluentForwarderConfig',
         'kafkaConfig',
         'labels',
@@ -79,6 +81,7 @@ class ProjectLoggingModel implements ArrayAccess
         'creatorId' => 'string',
         'customTargetConfig' => '\Rancher\Model\CustomTargetConfigModel',
         'elasticsearchConfig' => '\Rancher\Model\ElasticsearchConfigModel',
+        'enableJSONParsing' => 'boolean',
         'fluentForwarderConfig' => '\Rancher\Model\FluentForwarderConfigModel',
         'id' => 'string',
         'kafkaConfig' => '\Rancher\Model\KafkaConfigModel',
@@ -110,6 +113,7 @@ class ProjectLoggingModel implements ArrayAccess
         'creatorId' => 'setCreatorId',
         'customTargetConfig' => 'setCustomTargetConfig',
         'elasticsearchConfig' => 'setElasticsearchConfig',
+        'enableJSONParsing' => 'setEnableJSONParsing',
         'fluentForwarderConfig' => 'setFluentForwarderConfig',
         'id' => 'setId',
         'kafkaConfig' => 'setKafkaConfig',
@@ -141,6 +145,7 @@ class ProjectLoggingModel implements ArrayAccess
         'creatorId' => 'getCreatorId',
         'customTargetConfig' => 'getCustomTargetConfig',
         'elasticsearchConfig' => 'getElasticsearchConfig',
+        'enableJSONParsing' => 'getEnableJSONParsing',
         'fluentForwarderConfig' => 'getFluentForwarderConfig',
         'id' => 'getId',
         'kafkaConfig' => 'getKafkaConfig',
@@ -173,6 +178,7 @@ class ProjectLoggingModel implements ArrayAccess
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['customTargetConfig'] = isset($data['customTargetConfig']) ? $data['customTargetConfig'] : null;
         $this->container['elasticsearchConfig'] = isset($data['elasticsearchConfig']) ? $data['elasticsearchConfig'] : null;
+        $this->container['enableJSONParsing'] = isset($data['enableJSONParsing']) ? $data['enableJSONParsing'] : null;
         $this->container['fluentForwarderConfig'] = isset($data['fluentForwarderConfig']) ? $data['fluentForwarderConfig'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['kafkaConfig'] = isset($data['kafkaConfig']) ? $data['kafkaConfig'] : null;
@@ -298,6 +304,28 @@ class ProjectLoggingModel implements ArrayAccess
     public function setElasticsearchConfig($elasticsearchConfig)
     {
         $this->container['elasticsearchConfig'] = $elasticsearchConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enableJSONParsing
+     * @return boolean
+     */
+    public function getEnableJSONParsing()
+    {
+        return $this->container['enableJSONParsing'];
+    }
+
+    /**
+     * Sets enableJSONParsing
+     * @param boolean $enableJSONParsing
+     * @return $this
+     */
+    public function setEnableJSONParsing($enableJSONParsing)
+    {
+        $this->container['enableJSONParsing'] = $enableJSONParsing;
 
         return $this;
     }

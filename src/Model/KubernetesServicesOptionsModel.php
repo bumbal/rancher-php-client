@@ -28,6 +28,7 @@ class KubernetesServicesOptionsModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'etcd',
         'kubeController',
         'kubeapi',
         'kubelet',
@@ -46,6 +47,7 @@ class KubernetesServicesOptionsModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'etcd',
         'kubeController',
         'kubeapi',
         'kubelet',
@@ -59,6 +61,7 @@ class KubernetesServicesOptionsModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'etcd' => 'map[string,string]',
         'kubeController' => 'map[string,string]',
         'kubeapi' => 'map[string,string]',
         'kubelet' => 'map[string,string]',
@@ -72,6 +75,7 @@ class KubernetesServicesOptionsModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'etcd' => 'setEtcd',
         'kubeController' => 'setKubeController',
         'kubeapi' => 'setKubeapi',
         'kubelet' => 'setKubelet',
@@ -85,6 +89,7 @@ class KubernetesServicesOptionsModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'etcd' => 'getEtcd',
         'kubeController' => 'getKubeController',
         'kubeapi' => 'getKubeapi',
         'kubelet' => 'getKubelet',
@@ -99,12 +104,35 @@ class KubernetesServicesOptionsModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['etcd'] = isset($data['etcd']) ? $data['etcd'] : null;
         $this->container['kubeController'] = isset($data['kubeController']) ? $data['kubeController'] : null;
         $this->container['kubeapi'] = isset($data['kubeapi']) ? $data['kubeapi'] : null;
         $this->container['kubelet'] = isset($data['kubelet']) ? $data['kubelet'] : null;
         $this->container['kubeproxy'] = isset($data['kubeproxy']) ? $data['kubeproxy'] : null;
         $this->container['scheduler'] = isset($data['scheduler']) ? $data['scheduler'] : null;
     }
+
+    /**
+     * Gets etcd
+     * @return string[]
+     */
+    public function getEtcd()
+    {
+        return $this->container['etcd'];
+    }
+
+    /**
+     * Sets etcd
+     * @param string[] $etcd
+     * @return $this
+     */
+    public function setEtcd($etcd)
+    {
+        $this->container['etcd'] = $etcd;
+
+        return $this;
+    }
+
 
     /**
      * Gets kubeController

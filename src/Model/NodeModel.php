@@ -39,10 +39,12 @@ class NodeModel implements ArrayAccess
         'etcd',
         'imported',
         'labels',
+        'linodeConfig',
         'name',
         'namespaceId',
         'nodeTemplateId',
         'requestedHostname',
+        'scaledownTime',
         'vmwarevsphereConfig',
         'worker',
     ];
@@ -64,6 +66,7 @@ class NodeModel implements ArrayAccess
         'imported',
         'labels',
         'name',
+        'scaledownTime',
         'taints',
     ];
 
@@ -76,6 +79,7 @@ class NodeModel implements ArrayAccess
         'allocatable' => 'map[string,string]',
         'amazonec2Config' => '\Rancher\Model\Amazonec2configModel',
         'annotations' => 'map[string,string]',
+        'appliedNodeVersion' => 'int',
         'azureConfig' => '\Rancher\Model\AzureconfigModel',
         'capacity' => 'map[string,string]',
         'clusterId' => 'string',
@@ -96,9 +100,11 @@ class NodeModel implements ArrayAccess
         'ipAddress' => 'string',
         'labels' => 'map[string,string]',
         'limits' => 'map[string,string]',
+        'linodeConfig' => '\Rancher\Model\LinodeconfigModel',
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeName' => 'string',
+        'nodePlan' => '\Rancher\Model\NodePlanModel',
         'nodePoolId' => 'string',
         'nodeTaints' => '\Rancher\Model\TaintModel[]',
         'nodeTemplateId' => 'string',
@@ -110,6 +116,7 @@ class NodeModel implements ArrayAccess
         'removed' => '\DateTime',
         'requested' => 'map[string,string]',
         'requestedHostname' => 'string',
+        'scaledownTime' => 'string',
         'sshUser' => 'string',
         'state' => 'string',
         'taints' => '\Rancher\Model\TaintModel[]',
@@ -132,6 +139,7 @@ class NodeModel implements ArrayAccess
         'allocatable' => 'setAllocatable',
         'amazonec2Config' => 'setAmazonec2Config',
         'annotations' => 'setAnnotations',
+        'appliedNodeVersion' => 'setAppliedNodeVersion',
         'azureConfig' => 'setAzureConfig',
         'capacity' => 'setCapacity',
         'clusterId' => 'setClusterId',
@@ -152,9 +160,11 @@ class NodeModel implements ArrayAccess
         'ipAddress' => 'setIpAddress',
         'labels' => 'setLabels',
         'limits' => 'setLimits',
+        'linodeConfig' => 'setLinodeConfig',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'nodeName' => 'setNodeName',
+        'nodePlan' => 'setNodePlan',
         'nodePoolId' => 'setNodePoolId',
         'nodeTaints' => 'setNodeTaints',
         'nodeTemplateId' => 'setNodeTemplateId',
@@ -166,6 +176,7 @@ class NodeModel implements ArrayAccess
         'removed' => 'setRemoved',
         'requested' => 'setRequested',
         'requestedHostname' => 'setRequestedHostname',
+        'scaledownTime' => 'setScaledownTime',
         'sshUser' => 'setSshUser',
         'state' => 'setState',
         'taints' => 'setTaints',
@@ -188,6 +199,7 @@ class NodeModel implements ArrayAccess
         'allocatable' => 'getAllocatable',
         'amazonec2Config' => 'getAmazonec2Config',
         'annotations' => 'getAnnotations',
+        'appliedNodeVersion' => 'getAppliedNodeVersion',
         'azureConfig' => 'getAzureConfig',
         'capacity' => 'getCapacity',
         'clusterId' => 'getClusterId',
@@ -208,9 +220,11 @@ class NodeModel implements ArrayAccess
         'ipAddress' => 'getIpAddress',
         'labels' => 'getLabels',
         'limits' => 'getLimits',
+        'linodeConfig' => 'getLinodeConfig',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'nodeName' => 'getNodeName',
+        'nodePlan' => 'getNodePlan',
         'nodePoolId' => 'getNodePoolId',
         'nodeTaints' => 'getNodeTaints',
         'nodeTemplateId' => 'getNodeTemplateId',
@@ -222,6 +236,7 @@ class NodeModel implements ArrayAccess
         'removed' => 'getRemoved',
         'requested' => 'getRequested',
         'requestedHostname' => 'getRequestedHostname',
+        'scaledownTime' => 'getScaledownTime',
         'sshUser' => 'getSshUser',
         'state' => 'getState',
         'taints' => 'getTaints',
@@ -245,6 +260,7 @@ class NodeModel implements ArrayAccess
         $this->container['allocatable'] = isset($data['allocatable']) ? $data['allocatable'] : null;
         $this->container['amazonec2Config'] = isset($data['amazonec2Config']) ? $data['amazonec2Config'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
+        $this->container['appliedNodeVersion'] = isset($data['appliedNodeVersion']) ? $data['appliedNodeVersion'] : null;
         $this->container['azureConfig'] = isset($data['azureConfig']) ? $data['azureConfig'] : null;
         $this->container['capacity'] = isset($data['capacity']) ? $data['capacity'] : null;
         $this->container['clusterId'] = isset($data['clusterId']) ? $data['clusterId'] : null;
@@ -265,9 +281,11 @@ class NodeModel implements ArrayAccess
         $this->container['ipAddress'] = isset($data['ipAddress']) ? $data['ipAddress'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
+        $this->container['linodeConfig'] = isset($data['linodeConfig']) ? $data['linodeConfig'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['nodeName'] = isset($data['nodeName']) ? $data['nodeName'] : null;
+        $this->container['nodePlan'] = isset($data['nodePlan']) ? $data['nodePlan'] : null;
         $this->container['nodePoolId'] = isset($data['nodePoolId']) ? $data['nodePoolId'] : null;
         $this->container['nodeTaints'] = isset($data['nodeTaints']) ? $data['nodeTaints'] : null;
         $this->container['nodeTemplateId'] = isset($data['nodeTemplateId']) ? $data['nodeTemplateId'] : null;
@@ -279,6 +297,7 @@ class NodeModel implements ArrayAccess
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
         $this->container['requested'] = isset($data['requested']) ? $data['requested'] : null;
         $this->container['requestedHostname'] = isset($data['requestedHostname']) ? $data['requestedHostname'] : null;
+        $this->container['scaledownTime'] = isset($data['scaledownTime']) ? $data['scaledownTime'] : null;
         $this->container['sshUser'] = isset($data['sshUser']) ? $data['sshUser'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['taints'] = isset($data['taints']) ? $data['taints'] : null;
@@ -353,6 +372,28 @@ class NodeModel implements ArrayAccess
     public function setAnnotations($annotations)
     {
         $this->container['annotations'] = $annotations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets appliedNodeVersion
+     * @return int
+     */
+    public function getAppliedNodeVersion()
+    {
+        return $this->container['appliedNodeVersion'];
+    }
+
+    /**
+     * Sets appliedNodeVersion
+     * @param int $appliedNodeVersion
+     * @return $this
+     */
+    public function setAppliedNodeVersion($appliedNodeVersion)
+    {
+        $this->container['appliedNodeVersion'] = $appliedNodeVersion;
 
         return $this;
     }
@@ -799,6 +840,28 @@ class NodeModel implements ArrayAccess
 
 
     /**
+     * Gets linodeConfig
+     * @return \Rancher\Model\LinodeconfigModel
+     */
+    public function getLinodeConfig()
+    {
+        return $this->container['linodeConfig'];
+    }
+
+    /**
+     * Sets linodeConfig
+     * @param \Rancher\Model\LinodeconfigModel $linodeConfig
+     * @return $this
+     */
+    public function setLinodeConfig($linodeConfig)
+    {
+        $this->container['linodeConfig'] = $linodeConfig;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */
@@ -859,6 +922,28 @@ class NodeModel implements ArrayAccess
     public function setNodeName($nodeName)
     {
         $this->container['nodeName'] = $nodeName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodePlan
+     * @return \Rancher\Model\NodePlanModel
+     */
+    public function getNodePlan()
+    {
+        return $this->container['nodePlan'];
+    }
+
+    /**
+     * Sets nodePlan
+     * @param \Rancher\Model\NodePlanModel $nodePlan
+     * @return $this
+     */
+    public function setNodePlan($nodePlan)
+    {
+        $this->container['nodePlan'] = $nodePlan;
 
         return $this;
     }
@@ -1101,6 +1186,28 @@ class NodeModel implements ArrayAccess
     public function setRequestedHostname($requestedHostname)
     {
         $this->container['requestedHostname'] = $requestedHostname;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets scaledownTime
+     * @return string
+     */
+    public function getScaledownTime()
+    {
+        return $this->container['scaledownTime'];
+    }
+
+    /**
+     * Sets scaledownTime
+     * @param string $scaledownTime
+     * @return $this
+     */
+    public function setScaledownTime($scaledownTime)
+    {
+        $this->container['scaledownTime'] = $scaledownTime;
 
         return $this;
     }

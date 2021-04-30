@@ -49,6 +49,7 @@ class TemplateVersionStatusModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'helmVersion' => 'string',
     ];
 
     public static function typeMap()
@@ -57,6 +58,7 @@ class TemplateVersionStatusModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'helmVersion' => 'setHelmVersion',
     ];
 
     public static function setters()
@@ -65,6 +67,7 @@ class TemplateVersionStatusModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'helmVersion' => 'getHelmVersion',
     ];
 
     public static function getters()
@@ -74,8 +77,29 @@ class TemplateVersionStatusModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['helmVersion'] = isset($data['helmVersion']) ? $data['helmVersion'] : null;
     }
 
+    /**
+     * Gets helmVersion
+     * @return string
+     */
+    public function getHelmVersion()
+    {
+        return $this->container['helmVersion'];
+    }
+
+    /**
+     * Sets helmVersion
+     * @param string $helmVersion
+     * @return $this
+     */
+    public function setHelmVersion($helmVersion)
+    {
+        $this->container['helmVersion'] = $helmVersion;
+
+        return $this;
+    }
 
     /**
      * Returns true if offset exists. False otherwise.

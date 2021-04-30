@@ -30,6 +30,7 @@ class ManagementSecretModel implements ArrayAccess
     protected static $canBeCreated = [
         'annotations',
         'data',
+        'immutable',
         'labels',
         'name',
         'stringData',
@@ -49,6 +50,7 @@ class ManagementSecretModel implements ArrayAccess
     protected static $canBeUpdated = [
         'annotations',
         'data',
+        'immutable',
         'labels',
         'stringData',
         'type',
@@ -64,6 +66,7 @@ class ManagementSecretModel implements ArrayAccess
         'created' => '\DateTime',
         'creatorId' => 'string',
         'data' => 'map[string,\Rancher\Model\Base64Model]',
+        'immutable' => 'boolean',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
@@ -83,6 +86,7 @@ class ManagementSecretModel implements ArrayAccess
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'data' => 'setData',
+        'immutable' => 'setImmutable',
         'labels' => 'setLabels',
         'name' => 'setName',
         'ownerReferences' => 'setOwnerReferences',
@@ -102,6 +106,7 @@ class ManagementSecretModel implements ArrayAccess
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'data' => 'getData',
+        'immutable' => 'getImmutable',
         'labels' => 'getLabels',
         'name' => 'getName',
         'ownerReferences' => 'getOwnerReferences',
@@ -122,6 +127,7 @@ class ManagementSecretModel implements ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['immutable'] = isset($data['immutable']) ? $data['immutable'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
@@ -214,6 +220,28 @@ class ManagementSecretModel implements ArrayAccess
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets immutable
+     * @return boolean
+     */
+    public function getImmutable()
+    {
+        return $this->container['immutable'];
+    }
+
+    /**
+     * Sets immutable
+     * @param boolean $immutable
+     * @return $this
+     */
+    public function setImmutable($immutable)
+    {
+        $this->container['immutable'] = $immutable;
 
         return $this;
     }

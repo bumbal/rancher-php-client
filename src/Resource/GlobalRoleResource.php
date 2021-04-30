@@ -185,5 +185,19 @@ class GlobalRoleResource
         return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\GlobalRoleModel');
     }
 
+    /**
+     * remove
+     *
+     * @param string $id
+     *
+     * @throws RancherException
+     * @return \Rancher\Model\GlobalRoleModel
+     */
+    public function remove($id)
+    {
+        $response = $this->client->request('DELETE', $this->constructPath(true) . $id, []);
+
+        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\GlobalRoleModel');
+    }
 
 }

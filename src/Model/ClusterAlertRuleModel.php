@@ -30,6 +30,7 @@ class ClusterAlertRuleModel implements ArrayAccess
     protected static $canBeCreated = [
         'annotations',
         'clusterId',
+        'clusterScanRule',
         'eventRule',
         'groupId',
         'groupIntervalSeconds',
@@ -58,6 +59,7 @@ class ClusterAlertRuleModel implements ArrayAccess
     protected static $canBeUpdated = [
         'annotations',
         'clusterId',
+        'clusterScanRule',
         'eventRule',
         'groupId',
         'groupIntervalSeconds',
@@ -81,6 +83,7 @@ class ClusterAlertRuleModel implements ArrayAccess
         'alertState' => 'string',
         'annotations' => 'map[string,string]',
         'clusterId' => 'string',
+        'clusterScanRule' => '\Rancher\Model\ClusterScanRuleModel',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'eventRule' => '\Rancher\Model\EventRuleModel',
@@ -114,6 +117,7 @@ class ClusterAlertRuleModel implements ArrayAccess
         'alertState' => 'setAlertState',
         'annotations' => 'setAnnotations',
         'clusterId' => 'setClusterId',
+        'clusterScanRule' => 'setClusterScanRule',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'eventRule' => 'setEventRule',
@@ -147,6 +151,7 @@ class ClusterAlertRuleModel implements ArrayAccess
         'alertState' => 'getAlertState',
         'annotations' => 'getAnnotations',
         'clusterId' => 'getClusterId',
+        'clusterScanRule' => 'getClusterScanRule',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'eventRule' => 'getEventRule',
@@ -181,6 +186,7 @@ class ClusterAlertRuleModel implements ArrayAccess
         $this->container['alertState'] = isset($data['alertState']) ? $data['alertState'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['clusterId'] = isset($data['clusterId']) ? $data['clusterId'] : null;
+        $this->container['clusterScanRule'] = isset($data['clusterScanRule']) ? $data['clusterScanRule'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['eventRule'] = isset($data['eventRule']) ? $data['eventRule'] : null;
@@ -266,6 +272,28 @@ class ClusterAlertRuleModel implements ArrayAccess
     public function setClusterId($clusterId)
     {
         $this->container['clusterId'] = $clusterId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterScanRule
+     * @return \Rancher\Model\ClusterScanRuleModel
+     */
+    public function getClusterScanRule()
+    {
+        return $this->container['clusterScanRule'];
+    }
+
+    /**
+     * Sets clusterScanRule
+     * @param \Rancher\Model\ClusterScanRuleModel $clusterScanRule
+     * @return $this
+     */
+    public function setClusterScanRule($clusterScanRule)
+    {
+        $this->container['clusterScanRule'] = $clusterScanRule;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class HorizontalPodAutoscalerModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'annotations',
+        'behavior',
         'description',
         'labels',
         'maxReplicas',
@@ -52,6 +53,7 @@ class HorizontalPodAutoscalerModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'annotations',
+        'behavior',
         'description',
         'labels',
         'maxReplicas',
@@ -68,6 +70,7 @@ class HorizontalPodAutoscalerModel implements ArrayAccess
 
     protected static $typeMap = [
         'annotations' => 'map[string,string]',
+        'behavior' => '\Rancher\Model\HorizontalPodAutoscalerBehaviorModel',
         'conditions' => '\Rancher\Model\HorizontalPodAutoscalerConditionModel[]',
         'created' => '\DateTime',
         'creatorId' => 'string',
@@ -100,6 +103,7 @@ class HorizontalPodAutoscalerModel implements ArrayAccess
 
     protected static $setters = [
         'annotations' => 'setAnnotations',
+        'behavior' => 'setBehavior',
         'conditions' => 'setConditions',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
@@ -132,6 +136,7 @@ class HorizontalPodAutoscalerModel implements ArrayAccess
 
     protected static $getters = [
         'annotations' => 'getAnnotations',
+        'behavior' => 'getBehavior',
         'conditions' => 'getConditions',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
@@ -165,6 +170,7 @@ class HorizontalPodAutoscalerModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
+        $this->container['behavior'] = isset($data['behavior']) ? $data['behavior'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
@@ -207,6 +213,28 @@ class HorizontalPodAutoscalerModel implements ArrayAccess
     public function setAnnotations($annotations)
     {
         $this->container['annotations'] = $annotations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets behavior
+     * @return \Rancher\Model\HorizontalPodAutoscalerBehaviorModel
+     */
+    public function getBehavior()
+    {
+        return $this->container['behavior'];
+    }
+
+    /**
+     * Sets behavior
+     * @param \Rancher\Model\HorizontalPodAutoscalerBehaviorModel $behavior
+     * @return $this
+     */
+    public function setBehavior($behavior)
+    {
+        $this->container['behavior'] = $behavior;
 
         return $this;
     }

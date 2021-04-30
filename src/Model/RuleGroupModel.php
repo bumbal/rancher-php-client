@@ -30,6 +30,7 @@ class RuleGroupModel implements ArrayAccess
     protected static $canBeCreated = [
         'interval',
         'name',
+        'partial_response_strategy',
         'rules',
     ];
 
@@ -46,6 +47,7 @@ class RuleGroupModel implements ArrayAccess
     protected static $canBeUpdated = [
         'interval',
         'name',
+        'partial_response_strategy',
         'rules',
     ];
 
@@ -57,6 +59,7 @@ class RuleGroupModel implements ArrayAccess
     protected static $typeMap = [
         'interval' => 'string',
         'name' => 'string',
+        'partial_response_strategy' => 'string',
         'rules' => '\Rancher\Model\RuleModel[]',
     ];
 
@@ -68,6 +71,7 @@ class RuleGroupModel implements ArrayAccess
     protected static $setters = [
         'interval' => 'setInterval',
         'name' => 'setName',
+        'partial_response_strategy' => 'setPartial_response_strategy',
         'rules' => 'setRules',
     ];
 
@@ -79,6 +83,7 @@ class RuleGroupModel implements ArrayAccess
     protected static $getters = [
         'interval' => 'getInterval',
         'name' => 'getName',
+        'partial_response_strategy' => 'getPartial_response_strategy',
         'rules' => 'getRules',
     ];
 
@@ -91,6 +96,7 @@ class RuleGroupModel implements ArrayAccess
     {
         $this->container['interval'] = isset($data['interval']) ? $data['interval'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['partial_response_strategy'] = isset($data['partial_response_strategy']) ? $data['partial_response_strategy'] : null;
         $this->container['rules'] = isset($data['rules']) ? $data['rules'] : null;
     }
 
@@ -133,6 +139,28 @@ class RuleGroupModel implements ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets partial_response_strategy
+     * @return string
+     */
+    public function getPartial_response_strategy()
+    {
+        return $this->container['partial_response_strategy'];
+    }
+
+    /**
+     * Sets partial_response_strategy
+     * @param string $partial_response_strategy
+     * @return $this
+     */
+    public function setPartial_response_strategy($partial_response_strategy)
+    {
+        $this->container['partial_response_strategy'] = $partial_response_strategy;
 
         return $this;
     }

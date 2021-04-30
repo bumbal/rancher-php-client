@@ -28,6 +28,7 @@ class StorageSpecModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'disableMountSubPath',
         'emptyDir',
         'volumeClaimTemplate',
     ];
@@ -43,6 +44,7 @@ class StorageSpecModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'disableMountSubPath',
         'emptyDir',
         'volumeClaimTemplate',
     ];
@@ -53,8 +55,9 @@ class StorageSpecModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'disableMountSubPath' => 'boolean',
         'emptyDir' => '\Rancher\Model\EmptyDirVolumeSourceModel',
-        'volumeClaimTemplate' => '\Rancher\Model\PersistentVolumeClaimModel',
+        'volumeClaimTemplate' => '\Rancher\Model\EmbeddedPersistentVolumeClaimModel',
     ];
 
     public static function typeMap()
@@ -63,6 +66,7 @@ class StorageSpecModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'disableMountSubPath' => 'setDisableMountSubPath',
         'emptyDir' => 'setEmptyDir',
         'volumeClaimTemplate' => 'setVolumeClaimTemplate',
     ];
@@ -73,6 +77,7 @@ class StorageSpecModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'disableMountSubPath' => 'getDisableMountSubPath',
         'emptyDir' => 'getEmptyDir',
         'volumeClaimTemplate' => 'getVolumeClaimTemplate',
     ];
@@ -84,9 +89,32 @@ class StorageSpecModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['disableMountSubPath'] = isset($data['disableMountSubPath']) ? $data['disableMountSubPath'] : null;
         $this->container['emptyDir'] = isset($data['emptyDir']) ? $data['emptyDir'] : null;
         $this->container['volumeClaimTemplate'] = isset($data['volumeClaimTemplate']) ? $data['volumeClaimTemplate'] : null;
     }
+
+    /**
+     * Gets disableMountSubPath
+     * @return boolean
+     */
+    public function getDisableMountSubPath()
+    {
+        return $this->container['disableMountSubPath'];
+    }
+
+    /**
+     * Sets disableMountSubPath
+     * @param boolean $disableMountSubPath
+     * @return $this
+     */
+    public function setDisableMountSubPath($disableMountSubPath)
+    {
+        $this->container['disableMountSubPath'] = $disableMountSubPath;
+
+        return $this;
+    }
+
 
     /**
      * Gets emptyDir
@@ -112,7 +140,7 @@ class StorageSpecModel implements ArrayAccess
 
     /**
      * Gets volumeClaimTemplate
-     * @return \Rancher\Model\PersistentVolumeClaimModel
+     * @return \Rancher\Model\EmbeddedPersistentVolumeClaimModel
      */
     public function getVolumeClaimTemplate()
     {
@@ -121,7 +149,7 @@ class StorageSpecModel implements ArrayAccess
 
     /**
      * Sets volumeClaimTemplate
-     * @param \Rancher\Model\PersistentVolumeClaimModel $volumeClaimTemplate
+     * @param \Rancher\Model\EmbeddedPersistentVolumeClaimModel $volumeClaimTemplate
      * @return $this
      */
     public function setVolumeClaimTemplate($volumeClaimTemplate)

@@ -100,6 +100,34 @@ class IngressFilter extends AbstractFilter
 
 
     /**
+     * Gets ingressClassName
+     * @return string
+     */
+    public function getIngressClassName()
+    {
+        return $this->container['ingressClassName'];
+    }
+
+    /**
+     * Sets ingressClassName
+     * @param string $ingressClassName
+     * @param string $option
+     * @return $this
+     */
+    public function setIngressClassName($ingressClassName, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['ingressClassName'.$option] = $ingressClassName;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */

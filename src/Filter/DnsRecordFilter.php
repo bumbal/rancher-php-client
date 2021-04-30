@@ -16,6 +16,34 @@ use Rancher\AbstractFilter;
 class DnsRecordFilter extends AbstractFilter
 {
     /**
+     * Gets allocateLoadBalancerNodePorts
+     * @return string
+     */
+    public function getAllocateLoadBalancerNodePorts()
+    {
+        return $this->container['allocateLoadBalancerNodePorts'];
+    }
+
+    /**
+     * Sets allocateLoadBalancerNodePorts
+     * @param string $allocateLoadBalancerNodePorts
+     * @param string $option
+     * @return $this
+     */
+    public function setAllocateLoadBalancerNodePorts($allocateLoadBalancerNodePorts, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['allocateLoadBalancerNodePorts'.$option] = $allocateLoadBalancerNodePorts;
+
+        return $this;
+    }
+
+
+    /**
      * Gets clusterIp
      * @return string
      */
@@ -156,28 +184,28 @@ class DnsRecordFilter extends AbstractFilter
 
 
     /**
-     * Gets ipFamily
+     * Gets ipFamilyPolicy
      * @return string
      */
-    public function getIpFamily()
+    public function getIpFamilyPolicy()
     {
-        return $this->container['ipFamily'];
+        return $this->container['ipFamilyPolicy'];
     }
 
     /**
-     * Sets ipFamily
-     * @param string $ipFamily
+     * Sets ipFamilyPolicy
+     * @param string $ipFamilyPolicy
      * @param string $option
      * @return $this
      */
-    public function setIpFamily($ipFamily, $option = '')
+    public function setIpFamilyPolicy($ipFamilyPolicy, $option = '')
     {
         if(!empty($option) && in_array($option, $this->allowedOptions))
         {
             $option = '_'.$option;
         }
 
-        $this->container['ipFamily'.$option] = $ipFamily;
+        $this->container['ipFamilyPolicy'.$option] = $ipFamilyPolicy;
 
         return $this;
     }

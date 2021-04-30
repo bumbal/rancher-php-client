@@ -31,7 +31,9 @@ class NotifierModel implements ArrayAccess
         'annotations',
         'clusterId',
         'description',
+        'dingtalkConfig',
         'labels',
+        'msteamsConfig',
         'name',
         'namespaceId',
         'pagerdutyConfig',
@@ -56,7 +58,9 @@ class NotifierModel implements ArrayAccess
         'annotations',
         'clusterId',
         'description',
+        'dingtalkConfig',
         'labels',
+        'msteamsConfig',
         'name',
         'pagerdutyConfig',
         'sendResolved',
@@ -77,8 +81,10 @@ class NotifierModel implements ArrayAccess
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
+        'dingtalkConfig' => '\Rancher\Model\DingtalkConfigModel',
         'id' => 'string',
         'labels' => 'map[string,string]',
+        'msteamsConfig' => '\Rancher\Model\MsTeamsConfigModel',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
@@ -107,8 +113,10 @@ class NotifierModel implements ArrayAccess
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'description' => 'setDescription',
+        'dingtalkConfig' => 'setDingtalkConfig',
         'id' => 'setId',
         'labels' => 'setLabels',
+        'msteamsConfig' => 'setMsteamsConfig',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'ownerReferences' => 'setOwnerReferences',
@@ -137,8 +145,10 @@ class NotifierModel implements ArrayAccess
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'description' => 'getDescription',
+        'dingtalkConfig' => 'getDingtalkConfig',
         'id' => 'getId',
         'labels' => 'getLabels',
+        'msteamsConfig' => 'getMsteamsConfig',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'ownerReferences' => 'getOwnerReferences',
@@ -168,8 +178,10 @@ class NotifierModel implements ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['dingtalkConfig'] = isset($data['dingtalkConfig']) ? $data['dingtalkConfig'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
+        $this->container['msteamsConfig'] = isset($data['msteamsConfig']) ? $data['msteamsConfig'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
@@ -298,6 +310,28 @@ class NotifierModel implements ArrayAccess
 
 
     /**
+     * Gets dingtalkConfig
+     * @return \Rancher\Model\DingtalkConfigModel
+     */
+    public function getDingtalkConfig()
+    {
+        return $this->container['dingtalkConfig'];
+    }
+
+    /**
+     * Sets dingtalkConfig
+     * @param \Rancher\Model\DingtalkConfigModel $dingtalkConfig
+     * @return $this
+     */
+    public function setDingtalkConfig($dingtalkConfig)
+    {
+        $this->container['dingtalkConfig'] = $dingtalkConfig;
+
+        return $this;
+    }
+
+
+    /**
      * Gets id
      * @return string
      */
@@ -336,6 +370,28 @@ class NotifierModel implements ArrayAccess
     public function setLabels($labels)
     {
         $this->container['labels'] = $labels;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets msteamsConfig
+     * @return \Rancher\Model\MsTeamsConfigModel
+     */
+    public function getMsteamsConfig()
+    {
+        return $this->container['msteamsConfig'];
+    }
+
+    /**
+     * Sets msteamsConfig
+     * @param \Rancher\Model\MsTeamsConfigModel $msteamsConfig
+     * @return $this
+     */
+    public function setMsteamsConfig($msteamsConfig)
+    {
+        $this->container['msteamsConfig'] = $msteamsConfig;
 
         return $this;
     }

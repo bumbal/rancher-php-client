@@ -28,7 +28,9 @@ class NotificationModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'dingtalkConfig',
         'message',
+        'msteamsConfig',
         'pagerdutyConfig',
         'slackConfig',
         'smtpConfig',
@@ -47,7 +49,9 @@ class NotificationModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'dingtalkConfig',
         'message',
+        'msteamsConfig',
         'pagerdutyConfig',
         'slackConfig',
         'smtpConfig',
@@ -61,7 +65,9 @@ class NotificationModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'dingtalkConfig' => '\Rancher\Model\DingtalkConfigModel',
         'message' => 'string',
+        'msteamsConfig' => '\Rancher\Model\MsTeamsConfigModel',
         'pagerdutyConfig' => '\Rancher\Model\PagerdutyConfigModel',
         'slackConfig' => '\Rancher\Model\SlackConfigModel',
         'smtpConfig' => '\Rancher\Model\SmtpConfigModel',
@@ -75,7 +81,9 @@ class NotificationModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'dingtalkConfig' => 'setDingtalkConfig',
         'message' => 'setMessage',
+        'msteamsConfig' => 'setMsteamsConfig',
         'pagerdutyConfig' => 'setPagerdutyConfig',
         'slackConfig' => 'setSlackConfig',
         'smtpConfig' => 'setSmtpConfig',
@@ -89,7 +97,9 @@ class NotificationModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'dingtalkConfig' => 'getDingtalkConfig',
         'message' => 'getMessage',
+        'msteamsConfig' => 'getMsteamsConfig',
         'pagerdutyConfig' => 'getPagerdutyConfig',
         'slackConfig' => 'getSlackConfig',
         'smtpConfig' => 'getSmtpConfig',
@@ -104,13 +114,37 @@ class NotificationModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['dingtalkConfig'] = isset($data['dingtalkConfig']) ? $data['dingtalkConfig'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['msteamsConfig'] = isset($data['msteamsConfig']) ? $data['msteamsConfig'] : null;
         $this->container['pagerdutyConfig'] = isset($data['pagerdutyConfig']) ? $data['pagerdutyConfig'] : null;
         $this->container['slackConfig'] = isset($data['slackConfig']) ? $data['slackConfig'] : null;
         $this->container['smtpConfig'] = isset($data['smtpConfig']) ? $data['smtpConfig'] : null;
         $this->container['webhookConfig'] = isset($data['webhookConfig']) ? $data['webhookConfig'] : null;
         $this->container['wechatConfig'] = isset($data['wechatConfig']) ? $data['wechatConfig'] : null;
     }
+
+    /**
+     * Gets dingtalkConfig
+     * @return \Rancher\Model\DingtalkConfigModel
+     */
+    public function getDingtalkConfig()
+    {
+        return $this->container['dingtalkConfig'];
+    }
+
+    /**
+     * Sets dingtalkConfig
+     * @param \Rancher\Model\DingtalkConfigModel $dingtalkConfig
+     * @return $this
+     */
+    public function setDingtalkConfig($dingtalkConfig)
+    {
+        $this->container['dingtalkConfig'] = $dingtalkConfig;
+
+        return $this;
+    }
+
 
     /**
      * Gets message
@@ -129,6 +163,28 @@ class NotificationModel implements ArrayAccess
     public function setMessage($message)
     {
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets msteamsConfig
+     * @return \Rancher\Model\MsTeamsConfigModel
+     */
+    public function getMsteamsConfig()
+    {
+        return $this->container['msteamsConfig'];
+    }
+
+    /**
+     * Sets msteamsConfig
+     * @param \Rancher\Model\MsTeamsConfigModel $msteamsConfig
+     * @return $this
+     */
+    public function setMsteamsConfig($msteamsConfig)
+    {
+        $this->container['msteamsConfig'] = $msteamsConfig;
 
         return $this;
     }

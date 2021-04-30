@@ -234,6 +234,21 @@ class NodeResource
     }
 
     /**
+     * scaledown
+     *
+     * @param string $id
+     *
+     * @throws RancherException
+     * @return void
+     */
+    public function scaledown($id)
+    {
+        $this->client->request('POST', $this->constructPath() . $id . '?action=scaledown', []);
+
+        return;
+    }
+
+    /**
      * stopDrain
      *
      * @param string $id

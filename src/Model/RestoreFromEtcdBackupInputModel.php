@@ -29,6 +29,7 @@ class RestoreFromEtcdBackupInputModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'etcdBackupId',
+        'restoreRkeConfig',
     ];
 
     public static function canBeCreated()
@@ -43,6 +44,7 @@ class RestoreFromEtcdBackupInputModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'etcdBackupId',
+        'restoreRkeConfig',
     ];
 
     public static function canBeUpdated()
@@ -52,6 +54,7 @@ class RestoreFromEtcdBackupInputModel implements ArrayAccess
 
     protected static $typeMap = [
         'etcdBackupId' => 'string',
+        'restoreRkeConfig' => 'string',
     ];
 
     public static function typeMap()
@@ -61,6 +64,7 @@ class RestoreFromEtcdBackupInputModel implements ArrayAccess
 
     protected static $setters = [
         'etcdBackupId' => 'setEtcdBackupId',
+        'restoreRkeConfig' => 'setRestoreRkeConfig',
     ];
 
     public static function setters()
@@ -70,6 +74,7 @@ class RestoreFromEtcdBackupInputModel implements ArrayAccess
 
     protected static $getters = [
         'etcdBackupId' => 'getEtcdBackupId',
+        'restoreRkeConfig' => 'getRestoreRkeConfig',
     ];
 
     public static function getters()
@@ -80,6 +85,7 @@ class RestoreFromEtcdBackupInputModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['etcdBackupId'] = isset($data['etcdBackupId']) ? $data['etcdBackupId'] : null;
+        $this->container['restoreRkeConfig'] = isset($data['restoreRkeConfig']) ? $data['restoreRkeConfig'] : null;
     }
 
     /**
@@ -99,6 +105,28 @@ class RestoreFromEtcdBackupInputModel implements ArrayAccess
     public function setEtcdBackupId($etcdBackupId)
     {
         $this->container['etcdBackupId'] = $etcdBackupId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets restoreRkeConfig
+     * @return string
+     */
+    public function getRestoreRkeConfig()
+    {
+        return $this->container['restoreRkeConfig'];
+    }
+
+    /**
+     * Sets restoreRkeConfig
+     * @param string $restoreRkeConfig
+     * @return $this
+     */
+    public function setRestoreRkeConfig($restoreRkeConfig)
+    {
+        $this->container['restoreRkeConfig'] = $restoreRkeConfig;
 
         return $this;
     }

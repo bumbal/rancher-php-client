@@ -52,6 +52,7 @@ class ContainerModel implements ArrayAccess
         'restartCount',
         'runAsGroup',
         'runAsNonRoot',
+        'seccompProfile',
         'startupProbe',
         'state',
         'stdin',
@@ -103,6 +104,7 @@ class ContainerModel implements ArrayAccess
         'restartCount',
         'runAsGroup',
         'runAsNonRoot',
+        'seccompProfile',
         'startupProbe',
         'state',
         'stdin',
@@ -149,6 +151,7 @@ class ContainerModel implements ArrayAccess
         'restartCount' => 'int',
         'runAsGroup' => 'int',
         'runAsNonRoot' => 'boolean',
+        'seccompProfile' => '\Rancher\Model\SeccompProfileModel',
         'startupProbe' => '\Rancher\Model\ProbeModel',
         'state' => 'string',
         'stdin' => 'boolean',
@@ -195,6 +198,7 @@ class ContainerModel implements ArrayAccess
         'restartCount' => 'setRestartCount',
         'runAsGroup' => 'setRunAsGroup',
         'runAsNonRoot' => 'setRunAsNonRoot',
+        'seccompProfile' => 'setSeccompProfile',
         'startupProbe' => 'setStartupProbe',
         'state' => 'setState',
         'stdin' => 'setStdin',
@@ -241,6 +245,7 @@ class ContainerModel implements ArrayAccess
         'restartCount' => 'getRestartCount',
         'runAsGroup' => 'getRunAsGroup',
         'runAsNonRoot' => 'getRunAsNonRoot',
+        'seccompProfile' => 'getSeccompProfile',
         'startupProbe' => 'getStartupProbe',
         'state' => 'getState',
         'stdin' => 'getStdin',
@@ -288,6 +293,7 @@ class ContainerModel implements ArrayAccess
         $this->container['restartCount'] = isset($data['restartCount']) ? $data['restartCount'] : null;
         $this->container['runAsGroup'] = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
         $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
+        $this->container['seccompProfile'] = isset($data['seccompProfile']) ? $data['seccompProfile'] : null;
         $this->container['startupProbe'] = isset($data['startupProbe']) ? $data['startupProbe'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['stdin'] = isset($data['stdin']) ? $data['stdin'] : null;
@@ -827,6 +833,28 @@ class ContainerModel implements ArrayAccess
     public function setRunAsNonRoot($runAsNonRoot)
     {
         $this->container['runAsNonRoot'] = $runAsNonRoot;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets seccompProfile
+     * @return \Rancher\Model\SeccompProfileModel
+     */
+    public function getSeccompProfile()
+    {
+        return $this->container['seccompProfile'];
+    }
+
+    /**
+     * Sets seccompProfile
+     * @param \Rancher\Model\SeccompProfileModel $seccompProfile
+     * @return $this
+     */
+    public function setSeccompProfile($seccompProfile)
+    {
+        $this->container['seccompProfile'] = $seccompProfile;
 
         return $this;
     }

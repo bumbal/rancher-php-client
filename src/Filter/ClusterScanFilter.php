@@ -100,34 +100,6 @@ class ClusterScanFilter extends AbstractFilter
 
 
     /**
-     * Gets manual
-     * @return string
-     */
-    public function getManual()
-    {
-        return $this->container['manual'];
-    }
-
-    /**
-     * Sets manual
-     * @param string $manual
-     * @param string $option
-     * @return $this
-     */
-    public function setManual($manual, $option = '')
-    {
-        if(!empty($option) && in_array($option, $this->allowedOptions))
-        {
-            $option = '_'.$option;
-        }
-
-        $this->container['manual'.$option] = $manual;
-
-        return $this;
-    }
-
-
-    /**
      * Gets name
      * @return string
      */
@@ -206,6 +178,34 @@ class ClusterScanFilter extends AbstractFilter
         }
 
         $this->container['removed'.$option] = $removed;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets runType
+     * @return string
+     */
+    public function getRunType()
+    {
+        return $this->container['runType'];
+    }
+
+    /**
+     * Sets runType
+     * @param string $runType
+     * @param string $option
+     * @return $this
+     */
+    public function setRunType($runType, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['runType'.$option] = $runType;
 
         return $this;
     }

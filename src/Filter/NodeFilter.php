@@ -16,6 +16,34 @@ use Rancher\AbstractFilter;
 class NodeFilter extends AbstractFilter
 {
     /**
+     * Gets appliedNodeVersion
+     * @return string
+     */
+    public function getAppliedNodeVersion()
+    {
+        return $this->container['appliedNodeVersion'];
+    }
+
+    /**
+     * Sets appliedNodeVersion
+     * @param string $appliedNodeVersion
+     * @param string $option
+     * @return $this
+     */
+    public function setAppliedNodeVersion($appliedNodeVersion, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['appliedNodeVersion'.$option] = $appliedNodeVersion;
+
+        return $this;
+    }
+
+
+    /**
      * Gets clusterId
      * @return string
      */
@@ -570,6 +598,34 @@ class NodeFilter extends AbstractFilter
         }
 
         $this->container['requestedHostname'.$option] = $requestedHostname;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets scaledownTime
+     * @return string
+     */
+    public function getScaledownTime()
+    {
+        return $this->container['scaledownTime'];
+    }
+
+    /**
+     * Sets scaledownTime
+     * @param string $scaledownTime
+     * @param string $option
+     * @return $this
+     */
+    public function setScaledownTime($scaledownTime, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['scaledownTime'.$option] = $scaledownTime;
 
         return $this;
     }

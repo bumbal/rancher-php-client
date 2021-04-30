@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ListenConfigResource
+ * CisBenchmarkVersionResource
  *
  * @category Class
  * @package  Rancher
@@ -15,7 +15,7 @@ use Rancher\RancherClient;
 use Rancher\RancherException;
 use Rancher\RancherCollection;
 
-class ListenConfigResource
+class CisBenchmarkVersionResource
 {
     /**
      * @var RancherClient
@@ -30,12 +30,12 @@ class ListenConfigResource
     /**
      * @var string
      */
-    protected $resourceName = 'listenConfig/';
+    protected $resourceName = 'cisBenchmarkVersion/';
 
     /**
      * @var string
      */
-    protected $resourcePluralName = 'listenConfigs/';
+    protected $resourcePluralName = 'cisBenchmarkVersions/';
 
     /**
      * @var string
@@ -141,22 +141,22 @@ class ListenConfigResource
      * @param string $id
      *
      * @throws RancherException
-     * @return \Rancher\Model\ListenConfigModel
+     * @return \Rancher\Model\CisBenchmarkVersionModel
      */
     public function get($id)
     {
         $response = $this->client->request('GET', $this->constructPath(true, false) . $id, []);
 
-        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\ListenConfigModel');
+        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\CisBenchmarkVersionModel');
     }
 
     /**
      * create
      *
-     * @param \Rancher\Model\ListenConfigModel $data
+     * @param \Rancher\Model\CisBenchmarkVersionModel $data
      *
      * @throws RancherException
-     * @return \Rancher\Model\ListenConfigModel
+     * @return \Rancher\Model\CisBenchmarkVersionModel
      */
     public function create($data)
     {
@@ -164,17 +164,17 @@ class ListenConfigResource
 
         $response = $this->client->request('POST', $this->constructPath(true, true), $postData);
 
-        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\ListenConfigModel');
+        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\CisBenchmarkVersionModel');
     }
 
     /**
      * update
      *
      * @param string $id
-     * @param \Rancher\Model\ListenConfigModel $data
+     * @param \Rancher\Model\CisBenchmarkVersionModel $data
      *
      * @throws RancherException
-     * @return \Rancher\Model\ListenConfigModel
+     * @return \Rancher\Model\CisBenchmarkVersionModel
      */
     public function update($id, $data)
     {
@@ -182,7 +182,7 @@ class ListenConfigResource
 
         $response = $this->client->request('PUT', $this->constructPath(true, true) . $id, $putData);
 
-        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\ListenConfigModel');
+        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\CisBenchmarkVersionModel');
     }
 
     /**
@@ -191,13 +191,13 @@ class ListenConfigResource
      * @param string $id
      *
      * @throws RancherException
-     * @return \Rancher\Model\ListenConfigModel
+     * @return \Rancher\Model\CisBenchmarkVersionModel
      */
     public function remove($id)
     {
         $response = $this->client->request('DELETE', $this->constructPath(true) . $id, []);
 
-        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\ListenConfigModel');
+        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\CisBenchmarkVersionModel');
     }
 
 }

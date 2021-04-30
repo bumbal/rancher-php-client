@@ -32,6 +32,7 @@ class CapabilitiesModel implements ArrayAccess
         'loadBalancerCapabilities',
         'nodePoolScalingSupported',
         'nodePortRange',
+        'pspEnabled',
         'taintSupport',
     ];
 
@@ -50,6 +51,7 @@ class CapabilitiesModel implements ArrayAccess
         'loadBalancerCapabilities',
         'nodePoolScalingSupported',
         'nodePortRange',
+        'pspEnabled',
         'taintSupport',
     ];
 
@@ -63,6 +65,7 @@ class CapabilitiesModel implements ArrayAccess
         'loadBalancerCapabilities' => '\Rancher\Model\LoadBalancerCapabilitiesModel',
         'nodePoolScalingSupported' => 'boolean',
         'nodePortRange' => 'string',
+        'pspEnabled' => 'boolean',
         'taintSupport' => 'boolean',
     ];
 
@@ -76,6 +79,7 @@ class CapabilitiesModel implements ArrayAccess
         'loadBalancerCapabilities' => 'setLoadBalancerCapabilities',
         'nodePoolScalingSupported' => 'setNodePoolScalingSupported',
         'nodePortRange' => 'setNodePortRange',
+        'pspEnabled' => 'setPspEnabled',
         'taintSupport' => 'setTaintSupport',
     ];
 
@@ -89,6 +93,7 @@ class CapabilitiesModel implements ArrayAccess
         'loadBalancerCapabilities' => 'getLoadBalancerCapabilities',
         'nodePoolScalingSupported' => 'getNodePoolScalingSupported',
         'nodePortRange' => 'getNodePortRange',
+        'pspEnabled' => 'getPspEnabled',
         'taintSupport' => 'getTaintSupport',
     ];
 
@@ -103,6 +108,7 @@ class CapabilitiesModel implements ArrayAccess
         $this->container['loadBalancerCapabilities'] = isset($data['loadBalancerCapabilities']) ? $data['loadBalancerCapabilities'] : null;
         $this->container['nodePoolScalingSupported'] = isset($data['nodePoolScalingSupported']) ? $data['nodePoolScalingSupported'] : null;
         $this->container['nodePortRange'] = isset($data['nodePortRange']) ? $data['nodePortRange'] : null;
+        $this->container['pspEnabled'] = isset($data['pspEnabled']) ? $data['pspEnabled'] : null;
         $this->container['taintSupport'] = isset($data['taintSupport']) ? $data['taintSupport'] : null;
     }
 
@@ -189,6 +195,28 @@ class CapabilitiesModel implements ArrayAccess
     public function setNodePortRange($nodePortRange)
     {
         $this->container['nodePortRange'] = $nodePortRange;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets pspEnabled
+     * @return boolean
+     */
+    public function getPspEnabled()
+    {
+        return $this->container['pspEnabled'];
+    }
+
+    /**
+     * Sets pspEnabled
+     * @param boolean $pspEnabled
+     * @return $this
+     */
+    public function setPspEnabled($pspEnabled)
+    {
+        $this->container['pspEnabled'] = $pspEnabled;
 
         return $this;
     }

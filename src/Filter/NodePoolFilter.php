@@ -184,6 +184,34 @@ class NodePoolFilter extends AbstractFilter
 
 
     /**
+     * Gets drainBeforeDelete
+     * @return string
+     */
+    public function getDrainBeforeDelete()
+    {
+        return $this->container['drainBeforeDelete'];
+    }
+
+    /**
+     * Sets drainBeforeDelete
+     * @param string $drainBeforeDelete
+     * @param string $option
+     * @return $this
+     */
+    public function setDrainBeforeDelete($drainBeforeDelete, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['drainBeforeDelete'.$option] = $drainBeforeDelete;
+
+        return $this;
+    }
+
+
+    /**
      * Gets etcd
      * @return string
      */

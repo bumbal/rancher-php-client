@@ -65,7 +65,7 @@ class SmtpConfigModel implements ArrayAccess
     protected static $typeMap = [
         'defaultRecipient' => 'string',
         'host' => 'string',
-        'password' => 'string',
+        'password' => '\Rancher\Model\PasswordModel',
         'port' => 'int',
         'sender' => 'string',
         'tls' => 'boolean',
@@ -164,7 +164,7 @@ class SmtpConfigModel implements ArrayAccess
 
     /**
      * Gets password
-     * @return string
+     * @return \Rancher\Model\PasswordModel
      */
     public function getPassword()
     {
@@ -173,7 +173,7 @@ class SmtpConfigModel implements ArrayAccess
 
     /**
      * Sets password
-     * @param string $password
+     * @param \Rancher\Model\PasswordModel $password
      * @return $this
      */
     public function setPassword($password)

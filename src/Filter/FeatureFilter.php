@@ -72,34 +72,6 @@ class FeatureFilter extends AbstractFilter
 
 
     /**
-     * Gets default
-     * @return string
-     */
-    public function getDefault()
-    {
-        return $this->container['default'];
-    }
-
-    /**
-     * Sets default
-     * @param string $default
-     * @param string $option
-     * @return $this
-     */
-    public function setDefault($default, $option = '')
-    {
-        if(!empty($option) && in_array($option, $this->allowedOptions))
-        {
-            $option = '_'.$option;
-        }
-
-        $this->container['default'.$option] = $default;
-
-        return $this;
-    }
-
-
-    /**
      * Gets name
      * @return string
      */
@@ -150,6 +122,90 @@ class FeatureFilter extends AbstractFilter
         }
 
         $this->container['removed'.$option] = $removed;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets state
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     * @param string $state
+     * @param string $option
+     * @return $this
+     */
+    public function setState($state, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['state'.$option] = $state;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets transitioning
+     * @return string
+     */
+    public function getTransitioning()
+    {
+        return $this->container['transitioning'];
+    }
+
+    /**
+     * Sets transitioning
+     * @param string $transitioning
+     * @param string $option
+     * @return $this
+     */
+    public function setTransitioning($transitioning, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['transitioning'.$option] = $transitioning;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets transitioningMessage
+     * @return string
+     */
+    public function getTransitioningMessage()
+    {
+        return $this->container['transitioningMessage'];
+    }
+
+    /**
+     * Sets transitioningMessage
+     * @param string $transitioningMessage
+     * @param string $option
+     * @return $this
+     */
+    public function setTransitioningMessage($transitioningMessage, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['transitioningMessage'.$option] = $transitioningMessage;
 
         return $this;
     }

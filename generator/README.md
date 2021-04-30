@@ -10,7 +10,7 @@ First run ``composer update`` in the root of this project. Then, create a config
         'rancher_secret' => "secret",
     ];
 
-Finally run the generator, using command line:   
+Finally, run the generator using the command line:   
   
     php generator.php
     

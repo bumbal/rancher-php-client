@@ -2,6 +2,8 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+use Symfony\Component\Console\Formatter\OutputFormatterStyle;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Twig\TwigFilter;
@@ -11,6 +13,11 @@ use Twig\TwigFilter;
  */
 class APIGenerator
 {
+    /**
+     * @var ConsoleOutput
+     */
+    private $out = null;
+
     /**
      * @var array
      */
@@ -22,6 +29,8 @@ class APIGenerator
      */
     public function __construct(array $config)
     {
+        $this->logToConsole('Rancher PHP Client Generator', 'standard');
+
         $this->_config = $config;
     }
 
@@ -40,6 +49,8 @@ class APIGenerator
         {
             $schemas = $this->retrieveEndpoint($group);
 
+            $this->logToConsole("Endpoints for {$group} loaded...", 'info');
+
             foreach ($schemas['data'] as $entry)
             {
                 $this->buildModelFromScheme($entry);
@@ -47,8 +58,12 @@ class APIGenerator
                 $this->buildFilterFromScheme($entry);
             }
 
-            echo $group . " done\n";
+            $this->logToConsole("Endpoints for {$group} processed", 'success');
         }
+
+        $this->logToConsole('----------------------------------', 'standard');
+        $this->logToConsole('Rancher PHP Client Generator Done!', 'standard');
+        $this->logToConsole('----------------------------------', 'standard');
     }
 
     /**
@@ -65,6 +80,11 @@ class APIGenerator
 
         curl_setopt($ch, CURLOPT_URL,  $this->_config['rancher_url'] . $endpoint);
         curl_setopt($ch, CURLOPT_USERPWD, $this->_config['rancher_token'] . ":" . $this->_config['rancher_secret']);
+
+        // disable SSL checks to allow using a local docker based rancher
+        // installation as a source.
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
@@ -245,10 +265,12 @@ class APIGenerator
             $output = $twig->render('model.twig', $content);
 
             file_put_contents('../src/Model/' . $schemeName . 'Model.php', $output);
+
+            $this->logToConsole("Endpoints for {$schemeName}Model.php generated", 'debug');
         }
         catch (\Exception $exception)
         {
-            print_r($exception->getMessage()); die;
+            $this->logToConsole($exception->getMessage(), 'error'); die;
         }
     }
 
@@ -287,10 +309,12 @@ class APIGenerator
             $output = $twig->render('resource.twig', $content);
 
             file_put_contents('../src/Resource/' . $schemeName . 'Resource.php', $output);
+
+            $this->logToConsole("Endpoints for {$schemeName}Resource.php generated", 'debug');
         }
         catch (\Exception $exception)
         {
-            print_r($exception->getMessage()); die;
+            $this->logToConsole($exception->getMessage(), 'error'); die;
         }
     }
 
@@ -325,10 +349,12 @@ class APIGenerator
             $output = $twig->render('filter.twig', $content);
 
             file_put_contents('../src/Filter/' . $schemeName . 'Filter.php', $output);
+
+            $this->logToConsole("Endpoints for {$schemeName}Filter.php generated", 'debug');
         }
         catch (\Exception $exception)
         {
-            print_r($exception->getMessage()); die;
+            $this->logToConsole($exception->getMessage(), 'error'); die;
         }
     }
 
@@ -349,6 +375,58 @@ class APIGenerator
             {
                 unlink($file);
             }
+        }
+    }
+
+    /**
+     * @param $text
+     * @param string $type
+     */
+    public function logToConsole($text, $type = 'success')
+    {
+        if(!$this->out)
+        {
+            $this->out = new ConsoleOutput();
+
+            $outputStyle = new OutputFormatterStyle('magenta');
+            $this->out->getFormatter()->setStyle('debug', $outputStyle);
+
+            $outputStyle = new OutputFormatterStyle('white');
+            $this->out->getFormatter()->setStyle('default', $outputStyle);
+
+            $outputStyle = new OutputFormatterStyle('cyan');
+            $this->out->getFormatter()->setStyle('standard', $outputStyle);
+        }
+
+        $date = new \DateTime();
+
+        $text = "[".$date->format('Y-m-d H:i:s')."] ".$text;
+
+        switch ($type)
+        {
+            case "success":
+                $this->out->writeln('<info>'.$text.'</info>');
+                break;
+
+            case "comment":
+                $this->out->writeln('<comment>'.$text.'</comment>');
+                break;
+
+            case "error":
+                $this->out->writeln('<error>'.$text.'</error>');
+                break;
+
+            case "debug":
+                $this->out->writeln('<debug>'.$text.'</debug>');
+                break;
+
+            case "default":
+                $this->out->writeln('<default>'.$text.'</default>');
+                break;
+
+            default:
+                $this->out->writeln('<standard>'.$text.'</standard>');
+                break;
         }
     }
 }

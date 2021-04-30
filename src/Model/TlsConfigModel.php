@@ -28,10 +28,13 @@ class TlsConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'ca',
         'caFile',
+        'cert',
         'certFile',
         'insecureSkipVerify',
         'keyFile',
+        'keySecret',
         'serverName',
     ];
 
@@ -46,10 +49,13 @@ class TlsConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'ca',
         'caFile',
+        'cert',
         'certFile',
         'insecureSkipVerify',
         'keyFile',
+        'keySecret',
         'serverName',
     ];
 
@@ -59,10 +65,13 @@ class TlsConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'ca' => '\Rancher\Model\SecretOrConfigMapModel',
         'caFile' => 'string',
+        'cert' => '\Rancher\Model\SecretOrConfigMapModel',
         'certFile' => 'string',
         'insecureSkipVerify' => 'boolean',
         'keyFile' => 'string',
+        'keySecret' => '\Rancher\Model\SecretKeySelectorModel',
         'serverName' => 'string',
     ];
 
@@ -72,10 +81,13 @@ class TlsConfigModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'ca' => 'setCa',
         'caFile' => 'setCaFile',
+        'cert' => 'setCert',
         'certFile' => 'setCertFile',
         'insecureSkipVerify' => 'setInsecureSkipVerify',
         'keyFile' => 'setKeyFile',
+        'keySecret' => 'setKeySecret',
         'serverName' => 'setServerName',
     ];
 
@@ -85,10 +97,13 @@ class TlsConfigModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'ca' => 'getCa',
         'caFile' => 'getCaFile',
+        'cert' => 'getCert',
         'certFile' => 'getCertFile',
         'insecureSkipVerify' => 'getInsecureSkipVerify',
         'keyFile' => 'getKeyFile',
+        'keySecret' => 'getKeySecret',
         'serverName' => 'getServerName',
     ];
 
@@ -99,12 +114,37 @@ class TlsConfigModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['ca'] = isset($data['ca']) ? $data['ca'] : null;
         $this->container['caFile'] = isset($data['caFile']) ? $data['caFile'] : null;
+        $this->container['cert'] = isset($data['cert']) ? $data['cert'] : null;
         $this->container['certFile'] = isset($data['certFile']) ? $data['certFile'] : null;
         $this->container['insecureSkipVerify'] = isset($data['insecureSkipVerify']) ? $data['insecureSkipVerify'] : null;
         $this->container['keyFile'] = isset($data['keyFile']) ? $data['keyFile'] : null;
+        $this->container['keySecret'] = isset($data['keySecret']) ? $data['keySecret'] : null;
         $this->container['serverName'] = isset($data['serverName']) ? $data['serverName'] : null;
     }
+
+    /**
+     * Gets ca
+     * @return \Rancher\Model\SecretOrConfigMapModel
+     */
+    public function getCa()
+    {
+        return $this->container['ca'];
+    }
+
+    /**
+     * Sets ca
+     * @param \Rancher\Model\SecretOrConfigMapModel $ca
+     * @return $this
+     */
+    public function setCa($ca)
+    {
+        $this->container['ca'] = $ca;
+
+        return $this;
+    }
+
 
     /**
      * Gets caFile
@@ -123,6 +163,28 @@ class TlsConfigModel implements ArrayAccess
     public function setCaFile($caFile)
     {
         $this->container['caFile'] = $caFile;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets cert
+     * @return \Rancher\Model\SecretOrConfigMapModel
+     */
+    public function getCert()
+    {
+        return $this->container['cert'];
+    }
+
+    /**
+     * Sets cert
+     * @param \Rancher\Model\SecretOrConfigMapModel $cert
+     * @return $this
+     */
+    public function setCert($cert)
+    {
+        $this->container['cert'] = $cert;
 
         return $this;
     }
@@ -189,6 +251,28 @@ class TlsConfigModel implements ArrayAccess
     public function setKeyFile($keyFile)
     {
         $this->container['keyFile'] = $keyFile;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets keySecret
+     * @return \Rancher\Model\SecretKeySelectorModel
+     */
+    public function getKeySecret()
+    {
+        return $this->container['keySecret'];
+    }
+
+    /**
+     * Sets keySecret
+     * @param \Rancher\Model\SecretKeySelectorModel $keySecret
+     * @return $this
+     */
+    public function setKeySecret($keySecret)
+    {
+        $this->container['keySecret'] = $keySecret;
 
         return $this;
     }

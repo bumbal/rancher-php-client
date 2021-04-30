@@ -37,6 +37,7 @@ class PodModel implements ArrayAccess
         'dnsPolicy',
         'enableServiceLinks',
         'ephemeralContainers',
+        'fsGroupChangePolicy',
         'fsgid',
         'gids',
         'hostAliases',
@@ -58,7 +59,9 @@ class PodModel implements ArrayAccess
         'runAsNonRoot',
         'runtimeClassName',
         'scheduling',
+        'seccompProfile',
         'serviceAccountName',
+        'setHostnameAsFQDN',
         'shareProcessNamespace',
         'subdomain',
         'sysctls',
@@ -90,6 +93,7 @@ class PodModel implements ArrayAccess
         'dnsPolicy',
         'enableServiceLinks',
         'ephemeralContainers',
+        'fsGroupChangePolicy',
         'fsgid',
         'gids',
         'hostAliases',
@@ -108,7 +112,9 @@ class PodModel implements ArrayAccess
         'runAsNonRoot',
         'runtimeClassName',
         'scheduling',
+        'seccompProfile',
         'serviceAccountName',
+        'setHostnameAsFQDN',
         'shareProcessNamespace',
         'subdomain',
         'sysctls',
@@ -137,6 +143,7 @@ class PodModel implements ArrayAccess
         'dnsPolicy' => 'string',
         'enableServiceLinks' => 'boolean',
         'ephemeralContainers' => '\Rancher\Model\EphemeralContainerModel[]',
+        'fsGroupChangePolicy' => 'string',
         'fsgid' => 'int',
         'gids' => 'int[]',
         'hostAliases' => '\Rancher\Model\HostAliasModel[]',
@@ -161,7 +168,9 @@ class PodModel implements ArrayAccess
         'runAsNonRoot' => 'boolean',
         'runtimeClassName' => 'string',
         'scheduling' => '\Rancher\Model\SchedulingModel',
+        'seccompProfile' => '\Rancher\Model\SeccompProfileModel',
         'serviceAccountName' => 'string',
+        'setHostnameAsFQDN' => 'boolean',
         'shareProcessNamespace' => 'boolean',
         'state' => 'string',
         'status' => '\Rancher\Model\PodStatusModel',
@@ -196,6 +205,7 @@ class PodModel implements ArrayAccess
         'dnsPolicy' => 'setDnsPolicy',
         'enableServiceLinks' => 'setEnableServiceLinks',
         'ephemeralContainers' => 'setEphemeralContainers',
+        'fsGroupChangePolicy' => 'setFsGroupChangePolicy',
         'fsgid' => 'setFsgid',
         'gids' => 'setGids',
         'hostAliases' => 'setHostAliases',
@@ -220,7 +230,9 @@ class PodModel implements ArrayAccess
         'runAsNonRoot' => 'setRunAsNonRoot',
         'runtimeClassName' => 'setRuntimeClassName',
         'scheduling' => 'setScheduling',
+        'seccompProfile' => 'setSeccompProfile',
         'serviceAccountName' => 'setServiceAccountName',
+        'setHostnameAsFQDN' => 'setSetHostnameAsFQDN',
         'shareProcessNamespace' => 'setShareProcessNamespace',
         'state' => 'setState',
         'status' => 'setStatus',
@@ -255,6 +267,7 @@ class PodModel implements ArrayAccess
         'dnsPolicy' => 'getDnsPolicy',
         'enableServiceLinks' => 'getEnableServiceLinks',
         'ephemeralContainers' => 'getEphemeralContainers',
+        'fsGroupChangePolicy' => 'getFsGroupChangePolicy',
         'fsgid' => 'getFsgid',
         'gids' => 'getGids',
         'hostAliases' => 'getHostAliases',
@@ -279,7 +292,9 @@ class PodModel implements ArrayAccess
         'runAsNonRoot' => 'getRunAsNonRoot',
         'runtimeClassName' => 'getRuntimeClassName',
         'scheduling' => 'getScheduling',
+        'seccompProfile' => 'getSeccompProfile',
         'serviceAccountName' => 'getServiceAccountName',
+        'setHostnameAsFQDN' => 'getSetHostnameAsFQDN',
         'shareProcessNamespace' => 'getShareProcessNamespace',
         'state' => 'getState',
         'status' => 'getStatus',
@@ -315,6 +330,7 @@ class PodModel implements ArrayAccess
         $this->container['dnsPolicy'] = isset($data['dnsPolicy']) ? $data['dnsPolicy'] : null;
         $this->container['enableServiceLinks'] = isset($data['enableServiceLinks']) ? $data['enableServiceLinks'] : null;
         $this->container['ephemeralContainers'] = isset($data['ephemeralContainers']) ? $data['ephemeralContainers'] : null;
+        $this->container['fsGroupChangePolicy'] = isset($data['fsGroupChangePolicy']) ? $data['fsGroupChangePolicy'] : null;
         $this->container['fsgid'] = isset($data['fsgid']) ? $data['fsgid'] : null;
         $this->container['gids'] = isset($data['gids']) ? $data['gids'] : null;
         $this->container['hostAliases'] = isset($data['hostAliases']) ? $data['hostAliases'] : null;
@@ -339,7 +355,9 @@ class PodModel implements ArrayAccess
         $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
         $this->container['runtimeClassName'] = isset($data['runtimeClassName']) ? $data['runtimeClassName'] : null;
         $this->container['scheduling'] = isset($data['scheduling']) ? $data['scheduling'] : null;
+        $this->container['seccompProfile'] = isset($data['seccompProfile']) ? $data['seccompProfile'] : null;
         $this->container['serviceAccountName'] = isset($data['serviceAccountName']) ? $data['serviceAccountName'] : null;
+        $this->container['setHostnameAsFQDN'] = isset($data['setHostnameAsFQDN']) ? $data['setHostnameAsFQDN'] : null;
         $this->container['shareProcessNamespace'] = isset($data['shareProcessNamespace']) ? $data['shareProcessNamespace'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -594,6 +612,28 @@ class PodModel implements ArrayAccess
     public function setEphemeralContainers($ephemeralContainers)
     {
         $this->container['ephemeralContainers'] = $ephemeralContainers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets fsGroupChangePolicy
+     * @return string
+     */
+    public function getFsGroupChangePolicy()
+    {
+        return $this->container['fsGroupChangePolicy'];
+    }
+
+    /**
+     * Sets fsGroupChangePolicy
+     * @param string $fsGroupChangePolicy
+     * @return $this
+     */
+    public function setFsGroupChangePolicy($fsGroupChangePolicy)
+    {
+        $this->container['fsGroupChangePolicy'] = $fsGroupChangePolicy;
 
         return $this;
     }
@@ -1128,6 +1168,28 @@ class PodModel implements ArrayAccess
 
 
     /**
+     * Gets seccompProfile
+     * @return \Rancher\Model\SeccompProfileModel
+     */
+    public function getSeccompProfile()
+    {
+        return $this->container['seccompProfile'];
+    }
+
+    /**
+     * Sets seccompProfile
+     * @param \Rancher\Model\SeccompProfileModel $seccompProfile
+     * @return $this
+     */
+    public function setSeccompProfile($seccompProfile)
+    {
+        $this->container['seccompProfile'] = $seccompProfile;
+
+        return $this;
+    }
+
+
+    /**
      * Gets serviceAccountName
      * @return string
      */
@@ -1144,6 +1206,28 @@ class PodModel implements ArrayAccess
     public function setServiceAccountName($serviceAccountName)
     {
         $this->container['serviceAccountName'] = $serviceAccountName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets setHostnameAsFQDN
+     * @return boolean
+     */
+    public function getSetHostnameAsFQDN()
+    {
+        return $this->container['setHostnameAsFQDN'];
+    }
+
+    /**
+     * Sets setHostnameAsFQDN
+     * @param boolean $setHostnameAsFQDN
+     * @return $this
+     */
+    public function setSetHostnameAsFQDN($setHostnameAsFQDN)
+    {
+        $this->container['setHostnameAsFQDN'] = $setHostnameAsFQDN;
 
         return $this;
     }

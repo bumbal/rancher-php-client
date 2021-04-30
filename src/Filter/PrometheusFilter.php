@@ -16,6 +16,34 @@ use Rancher\AbstractFilter;
 class PrometheusFilter extends AbstractFilter
 {
     /**
+     * Gets allowOverlappingBlocks
+     * @return string
+     */
+    public function getAllowOverlappingBlocks()
+    {
+        return $this->container['allowOverlappingBlocks'];
+    }
+
+    /**
+     * Sets allowOverlappingBlocks
+     * @param string $allowOverlappingBlocks
+     * @param string $option
+     * @return $this
+     */
+    public function setAllowOverlappingBlocks($allowOverlappingBlocks, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['allowOverlappingBlocks'.$option] = $allowOverlappingBlocks;
+
+        return $this;
+    }
+
+
+    /**
      * Gets baseImage
      * @return string
      */
@@ -128,6 +156,34 @@ class PrometheusFilter extends AbstractFilter
 
 
     /**
+     * Gets disableCompaction
+     * @return string
+     */
+    public function getDisableCompaction()
+    {
+        return $this->container['disableCompaction'];
+    }
+
+    /**
+     * Sets disableCompaction
+     * @param string $disableCompaction
+     * @param string $option
+     * @return $this
+     */
+    public function setDisableCompaction($disableCompaction, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['disableCompaction'.$option] = $disableCompaction;
+
+        return $this;
+    }
+
+
+    /**
      * Gets enableAdminAPI
      * @return string
      */
@@ -150,6 +206,90 @@ class PrometheusFilter extends AbstractFilter
         }
 
         $this->container['enableAdminAPI'.$option] = $enableAdminAPI;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedNamespaceLabel
+     * @return string
+     */
+    public function getEnforcedNamespaceLabel()
+    {
+        return $this->container['enforcedNamespaceLabel'];
+    }
+
+    /**
+     * Sets enforcedNamespaceLabel
+     * @param string $enforcedNamespaceLabel
+     * @param string $option
+     * @return $this
+     */
+    public function setEnforcedNamespaceLabel($enforcedNamespaceLabel, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['enforcedNamespaceLabel'.$option] = $enforcedNamespaceLabel;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedSampleLimit
+     * @return string
+     */
+    public function getEnforcedSampleLimit()
+    {
+        return $this->container['enforcedSampleLimit'];
+    }
+
+    /**
+     * Sets enforcedSampleLimit
+     * @param string $enforcedSampleLimit
+     * @param string $option
+     * @return $this
+     */
+    public function setEnforcedSampleLimit($enforcedSampleLimit, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['enforcedSampleLimit'.$option] = $enforcedSampleLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedTargetLimit
+     * @return string
+     */
+    public function getEnforcedTargetLimit()
+    {
+        return $this->container['enforcedTargetLimit'];
+    }
+
+    /**
+     * Sets enforcedTargetLimit
+     * @param string $enforcedTargetLimit
+     * @param string $option
+     * @return $this
+     */
+    public function setEnforcedTargetLimit($enforcedTargetLimit, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['enforcedTargetLimit'.$option] = $enforcedTargetLimit;
 
         return $this;
     }
@@ -206,6 +346,34 @@ class PrometheusFilter extends AbstractFilter
         }
 
         $this->container['externalUrl'.$option] = $externalUrl;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ignoreNamespaceSelectors
+     * @return string
+     */
+    public function getIgnoreNamespaceSelectors()
+    {
+        return $this->container['ignoreNamespaceSelectors'];
+    }
+
+    /**
+     * Sets ignoreNamespaceSelectors
+     * @param string $ignoreNamespaceSelectors
+     * @param string $option
+     * @return $this
+     */
+    public function setIgnoreNamespaceSelectors($ignoreNamespaceSelectors, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['ignoreNamespaceSelectors'.$option] = $ignoreNamespaceSelectors;
 
         return $this;
     }
@@ -380,6 +548,62 @@ class PrometheusFilter extends AbstractFilter
 
 
     /**
+     * Gets overrideHonorLabels
+     * @return string
+     */
+    public function getOverrideHonorLabels()
+    {
+        return $this->container['overrideHonorLabels'];
+    }
+
+    /**
+     * Sets overrideHonorLabels
+     * @param string $overrideHonorLabels
+     * @param string $option
+     * @return $this
+     */
+    public function setOverrideHonorLabels($overrideHonorLabels, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['overrideHonorLabels'.$option] = $overrideHonorLabels;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets overrideHonorTimestamps
+     * @return string
+     */
+    public function getOverrideHonorTimestamps()
+    {
+        return $this->container['overrideHonorTimestamps'];
+    }
+
+    /**
+     * Sets overrideHonorTimestamps
+     * @param string $overrideHonorTimestamps
+     * @param string $option
+     * @return $this
+     */
+    public function setOverrideHonorTimestamps($overrideHonorTimestamps, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['overrideHonorTimestamps'.$option] = $overrideHonorTimestamps;
+
+        return $this;
+    }
+
+
+    /**
      * Gets portName
      * @return string
      */
@@ -486,6 +710,34 @@ class PrometheusFilter extends AbstractFilter
         }
 
         $this->container['prometheusExternalLabelName'.$option] = $prometheusExternalLabelName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets queryLogFile
+     * @return string
+     */
+    public function getQueryLogFile()
+    {
+        return $this->container['queryLogFile'];
+    }
+
+    /**
+     * Sets queryLogFile
+     * @param string $queryLogFile
+     * @param string $option
+     * @return $this
+     */
+    public function setQueryLogFile($queryLogFile, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['queryLogFile'.$option] = $queryLogFile;
 
         return $this;
     }
@@ -688,6 +940,34 @@ class PrometheusFilter extends AbstractFilter
 
 
     /**
+     * Gets scrapeTimeout
+     * @return string
+     */
+    public function getScrapeTimeout()
+    {
+        return $this->container['scrapeTimeout'];
+    }
+
+    /**
+     * Sets scrapeTimeout
+     * @param string $scrapeTimeout
+     * @param string $option
+     * @return $this
+     */
+    public function setScrapeTimeout($scrapeTimeout, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['scrapeTimeout'.$option] = $scrapeTimeout;
+
+        return $this;
+    }
+
+
+    /**
      * Gets serviceAccountName
      * @return string
      */
@@ -738,6 +1018,34 @@ class PrometheusFilter extends AbstractFilter
         }
 
         $this->container['sha'.$option] = $sha;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets shards
+     * @return string
+     */
+    public function getShards()
+    {
+        return $this->container['shards'];
+    }
+
+    /**
+     * Sets shards
+     * @param string $shards
+     * @param string $option
+     * @return $this
+     */
+    public function setShards($shards, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['shards'.$option] = $shards;
 
         return $this;
     }

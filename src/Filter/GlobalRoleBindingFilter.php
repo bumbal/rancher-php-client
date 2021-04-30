@@ -100,6 +100,34 @@ class GlobalRoleBindingFilter extends AbstractFilter
 
 
     /**
+     * Gets groupPrincipalId
+     * @return string
+     */
+    public function getGroupPrincipalId()
+    {
+        return $this->container['groupPrincipalId'];
+    }
+
+    /**
+     * Sets groupPrincipalId
+     * @param string $groupPrincipalId
+     * @param string $option
+     * @return $this
+     */
+    public function setGroupPrincipalId($groupPrincipalId, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['groupPrincipalId'.$option] = $groupPrincipalId;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */

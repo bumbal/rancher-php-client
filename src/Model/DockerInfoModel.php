@@ -38,6 +38,7 @@ class DockerInfoModel implements ArrayAccess
         'httpsProxy',
         'id',
         'indexServerAddress',
+        'initBinary',
         'kernelVersion',
         'labels',
         'loggingDriver',
@@ -45,6 +46,7 @@ class DockerInfoModel implements ArrayAccess
         'noProxy',
         'operatingSystem',
         'osType',
+        'securityOptions',
         'serverVersion',
     ];
 
@@ -69,6 +71,7 @@ class DockerInfoModel implements ArrayAccess
         'httpsProxy',
         'id',
         'indexServerAddress',
+        'initBinary',
         'kernelVersion',
         'labels',
         'loggingDriver',
@@ -76,6 +79,7 @@ class DockerInfoModel implements ArrayAccess
         'noProxy',
         'operatingSystem',
         'osType',
+        'securityOptions',
         'serverVersion',
     ];
 
@@ -95,6 +99,7 @@ class DockerInfoModel implements ArrayAccess
         'httpsProxy' => 'string',
         'id' => 'string',
         'indexServerAddress' => 'string',
+        'initBinary' => 'string',
         'kernelVersion' => 'string',
         'labels' => 'string[]',
         'loggingDriver' => 'string',
@@ -102,6 +107,7 @@ class DockerInfoModel implements ArrayAccess
         'noProxy' => 'string',
         'operatingSystem' => 'string',
         'osType' => 'string',
+        'securityOptions' => 'string[]',
         'serverVersion' => 'string',
     ];
 
@@ -121,6 +127,7 @@ class DockerInfoModel implements ArrayAccess
         'httpsProxy' => 'setHttpsProxy',
         'id' => 'setId',
         'indexServerAddress' => 'setIndexServerAddress',
+        'initBinary' => 'setInitBinary',
         'kernelVersion' => 'setKernelVersion',
         'labels' => 'setLabels',
         'loggingDriver' => 'setLoggingDriver',
@@ -128,6 +135,7 @@ class DockerInfoModel implements ArrayAccess
         'noProxy' => 'setNoProxy',
         'operatingSystem' => 'setOperatingSystem',
         'osType' => 'setOsType',
+        'securityOptions' => 'setSecurityOptions',
         'serverVersion' => 'setServerVersion',
     ];
 
@@ -147,6 +155,7 @@ class DockerInfoModel implements ArrayAccess
         'httpsProxy' => 'getHttpsProxy',
         'id' => 'getId',
         'indexServerAddress' => 'getIndexServerAddress',
+        'initBinary' => 'getInitBinary',
         'kernelVersion' => 'getKernelVersion',
         'labels' => 'getLabels',
         'loggingDriver' => 'getLoggingDriver',
@@ -154,6 +163,7 @@ class DockerInfoModel implements ArrayAccess
         'noProxy' => 'getNoProxy',
         'operatingSystem' => 'getOperatingSystem',
         'osType' => 'getOsType',
+        'securityOptions' => 'getSecurityOptions',
         'serverVersion' => 'getServerVersion',
     ];
 
@@ -174,6 +184,7 @@ class DockerInfoModel implements ArrayAccess
         $this->container['httpsProxy'] = isset($data['httpsProxy']) ? $data['httpsProxy'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['indexServerAddress'] = isset($data['indexServerAddress']) ? $data['indexServerAddress'] : null;
+        $this->container['initBinary'] = isset($data['initBinary']) ? $data['initBinary'] : null;
         $this->container['kernelVersion'] = isset($data['kernelVersion']) ? $data['kernelVersion'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['loggingDriver'] = isset($data['loggingDriver']) ? $data['loggingDriver'] : null;
@@ -181,6 +192,7 @@ class DockerInfoModel implements ArrayAccess
         $this->container['noProxy'] = isset($data['noProxy']) ? $data['noProxy'] : null;
         $this->container['operatingSystem'] = isset($data['operatingSystem']) ? $data['operatingSystem'] : null;
         $this->container['osType'] = isset($data['osType']) ? $data['osType'] : null;
+        $this->container['securityOptions'] = isset($data['securityOptions']) ? $data['securityOptions'] : null;
         $this->container['serverVersion'] = isset($data['serverVersion']) ? $data['serverVersion'] : null;
     }
 
@@ -405,6 +417,28 @@ class DockerInfoModel implements ArrayAccess
 
 
     /**
+     * Gets initBinary
+     * @return string
+     */
+    public function getInitBinary()
+    {
+        return $this->container['initBinary'];
+    }
+
+    /**
+     * Sets initBinary
+     * @param string $initBinary
+     * @return $this
+     */
+    public function setInitBinary($initBinary)
+    {
+        $this->container['initBinary'] = $initBinary;
+
+        return $this;
+    }
+
+
+    /**
      * Gets kernelVersion
      * @return string
      */
@@ -553,6 +587,28 @@ class DockerInfoModel implements ArrayAccess
     public function setOsType($osType)
     {
         $this->container['osType'] = $osType;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets securityOptions
+     * @return string[]
+     */
+    public function getSecurityOptions()
+    {
+        return $this->container['securityOptions'];
+    }
+
+    /**
+     * Sets securityOptions
+     * @param string[] $securityOptions
+     * @return $this
+     */
+    public function setSecurityOptions($securityOptions)
+    {
+        $this->container['securityOptions'] = $securityOptions;
 
         return $this;
     }

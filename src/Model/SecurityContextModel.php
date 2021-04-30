@@ -36,6 +36,7 @@ class SecurityContextModel implements ArrayAccess
         'readOnly',
         'runAsGroup',
         'runAsNonRoot',
+        'seccompProfile',
         'uid',
         'windowsOptions',
     ];
@@ -59,6 +60,7 @@ class SecurityContextModel implements ArrayAccess
         'readOnly',
         'runAsGroup',
         'runAsNonRoot',
+        'seccompProfile',
         'uid',
         'windowsOptions',
     ];
@@ -77,6 +79,7 @@ class SecurityContextModel implements ArrayAccess
         'readOnly' => 'boolean',
         'runAsGroup' => 'int',
         'runAsNonRoot' => 'boolean',
+        'seccompProfile' => '\Rancher\Model\SeccompProfileModel',
         'uid' => 'int',
         'windowsOptions' => '\Rancher\Model\WindowsSecurityContextOptionsModel',
     ];
@@ -95,6 +98,7 @@ class SecurityContextModel implements ArrayAccess
         'readOnly' => 'setReadOnly',
         'runAsGroup' => 'setRunAsGroup',
         'runAsNonRoot' => 'setRunAsNonRoot',
+        'seccompProfile' => 'setSeccompProfile',
         'uid' => 'setUid',
         'windowsOptions' => 'setWindowsOptions',
     ];
@@ -113,6 +117,7 @@ class SecurityContextModel implements ArrayAccess
         'readOnly' => 'getReadOnly',
         'runAsGroup' => 'getRunAsGroup',
         'runAsNonRoot' => 'getRunAsNonRoot',
+        'seccompProfile' => 'getSeccompProfile',
         'uid' => 'getUid',
         'windowsOptions' => 'getWindowsOptions',
     ];
@@ -132,6 +137,7 @@ class SecurityContextModel implements ArrayAccess
         $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
         $this->container['runAsGroup'] = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
         $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
+        $this->container['seccompProfile'] = isset($data['seccompProfile']) ? $data['seccompProfile'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['windowsOptions'] = isset($data['windowsOptions']) ? $data['windowsOptions'] : null;
     }
@@ -307,6 +313,28 @@ class SecurityContextModel implements ArrayAccess
     public function setRunAsNonRoot($runAsNonRoot)
     {
         $this->container['runAsNonRoot'] = $runAsNonRoot;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets seccompProfile
+     * @return \Rancher\Model\SeccompProfileModel
+     */
+    public function getSeccompProfile()
+    {
+        return $this->container['seccompProfile'];
+    }
+
+    /**
+     * Sets seccompProfile
+     * @param \Rancher\Model\SeccompProfileModel $seccompProfile
+     * @return $this
+     */
+    public function setSeccompProfile($seccompProfile)
+    {
+        $this->container['seccompProfile'] = $seccompProfile;
 
         return $this;
     }

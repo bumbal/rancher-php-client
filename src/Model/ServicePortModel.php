@@ -28,6 +28,7 @@ class ServicePortModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'appProtocol',
         'name',
         'nodePort',
         'port',
@@ -46,6 +47,7 @@ class ServicePortModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'appProtocol',
         'name',
         'nodePort',
         'port',
@@ -59,6 +61,7 @@ class ServicePortModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'appProtocol' => 'string',
         'name' => 'string',
         'nodePort' => 'int',
         'port' => 'int',
@@ -72,6 +75,7 @@ class ServicePortModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'appProtocol' => 'setAppProtocol',
         'name' => 'setName',
         'nodePort' => 'setNodePort',
         'port' => 'setPort',
@@ -85,6 +89,7 @@ class ServicePortModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'appProtocol' => 'getAppProtocol',
         'name' => 'getName',
         'nodePort' => 'getNodePort',
         'port' => 'getPort',
@@ -99,12 +104,35 @@ class ServicePortModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['appProtocol'] = isset($data['appProtocol']) ? $data['appProtocol'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nodePort'] = isset($data['nodePort']) ? $data['nodePort'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
         $this->container['targetPort'] = isset($data['targetPort']) ? $data['targetPort'] : null;
     }
+
+    /**
+     * Gets appProtocol
+     * @return string
+     */
+    public function getAppProtocol()
+    {
+        return $this->container['appProtocol'];
+    }
+
+    /**
+     * Sets appProtocol
+     * @param string $appProtocol
+     * @return $this
+     */
+    public function setAppProtocol($appProtocol)
+    {
+        $this->container['appProtocol'] = $appProtocol;
+
+        return $this;
+    }
+
 
     /**
      * Gets name

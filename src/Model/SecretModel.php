@@ -31,6 +31,7 @@ class SecretModel implements ArrayAccess
         'annotations',
         'data',
         'description',
+        'immutable',
         'kind',
         'labels',
         'name',
@@ -53,6 +54,7 @@ class SecretModel implements ArrayAccess
         'annotations',
         'data',
         'description',
+        'immutable',
         'kind',
         'labels',
         'stringData',
@@ -69,6 +71,7 @@ class SecretModel implements ArrayAccess
         'creatorId' => 'string',
         'data' => 'map[string,\Rancher\Model\Base64Model]',
         'description' => 'string',
+        'immutable' => 'boolean',
         'kind' => 'string',
         'labels' => 'map[string,string]',
         'name' => 'string',
@@ -91,6 +94,7 @@ class SecretModel implements ArrayAccess
         'creatorId' => 'setCreatorId',
         'data' => 'setData',
         'description' => 'setDescription',
+        'immutable' => 'setImmutable',
         'kind' => 'setKind',
         'labels' => 'setLabels',
         'name' => 'setName',
@@ -113,6 +117,7 @@ class SecretModel implements ArrayAccess
         'creatorId' => 'getCreatorId',
         'data' => 'getData',
         'description' => 'getDescription',
+        'immutable' => 'getImmutable',
         'kind' => 'getKind',
         'labels' => 'getLabels',
         'name' => 'getName',
@@ -136,6 +141,7 @@ class SecretModel implements ArrayAccess
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['immutable'] = isset($data['immutable']) ? $data['immutable'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -252,6 +258,28 @@ class SecretModel implements ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets immutable
+     * @return boolean
+     */
+    public function getImmutable()
+    {
+        return $this->container['immutable'];
+    }
+
+    /**
+     * Sets immutable
+     * @param boolean $immutable
+     * @return $this
+     */
+    public function setImmutable($immutable)
+    {
+        $this->container['immutable'] = $immutable;
 
         return $this;
     }

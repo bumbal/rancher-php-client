@@ -43,6 +43,9 @@ class EtcdServiceModel implements ArrayAccess
         'retention',
         'snapshot',
         'uid',
+        'winExtraArgs',
+        'winExtraBinds',
+        'winExtraEnv',
     ];
 
     public static function canBeCreated()
@@ -71,6 +74,9 @@ class EtcdServiceModel implements ArrayAccess
         'retention',
         'snapshot',
         'uid',
+        'winExtraArgs',
+        'winExtraBinds',
+        'winExtraEnv',
     ];
 
     public static function canBeUpdated()
@@ -94,6 +100,9 @@ class EtcdServiceModel implements ArrayAccess
         'retention' => 'string',
         'snapshot' => 'boolean',
         'uid' => 'int',
+        'winExtraArgs' => 'map[string,string]',
+        'winExtraBinds' => 'string[]',
+        'winExtraEnv' => 'string[]',
     ];
 
     public static function typeMap()
@@ -117,6 +126,9 @@ class EtcdServiceModel implements ArrayAccess
         'retention' => 'setRetention',
         'snapshot' => 'setSnapshot',
         'uid' => 'setUid',
+        'winExtraArgs' => 'setWinExtraArgs',
+        'winExtraBinds' => 'setWinExtraBinds',
+        'winExtraEnv' => 'setWinExtraEnv',
     ];
 
     public static function setters()
@@ -140,6 +152,9 @@ class EtcdServiceModel implements ArrayAccess
         'retention' => 'getRetention',
         'snapshot' => 'getSnapshot',
         'uid' => 'getUid',
+        'winExtraArgs' => 'getWinExtraArgs',
+        'winExtraBinds' => 'getWinExtraBinds',
+        'winExtraEnv' => 'getWinExtraEnv',
     ];
 
     public static function getters()
@@ -164,6 +179,9 @@ class EtcdServiceModel implements ArrayAccess
         $this->container['retention'] = isset($data['retention']) ? $data['retention'] : null;
         $this->container['snapshot'] = isset($data['snapshot']) ? $data['snapshot'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
+        $this->container['winExtraArgs'] = isset($data['winExtraArgs']) ? $data['winExtraArgs'] : null;
+        $this->container['winExtraBinds'] = isset($data['winExtraBinds']) ? $data['winExtraBinds'] : null;
+        $this->container['winExtraEnv'] = isset($data['winExtraEnv']) ? $data['winExtraEnv'] : null;
     }
 
     /**
@@ -491,6 +509,72 @@ class EtcdServiceModel implements ArrayAccess
     public function setUid($uid)
     {
         $this->container['uid'] = $uid;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winExtraArgs
+     * @return string[]
+     */
+    public function getWinExtraArgs()
+    {
+        return $this->container['winExtraArgs'];
+    }
+
+    /**
+     * Sets winExtraArgs
+     * @param string[] $winExtraArgs
+     * @return $this
+     */
+    public function setWinExtraArgs($winExtraArgs)
+    {
+        $this->container['winExtraArgs'] = $winExtraArgs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winExtraBinds
+     * @return string[]
+     */
+    public function getWinExtraBinds()
+    {
+        return $this->container['winExtraBinds'];
+    }
+
+    /**
+     * Sets winExtraBinds
+     * @param string[] $winExtraBinds
+     * @return $this
+     */
+    public function setWinExtraBinds($winExtraBinds)
+    {
+        $this->container['winExtraBinds'] = $winExtraBinds;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winExtraEnv
+     * @return string[]
+     */
+    public function getWinExtraEnv()
+    {
+        return $this->container['winExtraEnv'];
+    }
+
+    /**
+     * Sets winExtraEnv
+     * @param string[] $winExtraEnv
+     * @return $this
+     */
+    public function setWinExtraEnv($winExtraEnv)
+    {
+        $this->container['winExtraEnv'] = $winExtraEnv;
 
         return $this;
     }

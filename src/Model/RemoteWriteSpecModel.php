@@ -31,6 +31,7 @@ class RemoteWriteSpecModel implements ArrayAccess
         'basicAuth',
         'bearerToken',
         'bearerTokenFile',
+        'name',
         'proxyUrl',
         'queueConfig',
         'remoteTimeout',
@@ -53,6 +54,7 @@ class RemoteWriteSpecModel implements ArrayAccess
         'basicAuth',
         'bearerToken',
         'bearerTokenFile',
+        'name',
         'proxyUrl',
         'queueConfig',
         'remoteTimeout',
@@ -70,6 +72,7 @@ class RemoteWriteSpecModel implements ArrayAccess
         'basicAuth' => '\Rancher\Model\BasicAuthModel',
         'bearerToken' => 'string',
         'bearerTokenFile' => 'string',
+        'name' => 'string',
         'proxyUrl' => 'string',
         'queueConfig' => '\Rancher\Model\QueueConfigModel',
         'remoteTimeout' => 'string',
@@ -87,6 +90,7 @@ class RemoteWriteSpecModel implements ArrayAccess
         'basicAuth' => 'setBasicAuth',
         'bearerToken' => 'setBearerToken',
         'bearerTokenFile' => 'setBearerTokenFile',
+        'name' => 'setName',
         'proxyUrl' => 'setProxyUrl',
         'queueConfig' => 'setQueueConfig',
         'remoteTimeout' => 'setRemoteTimeout',
@@ -104,6 +108,7 @@ class RemoteWriteSpecModel implements ArrayAccess
         'basicAuth' => 'getBasicAuth',
         'bearerToken' => 'getBearerToken',
         'bearerTokenFile' => 'getBearerTokenFile',
+        'name' => 'getName',
         'proxyUrl' => 'getProxyUrl',
         'queueConfig' => 'getQueueConfig',
         'remoteTimeout' => 'getRemoteTimeout',
@@ -122,6 +127,7 @@ class RemoteWriteSpecModel implements ArrayAccess
         $this->container['basicAuth'] = isset($data['basicAuth']) ? $data['basicAuth'] : null;
         $this->container['bearerToken'] = isset($data['bearerToken']) ? $data['bearerToken'] : null;
         $this->container['bearerTokenFile'] = isset($data['bearerTokenFile']) ? $data['bearerTokenFile'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['proxyUrl'] = isset($data['proxyUrl']) ? $data['proxyUrl'] : null;
         $this->container['queueConfig'] = isset($data['queueConfig']) ? $data['queueConfig'] : null;
         $this->container['remoteTimeout'] = isset($data['remoteTimeout']) ? $data['remoteTimeout'] : null;
@@ -191,6 +197,28 @@ class RemoteWriteSpecModel implements ArrayAccess
     public function setBearerTokenFile($bearerTokenFile)
     {
         $this->container['bearerTokenFile'] = $bearerTokenFile;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets name
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

@@ -200,4 +200,18 @@ class CronJobResource
         return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\CronJobModel');
     }
 
+    /**
+     * redeploy
+     *
+     * @param string $id
+     *
+     * @throws RancherException
+     * @return void
+     */
+    public function redeploy($id)
+    {
+        $this->client->request('POST', $this->constructPath() . $id . '?action=redeploy', []);
+
+        return;
+    }
 }

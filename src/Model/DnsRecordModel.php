@@ -28,11 +28,14 @@ class DnsRecordModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'allocateLoadBalancerNodePorts',
         'annotations',
+        'clusterIPs',
         'description',
         'hostname',
         'ipAddresses',
-        'ipFamily',
+        'ipFamilies',
+        'ipFamilyPolicy',
         'labels',
         'name',
         'namespaceId',
@@ -40,6 +43,7 @@ class DnsRecordModel implements ArrayAccess
         'selector',
         'targetDnsRecordIds',
         'targetWorkloadIds',
+        'topologyKeys',
     ];
 
     public static function canBeCreated()
@@ -53,15 +57,19 @@ class DnsRecordModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'allocateLoadBalancerNodePorts',
         'annotations',
+        'clusterIPs',
         'description',
         'hostname',
         'ipAddresses',
-        'ipFamily',
+        'ipFamilies',
+        'ipFamilyPolicy',
         'labels',
         'selector',
         'targetDnsRecordIds',
         'targetWorkloadIds',
+        'topologyKeys',
     ];
 
     public static function canBeUpdated()
@@ -70,14 +78,17 @@ class DnsRecordModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'allocateLoadBalancerNodePorts' => 'boolean',
         'annotations' => 'map[string,string]',
+        'clusterIPs' => 'string[]',
         'clusterIp' => 'string',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
         'hostname' => 'string',
         'ipAddresses' => 'string[]',
-        'ipFamily' => 'string',
+        'ipFamilies' => 'string[]',
+        'ipFamilyPolicy' => 'string',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
@@ -90,6 +101,7 @@ class DnsRecordModel implements ArrayAccess
         'state' => 'string',
         'targetDnsRecordIds' => 'string[]',
         'targetWorkloadIds' => 'string[]',
+        'topologyKeys' => 'string[]',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'uuid' => 'string',
@@ -102,14 +114,17 @@ class DnsRecordModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'allocateLoadBalancerNodePorts' => 'setAllocateLoadBalancerNodePorts',
         'annotations' => 'setAnnotations',
+        'clusterIPs' => 'setClusterIPs',
         'clusterIp' => 'setClusterIp',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'description' => 'setDescription',
         'hostname' => 'setHostname',
         'ipAddresses' => 'setIpAddresses',
-        'ipFamily' => 'setIpFamily',
+        'ipFamilies' => 'setIpFamilies',
+        'ipFamilyPolicy' => 'setIpFamilyPolicy',
         'labels' => 'setLabels',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
@@ -122,6 +137,7 @@ class DnsRecordModel implements ArrayAccess
         'state' => 'setState',
         'targetDnsRecordIds' => 'setTargetDnsRecordIds',
         'targetWorkloadIds' => 'setTargetWorkloadIds',
+        'topologyKeys' => 'setTopologyKeys',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
@@ -134,14 +150,17 @@ class DnsRecordModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'allocateLoadBalancerNodePorts' => 'getAllocateLoadBalancerNodePorts',
         'annotations' => 'getAnnotations',
+        'clusterIPs' => 'getClusterIPs',
         'clusterIp' => 'getClusterIp',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'description' => 'getDescription',
         'hostname' => 'getHostname',
         'ipAddresses' => 'getIpAddresses',
-        'ipFamily' => 'getIpFamily',
+        'ipFamilies' => 'getIpFamilies',
+        'ipFamilyPolicy' => 'getIpFamilyPolicy',
         'labels' => 'getLabels',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
@@ -154,6 +173,7 @@ class DnsRecordModel implements ArrayAccess
         'state' => 'getState',
         'targetDnsRecordIds' => 'getTargetDnsRecordIds',
         'targetWorkloadIds' => 'getTargetWorkloadIds',
+        'topologyKeys' => 'getTopologyKeys',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
@@ -167,14 +187,17 @@ class DnsRecordModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['allocateLoadBalancerNodePorts'] = isset($data['allocateLoadBalancerNodePorts']) ? $data['allocateLoadBalancerNodePorts'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
+        $this->container['clusterIPs'] = isset($data['clusterIPs']) ? $data['clusterIPs'] : null;
         $this->container['clusterIp'] = isset($data['clusterIp']) ? $data['clusterIp'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['ipAddresses'] = isset($data['ipAddresses']) ? $data['ipAddresses'] : null;
-        $this->container['ipFamily'] = isset($data['ipFamily']) ? $data['ipFamily'] : null;
+        $this->container['ipFamilies'] = isset($data['ipFamilies']) ? $data['ipFamilies'] : null;
+        $this->container['ipFamilyPolicy'] = isset($data['ipFamilyPolicy']) ? $data['ipFamilyPolicy'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
@@ -187,11 +210,34 @@ class DnsRecordModel implements ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['targetDnsRecordIds'] = isset($data['targetDnsRecordIds']) ? $data['targetDnsRecordIds'] : null;
         $this->container['targetWorkloadIds'] = isset($data['targetWorkloadIds']) ? $data['targetWorkloadIds'] : null;
+        $this->container['topologyKeys'] = isset($data['topologyKeys']) ? $data['topologyKeys'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['workloadId'] = isset($data['workloadId']) ? $data['workloadId'] : null;
     }
+
+    /**
+     * Gets allocateLoadBalancerNodePorts
+     * @return boolean
+     */
+    public function getAllocateLoadBalancerNodePorts()
+    {
+        return $this->container['allocateLoadBalancerNodePorts'];
+    }
+
+    /**
+     * Sets allocateLoadBalancerNodePorts
+     * @param boolean $allocateLoadBalancerNodePorts
+     * @return $this
+     */
+    public function setAllocateLoadBalancerNodePorts($allocateLoadBalancerNodePorts)
+    {
+        $this->container['allocateLoadBalancerNodePorts'] = $allocateLoadBalancerNodePorts;
+
+        return $this;
+    }
+
 
     /**
      * Gets annotations
@@ -210,6 +256,28 @@ class DnsRecordModel implements ArrayAccess
     public function setAnnotations($annotations)
     {
         $this->container['annotations'] = $annotations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterIPs
+     * @return string[]
+     */
+    public function getClusterIPs()
+    {
+        return $this->container['clusterIPs'];
+    }
+
+    /**
+     * Sets clusterIPs
+     * @param string[] $clusterIPs
+     * @return $this
+     */
+    public function setClusterIPs($clusterIPs)
+    {
+        $this->container['clusterIPs'] = $clusterIPs;
 
         return $this;
     }
@@ -348,22 +416,44 @@ class DnsRecordModel implements ArrayAccess
 
 
     /**
-     * Gets ipFamily
-     * @return string
+     * Gets ipFamilies
+     * @return string[]
      */
-    public function getIpFamily()
+    public function getIpFamilies()
     {
-        return $this->container['ipFamily'];
+        return $this->container['ipFamilies'];
     }
 
     /**
-     * Sets ipFamily
-     * @param string $ipFamily
+     * Sets ipFamilies
+     * @param string[] $ipFamilies
      * @return $this
      */
-    public function setIpFamily($ipFamily)
+    public function setIpFamilies($ipFamilies)
     {
-        $this->container['ipFamily'] = $ipFamily;
+        $this->container['ipFamilies'] = $ipFamilies;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ipFamilyPolicy
+     * @return string
+     */
+    public function getIpFamilyPolicy()
+    {
+        return $this->container['ipFamilyPolicy'];
+    }
+
+    /**
+     * Sets ipFamilyPolicy
+     * @param string $ipFamilyPolicy
+     * @return $this
+     */
+    public function setIpFamilyPolicy($ipFamilyPolicy)
+    {
+        $this->container['ipFamilyPolicy'] = $ipFamilyPolicy;
 
         return $this;
     }
@@ -628,6 +718,28 @@ class DnsRecordModel implements ArrayAccess
     public function setTargetWorkloadIds($targetWorkloadIds)
     {
         $this->container['targetWorkloadIds'] = $targetWorkloadIds;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets topologyKeys
+     * @return string[]
+     */
+    public function getTopologyKeys()
+    {
+        return $this->container['topologyKeys'];
+    }
+
+    /**
+     * Sets topologyKeys
+     * @param string[] $topologyKeys
+     * @return $this
+     */
+    public function setTopologyKeys($topologyKeys)
+    {
+        $this->container['topologyKeys'] = $topologyKeys;
 
         return $this;
     }

@@ -268,6 +268,34 @@ class ServiceMonitorFilter extends AbstractFilter
 
 
     /**
+     * Gets targetLimit
+     * @return string
+     */
+    public function getTargetLimit()
+    {
+        return $this->container['targetLimit'];
+    }
+
+    /**
+     * Sets targetLimit
+     * @param string $targetLimit
+     * @param string $option
+     * @return $this
+     */
+    public function setTargetLimit($targetLimit, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['targetLimit'.$option] = $targetLimit;
+
+        return $this;
+    }
+
+
+    /**
      * Gets targetService
      * @return string
      */
