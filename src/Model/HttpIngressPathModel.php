@@ -29,6 +29,8 @@ class HttpIngressPathModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'path',
+        'pathType',
+        'resource',
         'serviceId',
         'targetPort',
         'workloadIds',
@@ -46,6 +48,8 @@ class HttpIngressPathModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'path',
+        'pathType',
+        'resource',
         'serviceId',
         'targetPort',
         'workloadIds',
@@ -58,6 +62,8 @@ class HttpIngressPathModel implements ArrayAccess
 
     protected static $typeMap = [
         'path' => 'string',
+        'pathType' => 'string',
+        'resource' => '\Rancher\Model\TypedLocalObjectReferenceModel',
         'serviceId' => 'string',
         'targetPort' => 'string',
         'workloadIds' => 'string[]',
@@ -70,6 +76,8 @@ class HttpIngressPathModel implements ArrayAccess
 
     protected static $setters = [
         'path' => 'setPath',
+        'pathType' => 'setPathType',
+        'resource' => 'setResource',
         'serviceId' => 'setServiceId',
         'targetPort' => 'setTargetPort',
         'workloadIds' => 'setWorkloadIds',
@@ -82,6 +90,8 @@ class HttpIngressPathModel implements ArrayAccess
 
     protected static $getters = [
         'path' => 'getPath',
+        'pathType' => 'getPathType',
+        'resource' => 'getResource',
         'serviceId' => 'getServiceId',
         'targetPort' => 'getTargetPort',
         'workloadIds' => 'getWorkloadIds',
@@ -95,6 +105,8 @@ class HttpIngressPathModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['pathType'] = isset($data['pathType']) ? $data['pathType'] : null;
+        $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
         $this->container['serviceId'] = isset($data['serviceId']) ? $data['serviceId'] : null;
         $this->container['targetPort'] = isset($data['targetPort']) ? $data['targetPort'] : null;
         $this->container['workloadIds'] = isset($data['workloadIds']) ? $data['workloadIds'] : null;
@@ -117,6 +129,50 @@ class HttpIngressPathModel implements ArrayAccess
     public function setPath($path)
     {
         $this->container['path'] = $path;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets pathType
+     * @return string
+     */
+    public function getPathType()
+    {
+        return $this->container['pathType'];
+    }
+
+    /**
+     * Sets pathType
+     * @param string $pathType
+     * @return $this
+     */
+    public function setPathType($pathType)
+    {
+        $this->container['pathType'] = $pathType;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets resource
+     * @return \Rancher\Model\TypedLocalObjectReferenceModel
+     */
+    public function getResource()
+    {
+        return $this->container['resource'];
+    }
+
+    /**
+     * Sets resource
+     * @param \Rancher\Model\TypedLocalObjectReferenceModel $resource
+     * @return $this
+     */
+    public function setResource($resource)
+    {
+        $this->container['resource'] = $resource;
 
         return $this;
     }

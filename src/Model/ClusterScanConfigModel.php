@@ -28,6 +28,7 @@ class ClusterScanConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'cisScanConfig',
     ];
 
     public static function canBeCreated()
@@ -41,6 +42,7 @@ class ClusterScanConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'cisScanConfig',
     ];
 
     public static function canBeUpdated()
@@ -49,6 +51,7 @@ class ClusterScanConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'cisScanConfig' => '\Rancher\Model\CisScanConfigModel',
     ];
 
     public static function typeMap()
@@ -57,6 +60,7 @@ class ClusterScanConfigModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'cisScanConfig' => 'setCisScanConfig',
     ];
 
     public static function setters()
@@ -65,6 +69,7 @@ class ClusterScanConfigModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'cisScanConfig' => 'getCisScanConfig',
     ];
 
     public static function getters()
@@ -74,8 +79,29 @@ class ClusterScanConfigModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['cisScanConfig'] = isset($data['cisScanConfig']) ? $data['cisScanConfig'] : null;
     }
 
+    /**
+     * Gets cisScanConfig
+     * @return \Rancher\Model\CisScanConfigModel
+     */
+    public function getCisScanConfig()
+    {
+        return $this->container['cisScanConfig'];
+    }
+
+    /**
+     * Sets cisScanConfig
+     * @param \Rancher\Model\CisScanConfigModel $cisScanConfig
+     * @return $this
+     */
+    public function setCisScanConfig($cisScanConfig)
+    {
+        $this->container['cisScanConfig'] = $cisScanConfig;
+
+        return $this;
+    }
 
     /**
      * Returns true if offset exists. False otherwise.

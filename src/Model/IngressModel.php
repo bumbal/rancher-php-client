@@ -31,6 +31,7 @@ class IngressModel implements ArrayAccess
         'annotations',
         'defaultBackend',
         'description',
+        'ingressClassName',
         'labels',
         'name',
         'namespaceId',
@@ -53,6 +54,7 @@ class IngressModel implements ArrayAccess
         'annotations',
         'defaultBackend',
         'description',
+        'ingressClassName',
         'labels',
         'rules',
         'tls',
@@ -69,6 +71,7 @@ class IngressModel implements ArrayAccess
         'creatorId' => 'string',
         'defaultBackend' => '\Rancher\Model\IngressBackendModel',
         'description' => 'string',
+        'ingressClassName' => 'string',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
@@ -96,6 +99,7 @@ class IngressModel implements ArrayAccess
         'creatorId' => 'setCreatorId',
         'defaultBackend' => 'setDefaultBackend',
         'description' => 'setDescription',
+        'ingressClassName' => 'setIngressClassName',
         'labels' => 'setLabels',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
@@ -123,6 +127,7 @@ class IngressModel implements ArrayAccess
         'creatorId' => 'getCreatorId',
         'defaultBackend' => 'getDefaultBackend',
         'description' => 'getDescription',
+        'ingressClassName' => 'getIngressClassName',
         'labels' => 'getLabels',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
@@ -151,6 +156,7 @@ class IngressModel implements ArrayAccess
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['defaultBackend'] = isset($data['defaultBackend']) ? $data['defaultBackend'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['ingressClassName'] = isset($data['ingressClassName']) ? $data['ingressClassName'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
@@ -272,6 +278,28 @@ class IngressModel implements ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ingressClassName
+     * @return string
+     */
+    public function getIngressClassName()
+    {
+        return $this->container['ingressClassName'];
+    }
+
+    /**
+     * Sets ingressClassName
+     * @param string $ingressClassName
+     * @return $this
+     */
+    public function setIngressClassName($ingressClassName)
+    {
+        $this->container['ingressClassName'] = $ingressClassName;
 
         return $this;
     }

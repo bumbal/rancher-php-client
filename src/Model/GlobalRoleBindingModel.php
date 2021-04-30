@@ -30,6 +30,7 @@ class GlobalRoleBindingModel implements ArrayAccess
     protected static $canBeCreated = [
         'annotations',
         'globalRoleId',
+        'groupPrincipalId',
         'labels',
         'name',
         'userId',
@@ -47,9 +48,7 @@ class GlobalRoleBindingModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'annotations',
-        'globalRoleId',
         'labels',
-        'userId',
     ];
 
     public static function canBeUpdated()
@@ -62,6 +61,7 @@ class GlobalRoleBindingModel implements ArrayAccess
         'created' => '\DateTime',
         'creatorId' => 'string',
         'globalRoleId' => 'string',
+        'groupPrincipalId' => 'string',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
@@ -80,6 +80,7 @@ class GlobalRoleBindingModel implements ArrayAccess
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'globalRoleId' => 'setGlobalRoleId',
+        'groupPrincipalId' => 'setGroupPrincipalId',
         'labels' => 'setLabels',
         'name' => 'setName',
         'ownerReferences' => 'setOwnerReferences',
@@ -98,6 +99,7 @@ class GlobalRoleBindingModel implements ArrayAccess
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'globalRoleId' => 'getGlobalRoleId',
+        'groupPrincipalId' => 'getGroupPrincipalId',
         'labels' => 'getLabels',
         'name' => 'getName',
         'ownerReferences' => 'getOwnerReferences',
@@ -117,6 +119,7 @@ class GlobalRoleBindingModel implements ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['globalRoleId'] = isset($data['globalRoleId']) ? $data['globalRoleId'] : null;
+        $this->container['groupPrincipalId'] = isset($data['groupPrincipalId']) ? $data['groupPrincipalId'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
@@ -208,6 +211,28 @@ class GlobalRoleBindingModel implements ArrayAccess
     public function setGlobalRoleId($globalRoleId)
     {
         $this->container['globalRoleId'] = $globalRoleId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets groupPrincipalId
+     * @return string
+     */
+    public function getGroupPrincipalId()
+    {
+        return $this->container['groupPrincipalId'];
+    }
+
+    /**
+     * Sets groupPrincipalId
+     * @param string $groupPrincipalId
+     * @return $this
+     */
+    public function setGroupPrincipalId($groupPrincipalId)
+    {
+        $this->container['groupPrincipalId'] = $groupPrincipalId;
 
         return $this;
     }

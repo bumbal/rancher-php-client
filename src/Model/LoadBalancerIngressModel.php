@@ -30,6 +30,7 @@ class LoadBalancerIngressModel implements ArrayAccess
     protected static $canBeCreated = [
         'hostname',
         'ip',
+        'ports',
     ];
 
     public static function canBeCreated()
@@ -45,6 +46,7 @@ class LoadBalancerIngressModel implements ArrayAccess
     protected static $canBeUpdated = [
         'hostname',
         'ip',
+        'ports',
     ];
 
     public static function canBeUpdated()
@@ -55,6 +57,7 @@ class LoadBalancerIngressModel implements ArrayAccess
     protected static $typeMap = [
         'hostname' => 'string',
         'ip' => 'string',
+        'ports' => '\Rancher\Model\PortStatusModel[]',
     ];
 
     public static function typeMap()
@@ -65,6 +68,7 @@ class LoadBalancerIngressModel implements ArrayAccess
     protected static $setters = [
         'hostname' => 'setHostname',
         'ip' => 'setIp',
+        'ports' => 'setPorts',
     ];
 
     public static function setters()
@@ -75,6 +79,7 @@ class LoadBalancerIngressModel implements ArrayAccess
     protected static $getters = [
         'hostname' => 'getHostname',
         'ip' => 'getIp',
+        'ports' => 'getPorts',
     ];
 
     public static function getters()
@@ -86,6 +91,7 @@ class LoadBalancerIngressModel implements ArrayAccess
     {
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
+        $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
     }
 
     /**
@@ -127,6 +133,28 @@ class LoadBalancerIngressModel implements ArrayAccess
     public function setIp($ip)
     {
         $this->container['ip'] = $ip;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ports
+     * @return \Rancher\Model\PortStatusModel[]
+     */
+    public function getPorts()
+    {
+        return $this->container['ports'];
+    }
+
+    /**
+     * Sets ports
+     * @param \Rancher\Model\PortStatusModel[] $ports
+     * @return $this
+     */
+    public function setPorts($ports)
+    {
+        $this->container['ports'] = $ports;
 
         return $this;
     }

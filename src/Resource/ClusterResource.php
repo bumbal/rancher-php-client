@@ -351,18 +351,54 @@ class ClusterResource
     }
 
     /**
-     * runSecurityScan
+     * rotateEncryptionKey
      *
      * @param string $id
      *
      * @throws RancherException
+     * @return \Rancher\Model\RotateEncryptionKeyOutputModel
+     */
+    public function rotateEncryptionKey($id)
+    {
+        $response = $this->client->request('POST', $this->constructPath() . $id . '?action=rotateEncryptionKey', []);
+
+        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\RotateEncryptionKeyOutputModel');
+    }
+
+    /**
+     * runSecurityScan
+     *
+     * @param string $id
+     * @param \Rancher\Model\CisScanConfigModel $input
+     *
+     * @throws RancherException
      * @return void
      */
-    public function runSecurityScan($id)
+    public function runSecurityScan($id, $input)
     {
-        $this->client->request('POST', $this->constructPath() . $id . '?action=runSecurityScan', []);
+        $postData = (array) \Rancher\ObjectSerializer::sanitizeForSerialization($input);
+
+        $this->client->request('POST', $this->constructPath() . $id . '?action=runSecurityScan', $postData);
 
         return;
+    }
+
+    /**
+     * saveAsTemplate
+     *
+     * @param string $id
+     * @param \Rancher\Model\SaveAsTemplateInputModel $input
+     *
+     * @throws RancherException
+     * @return \Rancher\Model\SaveAsTemplateOutputModel
+     */
+    public function saveAsTemplate($id, $input)
+    {
+        $postData = (array) \Rancher\ObjectSerializer::sanitizeForSerialization($input);
+
+        $response = $this->client->request('POST', $this->constructPath() . $id . '?action=saveAsTemplate', $postData);
+
+        return $this->client->getSerializer()->deserialize($response, '\Rancher\Model\SaveAsTemplateOutputModel');
     }
 
     /**

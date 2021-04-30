@@ -28,10 +28,15 @@ class DnsConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'linearAutoscalerParams',
         'nodeSelector',
+        'nodelocal',
+        'options',
         'provider',
         'reversecidrs',
         'stubdomains',
+        'tolerations',
+        'updateStrategy',
         'upstreamnameservers',
     ];
 
@@ -46,10 +51,15 @@ class DnsConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'linearAutoscalerParams',
         'nodeSelector',
+        'nodelocal',
+        'options',
         'provider',
         'reversecidrs',
         'stubdomains',
+        'tolerations',
+        'updateStrategy',
         'upstreamnameservers',
     ];
 
@@ -59,10 +69,15 @@ class DnsConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'linearAutoscalerParams' => '\Rancher\Model\LinearAutoscalerParamsModel',
         'nodeSelector' => 'map[string,string]',
+        'nodelocal' => '\Rancher\Model\NodelocalModel',
+        'options' => 'map[string,string]',
         'provider' => 'string',
         'reversecidrs' => 'string[]',
         'stubdomains' => 'map[string,\Rancher\Model\Array[string]Model]',
+        'tolerations' => '\Rancher\Model\TolerationModel[]',
+        'updateStrategy' => '\Rancher\Model\DeploymentStrategyModel',
         'upstreamnameservers' => 'string[]',
     ];
 
@@ -72,10 +87,15 @@ class DnsConfigModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'linearAutoscalerParams' => 'setLinearAutoscalerParams',
         'nodeSelector' => 'setNodeSelector',
+        'nodelocal' => 'setNodelocal',
+        'options' => 'setOptions',
         'provider' => 'setProvider',
         'reversecidrs' => 'setReversecidrs',
         'stubdomains' => 'setStubdomains',
+        'tolerations' => 'setTolerations',
+        'updateStrategy' => 'setUpdateStrategy',
         'upstreamnameservers' => 'setUpstreamnameservers',
     ];
 
@@ -85,10 +105,15 @@ class DnsConfigModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'linearAutoscalerParams' => 'getLinearAutoscalerParams',
         'nodeSelector' => 'getNodeSelector',
+        'nodelocal' => 'getNodelocal',
+        'options' => 'getOptions',
         'provider' => 'getProvider',
         'reversecidrs' => 'getReversecidrs',
         'stubdomains' => 'getStubdomains',
+        'tolerations' => 'getTolerations',
+        'updateStrategy' => 'getUpdateStrategy',
         'upstreamnameservers' => 'getUpstreamnameservers',
     ];
 
@@ -99,12 +124,39 @@ class DnsConfigModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['linearAutoscalerParams'] = isset($data['linearAutoscalerParams']) ? $data['linearAutoscalerParams'] : null;
         $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
+        $this->container['nodelocal'] = isset($data['nodelocal']) ? $data['nodelocal'] : null;
+        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['reversecidrs'] = isset($data['reversecidrs']) ? $data['reversecidrs'] : null;
         $this->container['stubdomains'] = isset($data['stubdomains']) ? $data['stubdomains'] : null;
+        $this->container['tolerations'] = isset($data['tolerations']) ? $data['tolerations'] : null;
+        $this->container['updateStrategy'] = isset($data['updateStrategy']) ? $data['updateStrategy'] : null;
         $this->container['upstreamnameservers'] = isset($data['upstreamnameservers']) ? $data['upstreamnameservers'] : null;
     }
+
+    /**
+     * Gets linearAutoscalerParams
+     * @return \Rancher\Model\LinearAutoscalerParamsModel
+     */
+    public function getLinearAutoscalerParams()
+    {
+        return $this->container['linearAutoscalerParams'];
+    }
+
+    /**
+     * Sets linearAutoscalerParams
+     * @param \Rancher\Model\LinearAutoscalerParamsModel $linearAutoscalerParams
+     * @return $this
+     */
+    public function setLinearAutoscalerParams($linearAutoscalerParams)
+    {
+        $this->container['linearAutoscalerParams'] = $linearAutoscalerParams;
+
+        return $this;
+    }
+
 
     /**
      * Gets nodeSelector
@@ -123,6 +175,50 @@ class DnsConfigModel implements ArrayAccess
     public function setNodeSelector($nodeSelector)
     {
         $this->container['nodeSelector'] = $nodeSelector;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodelocal
+     * @return \Rancher\Model\NodelocalModel
+     */
+    public function getNodelocal()
+    {
+        return $this->container['nodelocal'];
+    }
+
+    /**
+     * Sets nodelocal
+     * @param \Rancher\Model\NodelocalModel $nodelocal
+     * @return $this
+     */
+    public function setNodelocal($nodelocal)
+    {
+        $this->container['nodelocal'] = $nodelocal;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets options
+     * @return string[]
+     */
+    public function getOptions()
+    {
+        return $this->container['options'];
+    }
+
+    /**
+     * Sets options
+     * @param string[] $options
+     * @return $this
+     */
+    public function setOptions($options)
+    {
+        $this->container['options'] = $options;
 
         return $this;
     }
@@ -189,6 +285,50 @@ class DnsConfigModel implements ArrayAccess
     public function setStubdomains($stubdomains)
     {
         $this->container['stubdomains'] = $stubdomains;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets tolerations
+     * @return \Rancher\Model\TolerationModel[]
+     */
+    public function getTolerations()
+    {
+        return $this->container['tolerations'];
+    }
+
+    /**
+     * Sets tolerations
+     * @param \Rancher\Model\TolerationModel[] $tolerations
+     * @return $this
+     */
+    public function setTolerations($tolerations)
+    {
+        $this->container['tolerations'] = $tolerations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets updateStrategy
+     * @return \Rancher\Model\DeploymentStrategyModel
+     */
+    public function getUpdateStrategy()
+    {
+        return $this->container['updateStrategy'];
+    }
+
+    /**
+     * Sets updateStrategy
+     * @param \Rancher\Model\DeploymentStrategyModel $updateStrategy
+     * @return $this
+     */
+    public function setUpdateStrategy($updateStrategy)
+    {
+        $this->container['updateStrategy'] = $updateStrategy;
 
         return $this;
     }

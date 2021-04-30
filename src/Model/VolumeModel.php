@@ -37,6 +37,7 @@ class VolumeModel implements ArrayAccess
         'csi',
         'downwardAPI',
         'emptyDir',
+        'ephemeral',
         'fc',
         'flexVolume',
         'flocker',
@@ -79,6 +80,7 @@ class VolumeModel implements ArrayAccess
         'csi',
         'downwardAPI',
         'emptyDir',
+        'ephemeral',
         'fc',
         'flexVolume',
         'flocker',
@@ -116,6 +118,7 @@ class VolumeModel implements ArrayAccess
         'csi' => '\Rancher\Model\CsiVolumeSourceModel',
         'downwardAPI' => '\Rancher\Model\DownwardAPIVolumeSourceModel',
         'emptyDir' => '\Rancher\Model\EmptyDirVolumeSourceModel',
+        'ephemeral' => '\Rancher\Model\EphemeralVolumeSourceModel',
         'fc' => '\Rancher\Model\FcVolumeSourceModel',
         'flexVolume' => '\Rancher\Model\FlexVolumeSourceModel',
         'flocker' => '\Rancher\Model\FlockerVolumeSourceModel',
@@ -153,6 +156,7 @@ class VolumeModel implements ArrayAccess
         'csi' => 'setCsi',
         'downwardAPI' => 'setDownwardAPI',
         'emptyDir' => 'setEmptyDir',
+        'ephemeral' => 'setEphemeral',
         'fc' => 'setFc',
         'flexVolume' => 'setFlexVolume',
         'flocker' => 'setFlocker',
@@ -190,6 +194,7 @@ class VolumeModel implements ArrayAccess
         'csi' => 'getCsi',
         'downwardAPI' => 'getDownwardAPI',
         'emptyDir' => 'getEmptyDir',
+        'ephemeral' => 'getEphemeral',
         'fc' => 'getFc',
         'flexVolume' => 'getFlexVolume',
         'flocker' => 'getFlocker',
@@ -228,6 +233,7 @@ class VolumeModel implements ArrayAccess
         $this->container['csi'] = isset($data['csi']) ? $data['csi'] : null;
         $this->container['downwardAPI'] = isset($data['downwardAPI']) ? $data['downwardAPI'] : null;
         $this->container['emptyDir'] = isset($data['emptyDir']) ? $data['emptyDir'] : null;
+        $this->container['ephemeral'] = isset($data['ephemeral']) ? $data['ephemeral'] : null;
         $this->container['fc'] = isset($data['fc']) ? $data['fc'] : null;
         $this->container['flexVolume'] = isset($data['flexVolume']) ? $data['flexVolume'] : null;
         $this->container['flocker'] = isset($data['flocker']) ? $data['flocker'] : null;
@@ -443,6 +449,28 @@ class VolumeModel implements ArrayAccess
     public function setEmptyDir($emptyDir)
     {
         $this->container['emptyDir'] = $emptyDir;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ephemeral
+     * @return \Rancher\Model\EphemeralVolumeSourceModel
+     */
+    public function getEphemeral()
+    {
+        return $this->container['ephemeral'];
+    }
+
+    /**
+     * Sets ephemeral
+     * @param \Rancher\Model\EphemeralVolumeSourceModel $ephemeral
+     * @return $this
+     */
+    public function setEphemeral($ephemeral)
+    {
+        $this->container['ephemeral'] = $ephemeral;
 
         return $this;
     }

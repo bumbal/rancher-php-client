@@ -50,6 +50,7 @@ class MultiClusterAppStatusModel implements ArrayAccess
 
     protected static $typeMap = [
         'conditions' => '\Rancher\Model\AppConditionModel[]',
+        'helmVersion' => 'string',
         'revisionId' => 'string',
     ];
 
@@ -60,6 +61,7 @@ class MultiClusterAppStatusModel implements ArrayAccess
 
     protected static $setters = [
         'conditions' => 'setConditions',
+        'helmVersion' => 'setHelmVersion',
         'revisionId' => 'setRevisionId',
     ];
 
@@ -70,6 +72,7 @@ class MultiClusterAppStatusModel implements ArrayAccess
 
     protected static $getters = [
         'conditions' => 'getConditions',
+        'helmVersion' => 'getHelmVersion',
         'revisionId' => 'getRevisionId',
     ];
 
@@ -81,6 +84,7 @@ class MultiClusterAppStatusModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
+        $this->container['helmVersion'] = isset($data['helmVersion']) ? $data['helmVersion'] : null;
         $this->container['revisionId'] = isset($data['revisionId']) ? $data['revisionId'] : null;
     }
 
@@ -101,6 +105,28 @@ class MultiClusterAppStatusModel implements ArrayAccess
     public function setConditions($conditions)
     {
         $this->container['conditions'] = $conditions;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets helmVersion
+     * @return string
+     */
+    public function getHelmVersion()
+    {
+        return $this->container['helmVersion'];
+    }
+
+    /**
+     * Sets helmVersion
+     * @param string $helmVersion
+     * @return $this
+     */
+    public function setHelmVersion($helmVersion)
+    {
+        $this->container['helmVersion'] = $helmVersion;
 
         return $this;
     }

@@ -45,6 +45,7 @@ class NodeTemplateModel implements ArrayAccess
         'engineRegistryMirror',
         'engineStorageDriver',
         'labels',
+        'linodeConfig',
         'name',
         'nodeTaints',
         'useInternalIpAddress',
@@ -79,6 +80,7 @@ class NodeTemplateModel implements ArrayAccess
         'engineRegistryMirror',
         'engineStorageDriver',
         'labels',
+        'linodeConfig',
         'name',
         'nodeTaints',
         'vmwarevsphereConfig',
@@ -111,6 +113,7 @@ class NodeTemplateModel implements ArrayAccess
         'engineStorageDriver' => 'string',
         'id' => 'string',
         'labels' => 'map[string,string]',
+        'linodeConfig' => '\Rancher\Model\LinodeconfigModel',
         'name' => 'string',
         'nodeTaints' => '\Rancher\Model\TaintModel[]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
@@ -151,6 +154,7 @@ class NodeTemplateModel implements ArrayAccess
         'engineStorageDriver' => 'setEngineStorageDriver',
         'id' => 'setId',
         'labels' => 'setLabels',
+        'linodeConfig' => 'setLinodeConfig',
         'name' => 'setName',
         'nodeTaints' => 'setNodeTaints',
         'ownerReferences' => 'setOwnerReferences',
@@ -191,6 +195,7 @@ class NodeTemplateModel implements ArrayAccess
         'engineStorageDriver' => 'getEngineStorageDriver',
         'id' => 'getId',
         'labels' => 'getLabels',
+        'linodeConfig' => 'getLinodeConfig',
         'name' => 'getName',
         'nodeTaints' => 'getNodeTaints',
         'ownerReferences' => 'getOwnerReferences',
@@ -232,6 +237,7 @@ class NodeTemplateModel implements ArrayAccess
         $this->container['engineStorageDriver'] = isset($data['engineStorageDriver']) ? $data['engineStorageDriver'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
+        $this->container['linodeConfig'] = isset($data['linodeConfig']) ? $data['linodeConfig'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nodeTaints'] = isset($data['nodeTaints']) ? $data['nodeTaints'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
@@ -702,6 +708,28 @@ class NodeTemplateModel implements ArrayAccess
     public function setLabels($labels)
     {
         $this->container['labels'] = $labels;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets linodeConfig
+     * @return \Rancher\Model\LinodeconfigModel
+     */
+    public function getLinodeConfig()
+    {
+        return $this->container['linodeConfig'];
+    }
+
+    /**
+     * Sets linodeConfig
+     * @param \Rancher\Model\LinodeconfigModel $linodeConfig
+     * @return $this
+     */
+    public function setLinodeConfig($linodeConfig)
+    {
+        $this->container['linodeConfig'] = $linodeConfig;
 
         return $this;
     }

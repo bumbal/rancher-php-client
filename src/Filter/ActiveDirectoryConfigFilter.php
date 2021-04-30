@@ -576,6 +576,34 @@ class ActiveDirectoryConfigFilter extends AbstractFilter
 
 
     /**
+     * Gets starttls
+     * @return string
+     */
+    public function getStarttls()
+    {
+        return $this->container['starttls'];
+    }
+
+    /**
+     * Sets starttls
+     * @param string $starttls
+     * @param string $option
+     * @return $this
+     */
+    public function setStarttls($starttls, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['starttls'.$option] = $starttls;
+
+        return $this;
+    }
+
+
+    /**
      * Gets tls
      * @return string
      */

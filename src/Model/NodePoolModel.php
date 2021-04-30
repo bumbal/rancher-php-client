@@ -33,6 +33,7 @@ class NodePoolModel implements ArrayAccess
         'controlPlane',
         'deleteNotReadyAfterSecs',
         'displayName',
+        'drainBeforeDelete',
         'etcd',
         'hostnamePrefix',
         'labels',
@@ -61,6 +62,7 @@ class NodePoolModel implements ArrayAccess
         'controlPlane',
         'deleteNotReadyAfterSecs',
         'displayName',
+        'drainBeforeDelete',
         'etcd',
         'hostnamePrefix',
         'labels',
@@ -85,6 +87,7 @@ class NodePoolModel implements ArrayAccess
         'creatorId' => 'string',
         'deleteNotReadyAfterSecs' => 'int',
         'displayName' => 'string',
+        'drainBeforeDelete' => 'boolean',
         'driver' => 'string',
         'etcd' => 'boolean',
         'hostnamePrefix' => 'string',
@@ -119,6 +122,7 @@ class NodePoolModel implements ArrayAccess
         'creatorId' => 'setCreatorId',
         'deleteNotReadyAfterSecs' => 'setDeleteNotReadyAfterSecs',
         'displayName' => 'setDisplayName',
+        'drainBeforeDelete' => 'setDrainBeforeDelete',
         'driver' => 'setDriver',
         'etcd' => 'setEtcd',
         'hostnamePrefix' => 'setHostnamePrefix',
@@ -153,6 +157,7 @@ class NodePoolModel implements ArrayAccess
         'creatorId' => 'getCreatorId',
         'deleteNotReadyAfterSecs' => 'getDeleteNotReadyAfterSecs',
         'displayName' => 'getDisplayName',
+        'drainBeforeDelete' => 'getDrainBeforeDelete',
         'driver' => 'getDriver',
         'etcd' => 'getEtcd',
         'hostnamePrefix' => 'getHostnamePrefix',
@@ -188,6 +193,7 @@ class NodePoolModel implements ArrayAccess
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['deleteNotReadyAfterSecs'] = isset($data['deleteNotReadyAfterSecs']) ? $data['deleteNotReadyAfterSecs'] : null;
         $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
+        $this->container['drainBeforeDelete'] = isset($data['drainBeforeDelete']) ? $data['drainBeforeDelete'] : null;
         $this->container['driver'] = isset($data['driver']) ? $data['driver'] : null;
         $this->container['etcd'] = isset($data['etcd']) ? $data['etcd'] : null;
         $this->container['hostnamePrefix'] = isset($data['hostnamePrefix']) ? $data['hostnamePrefix'] : null;
@@ -358,6 +364,28 @@ class NodePoolModel implements ArrayAccess
     public function setDisplayName($displayName)
     {
         $this->container['displayName'] = $displayName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets drainBeforeDelete
+     * @return boolean
+     */
+    public function getDrainBeforeDelete()
+    {
+        return $this->container['drainBeforeDelete'];
+    }
+
+    /**
+     * Sets drainBeforeDelete
+     * @param boolean $drainBeforeDelete
+     * @return $this
+     */
+    public function setDrainBeforeDelete($drainBeforeDelete)
+    {
+        $this->container['drainBeforeDelete'] = $drainBeforeDelete;
 
         return $this;
     }

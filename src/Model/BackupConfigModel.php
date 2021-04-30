@@ -33,6 +33,7 @@ class BackupConfigModel implements ArrayAccess
         'retention',
         's3BackupConfig',
         'safeTimestamp',
+        'timeout',
     ];
 
     public static function canBeCreated()
@@ -51,6 +52,7 @@ class BackupConfigModel implements ArrayAccess
         'retention',
         's3BackupConfig',
         'safeTimestamp',
+        'timeout',
     ];
 
     public static function canBeUpdated()
@@ -64,6 +66,7 @@ class BackupConfigModel implements ArrayAccess
         'retention' => 'int',
         's3BackupConfig' => '\Rancher\Model\S3BackupConfigModel',
         'safeTimestamp' => 'boolean',
+        'timeout' => 'int',
     ];
 
     public static function typeMap()
@@ -77,6 +80,7 @@ class BackupConfigModel implements ArrayAccess
         'retention' => 'setRetention',
         's3BackupConfig' => 'setS3BackupConfig',
         'safeTimestamp' => 'setSafeTimestamp',
+        'timeout' => 'setTimeout',
     ];
 
     public static function setters()
@@ -90,6 +94,7 @@ class BackupConfigModel implements ArrayAccess
         'retention' => 'getRetention',
         's3BackupConfig' => 'getS3BackupConfig',
         'safeTimestamp' => 'getSafeTimestamp',
+        'timeout' => 'getTimeout',
     ];
 
     public static function getters()
@@ -104,6 +109,7 @@ class BackupConfigModel implements ArrayAccess
         $this->container['retention'] = isset($data['retention']) ? $data['retention'] : null;
         $this->container['s3BackupConfig'] = isset($data['s3BackupConfig']) ? $data['s3BackupConfig'] : null;
         $this->container['safeTimestamp'] = isset($data['safeTimestamp']) ? $data['safeTimestamp'] : null;
+        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
     }
 
     /**
@@ -211,6 +217,28 @@ class BackupConfigModel implements ArrayAccess
     public function setSafeTimestamp($safeTimestamp)
     {
         $this->container['safeTimestamp'] = $safeTimestamp;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets timeout
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->container['timeout'];
+    }
+
+    /**
+     * Sets timeout
+     * @param int $timeout
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
+        $this->container['timeout'] = $timeout;
 
         return $this;
     }

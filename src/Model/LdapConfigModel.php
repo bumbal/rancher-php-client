@@ -41,6 +41,7 @@ class LdapConfigModel implements ArrayAccess
         'groupObjectClass',
         'groupSearchAttribute',
         'groupSearchBase',
+        'groupSearchFilter',
         'labels',
         'name',
         'nestedGroupMembershipEnabled',
@@ -48,6 +49,7 @@ class LdapConfigModel implements ArrayAccess
         'servers',
         'serviceAccountDistinguishedName',
         'serviceAccountPassword',
+        'starttls',
         'tls',
         'type',
         'userDisabledBitMask',
@@ -58,6 +60,7 @@ class LdapConfigModel implements ArrayAccess
         'userObjectClass',
         'userSearchAttribute',
         'userSearchBase',
+        'userSearchFilter',
     ];
 
     public static function canBeCreated()
@@ -84,12 +87,14 @@ class LdapConfigModel implements ArrayAccess
         'groupObjectClass',
         'groupSearchAttribute',
         'groupSearchBase',
+        'groupSearchFilter',
         'labels',
         'nestedGroupMembershipEnabled',
         'port',
         'servers',
         'serviceAccountDistinguishedName',
         'serviceAccountPassword',
+        'starttls',
         'tls',
         'userDisabledBitMask',
         'userEnabledAttribute',
@@ -99,6 +104,7 @@ class LdapConfigModel implements ArrayAccess
         'userObjectClass',
         'userSearchAttribute',
         'userSearchBase',
+        'userSearchFilter',
     ];
 
     public static function canBeUpdated()
@@ -122,6 +128,7 @@ class LdapConfigModel implements ArrayAccess
         'groupObjectClass' => 'string',
         'groupSearchAttribute' => 'string',
         'groupSearchBase' => 'string',
+        'groupSearchFilter' => 'string',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'nestedGroupMembershipEnabled' => 'boolean',
@@ -131,6 +138,7 @@ class LdapConfigModel implements ArrayAccess
         'servers' => 'string[]',
         'serviceAccountDistinguishedName' => 'string',
         'serviceAccountPassword' => '\Rancher\Model\PasswordModel',
+        'starttls' => 'boolean',
         'tls' => 'boolean',
         'type' => 'string',
         'userDisabledBitMask' => 'int',
@@ -141,6 +149,7 @@ class LdapConfigModel implements ArrayAccess
         'userObjectClass' => 'string',
         'userSearchAttribute' => 'string',
         'userSearchBase' => 'string',
+        'userSearchFilter' => 'string',
         'uuid' => 'string',
     ];
 
@@ -165,6 +174,7 @@ class LdapConfigModel implements ArrayAccess
         'groupObjectClass' => 'setGroupObjectClass',
         'groupSearchAttribute' => 'setGroupSearchAttribute',
         'groupSearchBase' => 'setGroupSearchBase',
+        'groupSearchFilter' => 'setGroupSearchFilter',
         'labels' => 'setLabels',
         'name' => 'setName',
         'nestedGroupMembershipEnabled' => 'setNestedGroupMembershipEnabled',
@@ -174,6 +184,7 @@ class LdapConfigModel implements ArrayAccess
         'servers' => 'setServers',
         'serviceAccountDistinguishedName' => 'setServiceAccountDistinguishedName',
         'serviceAccountPassword' => 'setServiceAccountPassword',
+        'starttls' => 'setStarttls',
         'tls' => 'setTls',
         'type' => 'setType',
         'userDisabledBitMask' => 'setUserDisabledBitMask',
@@ -184,6 +195,7 @@ class LdapConfigModel implements ArrayAccess
         'userObjectClass' => 'setUserObjectClass',
         'userSearchAttribute' => 'setUserSearchAttribute',
         'userSearchBase' => 'setUserSearchBase',
+        'userSearchFilter' => 'setUserSearchFilter',
         'uuid' => 'setUuid',
     ];
 
@@ -208,6 +220,7 @@ class LdapConfigModel implements ArrayAccess
         'groupObjectClass' => 'getGroupObjectClass',
         'groupSearchAttribute' => 'getGroupSearchAttribute',
         'groupSearchBase' => 'getGroupSearchBase',
+        'groupSearchFilter' => 'getGroupSearchFilter',
         'labels' => 'getLabels',
         'name' => 'getName',
         'nestedGroupMembershipEnabled' => 'getNestedGroupMembershipEnabled',
@@ -217,6 +230,7 @@ class LdapConfigModel implements ArrayAccess
         'servers' => 'getServers',
         'serviceAccountDistinguishedName' => 'getServiceAccountDistinguishedName',
         'serviceAccountPassword' => 'getServiceAccountPassword',
+        'starttls' => 'getStarttls',
         'tls' => 'getTls',
         'type' => 'getType',
         'userDisabledBitMask' => 'getUserDisabledBitMask',
@@ -227,6 +241,7 @@ class LdapConfigModel implements ArrayAccess
         'userObjectClass' => 'getUserObjectClass',
         'userSearchAttribute' => 'getUserSearchAttribute',
         'userSearchBase' => 'getUserSearchBase',
+        'userSearchFilter' => 'getUserSearchFilter',
         'uuid' => 'getUuid',
     ];
 
@@ -252,6 +267,7 @@ class LdapConfigModel implements ArrayAccess
         $this->container['groupObjectClass'] = isset($data['groupObjectClass']) ? $data['groupObjectClass'] : null;
         $this->container['groupSearchAttribute'] = isset($data['groupSearchAttribute']) ? $data['groupSearchAttribute'] : null;
         $this->container['groupSearchBase'] = isset($data['groupSearchBase']) ? $data['groupSearchBase'] : null;
+        $this->container['groupSearchFilter'] = isset($data['groupSearchFilter']) ? $data['groupSearchFilter'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nestedGroupMembershipEnabled'] = isset($data['nestedGroupMembershipEnabled']) ? $data['nestedGroupMembershipEnabled'] : null;
@@ -261,6 +277,7 @@ class LdapConfigModel implements ArrayAccess
         $this->container['servers'] = isset($data['servers']) ? $data['servers'] : null;
         $this->container['serviceAccountDistinguishedName'] = isset($data['serviceAccountDistinguishedName']) ? $data['serviceAccountDistinguishedName'] : null;
         $this->container['serviceAccountPassword'] = isset($data['serviceAccountPassword']) ? $data['serviceAccountPassword'] : null;
+        $this->container['starttls'] = isset($data['starttls']) ? $data['starttls'] : null;
         $this->container['tls'] = isset($data['tls']) ? $data['tls'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['userDisabledBitMask'] = isset($data['userDisabledBitMask']) ? $data['userDisabledBitMask'] : null;
@@ -271,6 +288,7 @@ class LdapConfigModel implements ArrayAccess
         $this->container['userObjectClass'] = isset($data['userObjectClass']) ? $data['userObjectClass'] : null;
         $this->container['userSearchAttribute'] = isset($data['userSearchAttribute']) ? $data['userSearchAttribute'] : null;
         $this->container['userSearchBase'] = isset($data['userSearchBase']) ? $data['userSearchBase'] : null;
+        $this->container['userSearchFilter'] = isset($data['userSearchFilter']) ? $data['userSearchFilter'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
     }
 
@@ -605,6 +623,28 @@ class LdapConfigModel implements ArrayAccess
 
 
     /**
+     * Gets groupSearchFilter
+     * @return string
+     */
+    public function getGroupSearchFilter()
+    {
+        return $this->container['groupSearchFilter'];
+    }
+
+    /**
+     * Sets groupSearchFilter
+     * @param string $groupSearchFilter
+     * @return $this
+     */
+    public function setGroupSearchFilter($groupSearchFilter)
+    {
+        $this->container['groupSearchFilter'] = $groupSearchFilter;
+
+        return $this;
+    }
+
+
+    /**
      * Gets labels
      * @return string[]
      */
@@ -797,6 +837,28 @@ class LdapConfigModel implements ArrayAccess
     public function setServiceAccountPassword($serviceAccountPassword)
     {
         $this->container['serviceAccountPassword'] = $serviceAccountPassword;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets starttls
+     * @return boolean
+     */
+    public function getStarttls()
+    {
+        return $this->container['starttls'];
+    }
+
+    /**
+     * Sets starttls
+     * @param boolean $starttls
+     * @return $this
+     */
+    public function setStarttls($starttls)
+    {
+        $this->container['starttls'] = $starttls;
 
         return $this;
     }
@@ -1017,6 +1079,28 @@ class LdapConfigModel implements ArrayAccess
     public function setUserSearchBase($userSearchBase)
     {
         $this->container['userSearchBase'] = $userSearchBase;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets userSearchFilter
+     * @return string
+     */
+    public function getUserSearchFilter()
+    {
+        return $this->container['userSearchFilter'];
+    }
+
+    /**
+     * Sets userSearchFilter
+     * @param string $userSearchFilter
+     * @return $this
+     */
+    public function setUserSearchFilter($userSearchFilter)
+    {
+        $this->container['userSearchFilter'] = $userSearchFilter;
 
         return $this;
     }

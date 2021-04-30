@@ -47,8 +47,11 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         'privateRegistries',
         'restore',
         'rotateCertificates',
+        'rotateEncryptionKey',
         'services',
         'sshAgentAuth',
+        'upgradeStrategy',
+        'winPrefixPath',
     ];
 
     public static function canBeCreated()
@@ -81,8 +84,11 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         'privateRegistries',
         'restore',
         'rotateCertificates',
+        'rotateEncryptionKey',
         'services',
         'sshAgentAuth',
+        'upgradeStrategy',
+        'winPrefixPath',
     ];
 
     public static function canBeUpdated()
@@ -110,10 +116,13 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         'privateRegistries' => '\Rancher\Model\PrivateRegistryModel[]',
         'restore' => '\Rancher\Model\RestoreConfigModel',
         'rotateCertificates' => '\Rancher\Model\RotateCertificatesModel',
+        'rotateEncryptionKey' => 'boolean',
         'services' => '\Rancher\Model\RkeConfigServicesModel',
         'sshAgentAuth' => 'boolean',
         'sshCertPath' => 'string',
         'sshKeyPath' => 'string',
+        'upgradeStrategy' => '\Rancher\Model\NodeUpgradeStrategyModel',
+        'winPrefixPath' => 'string',
     ];
 
     public static function typeMap()
@@ -141,10 +150,13 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         'privateRegistries' => 'setPrivateRegistries',
         'restore' => 'setRestore',
         'rotateCertificates' => 'setRotateCertificates',
+        'rotateEncryptionKey' => 'setRotateEncryptionKey',
         'services' => 'setServices',
         'sshAgentAuth' => 'setSshAgentAuth',
         'sshCertPath' => 'setSshCertPath',
         'sshKeyPath' => 'setSshKeyPath',
+        'upgradeStrategy' => 'setUpgradeStrategy',
+        'winPrefixPath' => 'setWinPrefixPath',
     ];
 
     public static function setters()
@@ -172,10 +184,13 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         'privateRegistries' => 'getPrivateRegistries',
         'restore' => 'getRestore',
         'rotateCertificates' => 'getRotateCertificates',
+        'rotateEncryptionKey' => 'getRotateEncryptionKey',
         'services' => 'getServices',
         'sshAgentAuth' => 'getSshAgentAuth',
         'sshCertPath' => 'getSshCertPath',
         'sshKeyPath' => 'getSshKeyPath',
+        'upgradeStrategy' => 'getUpgradeStrategy',
+        'winPrefixPath' => 'getWinPrefixPath',
     ];
 
     public static function getters()
@@ -204,10 +219,13 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         $this->container['privateRegistries'] = isset($data['privateRegistries']) ? $data['privateRegistries'] : null;
         $this->container['restore'] = isset($data['restore']) ? $data['restore'] : null;
         $this->container['rotateCertificates'] = isset($data['rotateCertificates']) ? $data['rotateCertificates'] : null;
+        $this->container['rotateEncryptionKey'] = isset($data['rotateEncryptionKey']) ? $data['rotateEncryptionKey'] : null;
         $this->container['services'] = isset($data['services']) ? $data['services'] : null;
         $this->container['sshAgentAuth'] = isset($data['sshAgentAuth']) ? $data['sshAgentAuth'] : null;
         $this->container['sshCertPath'] = isset($data['sshCertPath']) ? $data['sshCertPath'] : null;
         $this->container['sshKeyPath'] = isset($data['sshKeyPath']) ? $data['sshKeyPath'] : null;
+        $this->container['upgradeStrategy'] = isset($data['upgradeStrategy']) ? $data['upgradeStrategy'] : null;
+        $this->container['winPrefixPath'] = isset($data['winPrefixPath']) ? $data['winPrefixPath'] : null;
     }
 
     /**
@@ -629,6 +647,28 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
 
 
     /**
+     * Gets rotateEncryptionKey
+     * @return boolean
+     */
+    public function getRotateEncryptionKey()
+    {
+        return $this->container['rotateEncryptionKey'];
+    }
+
+    /**
+     * Sets rotateEncryptionKey
+     * @param boolean $rotateEncryptionKey
+     * @return $this
+     */
+    public function setRotateEncryptionKey($rotateEncryptionKey)
+    {
+        $this->container['rotateEncryptionKey'] = $rotateEncryptionKey;
+
+        return $this;
+    }
+
+
+    /**
      * Gets services
      * @return \Rancher\Model\RkeConfigServicesModel
      */
@@ -711,6 +751,50 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
     public function setSshKeyPath($sshKeyPath)
     {
         $this->container['sshKeyPath'] = $sshKeyPath;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets upgradeStrategy
+     * @return \Rancher\Model\NodeUpgradeStrategyModel
+     */
+    public function getUpgradeStrategy()
+    {
+        return $this->container['upgradeStrategy'];
+    }
+
+    /**
+     * Sets upgradeStrategy
+     * @param \Rancher\Model\NodeUpgradeStrategyModel $upgradeStrategy
+     * @return $this
+     */
+    public function setUpgradeStrategy($upgradeStrategy)
+    {
+        $this->container['upgradeStrategy'] = $upgradeStrategy;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winPrefixPath
+     * @return string
+     */
+    public function getWinPrefixPath()
+    {
+        return $this->container['winPrefixPath'];
+    }
+
+    /**
+     * Sets winPrefixPath
+     * @param string $winPrefixPath
+     * @return $this
+     */
+    public function setWinPrefixPath($winPrefixPath)
+    {
+        $this->container['winPrefixPath'] = $winPrefixPath;
 
         return $this;
     }

@@ -28,9 +28,13 @@ class MonitoringConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'metricsServerPriorityClassName',
         'nodeSelector',
         'options',
         'provider',
+        'replicas',
+        'tolerations',
+        'updateStrategy',
     ];
 
     public static function canBeCreated()
@@ -44,9 +48,13 @@ class MonitoringConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'metricsServerPriorityClassName',
         'nodeSelector',
         'options',
         'provider',
+        'replicas',
+        'tolerations',
+        'updateStrategy',
     ];
 
     public static function canBeUpdated()
@@ -55,9 +63,13 @@ class MonitoringConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'metricsServerPriorityClassName' => 'string',
         'nodeSelector' => 'map[string,string]',
         'options' => 'map[string,string]',
         'provider' => 'string',
+        'replicas' => 'int',
+        'tolerations' => '\Rancher\Model\TolerationModel[]',
+        'updateStrategy' => '\Rancher\Model\DeploymentStrategyModel',
     ];
 
     public static function typeMap()
@@ -66,9 +78,13 @@ class MonitoringConfigModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'metricsServerPriorityClassName' => 'setMetricsServerPriorityClassName',
         'nodeSelector' => 'setNodeSelector',
         'options' => 'setOptions',
         'provider' => 'setProvider',
+        'replicas' => 'setReplicas',
+        'tolerations' => 'setTolerations',
+        'updateStrategy' => 'setUpdateStrategy',
     ];
 
     public static function setters()
@@ -77,9 +93,13 @@ class MonitoringConfigModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'metricsServerPriorityClassName' => 'getMetricsServerPriorityClassName',
         'nodeSelector' => 'getNodeSelector',
         'options' => 'getOptions',
         'provider' => 'getProvider',
+        'replicas' => 'getReplicas',
+        'tolerations' => 'getTolerations',
+        'updateStrategy' => 'getUpdateStrategy',
     ];
 
     public static function getters()
@@ -89,10 +109,36 @@ class MonitoringConfigModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['metricsServerPriorityClassName'] = isset($data['metricsServerPriorityClassName']) ? $data['metricsServerPriorityClassName'] : null;
         $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
+        $this->container['replicas'] = isset($data['replicas']) ? $data['replicas'] : null;
+        $this->container['tolerations'] = isset($data['tolerations']) ? $data['tolerations'] : null;
+        $this->container['updateStrategy'] = isset($data['updateStrategy']) ? $data['updateStrategy'] : null;
     }
+
+    /**
+     * Gets metricsServerPriorityClassName
+     * @return string
+     */
+    public function getMetricsServerPriorityClassName()
+    {
+        return $this->container['metricsServerPriorityClassName'];
+    }
+
+    /**
+     * Sets metricsServerPriorityClassName
+     * @param string $metricsServerPriorityClassName
+     * @return $this
+     */
+    public function setMetricsServerPriorityClassName($metricsServerPriorityClassName)
+    {
+        $this->container['metricsServerPriorityClassName'] = $metricsServerPriorityClassName;
+
+        return $this;
+    }
+
 
     /**
      * Gets nodeSelector
@@ -155,6 +201,72 @@ class MonitoringConfigModel implements ArrayAccess
     public function setProvider($provider)
     {
         $this->container['provider'] = $provider;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets replicas
+     * @return int
+     */
+    public function getReplicas()
+    {
+        return $this->container['replicas'];
+    }
+
+    /**
+     * Sets replicas
+     * @param int $replicas
+     * @return $this
+     */
+    public function setReplicas($replicas)
+    {
+        $this->container['replicas'] = $replicas;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets tolerations
+     * @return \Rancher\Model\TolerationModel[]
+     */
+    public function getTolerations()
+    {
+        return $this->container['tolerations'];
+    }
+
+    /**
+     * Sets tolerations
+     * @param \Rancher\Model\TolerationModel[] $tolerations
+     * @return $this
+     */
+    public function setTolerations($tolerations)
+    {
+        $this->container['tolerations'] = $tolerations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets updateStrategy
+     * @return \Rancher\Model\DeploymentStrategyModel
+     */
+    public function getUpdateStrategy()
+    {
+        return $this->container['updateStrategy'];
+    }
+
+    /**
+     * Sets updateStrategy
+     * @param \Rancher\Model\DeploymentStrategyModel $updateStrategy
+     * @return $this
+     */
+    public function setUpdateStrategy($updateStrategy)
+    {
+        $this->container['updateStrategy'] = $updateStrategy;
 
         return $this;
     }

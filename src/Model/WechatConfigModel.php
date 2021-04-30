@@ -29,6 +29,7 @@ class WechatConfigModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'agent',
+        'apiUrl',
         'corp',
         'defaultRecipient',
         'proxyUrl',
@@ -48,6 +49,7 @@ class WechatConfigModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'agent',
+        'apiUrl',
         'corp',
         'defaultRecipient',
         'proxyUrl',
@@ -62,6 +64,7 @@ class WechatConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'agent' => 'string',
+        'apiUrl' => 'string',
         'corp' => 'string',
         'defaultRecipient' => 'string',
         'proxyUrl' => 'string',
@@ -76,6 +79,7 @@ class WechatConfigModel implements ArrayAccess
 
     protected static $setters = [
         'agent' => 'setAgent',
+        'apiUrl' => 'setApiUrl',
         'corp' => 'setCorp',
         'defaultRecipient' => 'setDefaultRecipient',
         'proxyUrl' => 'setProxyUrl',
@@ -90,6 +94,7 @@ class WechatConfigModel implements ArrayAccess
 
     protected static $getters = [
         'agent' => 'getAgent',
+        'apiUrl' => 'getApiUrl',
         'corp' => 'getCorp',
         'defaultRecipient' => 'getDefaultRecipient',
         'proxyUrl' => 'getProxyUrl',
@@ -105,6 +110,7 @@ class WechatConfigModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['agent'] = isset($data['agent']) ? $data['agent'] : null;
+        $this->container['apiUrl'] = isset($data['apiUrl']) ? $data['apiUrl'] : null;
         $this->container['corp'] = isset($data['corp']) ? $data['corp'] : null;
         $this->container['defaultRecipient'] = isset($data['defaultRecipient']) ? $data['defaultRecipient'] : null;
         $this->container['proxyUrl'] = isset($data['proxyUrl']) ? $data['proxyUrl'] : null;
@@ -129,6 +135,28 @@ class WechatConfigModel implements ArrayAccess
     public function setAgent($agent)
     {
         $this->container['agent'] = $agent;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets apiUrl
+     * @return string
+     */
+    public function getApiUrl()
+    {
+        return $this->container['apiUrl'];
+    }
+
+    /**
+     * Sets apiUrl
+     * @param string $apiUrl
+     * @return $this
+     */
+    public function setApiUrl($apiUrl)
+    {
+        $this->container['apiUrl'] = $apiUrl;
 
         return $this;
     }

@@ -28,6 +28,7 @@ class CloudflareProviderConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'additionalOptions',
         'apiEmail',
         'apiKey',
         'proxySetting',
@@ -44,6 +45,7 @@ class CloudflareProviderConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'additionalOptions',
         'apiEmail',
         'apiKey',
         'proxySetting',
@@ -55,6 +57,7 @@ class CloudflareProviderConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'additionalOptions' => 'map[string,string]',
         'apiEmail' => 'string',
         'apiKey' => '\Rancher\Model\PasswordModel',
         'proxySetting' => 'boolean',
@@ -66,6 +69,7 @@ class CloudflareProviderConfigModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'additionalOptions' => 'setAdditionalOptions',
         'apiEmail' => 'setApiEmail',
         'apiKey' => 'setApiKey',
         'proxySetting' => 'setProxySetting',
@@ -77,6 +81,7 @@ class CloudflareProviderConfigModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'additionalOptions' => 'getAdditionalOptions',
         'apiEmail' => 'getApiEmail',
         'apiKey' => 'getApiKey',
         'proxySetting' => 'getProxySetting',
@@ -89,10 +94,33 @@ class CloudflareProviderConfigModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['additionalOptions'] = isset($data['additionalOptions']) ? $data['additionalOptions'] : null;
         $this->container['apiEmail'] = isset($data['apiEmail']) ? $data['apiEmail'] : null;
         $this->container['apiKey'] = isset($data['apiKey']) ? $data['apiKey'] : null;
         $this->container['proxySetting'] = isset($data['proxySetting']) ? $data['proxySetting'] : null;
     }
+
+    /**
+     * Gets additionalOptions
+     * @return string[]
+     */
+    public function getAdditionalOptions()
+    {
+        return $this->container['additionalOptions'];
+    }
+
+    /**
+     * Sets additionalOptions
+     * @param string[] $additionalOptions
+     * @return $this
+     */
+    public function setAdditionalOptions($additionalOptions)
+    {
+        $this->container['additionalOptions'] = $additionalOptions;
+
+        return $this;
+    }
+
 
     /**
      * Gets apiEmail

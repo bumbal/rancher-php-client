@@ -30,6 +30,7 @@ class RegistryCredentialModel implements ArrayAccess
     protected static $canBeCreated = [
         'auth',
         'description',
+        'email',
         'password',
         'username',
     ];
@@ -47,6 +48,7 @@ class RegistryCredentialModel implements ArrayAccess
     protected static $canBeUpdated = [
         'auth',
         'description',
+        'email',
         'password',
         'username',
     ];
@@ -59,6 +61,7 @@ class RegistryCredentialModel implements ArrayAccess
     protected static $typeMap = [
         'auth' => 'string',
         'description' => 'string',
+        'email' => 'string',
         'password' => 'string',
         'username' => 'string',
     ];
@@ -71,6 +74,7 @@ class RegistryCredentialModel implements ArrayAccess
     protected static $setters = [
         'auth' => 'setAuth',
         'description' => 'setDescription',
+        'email' => 'setEmail',
         'password' => 'setPassword',
         'username' => 'setUsername',
     ];
@@ -83,6 +87,7 @@ class RegistryCredentialModel implements ArrayAccess
     protected static $getters = [
         'auth' => 'getAuth',
         'description' => 'getDescription',
+        'email' => 'getEmail',
         'password' => 'getPassword',
         'username' => 'getUsername',
     ];
@@ -96,6 +101,7 @@ class RegistryCredentialModel implements ArrayAccess
     {
         $this->container['auth'] = isset($data['auth']) ? $data['auth'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
     }
@@ -139,6 +145,28 @@ class RegistryCredentialModel implements ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets email
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     * @param string $email
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
 
         return $this;
     }

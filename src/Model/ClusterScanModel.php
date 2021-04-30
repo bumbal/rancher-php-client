@@ -31,9 +31,9 @@ class ClusterScanModel implements ArrayAccess
         'annotations',
         'clusterId',
         'labels',
-        'manual',
         'name',
         'namespaceId',
+        'runType',
         'scanConfig',
         'scanType',
     ];
@@ -52,7 +52,7 @@ class ClusterScanModel implements ArrayAccess
         'annotations',
         'clusterId',
         'labels',
-        'manual',
+        'runType',
         'scanConfig',
         'scanType',
     ];
@@ -68,11 +68,11 @@ class ClusterScanModel implements ArrayAccess
         'created' => '\DateTime',
         'creatorId' => 'string',
         'labels' => 'map[string,string]',
-        'manual' => 'boolean',
         'name' => 'string',
         'namespaceId' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
+        'runType' => 'string',
         'scanConfig' => '\Rancher\Model\ClusterScanConfigModel',
         'scanType' => 'string',
         'state' => 'string',
@@ -93,11 +93,11 @@ class ClusterScanModel implements ArrayAccess
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'labels' => 'setLabels',
-        'manual' => 'setManual',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'ownerReferences' => 'setOwnerReferences',
         'removed' => 'setRemoved',
+        'runType' => 'setRunType',
         'scanConfig' => 'setScanConfig',
         'scanType' => 'setScanType',
         'state' => 'setState',
@@ -118,11 +118,11 @@ class ClusterScanModel implements ArrayAccess
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'labels' => 'getLabels',
-        'manual' => 'getManual',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'ownerReferences' => 'getOwnerReferences',
         'removed' => 'getRemoved',
+        'runType' => 'getRunType',
         'scanConfig' => 'getScanConfig',
         'scanType' => 'getScanType',
         'state' => 'getState',
@@ -144,11 +144,11 @@ class ClusterScanModel implements ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
-        $this->container['manual'] = isset($data['manual']) ? $data['manual'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
+        $this->container['runType'] = isset($data['runType']) ? $data['runType'] : null;
         $this->container['scanConfig'] = isset($data['scanConfig']) ? $data['scanConfig'] : null;
         $this->container['scanType'] = isset($data['scanType']) ? $data['scanType'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
@@ -269,28 +269,6 @@ class ClusterScanModel implements ArrayAccess
 
 
     /**
-     * Gets manual
-     * @return boolean
-     */
-    public function getManual()
-    {
-        return $this->container['manual'];
-    }
-
-    /**
-     * Sets manual
-     * @param boolean $manual
-     * @return $this
-     */
-    public function setManual($manual)
-    {
-        $this->container['manual'] = $manual;
-
-        return $this;
-    }
-
-
-    /**
      * Gets name
      * @return string
      */
@@ -373,6 +351,28 @@ class ClusterScanModel implements ArrayAccess
     public function setRemoved($removed)
     {
         $this->container['removed'] = $removed;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets runType
+     * @return string
+     */
+    public function getRunType()
+    {
+        return $this->container['runType'];
+    }
+
+    /**
+     * Sets runType
+     * @param string $runType
+     * @return $this
+     */
+    public function setRunType($runType)
+    {
+        $this->container['runType'] = $runType;
 
         return $this;
     }

@@ -28,10 +28,12 @@ class PodSecurityContextModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'fsGroupChangePolicy',
         'fsgid',
         'gids',
         'runAsGroup',
         'runAsNonRoot',
+        'seccompProfile',
         'sysctls',
         'uid',
         'windowsOptions',
@@ -48,10 +50,12 @@ class PodSecurityContextModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'fsGroupChangePolicy',
         'fsgid',
         'gids',
         'runAsGroup',
         'runAsNonRoot',
+        'seccompProfile',
         'sysctls',
         'uid',
         'windowsOptions',
@@ -63,10 +67,12 @@ class PodSecurityContextModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'fsGroupChangePolicy' => 'string',
         'fsgid' => 'int',
         'gids' => 'int[]',
         'runAsGroup' => 'int',
         'runAsNonRoot' => 'boolean',
+        'seccompProfile' => '\Rancher\Model\SeccompProfileModel',
         'sysctls' => '\Rancher\Model\SysctlModel[]',
         'uid' => 'int',
         'windowsOptions' => '\Rancher\Model\WindowsSecurityContextOptionsModel',
@@ -78,10 +84,12 @@ class PodSecurityContextModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'fsGroupChangePolicy' => 'setFsGroupChangePolicy',
         'fsgid' => 'setFsgid',
         'gids' => 'setGids',
         'runAsGroup' => 'setRunAsGroup',
         'runAsNonRoot' => 'setRunAsNonRoot',
+        'seccompProfile' => 'setSeccompProfile',
         'sysctls' => 'setSysctls',
         'uid' => 'setUid',
         'windowsOptions' => 'setWindowsOptions',
@@ -93,10 +101,12 @@ class PodSecurityContextModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'fsGroupChangePolicy' => 'getFsGroupChangePolicy',
         'fsgid' => 'getFsgid',
         'gids' => 'getGids',
         'runAsGroup' => 'getRunAsGroup',
         'runAsNonRoot' => 'getRunAsNonRoot',
+        'seccompProfile' => 'getSeccompProfile',
         'sysctls' => 'getSysctls',
         'uid' => 'getUid',
         'windowsOptions' => 'getWindowsOptions',
@@ -109,14 +119,38 @@ class PodSecurityContextModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['fsGroupChangePolicy'] = isset($data['fsGroupChangePolicy']) ? $data['fsGroupChangePolicy'] : null;
         $this->container['fsgid'] = isset($data['fsgid']) ? $data['fsgid'] : null;
         $this->container['gids'] = isset($data['gids']) ? $data['gids'] : null;
         $this->container['runAsGroup'] = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
         $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
+        $this->container['seccompProfile'] = isset($data['seccompProfile']) ? $data['seccompProfile'] : null;
         $this->container['sysctls'] = isset($data['sysctls']) ? $data['sysctls'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['windowsOptions'] = isset($data['windowsOptions']) ? $data['windowsOptions'] : null;
     }
+
+    /**
+     * Gets fsGroupChangePolicy
+     * @return string
+     */
+    public function getFsGroupChangePolicy()
+    {
+        return $this->container['fsGroupChangePolicy'];
+    }
+
+    /**
+     * Sets fsGroupChangePolicy
+     * @param string $fsGroupChangePolicy
+     * @return $this
+     */
+    public function setFsGroupChangePolicy($fsGroupChangePolicy)
+    {
+        $this->container['fsGroupChangePolicy'] = $fsGroupChangePolicy;
+
+        return $this;
+    }
+
 
     /**
      * Gets fsgid
@@ -201,6 +235,28 @@ class PodSecurityContextModel implements ArrayAccess
     public function setRunAsNonRoot($runAsNonRoot)
     {
         $this->container['runAsNonRoot'] = $runAsNonRoot;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets seccompProfile
+     * @return \Rancher\Model\SeccompProfileModel
+     */
+    public function getSeccompProfile()
+    {
+        return $this->container['seccompProfile'];
+    }
+
+    /**
+     * Sets seccompProfile
+     * @param \Rancher\Model\SeccompProfileModel $seccompProfile
+     * @return $this
+     */
+    public function setSeccompProfile($seccompProfile)
+    {
+        $this->container['seccompProfile'] = $seccompProfile;
 
         return $this;
     }

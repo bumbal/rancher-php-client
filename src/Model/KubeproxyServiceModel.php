@@ -32,6 +32,9 @@ class KubeproxyServiceModel implements ArrayAccess
         'extraBinds',
         'extraEnv',
         'image',
+        'winExtraArgs',
+        'winExtraBinds',
+        'winExtraEnv',
     ];
 
     public static function canBeCreated()
@@ -49,6 +52,9 @@ class KubeproxyServiceModel implements ArrayAccess
         'extraBinds',
         'extraEnv',
         'image',
+        'winExtraArgs',
+        'winExtraBinds',
+        'winExtraEnv',
     ];
 
     public static function canBeUpdated()
@@ -61,6 +67,9 @@ class KubeproxyServiceModel implements ArrayAccess
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
         'image' => 'string',
+        'winExtraArgs' => 'map[string,string]',
+        'winExtraBinds' => 'string[]',
+        'winExtraEnv' => 'string[]',
     ];
 
     public static function typeMap()
@@ -73,6 +82,9 @@ class KubeproxyServiceModel implements ArrayAccess
         'extraBinds' => 'setExtraBinds',
         'extraEnv' => 'setExtraEnv',
         'image' => 'setImage',
+        'winExtraArgs' => 'setWinExtraArgs',
+        'winExtraBinds' => 'setWinExtraBinds',
+        'winExtraEnv' => 'setWinExtraEnv',
     ];
 
     public static function setters()
@@ -85,6 +97,9 @@ class KubeproxyServiceModel implements ArrayAccess
         'extraBinds' => 'getExtraBinds',
         'extraEnv' => 'getExtraEnv',
         'image' => 'getImage',
+        'winExtraArgs' => 'getWinExtraArgs',
+        'winExtraBinds' => 'getWinExtraBinds',
+        'winExtraEnv' => 'getWinExtraEnv',
     ];
 
     public static function getters()
@@ -98,6 +113,9 @@ class KubeproxyServiceModel implements ArrayAccess
         $this->container['extraBinds'] = isset($data['extraBinds']) ? $data['extraBinds'] : null;
         $this->container['extraEnv'] = isset($data['extraEnv']) ? $data['extraEnv'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['winExtraArgs'] = isset($data['winExtraArgs']) ? $data['winExtraArgs'] : null;
+        $this->container['winExtraBinds'] = isset($data['winExtraBinds']) ? $data['winExtraBinds'] : null;
+        $this->container['winExtraEnv'] = isset($data['winExtraEnv']) ? $data['winExtraEnv'] : null;
     }
 
     /**
@@ -183,6 +201,72 @@ class KubeproxyServiceModel implements ArrayAccess
     public function setImage($image)
     {
         $this->container['image'] = $image;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winExtraArgs
+     * @return string[]
+     */
+    public function getWinExtraArgs()
+    {
+        return $this->container['winExtraArgs'];
+    }
+
+    /**
+     * Sets winExtraArgs
+     * @param string[] $winExtraArgs
+     * @return $this
+     */
+    public function setWinExtraArgs($winExtraArgs)
+    {
+        $this->container['winExtraArgs'] = $winExtraArgs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winExtraBinds
+     * @return string[]
+     */
+    public function getWinExtraBinds()
+    {
+        return $this->container['winExtraBinds'];
+    }
+
+    /**
+     * Sets winExtraBinds
+     * @param string[] $winExtraBinds
+     * @return $this
+     */
+    public function setWinExtraBinds($winExtraBinds)
+    {
+        $this->container['winExtraBinds'] = $winExtraBinds;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winExtraEnv
+     * @return string[]
+     */
+    public function getWinExtraEnv()
+    {
+        return $this->container['winExtraEnv'];
+    }
+
+    /**
+     * Sets winExtraEnv
+     * @param string[] $winExtraEnv
+     * @return $this
+     */
+    public function setWinExtraEnv($winExtraEnv)
+    {
+        $this->container['winExtraEnv'] = $winExtraEnv;
 
         return $this;
     }

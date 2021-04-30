@@ -100,6 +100,34 @@ class ClusterLoggingFilter extends AbstractFilter
 
 
     /**
+     * Gets enableJSONParsing
+     * @return string
+     */
+    public function getEnableJSONParsing()
+    {
+        return $this->container['enableJSONParsing'];
+    }
+
+    /**
+     * Sets enableJSONParsing
+     * @param string $enableJSONParsing
+     * @param string $option
+     * @return $this
+     */
+    public function setEnableJSONParsing($enableJSONParsing, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['enableJSONParsing'.$option] = $enableJSONParsing;
+
+        return $this;
+    }
+
+
+    /**
      * Gets id
      * @return string
      */

@@ -49,6 +49,7 @@ class ClusterScanStatusModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'cisScanStatus' => '\Rancher\Model\CisScanStatusModel',
         'conditions' => '\Rancher\Model\ClusterScanConditionModel[]',
     ];
 
@@ -58,6 +59,7 @@ class ClusterScanStatusModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'cisScanStatus' => 'setCisScanStatus',
         'conditions' => 'setConditions',
     ];
 
@@ -67,6 +69,7 @@ class ClusterScanStatusModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'cisScanStatus' => 'getCisScanStatus',
         'conditions' => 'getConditions',
     ];
 
@@ -77,8 +80,31 @@ class ClusterScanStatusModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['cisScanStatus'] = isset($data['cisScanStatus']) ? $data['cisScanStatus'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
     }
+
+    /**
+     * Gets cisScanStatus
+     * @return \Rancher\Model\CisScanStatusModel
+     */
+    public function getCisScanStatus()
+    {
+        return $this->container['cisScanStatus'];
+    }
+
+    /**
+     * Sets cisScanStatus
+     * @param \Rancher\Model\CisScanStatusModel $cisScanStatus
+     * @return $this
+     */
+    public function setCisScanStatus($cisScanStatus)
+    {
+        $this->container['cisScanStatus'] = $cisScanStatus;
+
+        return $this;
+    }
+
 
     /**
      * Gets conditions

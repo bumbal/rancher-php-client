@@ -28,6 +28,7 @@ class MetricModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'containerResource',
         'describedObject',
         'name',
         'selector',
@@ -46,6 +47,7 @@ class MetricModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'containerResource',
         'describedObject',
         'name',
         'selector',
@@ -59,6 +61,7 @@ class MetricModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'containerResource' => '\Rancher\Model\ContainerResourceMetricSourceModel',
         'current' => '\Rancher\Model\MetricValueStatusModel',
         'describedObject' => '\Rancher\Model\CrossVersionObjectReferenceModel',
         'name' => 'string',
@@ -73,6 +76,7 @@ class MetricModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'containerResource' => 'setContainerResource',
         'current' => 'setCurrent',
         'describedObject' => 'setDescribedObject',
         'name' => 'setName',
@@ -87,6 +91,7 @@ class MetricModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'containerResource' => 'getContainerResource',
         'current' => 'getCurrent',
         'describedObject' => 'getDescribedObject',
         'name' => 'getName',
@@ -102,6 +107,7 @@ class MetricModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['containerResource'] = isset($data['containerResource']) ? $data['containerResource'] : null;
         $this->container['current'] = isset($data['current']) ? $data['current'] : null;
         $this->container['describedObject'] = isset($data['describedObject']) ? $data['describedObject'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -109,6 +115,28 @@ class MetricModel implements ArrayAccess
         $this->container['target'] = isset($data['target']) ? $data['target'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
+
+    /**
+     * Gets containerResource
+     * @return \Rancher\Model\ContainerResourceMetricSourceModel
+     */
+    public function getContainerResource()
+    {
+        return $this->container['containerResource'];
+    }
+
+    /**
+     * Sets containerResource
+     * @param \Rancher\Model\ContainerResourceMetricSourceModel $containerResource
+     * @return $this
+     */
+    public function setContainerResource($containerResource)
+    {
+        $this->container['containerResource'] = $containerResource;
+
+        return $this;
+    }
+
 
     /**
      * Gets current

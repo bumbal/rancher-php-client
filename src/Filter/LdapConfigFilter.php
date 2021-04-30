@@ -380,6 +380,34 @@ class LdapConfigFilter extends AbstractFilter
 
 
     /**
+     * Gets groupSearchFilter
+     * @return string
+     */
+    public function getGroupSearchFilter()
+    {
+        return $this->container['groupSearchFilter'];
+    }
+
+    /**
+     * Sets groupSearchFilter
+     * @param string $groupSearchFilter
+     * @param string $option
+     * @return $this
+     */
+    public function setGroupSearchFilter($groupSearchFilter, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['groupSearchFilter'.$option] = $groupSearchFilter;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */
@@ -514,6 +542,34 @@ class LdapConfigFilter extends AbstractFilter
         }
 
         $this->container['serviceAccountDistinguishedName'.$option] = $serviceAccountDistinguishedName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets starttls
+     * @return string
+     */
+    public function getStarttls()
+    {
+        return $this->container['starttls'];
+    }
+
+    /**
+     * Sets starttls
+     * @param string $starttls
+     * @param string $option
+     * @return $this
+     */
+    public function setStarttls($starttls, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['starttls'.$option] = $starttls;
 
         return $this;
     }
@@ -794,6 +850,34 @@ class LdapConfigFilter extends AbstractFilter
         }
 
         $this->container['userSearchBase'.$option] = $userSearchBase;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets userSearchFilter
+     * @return string
+     */
+    public function getUserSearchFilter()
+    {
+        return $this->container['userSearchFilter'];
+    }
+
+    /**
+     * Sets userSearchFilter
+     * @param string $userSearchFilter
+     * @param string $option
+     * @return $this
+     */
+    public function setUserSearchFilter($userSearchFilter, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['userSearchFilter'.$option] = $userSearchFilter;
 
         return $this;
     }

@@ -30,11 +30,19 @@ class AlertmanagerModel implements ArrayAccess
     protected static $canBeCreated = [
         'additionalPeers',
         'affinity',
+        'alertmanagerConfigNamespaceSelector',
+        'alertmanagerConfigSelector',
         'annotations',
         'baseImage',
+        'clusterAdvertiseAddress',
+        'clusterGossipInterval',
+        'clusterPeerTimeout',
+        'clusterPushpullInterval',
         'configMaps',
+        'configSecret',
         'containers',
         'externalUrl',
+        'forceEnableClusterMode',
         'image',
         'imagePullSecrets',
         'initContainers',
@@ -61,6 +69,7 @@ class AlertmanagerModel implements ArrayAccess
         'storage',
         'tag',
         'tolerations',
+        'topologySpreadConstraints',
         'version',
         'volumeMounts',
         'volumes',
@@ -79,11 +88,19 @@ class AlertmanagerModel implements ArrayAccess
     protected static $canBeUpdated = [
         'additionalPeers',
         'affinity',
+        'alertmanagerConfigNamespaceSelector',
+        'alertmanagerConfigSelector',
         'annotations',
         'baseImage',
+        'clusterAdvertiseAddress',
+        'clusterGossipInterval',
+        'clusterPeerTimeout',
+        'clusterPushpullInterval',
         'configMaps',
+        'configSecret',
         'containers',
         'externalUrl',
+        'forceEnableClusterMode',
         'image',
         'imagePullSecrets',
         'initContainers',
@@ -107,6 +124,7 @@ class AlertmanagerModel implements ArrayAccess
         'storage',
         'tag',
         'tolerations',
+        'topologySpreadConstraints',
         'version',
         'volumeMounts',
         'volumes',
@@ -120,13 +138,21 @@ class AlertmanagerModel implements ArrayAccess
     protected static $typeMap = [
         'additionalPeers' => 'string[]',
         'affinity' => '\Rancher\Model\AffinityModel',
+        'alertmanagerConfigNamespaceSelector' => '\Rancher\Model\LabelSelectorModel',
+        'alertmanagerConfigSelector' => '\Rancher\Model\LabelSelectorModel',
         'annotations' => 'map[string,string]',
         'baseImage' => 'string',
+        'clusterAdvertiseAddress' => 'string',
+        'clusterGossipInterval' => 'string',
+        'clusterPeerTimeout' => 'string',
+        'clusterPushpullInterval' => 'string',
         'configMaps' => 'string[]',
+        'configSecret' => 'string',
         'containers' => '\Rancher\Model\ContainerModel[]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'externalUrl' => 'string',
+        'forceEnableClusterMode' => 'boolean',
         'image' => 'string',
         'imagePullSecrets' => '\Rancher\Model\LocalObjectReferenceModel[]',
         'initContainers' => '\Rancher\Model\ContainerModel[]',
@@ -139,7 +165,7 @@ class AlertmanagerModel implements ArrayAccess
         'nodeSelector' => 'map[string,string]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'paused' => 'boolean',
-        'podMetadata' => '\Rancher\Model\ObjectMetaModel',
+        'podMetadata' => '\Rancher\Model\EmbeddedObjectMetadataModel',
         'portName' => 'string',
         'priorityClassName' => 'string',
         'projectId' => 'string',
@@ -156,6 +182,7 @@ class AlertmanagerModel implements ArrayAccess
         'storage' => '\Rancher\Model\StorageSpecModel',
         'tag' => 'string',
         'tolerations' => '\Rancher\Model\TolerationModel[]',
+        'topologySpreadConstraints' => '\Rancher\Model\TopologySpreadConstraintModel[]',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'uuid' => 'string',
@@ -172,13 +199,21 @@ class AlertmanagerModel implements ArrayAccess
     protected static $setters = [
         'additionalPeers' => 'setAdditionalPeers',
         'affinity' => 'setAffinity',
+        'alertmanagerConfigNamespaceSelector' => 'setAlertmanagerConfigNamespaceSelector',
+        'alertmanagerConfigSelector' => 'setAlertmanagerConfigSelector',
         'annotations' => 'setAnnotations',
         'baseImage' => 'setBaseImage',
+        'clusterAdvertiseAddress' => 'setClusterAdvertiseAddress',
+        'clusterGossipInterval' => 'setClusterGossipInterval',
+        'clusterPeerTimeout' => 'setClusterPeerTimeout',
+        'clusterPushpullInterval' => 'setClusterPushpullInterval',
         'configMaps' => 'setConfigMaps',
+        'configSecret' => 'setConfigSecret',
         'containers' => 'setContainers',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'externalUrl' => 'setExternalUrl',
+        'forceEnableClusterMode' => 'setForceEnableClusterMode',
         'image' => 'setImage',
         'imagePullSecrets' => 'setImagePullSecrets',
         'initContainers' => 'setInitContainers',
@@ -208,6 +243,7 @@ class AlertmanagerModel implements ArrayAccess
         'storage' => 'setStorage',
         'tag' => 'setTag',
         'tolerations' => 'setTolerations',
+        'topologySpreadConstraints' => 'setTopologySpreadConstraints',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
@@ -224,13 +260,21 @@ class AlertmanagerModel implements ArrayAccess
     protected static $getters = [
         'additionalPeers' => 'getAdditionalPeers',
         'affinity' => 'getAffinity',
+        'alertmanagerConfigNamespaceSelector' => 'getAlertmanagerConfigNamespaceSelector',
+        'alertmanagerConfigSelector' => 'getAlertmanagerConfigSelector',
         'annotations' => 'getAnnotations',
         'baseImage' => 'getBaseImage',
+        'clusterAdvertiseAddress' => 'getClusterAdvertiseAddress',
+        'clusterGossipInterval' => 'getClusterGossipInterval',
+        'clusterPeerTimeout' => 'getClusterPeerTimeout',
+        'clusterPushpullInterval' => 'getClusterPushpullInterval',
         'configMaps' => 'getConfigMaps',
+        'configSecret' => 'getConfigSecret',
         'containers' => 'getContainers',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'externalUrl' => 'getExternalUrl',
+        'forceEnableClusterMode' => 'getForceEnableClusterMode',
         'image' => 'getImage',
         'imagePullSecrets' => 'getImagePullSecrets',
         'initContainers' => 'getInitContainers',
@@ -260,6 +304,7 @@ class AlertmanagerModel implements ArrayAccess
         'storage' => 'getStorage',
         'tag' => 'getTag',
         'tolerations' => 'getTolerations',
+        'topologySpreadConstraints' => 'getTopologySpreadConstraints',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
@@ -277,13 +322,21 @@ class AlertmanagerModel implements ArrayAccess
     {
         $this->container['additionalPeers'] = isset($data['additionalPeers']) ? $data['additionalPeers'] : null;
         $this->container['affinity'] = isset($data['affinity']) ? $data['affinity'] : null;
+        $this->container['alertmanagerConfigNamespaceSelector'] = isset($data['alertmanagerConfigNamespaceSelector']) ? $data['alertmanagerConfigNamespaceSelector'] : null;
+        $this->container['alertmanagerConfigSelector'] = isset($data['alertmanagerConfigSelector']) ? $data['alertmanagerConfigSelector'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['baseImage'] = isset($data['baseImage']) ? $data['baseImage'] : null;
+        $this->container['clusterAdvertiseAddress'] = isset($data['clusterAdvertiseAddress']) ? $data['clusterAdvertiseAddress'] : null;
+        $this->container['clusterGossipInterval'] = isset($data['clusterGossipInterval']) ? $data['clusterGossipInterval'] : null;
+        $this->container['clusterPeerTimeout'] = isset($data['clusterPeerTimeout']) ? $data['clusterPeerTimeout'] : null;
+        $this->container['clusterPushpullInterval'] = isset($data['clusterPushpullInterval']) ? $data['clusterPushpullInterval'] : null;
         $this->container['configMaps'] = isset($data['configMaps']) ? $data['configMaps'] : null;
+        $this->container['configSecret'] = isset($data['configSecret']) ? $data['configSecret'] : null;
         $this->container['containers'] = isset($data['containers']) ? $data['containers'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['externalUrl'] = isset($data['externalUrl']) ? $data['externalUrl'] : null;
+        $this->container['forceEnableClusterMode'] = isset($data['forceEnableClusterMode']) ? $data['forceEnableClusterMode'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['imagePullSecrets'] = isset($data['imagePullSecrets']) ? $data['imagePullSecrets'] : null;
         $this->container['initContainers'] = isset($data['initContainers']) ? $data['initContainers'] : null;
@@ -313,6 +366,7 @@ class AlertmanagerModel implements ArrayAccess
         $this->container['storage'] = isset($data['storage']) ? $data['storage'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['tolerations'] = isset($data['tolerations']) ? $data['tolerations'] : null;
+        $this->container['topologySpreadConstraints'] = isset($data['topologySpreadConstraints']) ? $data['topologySpreadConstraints'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
@@ -366,6 +420,50 @@ class AlertmanagerModel implements ArrayAccess
 
 
     /**
+     * Gets alertmanagerConfigNamespaceSelector
+     * @return \Rancher\Model\LabelSelectorModel
+     */
+    public function getAlertmanagerConfigNamespaceSelector()
+    {
+        return $this->container['alertmanagerConfigNamespaceSelector'];
+    }
+
+    /**
+     * Sets alertmanagerConfigNamespaceSelector
+     * @param \Rancher\Model\LabelSelectorModel $alertmanagerConfigNamespaceSelector
+     * @return $this
+     */
+    public function setAlertmanagerConfigNamespaceSelector($alertmanagerConfigNamespaceSelector)
+    {
+        $this->container['alertmanagerConfigNamespaceSelector'] = $alertmanagerConfigNamespaceSelector;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets alertmanagerConfigSelector
+     * @return \Rancher\Model\LabelSelectorModel
+     */
+    public function getAlertmanagerConfigSelector()
+    {
+        return $this->container['alertmanagerConfigSelector'];
+    }
+
+    /**
+     * Sets alertmanagerConfigSelector
+     * @param \Rancher\Model\LabelSelectorModel $alertmanagerConfigSelector
+     * @return $this
+     */
+    public function setAlertmanagerConfigSelector($alertmanagerConfigSelector)
+    {
+        $this->container['alertmanagerConfigSelector'] = $alertmanagerConfigSelector;
+
+        return $this;
+    }
+
+
+    /**
      * Gets annotations
      * @return string[]
      */
@@ -410,6 +508,94 @@ class AlertmanagerModel implements ArrayAccess
 
 
     /**
+     * Gets clusterAdvertiseAddress
+     * @return string
+     */
+    public function getClusterAdvertiseAddress()
+    {
+        return $this->container['clusterAdvertiseAddress'];
+    }
+
+    /**
+     * Sets clusterAdvertiseAddress
+     * @param string $clusterAdvertiseAddress
+     * @return $this
+     */
+    public function setClusterAdvertiseAddress($clusterAdvertiseAddress)
+    {
+        $this->container['clusterAdvertiseAddress'] = $clusterAdvertiseAddress;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterGossipInterval
+     * @return string
+     */
+    public function getClusterGossipInterval()
+    {
+        return $this->container['clusterGossipInterval'];
+    }
+
+    /**
+     * Sets clusterGossipInterval
+     * @param string $clusterGossipInterval
+     * @return $this
+     */
+    public function setClusterGossipInterval($clusterGossipInterval)
+    {
+        $this->container['clusterGossipInterval'] = $clusterGossipInterval;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterPeerTimeout
+     * @return string
+     */
+    public function getClusterPeerTimeout()
+    {
+        return $this->container['clusterPeerTimeout'];
+    }
+
+    /**
+     * Sets clusterPeerTimeout
+     * @param string $clusterPeerTimeout
+     * @return $this
+     */
+    public function setClusterPeerTimeout($clusterPeerTimeout)
+    {
+        $this->container['clusterPeerTimeout'] = $clusterPeerTimeout;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterPushpullInterval
+     * @return string
+     */
+    public function getClusterPushpullInterval()
+    {
+        return $this->container['clusterPushpullInterval'];
+    }
+
+    /**
+     * Sets clusterPushpullInterval
+     * @param string $clusterPushpullInterval
+     * @return $this
+     */
+    public function setClusterPushpullInterval($clusterPushpullInterval)
+    {
+        $this->container['clusterPushpullInterval'] = $clusterPushpullInterval;
+
+        return $this;
+    }
+
+
+    /**
      * Gets configMaps
      * @return string[]
      */
@@ -426,6 +612,28 @@ class AlertmanagerModel implements ArrayAccess
     public function setConfigMaps($configMaps)
     {
         $this->container['configMaps'] = $configMaps;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets configSecret
+     * @return string
+     */
+    public function getConfigSecret()
+    {
+        return $this->container['configSecret'];
+    }
+
+    /**
+     * Sets configSecret
+     * @param string $configSecret
+     * @return $this
+     */
+    public function setConfigSecret($configSecret)
+    {
+        $this->container['configSecret'] = $configSecret;
 
         return $this;
     }
@@ -514,6 +722,28 @@ class AlertmanagerModel implements ArrayAccess
     public function setExternalUrl($externalUrl)
     {
         $this->container['externalUrl'] = $externalUrl;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets forceEnableClusterMode
+     * @return boolean
+     */
+    public function getForceEnableClusterMode()
+    {
+        return $this->container['forceEnableClusterMode'];
+    }
+
+    /**
+     * Sets forceEnableClusterMode
+     * @param boolean $forceEnableClusterMode
+     * @return $this
+     */
+    public function setForceEnableClusterMode($forceEnableClusterMode)
+    {
+        $this->container['forceEnableClusterMode'] = $forceEnableClusterMode;
 
         return $this;
     }
@@ -785,7 +1015,7 @@ class AlertmanagerModel implements ArrayAccess
 
     /**
      * Gets podMetadata
-     * @return \Rancher\Model\ObjectMetaModel
+     * @return \Rancher\Model\EmbeddedObjectMetadataModel
      */
     public function getPodMetadata()
     {
@@ -794,7 +1024,7 @@ class AlertmanagerModel implements ArrayAccess
 
     /**
      * Sets podMetadata
-     * @param \Rancher\Model\ObjectMetaModel $podMetadata
+     * @param \Rancher\Model\EmbeddedObjectMetadataModel $podMetadata
      * @return $this
      */
     public function setPodMetadata($podMetadata)
@@ -1152,6 +1382,28 @@ class AlertmanagerModel implements ArrayAccess
     public function setTolerations($tolerations)
     {
         $this->container['tolerations'] = $tolerations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets topologySpreadConstraints
+     * @return \Rancher\Model\TopologySpreadConstraintModel[]
+     */
+    public function getTopologySpreadConstraints()
+    {
+        return $this->container['topologySpreadConstraints'];
+    }
+
+    /**
+     * Sets topologySpreadConstraints
+     * @param \Rancher\Model\TopologySpreadConstraintModel[] $topologySpreadConstraints
+     * @return $this
+     */
+    public function setTopologySpreadConstraints($topologySpreadConstraints)
+    {
+        $this->container['topologySpreadConstraints'] = $topologySpreadConstraints;
 
         return $this;
     }

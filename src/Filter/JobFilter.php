@@ -184,6 +184,34 @@ class JobFilter extends AbstractFilter
 
 
     /**
+     * Gets fsGroupChangePolicy
+     * @return string
+     */
+    public function getFsGroupChangePolicy()
+    {
+        return $this->container['fsGroupChangePolicy'];
+    }
+
+    /**
+     * Sets fsGroupChangePolicy
+     * @param string $fsGroupChangePolicy
+     * @param string $option
+     * @return $this
+     */
+    public function setFsGroupChangePolicy($fsGroupChangePolicy, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['fsGroupChangePolicy'.$option] = $fsGroupChangePolicy;
+
+        return $this;
+    }
+
+
+    /**
      * Gets fsgid
      * @return string
      */
@@ -626,6 +654,34 @@ class JobFilter extends AbstractFilter
         }
 
         $this->container['serviceAccountName'.$option] = $serviceAccountName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets setHostnameAsFQDN
+     * @return string
+     */
+    public function getSetHostnameAsFQDN()
+    {
+        return $this->container['setHostnameAsFQDN'];
+    }
+
+    /**
+     * Sets setHostnameAsFQDN
+     * @param string $setHostnameAsFQDN
+     * @param string $option
+     * @return $this
+     */
+    public function setSetHostnameAsFQDN($setHostnameAsFQDN, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['setHostnameAsFQDN'.$option] = $setHostnameAsFQDN;
 
         return $this;
     }

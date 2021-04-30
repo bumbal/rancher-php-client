@@ -89,6 +89,7 @@ class AppModel implements ArrayAccess
         'description' => 'string',
         'externalId' => 'string',
         'files' => 'map[string,string]',
+        'helmVersion' => 'string',
         'labels' => 'map[string,string]',
         'lastAppliedTemplate' => 'string',
         'multiClusterAppId' => 'string',
@@ -125,6 +126,7 @@ class AppModel implements ArrayAccess
         'description' => 'setDescription',
         'externalId' => 'setExternalId',
         'files' => 'setFiles',
+        'helmVersion' => 'setHelmVersion',
         'labels' => 'setLabels',
         'lastAppliedTemplate' => 'setLastAppliedTemplate',
         'multiClusterAppId' => 'setMultiClusterAppId',
@@ -161,6 +163,7 @@ class AppModel implements ArrayAccess
         'description' => 'getDescription',
         'externalId' => 'getExternalId',
         'files' => 'getFiles',
+        'helmVersion' => 'getHelmVersion',
         'labels' => 'getLabels',
         'lastAppliedTemplate' => 'getLastAppliedTemplate',
         'multiClusterAppId' => 'getMultiClusterAppId',
@@ -198,6 +201,7 @@ class AppModel implements ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['externalId'] = isset($data['externalId']) ? $data['externalId'] : null;
         $this->container['files'] = isset($data['files']) ? $data['files'] : null;
+        $this->container['helmVersion'] = isset($data['helmVersion']) ? $data['helmVersion'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['lastAppliedTemplate'] = isset($data['lastAppliedTemplate']) ? $data['lastAppliedTemplate'] : null;
         $this->container['multiClusterAppId'] = isset($data['multiClusterAppId']) ? $data['multiClusterAppId'] : null;
@@ -433,6 +437,28 @@ class AppModel implements ArrayAccess
     public function setFiles($files)
     {
         $this->container['files'] = $files;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets helmVersion
+     * @return string
+     */
+    public function getHelmVersion()
+    {
+        return $this->container['helmVersion'];
+    }
+
+    /**
+     * Sets helmVersion
+     * @param string $helmVersion
+     * @return $this
+     */
+    public function setHelmVersion($helmVersion)
+    {
+        $this->container['helmVersion'] = $helmVersion;
 
         return $this;
     }

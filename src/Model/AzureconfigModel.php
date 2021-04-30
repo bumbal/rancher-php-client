@@ -41,6 +41,7 @@ class AzureconfigModel implements ArrayAccess
         'location',
         'managedDisks',
         'noPublicIp',
+        'nsg',
         'openPort',
         'privateIpAddress',
         'resourceGroup',
@@ -80,6 +81,7 @@ class AzureconfigModel implements ArrayAccess
         'location',
         'managedDisks',
         'noPublicIp',
+        'nsg',
         'openPort',
         'privateIpAddress',
         'resourceGroup',
@@ -114,6 +116,7 @@ class AzureconfigModel implements ArrayAccess
         'location' => 'string',
         'managedDisks' => 'boolean',
         'noPublicIp' => 'boolean',
+        'nsg' => 'string',
         'openPort' => 'string[]',
         'privateIpAddress' => 'string',
         'resourceGroup' => 'string',
@@ -148,6 +151,7 @@ class AzureconfigModel implements ArrayAccess
         'location' => 'setLocation',
         'managedDisks' => 'setManagedDisks',
         'noPublicIp' => 'setNoPublicIp',
+        'nsg' => 'setNsg',
         'openPort' => 'setOpenPort',
         'privateIpAddress' => 'setPrivateIpAddress',
         'resourceGroup' => 'setResourceGroup',
@@ -182,6 +186,7 @@ class AzureconfigModel implements ArrayAccess
         'location' => 'getLocation',
         'managedDisks' => 'getManagedDisks',
         'noPublicIp' => 'getNoPublicIp',
+        'nsg' => 'getNsg',
         'openPort' => 'getOpenPort',
         'privateIpAddress' => 'getPrivateIpAddress',
         'resourceGroup' => 'getResourceGroup',
@@ -217,6 +222,7 @@ class AzureconfigModel implements ArrayAccess
         $this->container['location'] = isset($data['location']) ? $data['location'] : null;
         $this->container['managedDisks'] = isset($data['managedDisks']) ? $data['managedDisks'] : null;
         $this->container['noPublicIp'] = isset($data['noPublicIp']) ? $data['noPublicIp'] : null;
+        $this->container['nsg'] = isset($data['nsg']) ? $data['nsg'] : null;
         $this->container['openPort'] = isset($data['openPort']) ? $data['openPort'] : null;
         $this->container['privateIpAddress'] = isset($data['privateIpAddress']) ? $data['privateIpAddress'] : null;
         $this->container['resourceGroup'] = isset($data['resourceGroup']) ? $data['resourceGroup'] : null;
@@ -513,6 +519,28 @@ class AzureconfigModel implements ArrayAccess
     public function setNoPublicIp($noPublicIp)
     {
         $this->container['noPublicIp'] = $noPublicIp;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nsg
+     * @return string
+     */
+    public function getNsg()
+    {
+        return $this->container['nsg'];
+    }
+
+    /**
+     * Sets nsg
+     * @param string $nsg
+     * @return $this
+     */
+    public function setNsg($nsg)
+    {
+        $this->container['nsg'] = $nsg;
 
         return $this;
     }

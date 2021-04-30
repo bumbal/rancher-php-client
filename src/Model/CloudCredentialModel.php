@@ -34,6 +34,7 @@ class CloudCredentialModel implements ArrayAccess
         'description',
         'digitaloceancredentialConfig',
         'labels',
+        'linodecredentialConfig',
         'name',
         'vmwarevspherecredentialConfig',
     ];
@@ -55,6 +56,7 @@ class CloudCredentialModel implements ArrayAccess
         'description',
         'digitaloceancredentialConfig',
         'labels',
+        'linodecredentialConfig',
         'name',
         'vmwarevspherecredentialConfig',
     ];
@@ -74,6 +76,7 @@ class CloudCredentialModel implements ArrayAccess
         'digitaloceancredentialConfig' => '\Rancher\Model\DigitaloceancredentialconfigModel',
         'id' => 'string',
         'labels' => 'map[string,string]',
+        'linodecredentialConfig' => '\Rancher\Model\LinodecredentialconfigModel',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
@@ -96,6 +99,7 @@ class CloudCredentialModel implements ArrayAccess
         'digitaloceancredentialConfig' => 'setDigitaloceancredentialConfig',
         'id' => 'setId',
         'labels' => 'setLabels',
+        'linodecredentialConfig' => 'setLinodecredentialConfig',
         'name' => 'setName',
         'ownerReferences' => 'setOwnerReferences',
         'removed' => 'setRemoved',
@@ -118,6 +122,7 @@ class CloudCredentialModel implements ArrayAccess
         'digitaloceancredentialConfig' => 'getDigitaloceancredentialConfig',
         'id' => 'getId',
         'labels' => 'getLabels',
+        'linodecredentialConfig' => 'getLinodecredentialConfig',
         'name' => 'getName',
         'ownerReferences' => 'getOwnerReferences',
         'removed' => 'getRemoved',
@@ -141,6 +146,7 @@ class CloudCredentialModel implements ArrayAccess
         $this->container['digitaloceancredentialConfig'] = isset($data['digitaloceancredentialConfig']) ? $data['digitaloceancredentialConfig'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
+        $this->container['linodecredentialConfig'] = isset($data['linodecredentialConfig']) ? $data['linodecredentialConfig'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
@@ -341,6 +347,28 @@ class CloudCredentialModel implements ArrayAccess
     public function setLabels($labels)
     {
         $this->container['labels'] = $labels;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets linodecredentialConfig
+     * @return \Rancher\Model\LinodecredentialconfigModel
+     */
+    public function getLinodecredentialConfig()
+    {
+        return $this->container['linodecredentialConfig'];
+    }
+
+    /**
+     * Sets linodecredentialConfig
+     * @param \Rancher\Model\LinodecredentialconfigModel $linodecredentialConfig
+     * @return $this
+     */
+    public function setLinodecredentialConfig($linodecredentialConfig)
+    {
+        $this->container['linodecredentialConfig'] = $linodecredentialConfig;
 
         return $this;
     }

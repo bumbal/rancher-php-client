@@ -30,10 +30,16 @@ class VmwarevsphereconfigModel implements ArrayAccess
     protected static $canBeCreated = [
         'boot2dockerUrl',
         'cfgparam',
+        'cloneFrom',
+        'cloudConfig',
         'cloudinit',
+        'contentLibrary',
         'cpuCount',
+        'creationType',
+        'customAttribute',
         'datacenter',
         'datastore',
+        'datastoreCluster',
         'diskSize',
         'folder',
         'hostsystem',
@@ -41,6 +47,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         'network',
         'password',
         'pool',
+        'sshPassword',
+        'sshPort',
+        'sshUser',
+        'sshUserGroup',
+        'tag',
         'username',
         'vappIpallocationpolicy',
         'vappIpprotocol',
@@ -63,10 +74,16 @@ class VmwarevsphereconfigModel implements ArrayAccess
     protected static $canBeUpdated = [
         'boot2dockerUrl',
         'cfgparam',
+        'cloneFrom',
+        'cloudConfig',
         'cloudinit',
+        'contentLibrary',
         'cpuCount',
+        'creationType',
+        'customAttribute',
         'datacenter',
         'datastore',
+        'datastoreCluster',
         'diskSize',
         'folder',
         'hostsystem',
@@ -74,6 +91,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         'network',
         'password',
         'pool',
+        'sshPassword',
+        'sshPort',
+        'sshUser',
+        'sshUserGroup',
+        'tag',
         'username',
         'vappIpallocationpolicy',
         'vappIpprotocol',
@@ -91,10 +113,16 @@ class VmwarevsphereconfigModel implements ArrayAccess
     protected static $typeMap = [
         'boot2dockerUrl' => 'string',
         'cfgparam' => 'string[]',
+        'cloneFrom' => 'string',
+        'cloudConfig' => 'string',
         'cloudinit' => 'string',
+        'contentLibrary' => 'string',
         'cpuCount' => 'string',
+        'creationType' => 'string',
+        'customAttribute' => 'string[]',
         'datacenter' => 'string',
         'datastore' => 'string',
+        'datastoreCluster' => 'string',
         'diskSize' => 'string',
         'folder' => 'string',
         'hostsystem' => 'string',
@@ -102,6 +130,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         'network' => 'string[]',
         'password' => '\Rancher\Model\PasswordModel',
         'pool' => 'string',
+        'sshPassword' => 'string',
+        'sshPort' => 'string',
+        'sshUser' => 'string',
+        'sshUserGroup' => 'string',
+        'tag' => 'string[]',
         'username' => 'string',
         'vappIpallocationpolicy' => 'string',
         'vappIpprotocol' => 'string',
@@ -119,10 +152,16 @@ class VmwarevsphereconfigModel implements ArrayAccess
     protected static $setters = [
         'boot2dockerUrl' => 'setBoot2dockerUrl',
         'cfgparam' => 'setCfgparam',
+        'cloneFrom' => 'setCloneFrom',
+        'cloudConfig' => 'setCloudConfig',
         'cloudinit' => 'setCloudinit',
+        'contentLibrary' => 'setContentLibrary',
         'cpuCount' => 'setCpuCount',
+        'creationType' => 'setCreationType',
+        'customAttribute' => 'setCustomAttribute',
         'datacenter' => 'setDatacenter',
         'datastore' => 'setDatastore',
+        'datastoreCluster' => 'setDatastoreCluster',
         'diskSize' => 'setDiskSize',
         'folder' => 'setFolder',
         'hostsystem' => 'setHostsystem',
@@ -130,6 +169,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         'network' => 'setNetwork',
         'password' => 'setPassword',
         'pool' => 'setPool',
+        'sshPassword' => 'setSshPassword',
+        'sshPort' => 'setSshPort',
+        'sshUser' => 'setSshUser',
+        'sshUserGroup' => 'setSshUserGroup',
+        'tag' => 'setTag',
         'username' => 'setUsername',
         'vappIpallocationpolicy' => 'setVappIpallocationpolicy',
         'vappIpprotocol' => 'setVappIpprotocol',
@@ -147,10 +191,16 @@ class VmwarevsphereconfigModel implements ArrayAccess
     protected static $getters = [
         'boot2dockerUrl' => 'getBoot2dockerUrl',
         'cfgparam' => 'getCfgparam',
+        'cloneFrom' => 'getCloneFrom',
+        'cloudConfig' => 'getCloudConfig',
         'cloudinit' => 'getCloudinit',
+        'contentLibrary' => 'getContentLibrary',
         'cpuCount' => 'getCpuCount',
+        'creationType' => 'getCreationType',
+        'customAttribute' => 'getCustomAttribute',
         'datacenter' => 'getDatacenter',
         'datastore' => 'getDatastore',
+        'datastoreCluster' => 'getDatastoreCluster',
         'diskSize' => 'getDiskSize',
         'folder' => 'getFolder',
         'hostsystem' => 'getHostsystem',
@@ -158,6 +208,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         'network' => 'getNetwork',
         'password' => 'getPassword',
         'pool' => 'getPool',
+        'sshPassword' => 'getSshPassword',
+        'sshPort' => 'getSshPort',
+        'sshUser' => 'getSshUser',
+        'sshUserGroup' => 'getSshUserGroup',
+        'tag' => 'getTag',
         'username' => 'getUsername',
         'vappIpallocationpolicy' => 'getVappIpallocationpolicy',
         'vappIpprotocol' => 'getVappIpprotocol',
@@ -176,10 +231,16 @@ class VmwarevsphereconfigModel implements ArrayAccess
     {
         $this->container['boot2dockerUrl'] = isset($data['boot2dockerUrl']) ? $data['boot2dockerUrl'] : null;
         $this->container['cfgparam'] = isset($data['cfgparam']) ? $data['cfgparam'] : null;
+        $this->container['cloneFrom'] = isset($data['cloneFrom']) ? $data['cloneFrom'] : null;
+        $this->container['cloudConfig'] = isset($data['cloudConfig']) ? $data['cloudConfig'] : null;
         $this->container['cloudinit'] = isset($data['cloudinit']) ? $data['cloudinit'] : null;
+        $this->container['contentLibrary'] = isset($data['contentLibrary']) ? $data['contentLibrary'] : null;
         $this->container['cpuCount'] = isset($data['cpuCount']) ? $data['cpuCount'] : null;
+        $this->container['creationType'] = isset($data['creationType']) ? $data['creationType'] : null;
+        $this->container['customAttribute'] = isset($data['customAttribute']) ? $data['customAttribute'] : null;
         $this->container['datacenter'] = isset($data['datacenter']) ? $data['datacenter'] : null;
         $this->container['datastore'] = isset($data['datastore']) ? $data['datastore'] : null;
+        $this->container['datastoreCluster'] = isset($data['datastoreCluster']) ? $data['datastoreCluster'] : null;
         $this->container['diskSize'] = isset($data['diskSize']) ? $data['diskSize'] : null;
         $this->container['folder'] = isset($data['folder']) ? $data['folder'] : null;
         $this->container['hostsystem'] = isset($data['hostsystem']) ? $data['hostsystem'] : null;
@@ -187,6 +248,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         $this->container['network'] = isset($data['network']) ? $data['network'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['pool'] = isset($data['pool']) ? $data['pool'] : null;
+        $this->container['sshPassword'] = isset($data['sshPassword']) ? $data['sshPassword'] : null;
+        $this->container['sshPort'] = isset($data['sshPort']) ? $data['sshPort'] : null;
+        $this->container['sshUser'] = isset($data['sshUser']) ? $data['sshUser'] : null;
+        $this->container['sshUserGroup'] = isset($data['sshUserGroup']) ? $data['sshUserGroup'] : null;
+        $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['vappIpallocationpolicy'] = isset($data['vappIpallocationpolicy']) ? $data['vappIpallocationpolicy'] : null;
         $this->container['vappIpprotocol'] = isset($data['vappIpprotocol']) ? $data['vappIpprotocol'] : null;
@@ -241,6 +307,50 @@ class VmwarevsphereconfigModel implements ArrayAccess
 
 
     /**
+     * Gets cloneFrom
+     * @return string
+     */
+    public function getCloneFrom()
+    {
+        return $this->container['cloneFrom'];
+    }
+
+    /**
+     * Sets cloneFrom
+     * @param string $cloneFrom
+     * @return $this
+     */
+    public function setCloneFrom($cloneFrom)
+    {
+        $this->container['cloneFrom'] = $cloneFrom;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets cloudConfig
+     * @return string
+     */
+    public function getCloudConfig()
+    {
+        return $this->container['cloudConfig'];
+    }
+
+    /**
+     * Sets cloudConfig
+     * @param string $cloudConfig
+     * @return $this
+     */
+    public function setCloudConfig($cloudConfig)
+    {
+        $this->container['cloudConfig'] = $cloudConfig;
+
+        return $this;
+    }
+
+
+    /**
      * Gets cloudinit
      * @return string
      */
@@ -263,6 +373,28 @@ class VmwarevsphereconfigModel implements ArrayAccess
 
 
     /**
+     * Gets contentLibrary
+     * @return string
+     */
+    public function getContentLibrary()
+    {
+        return $this->container['contentLibrary'];
+    }
+
+    /**
+     * Sets contentLibrary
+     * @param string $contentLibrary
+     * @return $this
+     */
+    public function setContentLibrary($contentLibrary)
+    {
+        $this->container['contentLibrary'] = $contentLibrary;
+
+        return $this;
+    }
+
+
+    /**
      * Gets cpuCount
      * @return string
      */
@@ -279,6 +411,50 @@ class VmwarevsphereconfigModel implements ArrayAccess
     public function setCpuCount($cpuCount)
     {
         $this->container['cpuCount'] = $cpuCount;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets creationType
+     * @return string
+     */
+    public function getCreationType()
+    {
+        return $this->container['creationType'];
+    }
+
+    /**
+     * Sets creationType
+     * @param string $creationType
+     * @return $this
+     */
+    public function setCreationType($creationType)
+    {
+        $this->container['creationType'] = $creationType;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets customAttribute
+     * @return string[]
+     */
+    public function getCustomAttribute()
+    {
+        return $this->container['customAttribute'];
+    }
+
+    /**
+     * Sets customAttribute
+     * @param string[] $customAttribute
+     * @return $this
+     */
+    public function setCustomAttribute($customAttribute)
+    {
+        $this->container['customAttribute'] = $customAttribute;
 
         return $this;
     }
@@ -323,6 +499,28 @@ class VmwarevsphereconfigModel implements ArrayAccess
     public function setDatastore($datastore)
     {
         $this->container['datastore'] = $datastore;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets datastoreCluster
+     * @return string
+     */
+    public function getDatastoreCluster()
+    {
+        return $this->container['datastoreCluster'];
+    }
+
+    /**
+     * Sets datastoreCluster
+     * @param string $datastoreCluster
+     * @return $this
+     */
+    public function setDatastoreCluster($datastoreCluster)
+    {
+        $this->container['datastoreCluster'] = $datastoreCluster;
 
         return $this;
     }
@@ -477,6 +675,116 @@ class VmwarevsphereconfigModel implements ArrayAccess
     public function setPool($pool)
     {
         $this->container['pool'] = $pool;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets sshPassword
+     * @return string
+     */
+    public function getSshPassword()
+    {
+        return $this->container['sshPassword'];
+    }
+
+    /**
+     * Sets sshPassword
+     * @param string $sshPassword
+     * @return $this
+     */
+    public function setSshPassword($sshPassword)
+    {
+        $this->container['sshPassword'] = $sshPassword;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets sshPort
+     * @return string
+     */
+    public function getSshPort()
+    {
+        return $this->container['sshPort'];
+    }
+
+    /**
+     * Sets sshPort
+     * @param string $sshPort
+     * @return $this
+     */
+    public function setSshPort($sshPort)
+    {
+        $this->container['sshPort'] = $sshPort;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets sshUser
+     * @return string
+     */
+    public function getSshUser()
+    {
+        return $this->container['sshUser'];
+    }
+
+    /**
+     * Sets sshUser
+     * @param string $sshUser
+     * @return $this
+     */
+    public function setSshUser($sshUser)
+    {
+        $this->container['sshUser'] = $sshUser;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets sshUserGroup
+     * @return string
+     */
+    public function getSshUserGroup()
+    {
+        return $this->container['sshUserGroup'];
+    }
+
+    /**
+     * Sets sshUserGroup
+     * @param string $sshUserGroup
+     * @return $this
+     */
+    public function setSshUserGroup($sshUserGroup)
+    {
+        $this->container['sshUserGroup'] = $sshUserGroup;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets tag
+     * @return string[]
+     */
+    public function getTag()
+    {
+        return $this->container['tag'];
+    }
+
+    /**
+     * Sets tag
+     * @param string[] $tag
+     * @return $this
+     */
+    public function setTag($tag)
+    {
+        $this->container['tag'] = $tag;
 
         return $this;
     }

@@ -29,6 +29,7 @@ class Route53ProviderConfigModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'accessKey',
+        'additionalOptions',
         'credentialsPath',
         'region',
         'roleArn',
@@ -48,6 +49,7 @@ class Route53ProviderConfigModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'accessKey',
+        'additionalOptions',
         'credentialsPath',
         'region',
         'roleArn',
@@ -62,6 +64,7 @@ class Route53ProviderConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessKey' => 'string',
+        'additionalOptions' => 'map[string,string]',
         'credentialsPath' => 'string',
         'region' => 'string',
         'roleArn' => 'string',
@@ -76,6 +79,7 @@ class Route53ProviderConfigModel implements ArrayAccess
 
     protected static $setters = [
         'accessKey' => 'setAccessKey',
+        'additionalOptions' => 'setAdditionalOptions',
         'credentialsPath' => 'setCredentialsPath',
         'region' => 'setRegion',
         'roleArn' => 'setRoleArn',
@@ -90,6 +94,7 @@ class Route53ProviderConfigModel implements ArrayAccess
 
     protected static $getters = [
         'accessKey' => 'getAccessKey',
+        'additionalOptions' => 'getAdditionalOptions',
         'credentialsPath' => 'getCredentialsPath',
         'region' => 'getRegion',
         'roleArn' => 'getRoleArn',
@@ -105,6 +110,7 @@ class Route53ProviderConfigModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accessKey'] = isset($data['accessKey']) ? $data['accessKey'] : null;
+        $this->container['additionalOptions'] = isset($data['additionalOptions']) ? $data['additionalOptions'] : null;
         $this->container['credentialsPath'] = isset($data['credentialsPath']) ? $data['credentialsPath'] : null;
         $this->container['region'] = isset($data['region']) ? $data['region'] : null;
         $this->container['roleArn'] = isset($data['roleArn']) ? $data['roleArn'] : null;
@@ -129,6 +135,28 @@ class Route53ProviderConfigModel implements ArrayAccess
     public function setAccessKey($accessKey)
     {
         $this->container['accessKey'] = $accessKey;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets additionalOptions
+     * @return string[]
+     */
+    public function getAdditionalOptions()
+    {
+        return $this->container['additionalOptions'];
+    }
+
+    /**
+     * Sets additionalOptions
+     * @param string[] $additionalOptions
+     * @return $this
+     */
+    public function setAdditionalOptions($additionalOptions)
+    {
+        $this->container['additionalOptions'] = $additionalOptions;
 
         return $this;
     }

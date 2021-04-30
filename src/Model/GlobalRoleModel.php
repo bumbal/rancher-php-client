@@ -48,9 +48,11 @@ class GlobalRoleModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'annotations',
+        'description',
         'labels',
         'name',
         'newUserDefault',
+        'rules',
     ];
 
     public static function canBeUpdated()
@@ -60,6 +62,7 @@ class GlobalRoleModel implements ArrayAccess
 
     protected static $typeMap = [
         'annotations' => 'map[string,string]',
+        'builtin' => 'boolean',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'description' => 'string',
@@ -80,6 +83,7 @@ class GlobalRoleModel implements ArrayAccess
 
     protected static $setters = [
         'annotations' => 'setAnnotations',
+        'builtin' => 'setBuiltin',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'description' => 'setDescription',
@@ -100,6 +104,7 @@ class GlobalRoleModel implements ArrayAccess
 
     protected static $getters = [
         'annotations' => 'getAnnotations',
+        'builtin' => 'getBuiltin',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'description' => 'getDescription',
@@ -121,6 +126,7 @@ class GlobalRoleModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
+        $this->container['builtin'] = isset($data['builtin']) ? $data['builtin'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -151,6 +157,28 @@ class GlobalRoleModel implements ArrayAccess
     public function setAnnotations($annotations)
     {
         $this->container['annotations'] = $annotations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets builtin
+     * @return boolean
+     */
+    public function getBuiltin()
+    {
+        return $this->container['builtin'];
+    }
+
+    /**
+     * Sets builtin
+     * @param boolean $builtin
+     * @return $this
+     */
+    public function setBuiltin($builtin)
+    {
+        $this->container['builtin'] = $builtin;
 
         return $this;
     }

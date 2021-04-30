@@ -28,12 +28,14 @@ class AlertmanagerEndpointsModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'apiVersion',
         'bearerTokenFile',
         'name',
         'namespace',
         'pathPrefix',
         'port',
         'scheme',
+        'timeout',
         'tlsConfig',
     ];
 
@@ -48,12 +50,14 @@ class AlertmanagerEndpointsModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'apiVersion',
         'bearerTokenFile',
         'name',
         'namespace',
         'pathPrefix',
         'port',
         'scheme',
+        'timeout',
         'tlsConfig',
     ];
 
@@ -63,12 +67,14 @@ class AlertmanagerEndpointsModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'apiVersion' => 'string',
         'bearerTokenFile' => 'string',
         'name' => 'string',
         'namespace' => 'string',
         'pathPrefix' => 'string',
         'port' => 'string',
         'scheme' => 'string',
+        'timeout' => 'string',
         'tlsConfig' => '\Rancher\Model\TlsConfigModel',
     ];
 
@@ -78,12 +84,14 @@ class AlertmanagerEndpointsModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'apiVersion' => 'setApiVersion',
         'bearerTokenFile' => 'setBearerTokenFile',
         'name' => 'setName',
         'namespace' => 'setNamespace',
         'pathPrefix' => 'setPathPrefix',
         'port' => 'setPort',
         'scheme' => 'setScheme',
+        'timeout' => 'setTimeout',
         'tlsConfig' => 'setTlsConfig',
     ];
 
@@ -93,12 +101,14 @@ class AlertmanagerEndpointsModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'apiVersion' => 'getApiVersion',
         'bearerTokenFile' => 'getBearerTokenFile',
         'name' => 'getName',
         'namespace' => 'getNamespace',
         'pathPrefix' => 'getPathPrefix',
         'port' => 'getPort',
         'scheme' => 'getScheme',
+        'timeout' => 'getTimeout',
         'tlsConfig' => 'getTlsConfig',
     ];
 
@@ -109,14 +119,38 @@ class AlertmanagerEndpointsModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
         $this->container['bearerTokenFile'] = isset($data['bearerTokenFile']) ? $data['bearerTokenFile'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
         $this->container['pathPrefix'] = isset($data['pathPrefix']) ? $data['pathPrefix'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['scheme'] = isset($data['scheme']) ? $data['scheme'] : null;
+        $this->container['timeout'] = isset($data['timeout']) ? $data['timeout'] : null;
         $this->container['tlsConfig'] = isset($data['tlsConfig']) ? $data['tlsConfig'] : null;
     }
+
+    /**
+     * Gets apiVersion
+     * @return string
+     */
+    public function getApiVersion()
+    {
+        return $this->container['apiVersion'];
+    }
+
+    /**
+     * Sets apiVersion
+     * @param string $apiVersion
+     * @return $this
+     */
+    public function setApiVersion($apiVersion)
+    {
+        $this->container['apiVersion'] = $apiVersion;
+
+        return $this;
+    }
+
 
     /**
      * Gets bearerTokenFile
@@ -245,6 +279,28 @@ class AlertmanagerEndpointsModel implements ArrayAccess
     public function setScheme($scheme)
     {
         $this->container['scheme'] = $scheme;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets timeout
+     * @return string
+     */
+    public function getTimeout()
+    {
+        return $this->container['timeout'];
+    }
+
+    /**
+     * Sets timeout
+     * @param string $timeout
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
+        $this->container['timeout'] = $timeout;
 
         return $this;
     }

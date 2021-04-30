@@ -33,6 +33,7 @@ class AdfsConfigModel implements ArrayAccess
         'annotations',
         'displayNameField',
         'enabled',
+        'entityID',
         'groupsField',
         'idpMetadataContent',
         'labels',
@@ -61,6 +62,7 @@ class AdfsConfigModel implements ArrayAccess
         'annotations',
         'displayNameField',
         'enabled',
+        'entityID',
         'groupsField',
         'idpMetadataContent',
         'labels',
@@ -84,6 +86,7 @@ class AdfsConfigModel implements ArrayAccess
         'creatorId' => 'string',
         'displayNameField' => 'string',
         'enabled' => 'boolean',
+        'entityID' => 'string',
         'groupsField' => 'string',
         'idpMetadataContent' => 'string',
         'labels' => 'map[string,string]',
@@ -112,6 +115,7 @@ class AdfsConfigModel implements ArrayAccess
         'creatorId' => 'setCreatorId',
         'displayNameField' => 'setDisplayNameField',
         'enabled' => 'setEnabled',
+        'entityID' => 'setEntityID',
         'groupsField' => 'setGroupsField',
         'idpMetadataContent' => 'setIdpMetadataContent',
         'labels' => 'setLabels',
@@ -140,6 +144,7 @@ class AdfsConfigModel implements ArrayAccess
         'creatorId' => 'getCreatorId',
         'displayNameField' => 'getDisplayNameField',
         'enabled' => 'getEnabled',
+        'entityID' => 'getEntityID',
         'groupsField' => 'getGroupsField',
         'idpMetadataContent' => 'getIdpMetadataContent',
         'labels' => 'getLabels',
@@ -169,6 +174,7 @@ class AdfsConfigModel implements ArrayAccess
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['displayNameField'] = isset($data['displayNameField']) ? $data['displayNameField'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['entityID'] = isset($data['entityID']) ? $data['entityID'] : null;
         $this->container['groupsField'] = isset($data['groupsField']) ? $data['groupsField'] : null;
         $this->container['idpMetadataContent'] = isset($data['idpMetadataContent']) ? $data['idpMetadataContent'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
@@ -333,6 +339,28 @@ class AdfsConfigModel implements ArrayAccess
     public function setEnabled($enabled)
     {
         $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets entityID
+     * @return string
+     */
+    public function getEntityID()
+    {
+        return $this->container['entityID'];
+    }
+
+    /**
+     * Sets entityID
+     * @param string $entityID
+     * @return $this
+     */
+    public function setEntityID($entityID)
+    {
+        $this->container['entityID'] = $entityID;
 
         return $this;
     }

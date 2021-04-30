@@ -36,6 +36,7 @@ class JobModel implements ArrayAccess
         'dnsPolicy',
         'enableServiceLinks',
         'ephemeralContainers',
+        'fsGroupChangePolicy',
         'fsgid',
         'gids',
         'hostAliases',
@@ -58,8 +59,10 @@ class JobModel implements ArrayAccess
         'runAsNonRoot',
         'runtimeClassName',
         'scheduling',
+        'seccompProfile',
         'selector',
         'serviceAccountName',
+        'setHostnameAsFQDN',
         'shareProcessNamespace',
         'subdomain',
         'sysctls',
@@ -93,6 +96,7 @@ class JobModel implements ArrayAccess
         'dnsPolicy',
         'enableServiceLinks',
         'ephemeralContainers',
+        'fsGroupChangePolicy',
         'fsgid',
         'gids',
         'hostAliases',
@@ -112,8 +116,10 @@ class JobModel implements ArrayAccess
         'runAsNonRoot',
         'runtimeClassName',
         'scheduling',
+        'seccompProfile',
         'selector',
         'serviceAccountName',
+        'setHostnameAsFQDN',
         'shareProcessNamespace',
         'subdomain',
         'sysctls',
@@ -144,6 +150,7 @@ class JobModel implements ArrayAccess
         'dnsPolicy' => 'string',
         'enableServiceLinks' => 'boolean',
         'ephemeralContainers' => '\Rancher\Model\EphemeralContainerModel[]',
+        'fsGroupChangePolicy' => 'string',
         'fsgid' => 'int',
         'gids' => 'int[]',
         'hostAliases' => '\Rancher\Model\HostAliasModel[]',
@@ -170,8 +177,10 @@ class JobModel implements ArrayAccess
         'runAsNonRoot' => 'boolean',
         'runtimeClassName' => 'string',
         'scheduling' => '\Rancher\Model\SchedulingModel',
+        'seccompProfile' => '\Rancher\Model\SeccompProfileModel',
         'selector' => '\Rancher\Model\LabelSelectorModel',
         'serviceAccountName' => 'string',
+        'setHostnameAsFQDN' => 'boolean',
         'shareProcessNamespace' => 'boolean',
         'state' => 'string',
         'subdomain' => 'string',
@@ -206,6 +215,7 @@ class JobModel implements ArrayAccess
         'dnsPolicy' => 'setDnsPolicy',
         'enableServiceLinks' => 'setEnableServiceLinks',
         'ephemeralContainers' => 'setEphemeralContainers',
+        'fsGroupChangePolicy' => 'setFsGroupChangePolicy',
         'fsgid' => 'setFsgid',
         'gids' => 'setGids',
         'hostAliases' => 'setHostAliases',
@@ -232,8 +242,10 @@ class JobModel implements ArrayAccess
         'runAsNonRoot' => 'setRunAsNonRoot',
         'runtimeClassName' => 'setRuntimeClassName',
         'scheduling' => 'setScheduling',
+        'seccompProfile' => 'setSeccompProfile',
         'selector' => 'setSelector',
         'serviceAccountName' => 'setServiceAccountName',
+        'setHostnameAsFQDN' => 'setSetHostnameAsFQDN',
         'shareProcessNamespace' => 'setShareProcessNamespace',
         'state' => 'setState',
         'subdomain' => 'setSubdomain',
@@ -268,6 +280,7 @@ class JobModel implements ArrayAccess
         'dnsPolicy' => 'getDnsPolicy',
         'enableServiceLinks' => 'getEnableServiceLinks',
         'ephemeralContainers' => 'getEphemeralContainers',
+        'fsGroupChangePolicy' => 'getFsGroupChangePolicy',
         'fsgid' => 'getFsgid',
         'gids' => 'getGids',
         'hostAliases' => 'getHostAliases',
@@ -294,8 +307,10 @@ class JobModel implements ArrayAccess
         'runAsNonRoot' => 'getRunAsNonRoot',
         'runtimeClassName' => 'getRuntimeClassName',
         'scheduling' => 'getScheduling',
+        'seccompProfile' => 'getSeccompProfile',
         'selector' => 'getSelector',
         'serviceAccountName' => 'getServiceAccountName',
+        'setHostnameAsFQDN' => 'getSetHostnameAsFQDN',
         'shareProcessNamespace' => 'getShareProcessNamespace',
         'state' => 'getState',
         'subdomain' => 'getSubdomain',
@@ -331,6 +346,7 @@ class JobModel implements ArrayAccess
         $this->container['dnsPolicy'] = isset($data['dnsPolicy']) ? $data['dnsPolicy'] : null;
         $this->container['enableServiceLinks'] = isset($data['enableServiceLinks']) ? $data['enableServiceLinks'] : null;
         $this->container['ephemeralContainers'] = isset($data['ephemeralContainers']) ? $data['ephemeralContainers'] : null;
+        $this->container['fsGroupChangePolicy'] = isset($data['fsGroupChangePolicy']) ? $data['fsGroupChangePolicy'] : null;
         $this->container['fsgid'] = isset($data['fsgid']) ? $data['fsgid'] : null;
         $this->container['gids'] = isset($data['gids']) ? $data['gids'] : null;
         $this->container['hostAliases'] = isset($data['hostAliases']) ? $data['hostAliases'] : null;
@@ -357,8 +373,10 @@ class JobModel implements ArrayAccess
         $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
         $this->container['runtimeClassName'] = isset($data['runtimeClassName']) ? $data['runtimeClassName'] : null;
         $this->container['scheduling'] = isset($data['scheduling']) ? $data['scheduling'] : null;
+        $this->container['seccompProfile'] = isset($data['seccompProfile']) ? $data['seccompProfile'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
         $this->container['serviceAccountName'] = isset($data['serviceAccountName']) ? $data['serviceAccountName'] : null;
+        $this->container['setHostnameAsFQDN'] = isset($data['setHostnameAsFQDN']) ? $data['setHostnameAsFQDN'] : null;
         $this->container['shareProcessNamespace'] = isset($data['shareProcessNamespace']) ? $data['shareProcessNamespace'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['subdomain'] = isset($data['subdomain']) ? $data['subdomain'] : null;
@@ -592,6 +610,28 @@ class JobModel implements ArrayAccess
     public function setEphemeralContainers($ephemeralContainers)
     {
         $this->container['ephemeralContainers'] = $ephemeralContainers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets fsGroupChangePolicy
+     * @return string
+     */
+    public function getFsGroupChangePolicy()
+    {
+        return $this->container['fsGroupChangePolicy'];
+    }
+
+    /**
+     * Sets fsGroupChangePolicy
+     * @param string $fsGroupChangePolicy
+     * @return $this
+     */
+    public function setFsGroupChangePolicy($fsGroupChangePolicy)
+    {
+        $this->container['fsGroupChangePolicy'] = $fsGroupChangePolicy;
 
         return $this;
     }
@@ -1170,6 +1210,28 @@ class JobModel implements ArrayAccess
 
 
     /**
+     * Gets seccompProfile
+     * @return \Rancher\Model\SeccompProfileModel
+     */
+    public function getSeccompProfile()
+    {
+        return $this->container['seccompProfile'];
+    }
+
+    /**
+     * Sets seccompProfile
+     * @param \Rancher\Model\SeccompProfileModel $seccompProfile
+     * @return $this
+     */
+    public function setSeccompProfile($seccompProfile)
+    {
+        $this->container['seccompProfile'] = $seccompProfile;
+
+        return $this;
+    }
+
+
+    /**
      * Gets selector
      * @return \Rancher\Model\LabelSelectorModel
      */
@@ -1208,6 +1270,28 @@ class JobModel implements ArrayAccess
     public function setServiceAccountName($serviceAccountName)
     {
         $this->container['serviceAccountName'] = $serviceAccountName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets setHostnameAsFQDN
+     * @return boolean
+     */
+    public function getSetHostnameAsFQDN()
+    {
+        return $this->container['setHostnameAsFQDN'];
+    }
+
+    /**
+     * Sets setHostnameAsFQDN
+     * @param boolean $setHostnameAsFQDN
+     * @return $this
+     */
+    public function setSetHostnameAsFQDN($setHostnameAsFQDN)
+    {
+        $this->container['setHostnameAsFQDN'] = $setHostnameAsFQDN;
 
         return $this;
     }

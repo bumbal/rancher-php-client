@@ -29,6 +29,7 @@ class AlidnsProviderConfigModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'accessKey',
+        'additionalOptions',
         'secretKey',
     ];
 
@@ -44,6 +45,7 @@ class AlidnsProviderConfigModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'accessKey',
+        'additionalOptions',
         'secretKey',
     ];
 
@@ -54,6 +56,7 @@ class AlidnsProviderConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessKey' => 'string',
+        'additionalOptions' => 'map[string,string]',
         'secretKey' => '\Rancher\Model\PasswordModel',
     ];
 
@@ -64,6 +67,7 @@ class AlidnsProviderConfigModel implements ArrayAccess
 
     protected static $setters = [
         'accessKey' => 'setAccessKey',
+        'additionalOptions' => 'setAdditionalOptions',
         'secretKey' => 'setSecretKey',
     ];
 
@@ -74,6 +78,7 @@ class AlidnsProviderConfigModel implements ArrayAccess
 
     protected static $getters = [
         'accessKey' => 'getAccessKey',
+        'additionalOptions' => 'getAdditionalOptions',
         'secretKey' => 'getSecretKey',
     ];
 
@@ -85,6 +90,7 @@ class AlidnsProviderConfigModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accessKey'] = isset($data['accessKey']) ? $data['accessKey'] : null;
+        $this->container['additionalOptions'] = isset($data['additionalOptions']) ? $data['additionalOptions'] : null;
         $this->container['secretKey'] = isset($data['secretKey']) ? $data['secretKey'] : null;
     }
 
@@ -105,6 +111,28 @@ class AlidnsProviderConfigModel implements ArrayAccess
     public function setAccessKey($accessKey)
     {
         $this->container['accessKey'] = $accessKey;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets additionalOptions
+     * @return string[]
+     */
+    public function getAdditionalOptions()
+    {
+        return $this->container['additionalOptions'];
+    }
+
+    /**
+     * Sets additionalOptions
+     * @param string[] $additionalOptions
+     * @return $this
+     */
+    public function setAdditionalOptions($additionalOptions)
+    {
+        $this->container['additionalOptions'] = $additionalOptions;
 
         return $this;
     }

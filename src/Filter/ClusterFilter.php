@@ -44,6 +44,34 @@ class ClusterFilter extends AbstractFilter
 
 
     /**
+     * Gets agentImageOverride
+     * @return string
+     */
+    public function getAgentImageOverride()
+    {
+        return $this->container['agentImageOverride'];
+    }
+
+    /**
+     * Sets agentImageOverride
+     * @param string $agentImageOverride
+     * @param string $option
+     * @return $this
+     */
+    public function setAgentImageOverride($agentImageOverride, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['agentImageOverride'.$option] = $agentImageOverride;
+
+        return $this;
+    }
+
+
+    /**
      * Gets apiEndpoint
      * @return string
      */
@@ -290,6 +318,34 @@ class ClusterFilter extends AbstractFilter
         }
 
         $this->container['creatorId'.$option] = $creatorId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets currentCisRunName
+     * @return string
+     */
+    public function getCurrentCisRunName()
+    {
+        return $this->container['currentCisRunName'];
+    }
+
+    /**
+     * Sets currentCisRunName
+     * @param string $currentCisRunName
+     * @param string $option
+     * @return $this
+     */
+    public function setCurrentCisRunName($currentCisRunName, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['currentCisRunName'.$option] = $currentCisRunName;
 
         return $this;
     }
@@ -576,6 +632,34 @@ class ClusterFilter extends AbstractFilter
 
 
     /**
+     * Gets fleetWorkspaceName
+     * @return string
+     */
+    public function getFleetWorkspaceName()
+    {
+        return $this->container['fleetWorkspaceName'];
+    }
+
+    /**
+     * Sets fleetWorkspaceName
+     * @param string $fleetWorkspaceName
+     * @param string $option
+     * @return $this
+     */
+    public function setFleetWorkspaceName($fleetWorkspaceName, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['fleetWorkspaceName'.$option] = $fleetWorkspaceName;
+
+        return $this;
+    }
+
+
+    /**
      * Gets id
      * @return string
      */
@@ -682,6 +766,90 @@ class ClusterFilter extends AbstractFilter
         }
 
         $this->container['name'.$option] = $name;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodeCount
+     * @return string
+     */
+    public function getNodeCount()
+    {
+        return $this->container['nodeCount'];
+    }
+
+    /**
+     * Sets nodeCount
+     * @param string $nodeCount
+     * @param string $option
+     * @return $this
+     */
+    public function setNodeCount($nodeCount, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['nodeCount'.$option] = $nodeCount;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodeVersion
+     * @return string
+     */
+    public function getNodeVersion()
+    {
+        return $this->container['nodeVersion'];
+    }
+
+    /**
+     * Sets nodeVersion
+     * @param string $nodeVersion
+     * @param string $option
+     * @return $this
+     */
+    public function setNodeVersion($nodeVersion, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['nodeVersion'.$option] = $nodeVersion;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets provider
+     * @return string
+     */
+    public function getProvider()
+    {
+        return $this->container['provider'];
+    }
+
+    /**
+     * Sets provider
+     * @param string $provider
+     * @param string $option
+     * @return $this
+     */
+    public function setProvider($provider, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['provider'.$option] = $provider;
 
         return $this;
     }

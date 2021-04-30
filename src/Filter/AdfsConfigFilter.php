@@ -156,6 +156,34 @@ class AdfsConfigFilter extends AbstractFilter
 
 
     /**
+     * Gets entityID
+     * @return string
+     */
+    public function getEntityID()
+    {
+        return $this->container['entityID'];
+    }
+
+    /**
+     * Sets entityID
+     * @param string $entityID
+     * @param string $option
+     * @return $this
+     */
+    public function setEntityID($entityID, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['entityID'.$option] = $entityID;
+
+        return $this;
+    }
+
+
+    /**
      * Gets groupsField
      * @return string
      */

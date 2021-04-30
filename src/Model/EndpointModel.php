@@ -28,6 +28,8 @@ class EndpointModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'bearerTokenSecret',
+        'honorTimestamps',
         'interval',
         'params',
         'path',
@@ -48,6 +50,8 @@ class EndpointModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'bearerTokenSecret',
+        'honorTimestamps',
         'interval',
         'params',
         'path',
@@ -63,6 +67,8 @@ class EndpointModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'bearerTokenSecret' => '\Rancher\Model\SecretKeySelectorModel',
+        'honorTimestamps' => 'boolean',
         'interval' => 'string',
         'params' => 'map[string,\Rancher\Model\Array[string]Model]',
         'path' => 'string',
@@ -78,6 +84,8 @@ class EndpointModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'bearerTokenSecret' => 'setBearerTokenSecret',
+        'honorTimestamps' => 'setHonorTimestamps',
         'interval' => 'setInterval',
         'params' => 'setParams',
         'path' => 'setPath',
@@ -93,6 +101,8 @@ class EndpointModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'bearerTokenSecret' => 'getBearerTokenSecret',
+        'honorTimestamps' => 'getHonorTimestamps',
         'interval' => 'getInterval',
         'params' => 'getParams',
         'path' => 'getPath',
@@ -109,6 +119,8 @@ class EndpointModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['bearerTokenSecret'] = isset($data['bearerTokenSecret']) ? $data['bearerTokenSecret'] : null;
+        $this->container['honorTimestamps'] = isset($data['honorTimestamps']) ? $data['honorTimestamps'] : null;
         $this->container['interval'] = isset($data['interval']) ? $data['interval'] : null;
         $this->container['params'] = isset($data['params']) ? $data['params'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
@@ -117,6 +129,50 @@ class EndpointModel implements ArrayAccess
         $this->container['scrapeTimeout'] = isset($data['scrapeTimeout']) ? $data['scrapeTimeout'] : null;
         $this->container['targetPort'] = isset($data['targetPort']) ? $data['targetPort'] : null;
     }
+
+    /**
+     * Gets bearerTokenSecret
+     * @return \Rancher\Model\SecretKeySelectorModel
+     */
+    public function getBearerTokenSecret()
+    {
+        return $this->container['bearerTokenSecret'];
+    }
+
+    /**
+     * Sets bearerTokenSecret
+     * @param \Rancher\Model\SecretKeySelectorModel $bearerTokenSecret
+     * @return $this
+     */
+    public function setBearerTokenSecret($bearerTokenSecret)
+    {
+        $this->container['bearerTokenSecret'] = $bearerTokenSecret;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets honorTimestamps
+     * @return boolean
+     */
+    public function getHonorTimestamps()
+    {
+        return $this->container['honorTimestamps'];
+    }
+
+    /**
+     * Sets honorTimestamps
+     * @param boolean $honorTimestamps
+     * @return $this
+     */
+    public function setHonorTimestamps($honorTimestamps)
+    {
+        $this->container['honorTimestamps'] = $honorTimestamps;
+
+        return $this;
+    }
+
 
     /**
      * Gets interval

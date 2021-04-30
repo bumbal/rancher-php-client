@@ -28,6 +28,8 @@ class ClusterSpecBaseModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'agentEnvVars',
+        'agentImageOverride',
         'defaultClusterRoleForProjectMembers',
         'defaultPodSecurityPolicyTemplateId',
         'desiredAgentImage',
@@ -38,6 +40,7 @@ class ClusterSpecBaseModel implements ArrayAccess
         'enableNetworkPolicy',
         'localClusterAuthEndpoint',
         'rancherKubernetesEngineConfig',
+        'scheduledClusterScan',
         'windowsPreferedCluster',
     ];
 
@@ -52,6 +55,8 @@ class ClusterSpecBaseModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'agentEnvVars',
+        'agentImageOverride',
         'defaultClusterRoleForProjectMembers',
         'defaultPodSecurityPolicyTemplateId',
         'desiredAgentImage',
@@ -62,6 +67,7 @@ class ClusterSpecBaseModel implements ArrayAccess
         'enableNetworkPolicy',
         'localClusterAuthEndpoint',
         'rancherKubernetesEngineConfig',
+        'scheduledClusterScan',
     ];
 
     public static function canBeUpdated()
@@ -70,6 +76,8 @@ class ClusterSpecBaseModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'agentEnvVars' => '\Rancher\Model\EnvVarModel[]',
+        'agentImageOverride' => 'string',
         'defaultClusterRoleForProjectMembers' => 'string',
         'defaultPodSecurityPolicyTemplateId' => 'string',
         'desiredAgentImage' => 'string',
@@ -80,6 +88,7 @@ class ClusterSpecBaseModel implements ArrayAccess
         'enableNetworkPolicy' => 'boolean',
         'localClusterAuthEndpoint' => '\Rancher\Model\LocalClusterAuthEndpointModel',
         'rancherKubernetesEngineConfig' => '\Rancher\Model\RancherKubernetesEngineConfigModel',
+        'scheduledClusterScan' => '\Rancher\Model\ScheduledClusterScanModel',
         'windowsPreferedCluster' => 'boolean',
     ];
 
@@ -89,6 +98,8 @@ class ClusterSpecBaseModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'agentEnvVars' => 'setAgentEnvVars',
+        'agentImageOverride' => 'setAgentImageOverride',
         'defaultClusterRoleForProjectMembers' => 'setDefaultClusterRoleForProjectMembers',
         'defaultPodSecurityPolicyTemplateId' => 'setDefaultPodSecurityPolicyTemplateId',
         'desiredAgentImage' => 'setDesiredAgentImage',
@@ -99,6 +110,7 @@ class ClusterSpecBaseModel implements ArrayAccess
         'enableNetworkPolicy' => 'setEnableNetworkPolicy',
         'localClusterAuthEndpoint' => 'setLocalClusterAuthEndpoint',
         'rancherKubernetesEngineConfig' => 'setRancherKubernetesEngineConfig',
+        'scheduledClusterScan' => 'setScheduledClusterScan',
         'windowsPreferedCluster' => 'setWindowsPreferedCluster',
     ];
 
@@ -108,6 +120,8 @@ class ClusterSpecBaseModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'agentEnvVars' => 'getAgentEnvVars',
+        'agentImageOverride' => 'getAgentImageOverride',
         'defaultClusterRoleForProjectMembers' => 'getDefaultClusterRoleForProjectMembers',
         'defaultPodSecurityPolicyTemplateId' => 'getDefaultPodSecurityPolicyTemplateId',
         'desiredAgentImage' => 'getDesiredAgentImage',
@@ -118,6 +132,7 @@ class ClusterSpecBaseModel implements ArrayAccess
         'enableNetworkPolicy' => 'getEnableNetworkPolicy',
         'localClusterAuthEndpoint' => 'getLocalClusterAuthEndpoint',
         'rancherKubernetesEngineConfig' => 'getRancherKubernetesEngineConfig',
+        'scheduledClusterScan' => 'getScheduledClusterScan',
         'windowsPreferedCluster' => 'getWindowsPreferedCluster',
     ];
 
@@ -128,6 +143,8 @@ class ClusterSpecBaseModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['agentEnvVars'] = isset($data['agentEnvVars']) ? $data['agentEnvVars'] : null;
+        $this->container['agentImageOverride'] = isset($data['agentImageOverride']) ? $data['agentImageOverride'] : null;
         $this->container['defaultClusterRoleForProjectMembers'] = isset($data['defaultClusterRoleForProjectMembers']) ? $data['defaultClusterRoleForProjectMembers'] : null;
         $this->container['defaultPodSecurityPolicyTemplateId'] = isset($data['defaultPodSecurityPolicyTemplateId']) ? $data['defaultPodSecurityPolicyTemplateId'] : null;
         $this->container['desiredAgentImage'] = isset($data['desiredAgentImage']) ? $data['desiredAgentImage'] : null;
@@ -138,8 +155,53 @@ class ClusterSpecBaseModel implements ArrayAccess
         $this->container['enableNetworkPolicy'] = isset($data['enableNetworkPolicy']) ? $data['enableNetworkPolicy'] : null;
         $this->container['localClusterAuthEndpoint'] = isset($data['localClusterAuthEndpoint']) ? $data['localClusterAuthEndpoint'] : null;
         $this->container['rancherKubernetesEngineConfig'] = isset($data['rancherKubernetesEngineConfig']) ? $data['rancherKubernetesEngineConfig'] : null;
+        $this->container['scheduledClusterScan'] = isset($data['scheduledClusterScan']) ? $data['scheduledClusterScan'] : null;
         $this->container['windowsPreferedCluster'] = isset($data['windowsPreferedCluster']) ? $data['windowsPreferedCluster'] : null;
     }
+
+    /**
+     * Gets agentEnvVars
+     * @return \Rancher\Model\EnvVarModel[]
+     */
+    public function getAgentEnvVars()
+    {
+        return $this->container['agentEnvVars'];
+    }
+
+    /**
+     * Sets agentEnvVars
+     * @param \Rancher\Model\EnvVarModel[] $agentEnvVars
+     * @return $this
+     */
+    public function setAgentEnvVars($agentEnvVars)
+    {
+        $this->container['agentEnvVars'] = $agentEnvVars;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets agentImageOverride
+     * @return string
+     */
+    public function getAgentImageOverride()
+    {
+        return $this->container['agentImageOverride'];
+    }
+
+    /**
+     * Sets agentImageOverride
+     * @param string $agentImageOverride
+     * @return $this
+     */
+    public function setAgentImageOverride($agentImageOverride)
+    {
+        $this->container['agentImageOverride'] = $agentImageOverride;
+
+        return $this;
+    }
+
 
     /**
      * Gets defaultClusterRoleForProjectMembers
@@ -356,6 +418,28 @@ class ClusterSpecBaseModel implements ArrayAccess
     public function setRancherKubernetesEngineConfig($rancherKubernetesEngineConfig)
     {
         $this->container['rancherKubernetesEngineConfig'] = $rancherKubernetesEngineConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets scheduledClusterScan
+     * @return \Rancher\Model\ScheduledClusterScanModel
+     */
+    public function getScheduledClusterScan()
+    {
+        return $this->container['scheduledClusterScan'];
+    }
+
+    /**
+     * Sets scheduledClusterScan
+     * @param \Rancher\Model\ScheduledClusterScanModel $scheduledClusterScan
+     * @return $this
+     */
+    public function setScheduledClusterScan($scheduledClusterScan)
+    {
+        $this->container['scheduledClusterScan'] = $scheduledClusterScan;
 
         return $this;
     }

@@ -40,6 +40,7 @@ class ServiceMonitorModel implements ArrayAccess
         'sampleLimit',
         'selector',
         'targetLabels',
+        'targetLimit',
         'targetService',
         'targetWorkload',
     ];
@@ -65,6 +66,7 @@ class ServiceMonitorModel implements ArrayAccess
         'sampleLimit',
         'selector',
         'targetLabels',
+        'targetLimit',
         'targetService',
         'targetWorkload',
     ];
@@ -92,6 +94,7 @@ class ServiceMonitorModel implements ArrayAccess
         'sampleLimit' => 'int',
         'selector' => '\Rancher\Model\LabelSelectorModel',
         'targetLabels' => 'string[]',
+        'targetLimit' => 'int',
         'targetService' => 'string',
         'targetWorkload' => 'string',
         'uuid' => 'string',
@@ -120,6 +123,7 @@ class ServiceMonitorModel implements ArrayAccess
         'sampleLimit' => 'setSampleLimit',
         'selector' => 'setSelector',
         'targetLabels' => 'setTargetLabels',
+        'targetLimit' => 'setTargetLimit',
         'targetService' => 'setTargetService',
         'targetWorkload' => 'setTargetWorkload',
         'uuid' => 'setUuid',
@@ -148,6 +152,7 @@ class ServiceMonitorModel implements ArrayAccess
         'sampleLimit' => 'getSampleLimit',
         'selector' => 'getSelector',
         'targetLabels' => 'getTargetLabels',
+        'targetLimit' => 'getTargetLimit',
         'targetService' => 'getTargetService',
         'targetWorkload' => 'getTargetWorkload',
         'uuid' => 'getUuid',
@@ -177,6 +182,7 @@ class ServiceMonitorModel implements ArrayAccess
         $this->container['sampleLimit'] = isset($data['sampleLimit']) ? $data['sampleLimit'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
         $this->container['targetLabels'] = isset($data['targetLabels']) ? $data['targetLabels'] : null;
+        $this->container['targetLimit'] = isset($data['targetLimit']) ? $data['targetLimit'] : null;
         $this->container['targetService'] = isset($data['targetService']) ? $data['targetService'] : null;
         $this->container['targetWorkload'] = isset($data['targetWorkload']) ? $data['targetWorkload'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
@@ -551,6 +557,28 @@ class ServiceMonitorModel implements ArrayAccess
     public function setTargetLabels($targetLabels)
     {
         $this->container['targetLabels'] = $targetLabels;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets targetLimit
+     * @return int
+     */
+    public function getTargetLimit()
+    {
+        return $this->container['targetLimit'];
+    }
+
+    /**
+     * Sets targetLimit
+     * @param int $targetLimit
+     * @return $this
+     */
+    public function setTargetLimit($targetLimit)
+    {
+        $this->container['targetLimit'] = $targetLimit;
 
         return $this;
     }

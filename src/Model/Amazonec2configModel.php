@@ -32,11 +32,15 @@ class Amazonec2configModel implements ArrayAccess
         'ami',
         'blockDurationMinutes',
         'deviceName',
+        'encryptEbsVolume',
         'endpoint',
+        'httpEndpoint',
+        'httpTokens',
         'iamInstanceProfile',
         'insecureTransport',
         'instanceType',
         'keypairName',
+        'kmsKey',
         'monitoring',
         'openPort',
         'privateAddressOnly',
@@ -76,11 +80,15 @@ class Amazonec2configModel implements ArrayAccess
         'ami',
         'blockDurationMinutes',
         'deviceName',
+        'encryptEbsVolume',
         'endpoint',
+        'httpEndpoint',
+        'httpTokens',
         'iamInstanceProfile',
         'insecureTransport',
         'instanceType',
         'keypairName',
+        'kmsKey',
         'monitoring',
         'openPort',
         'privateAddressOnly',
@@ -115,11 +123,15 @@ class Amazonec2configModel implements ArrayAccess
         'ami' => 'string',
         'blockDurationMinutes' => 'string',
         'deviceName' => 'string',
+        'encryptEbsVolume' => 'boolean',
         'endpoint' => 'string',
+        'httpEndpoint' => 'string',
+        'httpTokens' => 'string',
         'iamInstanceProfile' => 'string',
         'insecureTransport' => 'boolean',
         'instanceType' => 'string',
         'keypairName' => 'string',
+        'kmsKey' => 'string',
         'monitoring' => 'boolean',
         'openPort' => 'string[]',
         'privateAddressOnly' => 'boolean',
@@ -154,11 +166,15 @@ class Amazonec2configModel implements ArrayAccess
         'ami' => 'setAmi',
         'blockDurationMinutes' => 'setBlockDurationMinutes',
         'deviceName' => 'setDeviceName',
+        'encryptEbsVolume' => 'setEncryptEbsVolume',
         'endpoint' => 'setEndpoint',
+        'httpEndpoint' => 'setHttpEndpoint',
+        'httpTokens' => 'setHttpTokens',
         'iamInstanceProfile' => 'setIamInstanceProfile',
         'insecureTransport' => 'setInsecureTransport',
         'instanceType' => 'setInstanceType',
         'keypairName' => 'setKeypairName',
+        'kmsKey' => 'setKmsKey',
         'monitoring' => 'setMonitoring',
         'openPort' => 'setOpenPort',
         'privateAddressOnly' => 'setPrivateAddressOnly',
@@ -193,11 +209,15 @@ class Amazonec2configModel implements ArrayAccess
         'ami' => 'getAmi',
         'blockDurationMinutes' => 'getBlockDurationMinutes',
         'deviceName' => 'getDeviceName',
+        'encryptEbsVolume' => 'getEncryptEbsVolume',
         'endpoint' => 'getEndpoint',
+        'httpEndpoint' => 'getHttpEndpoint',
+        'httpTokens' => 'getHttpTokens',
         'iamInstanceProfile' => 'getIamInstanceProfile',
         'insecureTransport' => 'getInsecureTransport',
         'instanceType' => 'getInstanceType',
         'keypairName' => 'getKeypairName',
+        'kmsKey' => 'getKmsKey',
         'monitoring' => 'getMonitoring',
         'openPort' => 'getOpenPort',
         'privateAddressOnly' => 'getPrivateAddressOnly',
@@ -233,11 +253,15 @@ class Amazonec2configModel implements ArrayAccess
         $this->container['ami'] = isset($data['ami']) ? $data['ami'] : null;
         $this->container['blockDurationMinutes'] = isset($data['blockDurationMinutes']) ? $data['blockDurationMinutes'] : null;
         $this->container['deviceName'] = isset($data['deviceName']) ? $data['deviceName'] : null;
+        $this->container['encryptEbsVolume'] = isset($data['encryptEbsVolume']) ? $data['encryptEbsVolume'] : null;
         $this->container['endpoint'] = isset($data['endpoint']) ? $data['endpoint'] : null;
+        $this->container['httpEndpoint'] = isset($data['httpEndpoint']) ? $data['httpEndpoint'] : null;
+        $this->container['httpTokens'] = isset($data['httpTokens']) ? $data['httpTokens'] : null;
         $this->container['iamInstanceProfile'] = isset($data['iamInstanceProfile']) ? $data['iamInstanceProfile'] : null;
         $this->container['insecureTransport'] = isset($data['insecureTransport']) ? $data['insecureTransport'] : null;
         $this->container['instanceType'] = isset($data['instanceType']) ? $data['instanceType'] : null;
         $this->container['keypairName'] = isset($data['keypairName']) ? $data['keypairName'] : null;
+        $this->container['kmsKey'] = isset($data['kmsKey']) ? $data['kmsKey'] : null;
         $this->container['monitoring'] = isset($data['monitoring']) ? $data['monitoring'] : null;
         $this->container['openPort'] = isset($data['openPort']) ? $data['openPort'] : null;
         $this->container['privateAddressOnly'] = isset($data['privateAddressOnly']) ? $data['privateAddressOnly'] : null;
@@ -351,6 +375,28 @@ class Amazonec2configModel implements ArrayAccess
 
 
     /**
+     * Gets encryptEbsVolume
+     * @return boolean
+     */
+    public function getEncryptEbsVolume()
+    {
+        return $this->container['encryptEbsVolume'];
+    }
+
+    /**
+     * Sets encryptEbsVolume
+     * @param boolean $encryptEbsVolume
+     * @return $this
+     */
+    public function setEncryptEbsVolume($encryptEbsVolume)
+    {
+        $this->container['encryptEbsVolume'] = $encryptEbsVolume;
+
+        return $this;
+    }
+
+
+    /**
      * Gets endpoint
      * @return string
      */
@@ -367,6 +413,50 @@ class Amazonec2configModel implements ArrayAccess
     public function setEndpoint($endpoint)
     {
         $this->container['endpoint'] = $endpoint;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets httpEndpoint
+     * @return string
+     */
+    public function getHttpEndpoint()
+    {
+        return $this->container['httpEndpoint'];
+    }
+
+    /**
+     * Sets httpEndpoint
+     * @param string $httpEndpoint
+     * @return $this
+     */
+    public function setHttpEndpoint($httpEndpoint)
+    {
+        $this->container['httpEndpoint'] = $httpEndpoint;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets httpTokens
+     * @return string
+     */
+    public function getHttpTokens()
+    {
+        return $this->container['httpTokens'];
+    }
+
+    /**
+     * Sets httpTokens
+     * @param string $httpTokens
+     * @return $this
+     */
+    public function setHttpTokens($httpTokens)
+    {
+        $this->container['httpTokens'] = $httpTokens;
 
         return $this;
     }
@@ -455,6 +545,28 @@ class Amazonec2configModel implements ArrayAccess
     public function setKeypairName($keypairName)
     {
         $this->container['keypairName'] = $keypairName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets kmsKey
+     * @return string
+     */
+    public function getKmsKey()
+    {
+        return $this->container['kmsKey'];
+    }
+
+    /**
+     * Sets kmsKey
+     * @param string $kmsKey
+     * @return $this
+     */
+    public function setKmsKey($kmsKey)
+    {
+        $this->container['kmsKey'] = $kmsKey;
 
         return $this;
     }

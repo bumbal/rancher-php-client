@@ -28,6 +28,7 @@ class IngressBackendModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'resource',
         'serviceId',
         'targetPort',
         'workloadIds',
@@ -44,6 +45,7 @@ class IngressBackendModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'resource',
         'serviceId',
         'targetPort',
         'workloadIds',
@@ -55,6 +57,7 @@ class IngressBackendModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'resource' => '\Rancher\Model\TypedLocalObjectReferenceModel',
         'serviceId' => 'string',
         'targetPort' => 'string',
         'workloadIds' => 'string[]',
@@ -66,6 +69,7 @@ class IngressBackendModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'resource' => 'setResource',
         'serviceId' => 'setServiceId',
         'targetPort' => 'setTargetPort',
         'workloadIds' => 'setWorkloadIds',
@@ -77,6 +81,7 @@ class IngressBackendModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'resource' => 'getResource',
         'serviceId' => 'getServiceId',
         'targetPort' => 'getTargetPort',
         'workloadIds' => 'getWorkloadIds',
@@ -89,10 +94,33 @@ class IngressBackendModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
         $this->container['serviceId'] = isset($data['serviceId']) ? $data['serviceId'] : null;
         $this->container['targetPort'] = isset($data['targetPort']) ? $data['targetPort'] : null;
         $this->container['workloadIds'] = isset($data['workloadIds']) ? $data['workloadIds'] : null;
     }
+
+    /**
+     * Gets resource
+     * @return \Rancher\Model\TypedLocalObjectReferenceModel
+     */
+    public function getResource()
+    {
+        return $this->container['resource'];
+    }
+
+    /**
+     * Sets resource
+     * @param \Rancher\Model\TypedLocalObjectReferenceModel $resource
+     * @return $this
+     */
+    public function setResource($resource)
+    {
+        $this->container['resource'] = $resource;
+
+        return $this;
+    }
+
 
     /**
      * Gets serviceId

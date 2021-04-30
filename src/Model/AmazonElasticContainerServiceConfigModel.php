@@ -34,6 +34,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         'desiredNodes',
         'displayName',
         'driverName',
+        'ebsEncryption',
         'instanceType',
         'keyPairName',
         'kubernetesVersion',
@@ -67,6 +68,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         'desiredNodes',
         'displayName',
         'driverName',
+        'ebsEncryption',
         'instanceType',
         'keyPairName',
         'kubernetesVersion',
@@ -95,6 +97,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         'desiredNodes' => 'int',
         'displayName' => 'string',
         'driverName' => 'string',
+        'ebsEncryption' => 'boolean',
         'instanceType' => 'string',
         'keyPairName' => 'string',
         'kubernetesVersion' => 'string',
@@ -123,6 +126,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         'desiredNodes' => 'setDesiredNodes',
         'displayName' => 'setDisplayName',
         'driverName' => 'setDriverName',
+        'ebsEncryption' => 'setEbsEncryption',
         'instanceType' => 'setInstanceType',
         'keyPairName' => 'setKeyPairName',
         'kubernetesVersion' => 'setKubernetesVersion',
@@ -151,6 +155,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         'desiredNodes' => 'getDesiredNodes',
         'displayName' => 'getDisplayName',
         'driverName' => 'getDriverName',
+        'ebsEncryption' => 'getEbsEncryption',
         'instanceType' => 'getInstanceType',
         'keyPairName' => 'getKeyPairName',
         'kubernetesVersion' => 'getKubernetesVersion',
@@ -180,6 +185,7 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
         $this->container['desiredNodes'] = isset($data['desiredNodes']) ? $data['desiredNodes'] : null;
         $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
         $this->container['driverName'] = isset($data['driverName']) ? $data['driverName'] : null;
+        $this->container['ebsEncryption'] = isset($data['ebsEncryption']) ? $data['ebsEncryption'] : null;
         $this->container['instanceType'] = isset($data['instanceType']) ? $data['instanceType'] : null;
         $this->container['keyPairName'] = isset($data['keyPairName']) ? $data['keyPairName'] : null;
         $this->container['kubernetesVersion'] = isset($data['kubernetesVersion']) ? $data['kubernetesVersion'] : null;
@@ -323,6 +329,28 @@ class AmazonElasticContainerServiceConfigModel implements ArrayAccess
     public function setDriverName($driverName)
     {
         $this->container['driverName'] = $driverName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ebsEncryption
+     * @return boolean
+     */
+    public function getEbsEncryption()
+    {
+        return $this->container['ebsEncryption'];
+    }
+
+    /**
+     * Sets ebsEncryption
+     * @param boolean $ebsEncryption
+     * @return $this
+     */
+    public function setEbsEncryption($ebsEncryption)
+    {
+        $this->container['ebsEncryption'] = $ebsEncryption;
 
         return $this;
     }

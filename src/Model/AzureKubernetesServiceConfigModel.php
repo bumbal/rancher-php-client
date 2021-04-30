@@ -35,7 +35,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'adminUsername',
         'agentOsdiskSize',
         'agentPoolName',
-        'agentStorageProfile',
         'agentVmSize',
         'authBaseUrl',
         'baseUrl',
@@ -49,6 +48,7 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'enableHttpApplicationRouting',
         'enableMonitoring',
         'kubernetesVersion',
+        'loadBalancerSku',
         'location',
         'logAnalyticsWorkspace',
         'logAnalyticsWorkspaceResourceGroup',
@@ -87,7 +87,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'adminUsername',
         'agentOsdiskSize',
         'agentPoolName',
-        'agentStorageProfile',
         'agentVmSize',
         'authBaseUrl',
         'baseUrl',
@@ -101,6 +100,7 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'enableHttpApplicationRouting',
         'enableMonitoring',
         'kubernetesVersion',
+        'loadBalancerSku',
         'location',
         'logAnalyticsWorkspace',
         'logAnalyticsWorkspaceResourceGroup',
@@ -134,7 +134,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'adminUsername' => 'string',
         'agentOsdiskSize' => 'int',
         'agentPoolName' => 'string',
-        'agentStorageProfile' => 'string',
         'agentVmSize' => 'string',
         'authBaseUrl' => 'string',
         'baseUrl' => 'string',
@@ -148,6 +147,7 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'enableHttpApplicationRouting' => 'boolean',
         'enableMonitoring' => 'boolean',
         'kubernetesVersion' => 'string',
+        'loadBalancerSku' => 'string',
         'location' => 'string',
         'logAnalyticsWorkspace' => 'string',
         'logAnalyticsWorkspaceResourceGroup' => 'string',
@@ -181,7 +181,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'adminUsername' => 'setAdminUsername',
         'agentOsdiskSize' => 'setAgentOsdiskSize',
         'agentPoolName' => 'setAgentPoolName',
-        'agentStorageProfile' => 'setAgentStorageProfile',
         'agentVmSize' => 'setAgentVmSize',
         'authBaseUrl' => 'setAuthBaseUrl',
         'baseUrl' => 'setBaseUrl',
@@ -195,6 +194,7 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'enableHttpApplicationRouting' => 'setEnableHttpApplicationRouting',
         'enableMonitoring' => 'setEnableMonitoring',
         'kubernetesVersion' => 'setKubernetesVersion',
+        'loadBalancerSku' => 'setLoadBalancerSku',
         'location' => 'setLocation',
         'logAnalyticsWorkspace' => 'setLogAnalyticsWorkspace',
         'logAnalyticsWorkspaceResourceGroup' => 'setLogAnalyticsWorkspaceResourceGroup',
@@ -228,7 +228,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'adminUsername' => 'getAdminUsername',
         'agentOsdiskSize' => 'getAgentOsdiskSize',
         'agentPoolName' => 'getAgentPoolName',
-        'agentStorageProfile' => 'getAgentStorageProfile',
         'agentVmSize' => 'getAgentVmSize',
         'authBaseUrl' => 'getAuthBaseUrl',
         'baseUrl' => 'getBaseUrl',
@@ -242,6 +241,7 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         'enableHttpApplicationRouting' => 'getEnableHttpApplicationRouting',
         'enableMonitoring' => 'getEnableMonitoring',
         'kubernetesVersion' => 'getKubernetesVersion',
+        'loadBalancerSku' => 'getLoadBalancerSku',
         'location' => 'getLocation',
         'logAnalyticsWorkspace' => 'getLogAnalyticsWorkspace',
         'logAnalyticsWorkspaceResourceGroup' => 'getLogAnalyticsWorkspaceResourceGroup',
@@ -276,7 +276,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         $this->container['adminUsername'] = isset($data['adminUsername']) ? $data['adminUsername'] : null;
         $this->container['agentOsdiskSize'] = isset($data['agentOsdiskSize']) ? $data['agentOsdiskSize'] : null;
         $this->container['agentPoolName'] = isset($data['agentPoolName']) ? $data['agentPoolName'] : null;
-        $this->container['agentStorageProfile'] = isset($data['agentStorageProfile']) ? $data['agentStorageProfile'] : null;
         $this->container['agentVmSize'] = isset($data['agentVmSize']) ? $data['agentVmSize'] : null;
         $this->container['authBaseUrl'] = isset($data['authBaseUrl']) ? $data['authBaseUrl'] : null;
         $this->container['baseUrl'] = isset($data['baseUrl']) ? $data['baseUrl'] : null;
@@ -290,6 +289,7 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
         $this->container['enableHttpApplicationRouting'] = isset($data['enableHttpApplicationRouting']) ? $data['enableHttpApplicationRouting'] : null;
         $this->container['enableMonitoring'] = isset($data['enableMonitoring']) ? $data['enableMonitoring'] : null;
         $this->container['kubernetesVersion'] = isset($data['kubernetesVersion']) ? $data['kubernetesVersion'] : null;
+        $this->container['loadBalancerSku'] = isset($data['loadBalancerSku']) ? $data['loadBalancerSku'] : null;
         $this->container['location'] = isset($data['location']) ? $data['location'] : null;
         $this->container['logAnalyticsWorkspace'] = isset($data['logAnalyticsWorkspace']) ? $data['logAnalyticsWorkspace'] : null;
         $this->container['logAnalyticsWorkspaceResourceGroup'] = isset($data['logAnalyticsWorkspaceResourceGroup']) ? $data['logAnalyticsWorkspaceResourceGroup'] : null;
@@ -459,28 +459,6 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
     public function setAgentPoolName($agentPoolName)
     {
         $this->container['agentPoolName'] = $agentPoolName;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets agentStorageProfile
-     * @return string
-     */
-    public function getAgentStorageProfile()
-    {
-        return $this->container['agentStorageProfile'];
-    }
-
-    /**
-     * Sets agentStorageProfile
-     * @param string $agentStorageProfile
-     * @return $this
-     */
-    public function setAgentStorageProfile($agentStorageProfile)
-    {
-        $this->container['agentStorageProfile'] = $agentStorageProfile;
 
         return $this;
     }
@@ -767,6 +745,28 @@ class AzureKubernetesServiceConfigModel implements ArrayAccess
     public function setKubernetesVersion($kubernetesVersion)
     {
         $this->container['kubernetesVersion'] = $kubernetesVersion;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets loadBalancerSku
+     * @return string
+     */
+    public function getLoadBalancerSku()
+    {
+        return $this->container['loadBalancerSku'];
+    }
+
+    /**
+     * Sets loadBalancerSku
+     * @param string $loadBalancerSku
+     * @return $this
+     */
+    public function setLoadBalancerSku($loadBalancerSku)
+    {
+        $this->container['loadBalancerSku'] = $loadBalancerSku;
 
         return $this;
     }

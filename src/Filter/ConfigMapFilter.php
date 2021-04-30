@@ -72,6 +72,34 @@ class ConfigMapFilter extends AbstractFilter
 
 
     /**
+     * Gets immutable
+     * @return string
+     */
+    public function getImmutable()
+    {
+        return $this->container['immutable'];
+    }
+
+    /**
+     * Sets immutable
+     * @param string $immutable
+     * @param string $option
+     * @return $this
+     */
+    public function setImmutable($immutable, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['immutable'.$option] = $immutable;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */

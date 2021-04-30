@@ -70,6 +70,7 @@ class GithubConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessMode' => 'string',
+        'additionalClientIds' => 'map[string,string]',
         'allowedPrincipalIds' => 'string[]',
         'annotations' => 'map[string,string]',
         'clientId' => 'string',
@@ -78,6 +79,7 @@ class GithubConfigModel implements ArrayAccess
         'creatorId' => 'string',
         'enabled' => 'boolean',
         'hostname' => 'string',
+        'hostnameToClientId' => 'map[string,string]',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
@@ -94,6 +96,7 @@ class GithubConfigModel implements ArrayAccess
 
     protected static $setters = [
         'accessMode' => 'setAccessMode',
+        'additionalClientIds' => 'setAdditionalClientIds',
         'allowedPrincipalIds' => 'setAllowedPrincipalIds',
         'annotations' => 'setAnnotations',
         'clientId' => 'setClientId',
@@ -102,6 +105,7 @@ class GithubConfigModel implements ArrayAccess
         'creatorId' => 'setCreatorId',
         'enabled' => 'setEnabled',
         'hostname' => 'setHostname',
+        'hostnameToClientId' => 'setHostnameToClientId',
         'labels' => 'setLabels',
         'name' => 'setName',
         'ownerReferences' => 'setOwnerReferences',
@@ -118,6 +122,7 @@ class GithubConfigModel implements ArrayAccess
 
     protected static $getters = [
         'accessMode' => 'getAccessMode',
+        'additionalClientIds' => 'getAdditionalClientIds',
         'allowedPrincipalIds' => 'getAllowedPrincipalIds',
         'annotations' => 'getAnnotations',
         'clientId' => 'getClientId',
@@ -126,6 +131,7 @@ class GithubConfigModel implements ArrayAccess
         'creatorId' => 'getCreatorId',
         'enabled' => 'getEnabled',
         'hostname' => 'getHostname',
+        'hostnameToClientId' => 'getHostnameToClientId',
         'labels' => 'getLabels',
         'name' => 'getName',
         'ownerReferences' => 'getOwnerReferences',
@@ -143,6 +149,7 @@ class GithubConfigModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accessMode'] = isset($data['accessMode']) ? $data['accessMode'] : null;
+        $this->container['additionalClientIds'] = isset($data['additionalClientIds']) ? $data['additionalClientIds'] : null;
         $this->container['allowedPrincipalIds'] = isset($data['allowedPrincipalIds']) ? $data['allowedPrincipalIds'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['clientId'] = isset($data['clientId']) ? $data['clientId'] : null;
@@ -151,6 +158,7 @@ class GithubConfigModel implements ArrayAccess
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
+        $this->container['hostnameToClientId'] = isset($data['hostnameToClientId']) ? $data['hostnameToClientId'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
@@ -177,6 +185,28 @@ class GithubConfigModel implements ArrayAccess
     public function setAccessMode($accessMode)
     {
         $this->container['accessMode'] = $accessMode;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets additionalClientIds
+     * @return string[]
+     */
+    public function getAdditionalClientIds()
+    {
+        return $this->container['additionalClientIds'];
+    }
+
+    /**
+     * Sets additionalClientIds
+     * @param string[] $additionalClientIds
+     * @return $this
+     */
+    public function setAdditionalClientIds($additionalClientIds)
+    {
+        $this->container['additionalClientIds'] = $additionalClientIds;
 
         return $this;
     }
@@ -353,6 +383,28 @@ class GithubConfigModel implements ArrayAccess
     public function setHostname($hostname)
     {
         $this->container['hostname'] = $hostname;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets hostnameToClientId
+     * @return string[]
+     */
+    public function getHostnameToClientId()
+    {
+        return $this->container['hostnameToClientId'];
+    }
+
+    /**
+     * Sets hostnameToClientId
+     * @param string[] $hostnameToClientId
+     * @return $this
+     */
+    public function setHostnameToClientId($hostnameToClientId)
+    {
+        $this->container['hostnameToClientId'] = $hostnameToClientId;
 
         return $this;
     }

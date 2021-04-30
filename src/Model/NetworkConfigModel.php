@@ -28,12 +28,16 @@ class NetworkConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'aciNetworkProvider',
         'calicoNetworkProvider',
         'canalNetworkProvider',
         'flannelNetworkProvider',
+        'mtu',
         'nodeSelector',
         'options',
         'plugin',
+        'tolerations',
+        'updateStrategy',
         'weaveNetworkProvider',
     ];
 
@@ -48,12 +52,16 @@ class NetworkConfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'aciNetworkProvider',
         'calicoNetworkProvider',
         'canalNetworkProvider',
         'flannelNetworkProvider',
+        'mtu',
         'nodeSelector',
         'options',
         'plugin',
+        'tolerations',
+        'updateStrategy',
         'weaveNetworkProvider',
     ];
 
@@ -63,12 +71,16 @@ class NetworkConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'aciNetworkProvider' => '\Rancher\Model\AciNetworkProviderModel',
         'calicoNetworkProvider' => '\Rancher\Model\CalicoNetworkProviderModel',
         'canalNetworkProvider' => '\Rancher\Model\CanalNetworkProviderModel',
         'flannelNetworkProvider' => '\Rancher\Model\FlannelNetworkProviderModel',
+        'mtu' => 'int',
         'nodeSelector' => 'map[string,string]',
         'options' => 'map[string,string]',
         'plugin' => 'string',
+        'tolerations' => '\Rancher\Model\TolerationModel[]',
+        'updateStrategy' => '\Rancher\Model\DaemonSetUpdateStrategyModel',
         'weaveNetworkProvider' => '\Rancher\Model\WeaveNetworkProviderModel',
     ];
 
@@ -78,12 +90,16 @@ class NetworkConfigModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'aciNetworkProvider' => 'setAciNetworkProvider',
         'calicoNetworkProvider' => 'setCalicoNetworkProvider',
         'canalNetworkProvider' => 'setCanalNetworkProvider',
         'flannelNetworkProvider' => 'setFlannelNetworkProvider',
+        'mtu' => 'setMtu',
         'nodeSelector' => 'setNodeSelector',
         'options' => 'setOptions',
         'plugin' => 'setPlugin',
+        'tolerations' => 'setTolerations',
+        'updateStrategy' => 'setUpdateStrategy',
         'weaveNetworkProvider' => 'setWeaveNetworkProvider',
     ];
 
@@ -93,12 +109,16 @@ class NetworkConfigModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'aciNetworkProvider' => 'getAciNetworkProvider',
         'calicoNetworkProvider' => 'getCalicoNetworkProvider',
         'canalNetworkProvider' => 'getCanalNetworkProvider',
         'flannelNetworkProvider' => 'getFlannelNetworkProvider',
+        'mtu' => 'getMtu',
         'nodeSelector' => 'getNodeSelector',
         'options' => 'getOptions',
         'plugin' => 'getPlugin',
+        'tolerations' => 'getTolerations',
+        'updateStrategy' => 'getUpdateStrategy',
         'weaveNetworkProvider' => 'getWeaveNetworkProvider',
     ];
 
@@ -109,14 +129,40 @@ class NetworkConfigModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['aciNetworkProvider'] = isset($data['aciNetworkProvider']) ? $data['aciNetworkProvider'] : null;
         $this->container['calicoNetworkProvider'] = isset($data['calicoNetworkProvider']) ? $data['calicoNetworkProvider'] : null;
         $this->container['canalNetworkProvider'] = isset($data['canalNetworkProvider']) ? $data['canalNetworkProvider'] : null;
         $this->container['flannelNetworkProvider'] = isset($data['flannelNetworkProvider']) ? $data['flannelNetworkProvider'] : null;
+        $this->container['mtu'] = isset($data['mtu']) ? $data['mtu'] : null;
         $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['plugin'] = isset($data['plugin']) ? $data['plugin'] : null;
+        $this->container['tolerations'] = isset($data['tolerations']) ? $data['tolerations'] : null;
+        $this->container['updateStrategy'] = isset($data['updateStrategy']) ? $data['updateStrategy'] : null;
         $this->container['weaveNetworkProvider'] = isset($data['weaveNetworkProvider']) ? $data['weaveNetworkProvider'] : null;
     }
+
+    /**
+     * Gets aciNetworkProvider
+     * @return \Rancher\Model\AciNetworkProviderModel
+     */
+    public function getAciNetworkProvider()
+    {
+        return $this->container['aciNetworkProvider'];
+    }
+
+    /**
+     * Sets aciNetworkProvider
+     * @param \Rancher\Model\AciNetworkProviderModel $aciNetworkProvider
+     * @return $this
+     */
+    public function setAciNetworkProvider($aciNetworkProvider)
+    {
+        $this->container['aciNetworkProvider'] = $aciNetworkProvider;
+
+        return $this;
+    }
+
 
     /**
      * Gets calicoNetworkProvider
@@ -185,6 +231,28 @@ class NetworkConfigModel implements ArrayAccess
 
 
     /**
+     * Gets mtu
+     * @return int
+     */
+    public function getMtu()
+    {
+        return $this->container['mtu'];
+    }
+
+    /**
+     * Sets mtu
+     * @param int $mtu
+     * @return $this
+     */
+    public function setMtu($mtu)
+    {
+        $this->container['mtu'] = $mtu;
+
+        return $this;
+    }
+
+
+    /**
      * Gets nodeSelector
      * @return string[]
      */
@@ -245,6 +313,50 @@ class NetworkConfigModel implements ArrayAccess
     public function setPlugin($plugin)
     {
         $this->container['plugin'] = $plugin;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets tolerations
+     * @return \Rancher\Model\TolerationModel[]
+     */
+    public function getTolerations()
+    {
+        return $this->container['tolerations'];
+    }
+
+    /**
+     * Sets tolerations
+     * @param \Rancher\Model\TolerationModel[] $tolerations
+     * @return $this
+     */
+    public function setTolerations($tolerations)
+    {
+        $this->container['tolerations'] = $tolerations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets updateStrategy
+     * @return \Rancher\Model\DaemonSetUpdateStrategyModel
+     */
+    public function getUpdateStrategy()
+    {
+        return $this->container['updateStrategy'];
+    }
+
+    /**
+     * Sets updateStrategy
+     * @param \Rancher\Model\DaemonSetUpdateStrategyModel $updateStrategy
+     * @return $this
+     */
+    public function setUpdateStrategy($updateStrategy)
+    {
+        $this->container['updateStrategy'] = $updateStrategy;
 
         return $this;
     }

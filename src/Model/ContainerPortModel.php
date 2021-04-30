@@ -31,6 +31,7 @@ class ContainerPortModel implements ArrayAccess
         'containerPort',
         'dnsName',
         'hostIp',
+        'hostPort',
         'kind',
         'name',
         'protocol',
@@ -51,6 +52,7 @@ class ContainerPortModel implements ArrayAccess
         'containerPort',
         'dnsName',
         'hostIp',
+        'hostPort',
         'kind',
         'name',
         'protocol',
@@ -66,6 +68,7 @@ class ContainerPortModel implements ArrayAccess
         'containerPort' => 'int',
         'dnsName' => 'string',
         'hostIp' => 'string',
+        'hostPort' => 'int',
         'kind' => 'string',
         'name' => 'string',
         'protocol' => 'string',
@@ -81,6 +84,7 @@ class ContainerPortModel implements ArrayAccess
         'containerPort' => 'setContainerPort',
         'dnsName' => 'setDnsName',
         'hostIp' => 'setHostIp',
+        'hostPort' => 'setHostPort',
         'kind' => 'setKind',
         'name' => 'setName',
         'protocol' => 'setProtocol',
@@ -96,6 +100,7 @@ class ContainerPortModel implements ArrayAccess
         'containerPort' => 'getContainerPort',
         'dnsName' => 'getDnsName',
         'hostIp' => 'getHostIp',
+        'hostPort' => 'getHostPort',
         'kind' => 'getKind',
         'name' => 'getName',
         'protocol' => 'getProtocol',
@@ -112,6 +117,7 @@ class ContainerPortModel implements ArrayAccess
         $this->container['containerPort'] = isset($data['containerPort']) ? $data['containerPort'] : null;
         $this->container['dnsName'] = isset($data['dnsName']) ? $data['dnsName'] : null;
         $this->container['hostIp'] = isset($data['hostIp']) ? $data['hostIp'] : null;
+        $this->container['hostPort'] = isset($data['hostPort']) ? $data['hostPort'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
@@ -179,6 +185,28 @@ class ContainerPortModel implements ArrayAccess
     public function setHostIp($hostIp)
     {
         $this->container['hostIp'] = $hostIp;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets hostPort
+     * @return int
+     */
+    public function getHostPort()
+    {
+        return $this->container['hostPort'];
+    }
+
+    /**
+     * Sets hostPort
+     * @param int $hostPort
+     * @return $this
+     */
+    public function setHostPort($hostPort)
+    {
+        $this->container['hostPort'] = $hostPort;
 
         return $this;
     }

@@ -156,6 +156,34 @@ class AppFilter extends AbstractFilter
 
 
     /**
+     * Gets helmVersion
+     * @return string
+     */
+    public function getHelmVersion()
+    {
+        return $this->container['helmVersion'];
+    }
+
+    /**
+     * Sets helmVersion
+     * @param string $helmVersion
+     * @param string $option
+     * @return $this
+     */
+    public function setHelmVersion($helmVersion, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['helmVersion'.$option] = $helmVersion;
+
+        return $this;
+    }
+
+
+    /**
      * Gets lastAppliedTemplate
      * @return string
      */
