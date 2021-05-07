@@ -63,7 +63,7 @@ class ConfigMapModel implements ArrayAccess
 
     protected static $typeMap = [
         'annotations' => 'map[string,string]',
-        'binaryData' => 'map[string,\Rancher\Model\Base64Model]',
+        'binaryData' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'data' => 'map[string,string]',
@@ -165,7 +165,7 @@ class ConfigMapModel implements ArrayAccess
 
     /**
      * Gets binaryData
-     * @return \Rancher\Model\Base64Model[]
+     * @return string[]
      */
     public function getBinaryData()
     {
@@ -174,7 +174,7 @@ class ConfigMapModel implements ArrayAccess
 
     /**
      * Sets binaryData
-     * @param \Rancher\Model\Base64Model[] $binaryData
+     * @param string[] $binaryData
      * @return $this
      */
     public function setBinaryData($binaryData)

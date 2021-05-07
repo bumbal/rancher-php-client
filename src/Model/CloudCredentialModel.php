@@ -33,6 +33,7 @@ class CloudCredentialModel implements ArrayAccess
         'azurecredentialConfig',
         'description',
         'digitaloceancredentialConfig',
+        'googlecredentialConfig',
         'labels',
         'linodecredentialConfig',
         'name',
@@ -55,6 +56,7 @@ class CloudCredentialModel implements ArrayAccess
         'azurecredentialConfig',
         'description',
         'digitaloceancredentialConfig',
+        'googlecredentialConfig',
         'labels',
         'linodecredentialConfig',
         'name',
@@ -74,6 +76,7 @@ class CloudCredentialModel implements ArrayAccess
         'creatorId' => 'string',
         'description' => 'string',
         'digitaloceancredentialConfig' => '\Rancher\Model\DigitaloceancredentialconfigModel',
+        'googlecredentialConfig' => '\Rancher\Model\GooglecredentialconfigModel',
         'id' => 'string',
         'labels' => 'map[string,string]',
         'linodecredentialConfig' => '\Rancher\Model\LinodecredentialconfigModel',
@@ -97,6 +100,7 @@ class CloudCredentialModel implements ArrayAccess
         'creatorId' => 'setCreatorId',
         'description' => 'setDescription',
         'digitaloceancredentialConfig' => 'setDigitaloceancredentialConfig',
+        'googlecredentialConfig' => 'setGooglecredentialConfig',
         'id' => 'setId',
         'labels' => 'setLabels',
         'linodecredentialConfig' => 'setLinodecredentialConfig',
@@ -120,6 +124,7 @@ class CloudCredentialModel implements ArrayAccess
         'creatorId' => 'getCreatorId',
         'description' => 'getDescription',
         'digitaloceancredentialConfig' => 'getDigitaloceancredentialConfig',
+        'googlecredentialConfig' => 'getGooglecredentialConfig',
         'id' => 'getId',
         'labels' => 'getLabels',
         'linodecredentialConfig' => 'getLinodecredentialConfig',
@@ -144,6 +149,7 @@ class CloudCredentialModel implements ArrayAccess
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['digitaloceancredentialConfig'] = isset($data['digitaloceancredentialConfig']) ? $data['digitaloceancredentialConfig'] : null;
+        $this->container['googlecredentialConfig'] = isset($data['googlecredentialConfig']) ? $data['googlecredentialConfig'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['linodecredentialConfig'] = isset($data['linodecredentialConfig']) ? $data['linodecredentialConfig'] : null;
@@ -303,6 +309,28 @@ class CloudCredentialModel implements ArrayAccess
     public function setDigitaloceancredentialConfig($digitaloceancredentialConfig)
     {
         $this->container['digitaloceancredentialConfig'] = $digitaloceancredentialConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets googlecredentialConfig
+     * @return \Rancher\Model\GooglecredentialconfigModel
+     */
+    public function getGooglecredentialConfig()
+    {
+        return $this->container['googlecredentialConfig'];
+    }
+
+    /**
+     * Sets googlecredentialConfig
+     * @param \Rancher\Model\GooglecredentialconfigModel $googlecredentialConfig
+     * @return $this
+     */
+    public function setGooglecredentialConfig($googlecredentialConfig)
+    {
+        $this->container['googlecredentialConfig'] = $googlecredentialConfig;
 
         return $this;
     }

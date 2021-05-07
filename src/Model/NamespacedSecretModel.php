@@ -69,7 +69,7 @@ class NamespacedSecretModel implements ArrayAccess
         'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
-        'data' => 'map[string,\Rancher\Model\Base64Model]',
+        'data' => 'map[string,string]',
         'description' => 'string',
         'immutable' => 'boolean',
         'kind' => 'string',
@@ -221,7 +221,7 @@ class NamespacedSecretModel implements ArrayAccess
 
     /**
      * Gets data
-     * @return \Rancher\Model\Base64Model[]
+     * @return string[]
      */
     public function getData()
     {
@@ -230,7 +230,7 @@ class NamespacedSecretModel implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Rancher\Model\Base64Model[] $data
+     * @param string[] $data
      * @return $this
      */
     public function setData($data)

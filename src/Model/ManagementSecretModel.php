@@ -65,7 +65,7 @@ class ManagementSecretModel implements ArrayAccess
         'annotations' => 'map[string,string]',
         'created' => '\DateTime',
         'creatorId' => 'string',
-        'data' => 'map[string,\Rancher\Model\Base64Model]',
+        'data' => 'map[string,string]',
         'immutable' => 'boolean',
         'labels' => 'map[string,string]',
         'name' => 'string',
@@ -205,7 +205,7 @@ class ManagementSecretModel implements ArrayAccess
 
     /**
      * Gets data
-     * @return \Rancher\Model\Base64Model[]
+     * @return string[]
      */
     public function getData()
     {
@@ -214,7 +214,7 @@ class ManagementSecretModel implements ArrayAccess
 
     /**
      * Sets data
-     * @param \Rancher\Model\Base64Model[] $data
+     * @param string[] $data
      * @return $this
      */
     public function setData($data)

@@ -44,6 +44,34 @@ class NodeDriverFilter extends AbstractFilter
 
 
     /**
+     * Gets addCloudCredential
+     * @return string
+     */
+    public function getAddCloudCredential()
+    {
+        return $this->container['addCloudCredential'];
+    }
+
+    /**
+     * Sets addCloudCredential
+     * @param string $addCloudCredential
+     * @param string $option
+     * @return $this
+     */
+    public function setAddCloudCredential($addCloudCredential, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['addCloudCredential'.$option] = $addCloudCredential;
+
+        return $this;
+    }
+
+
+    /**
      * Gets builtin
      * @return string
      */

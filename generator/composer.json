@@ -1,6 +1,6 @@
 {
     "name": "bumbal/rancher-php-client",
-    "description": "A PHP Client for Rancher",
+    "description": "The PHP Client generator for Rancher",
     "keywords": [
         "rancher",
         "php",
@@ -18,9 +18,9 @@
     "require": {
         "php": ">=7.2",
         "ext-json": "*",
+        "ext-curl": "*",
+        "twig/twig": "^2.0",
+        "symfony/console": "^5.0",
         "guzzlehttp/guzzle": "^6.3"
-    },
-    "autoload": {
-        "psr-4": { "Rancher\\" : "src/" }
     }
 }
