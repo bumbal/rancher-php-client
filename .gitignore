@@ -4,3 +4,5 @@ generator/config.php
 vendor/
 composer.lock
 test/
+generator/vendor/
+generator/composer.lock

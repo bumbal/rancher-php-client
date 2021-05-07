@@ -47,6 +47,7 @@ class ClusterSpecModel implements ArrayAccess
         'enableNetworkPolicy',
         'fleetWorkspaceName',
         'genericEngineConfig',
+        'gkeConfig',
         'googleKubernetesEngineConfig',
         'k3sConfig',
         'localClusterAuthEndpoint',
@@ -86,6 +87,7 @@ class ClusterSpecModel implements ArrayAccess
         'enableNetworkPolicy',
         'fleetWorkspaceName',
         'genericEngineConfig',
+        'gkeConfig',
         'googleKubernetesEngineConfig',
         'k3sConfig',
         'localClusterAuthEndpoint',
@@ -120,6 +122,7 @@ class ClusterSpecModel implements ArrayAccess
         'enableNetworkPolicy' => 'boolean',
         'fleetWorkspaceName' => 'string',
         'genericEngineConfig' => 'map[string,\Rancher\Model\JsonModel]',
+        'gkeConfig' => '\Rancher\Model\GkeClusterConfigSpecModel',
         'googleKubernetesEngineConfig' => 'map[string,\Rancher\Model\JsonModel]',
         'importedConfig' => '\Rancher\Model\ImportedConfigModel',
         'internal' => 'boolean',
@@ -158,6 +161,7 @@ class ClusterSpecModel implements ArrayAccess
         'enableNetworkPolicy' => 'setEnableNetworkPolicy',
         'fleetWorkspaceName' => 'setFleetWorkspaceName',
         'genericEngineConfig' => 'setGenericEngineConfig',
+        'gkeConfig' => 'setGkeConfig',
         'googleKubernetesEngineConfig' => 'setGoogleKubernetesEngineConfig',
         'importedConfig' => 'setImportedConfig',
         'internal' => 'setInternal',
@@ -196,6 +200,7 @@ class ClusterSpecModel implements ArrayAccess
         'enableNetworkPolicy' => 'getEnableNetworkPolicy',
         'fleetWorkspaceName' => 'getFleetWorkspaceName',
         'genericEngineConfig' => 'getGenericEngineConfig',
+        'gkeConfig' => 'getGkeConfig',
         'googleKubernetesEngineConfig' => 'getGoogleKubernetesEngineConfig',
         'importedConfig' => 'getImportedConfig',
         'internal' => 'getInternal',
@@ -235,6 +240,7 @@ class ClusterSpecModel implements ArrayAccess
         $this->container['enableNetworkPolicy'] = isset($data['enableNetworkPolicy']) ? $data['enableNetworkPolicy'] : null;
         $this->container['fleetWorkspaceName'] = isset($data['fleetWorkspaceName']) ? $data['fleetWorkspaceName'] : null;
         $this->container['genericEngineConfig'] = isset($data['genericEngineConfig']) ? $data['genericEngineConfig'] : null;
+        $this->container['gkeConfig'] = isset($data['gkeConfig']) ? $data['gkeConfig'] : null;
         $this->container['googleKubernetesEngineConfig'] = isset($data['googleKubernetesEngineConfig']) ? $data['googleKubernetesEngineConfig'] : null;
         $this->container['importedConfig'] = isset($data['importedConfig']) ? $data['importedConfig'] : null;
         $this->container['internal'] = isset($data['internal']) ? $data['internal'] : null;
@@ -682,6 +688,28 @@ class ClusterSpecModel implements ArrayAccess
     public function setGenericEngineConfig($genericEngineConfig)
     {
         $this->container['genericEngineConfig'] = $genericEngineConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets gkeConfig
+     * @return \Rancher\Model\GkeClusterConfigSpecModel
+     */
+    public function getGkeConfig()
+    {
+        return $this->container['gkeConfig'];
+    }
+
+    /**
+     * Sets gkeConfig
+     * @param \Rancher\Model\GkeClusterConfigSpecModel $gkeConfig
+     * @return $this
+     */
+    public function setGkeConfig($gkeConfig)
+    {
+        $this->container['gkeConfig'] = $gkeConfig;
 
         return $this;
     }
