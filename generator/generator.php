@@ -14,6 +14,11 @@ use Twig\TwigFilter;
 class APIGenerator
 {
     /**
+     * @var float
+     */
+    private $startTime = null;
+
+    /**
      * @var ConsoleOutput
      */
     private $out = null;
@@ -31,6 +36,8 @@ class APIGenerator
     {
         try
         {
+            $this->startTime = microtime(true);
+
             $this->logToConsole(file_get_contents('templates/header.txt'), 'info', true);
 
             $this->_config = $config;
@@ -86,8 +93,11 @@ class APIGenerator
             $this->logToConsole("Endpoints for {$group} processed", 'success');
         }
 
+        $runtime = microtime(true) - $this->startTime;
+
         $this->logToConsole('----------------------------------', 'standard');
         $this->logToConsole('Rancher PHP Client Generator Done!', 'standard');
+        $this->logToConsole('Runtime: ' . number_format($runtime, 3, '.') . " sec", 'standard');
         $this->logToConsole('----------------------------------', 'standard');
     }
 
