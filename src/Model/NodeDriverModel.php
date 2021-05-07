@@ -29,6 +29,7 @@ class NodeDriverModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'active',
+        'addCloudCredential',
         'annotations',
         'builtin',
         'checksum',
@@ -53,6 +54,7 @@ class NodeDriverModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'active',
+        'addCloudCredential',
         'annotations',
         'builtin',
         'checksum',
@@ -72,6 +74,7 @@ class NodeDriverModel implements ArrayAccess
 
     protected static $typeMap = [
         'active' => 'boolean',
+        'addCloudCredential' => 'boolean',
         'annotations' => 'map[string,string]',
         'builtin' => 'boolean',
         'checksum' => 'string',
@@ -101,6 +104,7 @@ class NodeDriverModel implements ArrayAccess
 
     protected static $setters = [
         'active' => 'setActive',
+        'addCloudCredential' => 'setAddCloudCredential',
         'annotations' => 'setAnnotations',
         'builtin' => 'setBuiltin',
         'checksum' => 'setChecksum',
@@ -130,6 +134,7 @@ class NodeDriverModel implements ArrayAccess
 
     protected static $getters = [
         'active' => 'getActive',
+        'addCloudCredential' => 'getAddCloudCredential',
         'annotations' => 'getAnnotations',
         'builtin' => 'getBuiltin',
         'checksum' => 'getChecksum',
@@ -160,6 +165,7 @@ class NodeDriverModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['addCloudCredential'] = isset($data['addCloudCredential']) ? $data['addCloudCredential'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['builtin'] = isset($data['builtin']) ? $data['builtin'] : null;
         $this->container['checksum'] = isset($data['checksum']) ? $data['checksum'] : null;
@@ -199,6 +205,28 @@ class NodeDriverModel implements ArrayAccess
     public function setActive($active)
     {
         $this->container['active'] = $active;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets addCloudCredential
+     * @return boolean
+     */
+    public function getAddCloudCredential()
+    {
+        return $this->container['addCloudCredential'];
+    }
+
+    /**
+     * Sets addCloudCredential
+     * @param boolean $addCloudCredential
+     * @return $this
+     */
+    public function setAddCloudCredential($addCloudCredential)
+    {
+        $this->container['addCloudCredential'] = $addCloudCredential;
 
         return $this;
     }

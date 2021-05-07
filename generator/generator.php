@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/vendor/autoload.php';
 
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -13,6 +13,11 @@ use Twig\TwigFilter;
  */
 class APIGenerator
 {
+    /**
+     * @var float
+     */
+    private $startTime = null;
+
     /**
      * @var ConsoleOutput
      */
@@ -29,13 +34,38 @@ class APIGenerator
      */
     public function __construct(array $config)
     {
-        $this->logToConsole('Rancher PHP Client Generator', 'standard');
+        try
+        {
+            $this->startTime = microtime(true);
 
-        $this->_config = $config;
+            $this->logToConsole(file_get_contents('templates/header.txt'), 'info', true);
+
+            $this->_config = $config;
+
+            // do some checking
+            $check = $this->retrieveEndpoint('schemas/');
+
+            if(array_key_exists('status', $check) && $check['status'] == '401')
+            {
+                throw new Exception($check['message']);
+            }
+
+            // now run!
+            $this->run();
+        }
+        catch (Error $err)
+        {
+            $this->logToConsole('Error: ' . $err->getMessage(), 'error');
+        }
+        catch (Exception $exp)
+        {
+            $this->logToConsole('Exception: ' . $exp->getMessage(), 'error');
+        }
     }
 
     /**
      * public run function, builds your API
+     * @throws Exception
      */
     public function run()
     {
@@ -45,11 +75,13 @@ class APIGenerator
         $this->clearDirectory('../src/Resource/*');
         $this->clearDirectory('../src/Filter/*');
 
+        $this->logToConsole("Old classes removed", 'info');
+
         foreach ($groups as $group)
         {
             $schemas = $this->retrieveEndpoint($group);
 
-            $this->logToConsole("Endpoints for {$group} loaded...", 'info');
+            $this->logToConsole("Endpoints for {$group} loaded...", 'comment');
 
             foreach ($schemas['data'] as $entry)
             {
@@ -61,8 +93,11 @@ class APIGenerator
             $this->logToConsole("Endpoints for {$group} processed", 'success');
         }
 
+        $runtime = microtime(true) - $this->startTime;
+
         $this->logToConsole('----------------------------------', 'standard');
         $this->logToConsole('Rancher PHP Client Generator Done!', 'standard');
+        $this->logToConsole('Runtime: ' . number_format($runtime, 3, '.') . " sec", 'standard');
         $this->logToConsole('----------------------------------', 'standard');
     }
 
@@ -73,6 +108,7 @@ class APIGenerator
      *
      * @param string $endpoint
      * @return mixed
+     * @throws Exception
      */
     private function retrieveEndpoint(string $endpoint)
     {
@@ -89,8 +125,14 @@ class APIGenerator
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         $output = curl_exec($ch);
+        $error = curl_error($ch);
 
         curl_close($ch);
+
+        if($error)
+        {
+            throw new Exception($error);
+        }
 
         return json_decode($output, true);
     }
@@ -104,7 +146,7 @@ class APIGenerator
      * @param $query
      * @return bool
      */
-    private function startsWith($string, $query)
+    private function startsWith($string, $query): bool
     {
         return substr($string, 0, strlen($query)) === $query;
     }
@@ -118,7 +160,7 @@ class APIGenerator
      * @param $query
      * @return bool
      */
-    private function endsWith($string, $query)
+    private function endsWith($string, $query): bool
     {
         $length = strlen($query);
 
@@ -268,7 +310,7 @@ class APIGenerator
 
             $this->logToConsole("Endpoints for {$schemeName}Model.php generated", 'debug');
         }
-        catch (\Exception $exception)
+        catch (Exception $exception)
         {
             $this->logToConsole($exception->getMessage(), 'error'); die;
         }
@@ -312,7 +354,7 @@ class APIGenerator
 
             $this->logToConsole("Endpoints for {$schemeName}Resource.php generated", 'debug');
         }
-        catch (\Exception $exception)
+        catch (Exception $exception)
         {
             $this->logToConsole($exception->getMessage(), 'error'); die;
         }
@@ -352,7 +394,7 @@ class APIGenerator
 
             $this->logToConsole("Endpoints for {$schemeName}Filter.php generated", 'debug');
         }
-        catch (\Exception $exception)
+        catch (Exception $exception)
         {
             $this->logToConsole($exception->getMessage(), 'error'); die;
         }
@@ -381,8 +423,9 @@ class APIGenerator
     /**
      * @param $text
      * @param string $type
+     * @param bool $omitTimeStamp
      */
-    public function logToConsole($text, $type = 'success')
+    public function logToConsole($text, $type = 'success', $omitTimeStamp = false)
     {
         if(!$this->out)
         {
@@ -398,9 +441,11 @@ class APIGenerator
             $this->out->getFormatter()->setStyle('standard', $outputStyle);
         }
 
-        $date = new \DateTime();
-
-        $text = "[".$date->format('Y-m-d H:i:s')."] ".$text;
+        if(!$omitTimeStamp)
+        {
+            $date = new \DateTime();
+            $text = "[".$date->format('Y-m-d H:i:s')."] ".$text;
+        }
 
         switch ($type)
         {
@@ -431,7 +476,6 @@ class APIGenerator
     }
 }
 
-$apiGenerator  = new APIGenerator(include 'config.php');
-$apiGenerator->run();
+$apiGenerator = new APIGenerator(include 'config.php');
 
 ?>
