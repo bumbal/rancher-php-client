@@ -387,6 +387,7 @@ class LoadBalancerOpenstackOptsModel implements ArrayAccess
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset
      * @return boolean
+	 #[\ReturnTypeWillChange]
      */
     public function offsetExists($offset)
     {
@@ -397,6 +398,7 @@ class LoadBalancerOpenstackOptsModel implements ArrayAccess
      * Gets offset.
      * @param  integer $offset Offset
      * @return mixed
+	 #[\ReturnTypeWillChange]
      */
     public function offsetGet($offset)
     {
@@ -408,6 +410,7 @@ class LoadBalancerOpenstackOptsModel implements ArrayAccess
      * @param  integer $offset Offset
      * @param  mixed   $value  Value to be set
      * @return void
+	 #[\ReturnTypeWillChange]
      */
     public function offsetSet($offset, $value)
     {
@@ -422,6 +425,7 @@ class LoadBalancerOpenstackOptsModel implements ArrayAccess
      * Unsets offset.
      * @param  integer $offset Offset
      * @return void
+	 #[\ReturnTypeWillChange]
      */
     public function offsetUnset($offset)
     {
