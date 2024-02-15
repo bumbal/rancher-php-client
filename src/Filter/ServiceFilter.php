@@ -240,6 +240,34 @@ class ServiceFilter extends AbstractFilter
 
 
     /**
+     * Gets internalTrafficPolicy
+     * @return string
+     */
+    public function getInternalTrafficPolicy()
+    {
+        return $this->container['internalTrafficPolicy'];
+    }
+
+    /**
+     * Sets internalTrafficPolicy
+     * @param string $internalTrafficPolicy
+     * @param string $option
+     * @return $this
+     */
+    public function setInternalTrafficPolicy($internalTrafficPolicy, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['internalTrafficPolicy'.$option] = $internalTrafficPolicy;
+
+        return $this;
+    }
+
+
+    /**
      * Gets ipFamilyPolicy
      * @return string
      */
@@ -290,6 +318,34 @@ class ServiceFilter extends AbstractFilter
         }
 
         $this->container['kind'.$option] = $kind;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets loadBalancerClass
+     * @return string
+     */
+    public function getLoadBalancerClass()
+    {
+        return $this->container['loadBalancerClass'];
+    }
+
+    /**
+     * Sets loadBalancerClass
+     * @param string $loadBalancerClass
+     * @param string $option
+     * @return $this
+     */
+    public function setLoadBalancerClass($loadBalancerClass, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['loadBalancerClass'.$option] = $loadBalancerClass;
 
         return $this;
     }

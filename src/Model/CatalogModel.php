@@ -69,10 +69,12 @@ class CatalogModel implements ArrayAccess
     protected static $typeMap = [
         'annotations' => 'map[string,string]',
         'branch' => 'string',
+        'catalogSecrets' => '\Rancher\Model\CatalogSecretsModel',
         'commit' => 'string',
         'conditions' => '\Rancher\Model\CatalogConditionModel[]',
         'created' => '\DateTime',
         'creatorId' => 'string',
+        'credentialSecret' => 'string',
         'description' => 'string',
         'helmVersion' => 'string',
         'kind' => 'string',
@@ -98,10 +100,12 @@ class CatalogModel implements ArrayAccess
     protected static $setters = [
         'annotations' => 'setAnnotations',
         'branch' => 'setBranch',
+        'catalogSecrets' => 'setCatalogSecrets',
         'commit' => 'setCommit',
         'conditions' => 'setConditions',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
+        'credentialSecret' => 'setCredentialSecret',
         'description' => 'setDescription',
         'helmVersion' => 'setHelmVersion',
         'kind' => 'setKind',
@@ -127,10 +131,12 @@ class CatalogModel implements ArrayAccess
     protected static $getters = [
         'annotations' => 'getAnnotations',
         'branch' => 'getBranch',
+        'catalogSecrets' => 'getCatalogSecrets',
         'commit' => 'getCommit',
         'conditions' => 'getConditions',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
+        'credentialSecret' => 'getCredentialSecret',
         'description' => 'getDescription',
         'helmVersion' => 'getHelmVersion',
         'kind' => 'getKind',
@@ -157,10 +163,12 @@ class CatalogModel implements ArrayAccess
     {
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
+        $this->container['catalogSecrets'] = isset($data['catalogSecrets']) ? $data['catalogSecrets'] : null;
         $this->container['commit'] = isset($data['commit']) ? $data['commit'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
+        $this->container['credentialSecret'] = isset($data['credentialSecret']) ? $data['credentialSecret'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['helmVersion'] = isset($data['helmVersion']) ? $data['helmVersion'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
@@ -217,6 +225,28 @@ class CatalogModel implements ArrayAccess
     public function setBranch($branch)
     {
         $this->container['branch'] = $branch;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets catalogSecrets
+     * @return \Rancher\Model\CatalogSecretsModel
+     */
+    public function getCatalogSecrets()
+    {
+        return $this->container['catalogSecrets'];
+    }
+
+    /**
+     * Sets catalogSecrets
+     * @param \Rancher\Model\CatalogSecretsModel $catalogSecrets
+     * @return $this
+     */
+    public function setCatalogSecrets($catalogSecrets)
+    {
+        $this->container['catalogSecrets'] = $catalogSecrets;
 
         return $this;
     }
@@ -305,6 +335,28 @@ class CatalogModel implements ArrayAccess
     public function setCreatorId($creatorId)
     {
         $this->container['creatorId'] = $creatorId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets credentialSecret
+     * @return string
+     */
+    public function getCredentialSecret()
+    {
+        return $this->container['credentialSecret'];
+    }
+
+    /**
+     * Sets credentialSecret
+     * @param string $credentialSecret
+     * @return $this
+     */
+    public function setCredentialSecret($credentialSecret)
+    {
+        $this->container['credentialSecret'] = $credentialSecret;
 
         return $this;
     }

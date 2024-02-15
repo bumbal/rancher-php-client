@@ -72,6 +72,34 @@ class CronJobFilter extends AbstractFilter
 
 
     /**
+     * Gets completionMode
+     * @return string
+     */
+    public function getCompletionMode()
+    {
+        return $this->container['completionMode'];
+    }
+
+    /**
+     * Sets completionMode
+     * @param string $completionMode
+     * @param string $option
+     * @return $this
+     */
+    public function setCompletionMode($completionMode, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['completionMode'.$option] = $completionMode;
+
+        return $this;
+    }
+
+
+    /**
      * Gets created
      * @return string
      */
@@ -318,6 +346,34 @@ class CronJobFilter extends AbstractFilter
         }
 
         $this->container['hostPID'.$option] = $hostPID;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets hostUsers
+     * @return string
+     */
+    public function getHostUsers()
+    {
+        return $this->container['hostUsers'];
+    }
+
+    /**
+     * Sets hostUsers
+     * @param string $hostUsers
+     * @param string $option
+     * @return $this
+     */
+    public function setHostUsers($hostUsers, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['hostUsers'.$option] = $hostUsers;
 
         return $this;
     }
@@ -794,6 +850,34 @@ class CronJobFilter extends AbstractFilter
         }
 
         $this->container['terminationGracePeriodSeconds'.$option] = $terminationGracePeriodSeconds;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets timeZone
+     * @return string
+     */
+    public function getTimeZone()
+    {
+        return $this->container['timeZone'];
+    }
+
+    /**
+     * Sets timeZone
+     * @param string $timeZone
+     * @param string $option
+     * @return $this
+     */
+    public function setTimeZone($timeZone, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['timeZone'.$option] = $timeZone;
 
         return $this;
     }

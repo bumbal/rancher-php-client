@@ -31,6 +31,9 @@ class ServiceMonitorModel implements ArrayAccess
         'annotations',
         'endpoints',
         'jobLabel',
+        'labelLimit',
+        'labelNameLengthLimit',
+        'labelValueLengthLimit',
         'labels',
         'name',
         'namespaceId',
@@ -59,6 +62,9 @@ class ServiceMonitorModel implements ArrayAccess
         'annotations',
         'endpoints',
         'jobLabel',
+        'labelLimit',
+        'labelNameLengthLimit',
+        'labelValueLengthLimit',
         'labels',
         'name',
         'namespaceSelector',
@@ -83,6 +89,9 @@ class ServiceMonitorModel implements ArrayAccess
         'endpoints' => '\Rancher\Model\EndpointModel[]',
         'id' => 'string',
         'jobLabel' => 'string',
+        'labelLimit' => 'int',
+        'labelNameLengthLimit' => 'int',
+        'labelValueLengthLimit' => 'int',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
@@ -112,6 +121,9 @@ class ServiceMonitorModel implements ArrayAccess
         'endpoints' => 'setEndpoints',
         'id' => 'setId',
         'jobLabel' => 'setJobLabel',
+        'labelLimit' => 'setLabelLimit',
+        'labelNameLengthLimit' => 'setLabelNameLengthLimit',
+        'labelValueLengthLimit' => 'setLabelValueLengthLimit',
         'labels' => 'setLabels',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
@@ -141,6 +153,9 @@ class ServiceMonitorModel implements ArrayAccess
         'endpoints' => 'getEndpoints',
         'id' => 'getId',
         'jobLabel' => 'getJobLabel',
+        'labelLimit' => 'getLabelLimit',
+        'labelNameLengthLimit' => 'getLabelNameLengthLimit',
+        'labelValueLengthLimit' => 'getLabelValueLengthLimit',
         'labels' => 'getLabels',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
@@ -171,6 +186,9 @@ class ServiceMonitorModel implements ArrayAccess
         $this->container['endpoints'] = isset($data['endpoints']) ? $data['endpoints'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['jobLabel'] = isset($data['jobLabel']) ? $data['jobLabel'] : null;
+        $this->container['labelLimit'] = isset($data['labelLimit']) ? $data['labelLimit'] : null;
+        $this->container['labelNameLengthLimit'] = isset($data['labelNameLengthLimit']) ? $data['labelNameLengthLimit'] : null;
+        $this->container['labelValueLengthLimit'] = isset($data['labelValueLengthLimit']) ? $data['labelValueLengthLimit'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
@@ -315,6 +333,72 @@ class ServiceMonitorModel implements ArrayAccess
     public function setJobLabel($jobLabel)
     {
         $this->container['jobLabel'] = $jobLabel;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets labelLimit
+     * @return int
+     */
+    public function getLabelLimit()
+    {
+        return $this->container['labelLimit'];
+    }
+
+    /**
+     * Sets labelLimit
+     * @param int $labelLimit
+     * @return $this
+     */
+    public function setLabelLimit($labelLimit)
+    {
+        $this->container['labelLimit'] = $labelLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets labelNameLengthLimit
+     * @return int
+     */
+    public function getLabelNameLengthLimit()
+    {
+        return $this->container['labelNameLengthLimit'];
+    }
+
+    /**
+     * Sets labelNameLengthLimit
+     * @param int $labelNameLengthLimit
+     * @return $this
+     */
+    public function setLabelNameLengthLimit($labelNameLengthLimit)
+    {
+        $this->container['labelNameLengthLimit'] = $labelNameLengthLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets labelValueLengthLimit
+     * @return int
+     */
+    public function getLabelValueLengthLimit()
+    {
+        return $this->container['labelValueLengthLimit'];
+    }
+
+    /**
+     * Sets labelValueLengthLimit
+     * @param int $labelValueLengthLimit
+     * @return $this
+     */
+    public function setLabelValueLengthLimit($labelValueLengthLimit)
+    {
+        $this->container['labelValueLengthLimit'] = $labelValueLengthLimit;
 
         return $this;
     }

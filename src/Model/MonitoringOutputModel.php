@@ -29,6 +29,7 @@ class MonitoringOutputModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'answers',
+        'answersSetString',
         'version',
     ];
 
@@ -44,6 +45,7 @@ class MonitoringOutputModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'answers',
+        'answersSetString',
         'version',
     ];
 
@@ -54,6 +56,7 @@ class MonitoringOutputModel implements ArrayAccess
 
     protected static $typeMap = [
         'answers' => 'map[string,string]',
+        'answersSetString' => 'map[string,string]',
         'version' => 'string',
     ];
 
@@ -64,6 +67,7 @@ class MonitoringOutputModel implements ArrayAccess
 
     protected static $setters = [
         'answers' => 'setAnswers',
+        'answersSetString' => 'setAnswersSetString',
         'version' => 'setVersion',
     ];
 
@@ -74,6 +78,7 @@ class MonitoringOutputModel implements ArrayAccess
 
     protected static $getters = [
         'answers' => 'getAnswers',
+        'answersSetString' => 'getAnswersSetString',
         'version' => 'getVersion',
     ];
 
@@ -85,6 +90,7 @@ class MonitoringOutputModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['answers'] = isset($data['answers']) ? $data['answers'] : null;
+        $this->container['answersSetString'] = isset($data['answersSetString']) ? $data['answersSetString'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
@@ -105,6 +111,28 @@ class MonitoringOutputModel implements ArrayAccess
     public function setAnswers($answers)
     {
         $this->container['answers'] = $answers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets answersSetString
+     * @return string[]
+     */
+    public function getAnswersSetString()
+    {
+        return $this->container['answersSetString'];
+    }
+
+    /**
+     * Sets answersSetString
+     * @param string[] $answersSetString
+     * @return $this
+     */
+    public function setAnswersSetString($answersSetString)
+    {
+        $this->container['answersSetString'] = $answersSetString;
 
         return $this;
     }

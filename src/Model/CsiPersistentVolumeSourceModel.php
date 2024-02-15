@@ -32,6 +32,7 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
         'controllerPublishSecretRef',
         'driver',
         'fsType',
+        'nodeExpandSecretRef',
         'nodePublishSecretRef',
         'nodeStageSecretRef',
         'readOnly',
@@ -62,6 +63,7 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
         'controllerPublishSecretRef' => '\Rancher\Model\SecretReferenceModel',
         'driver' => 'string',
         'fsType' => 'string',
+        'nodeExpandSecretRef' => '\Rancher\Model\SecretReferenceModel',
         'nodePublishSecretRef' => '\Rancher\Model\SecretReferenceModel',
         'nodeStageSecretRef' => '\Rancher\Model\SecretReferenceModel',
         'readOnly' => 'boolean',
@@ -79,6 +81,7 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
         'controllerPublishSecretRef' => 'setControllerPublishSecretRef',
         'driver' => 'setDriver',
         'fsType' => 'setFsType',
+        'nodeExpandSecretRef' => 'setNodeExpandSecretRef',
         'nodePublishSecretRef' => 'setNodePublishSecretRef',
         'nodeStageSecretRef' => 'setNodeStageSecretRef',
         'readOnly' => 'setReadOnly',
@@ -96,6 +99,7 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
         'controllerPublishSecretRef' => 'getControllerPublishSecretRef',
         'driver' => 'getDriver',
         'fsType' => 'getFsType',
+        'nodeExpandSecretRef' => 'getNodeExpandSecretRef',
         'nodePublishSecretRef' => 'getNodePublishSecretRef',
         'nodeStageSecretRef' => 'getNodeStageSecretRef',
         'readOnly' => 'getReadOnly',
@@ -114,6 +118,7 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
         $this->container['controllerPublishSecretRef'] = isset($data['controllerPublishSecretRef']) ? $data['controllerPublishSecretRef'] : null;
         $this->container['driver'] = isset($data['driver']) ? $data['driver'] : null;
         $this->container['fsType'] = isset($data['fsType']) ? $data['fsType'] : null;
+        $this->container['nodeExpandSecretRef'] = isset($data['nodeExpandSecretRef']) ? $data['nodeExpandSecretRef'] : null;
         $this->container['nodePublishSecretRef'] = isset($data['nodePublishSecretRef']) ? $data['nodePublishSecretRef'] : null;
         $this->container['nodeStageSecretRef'] = isset($data['nodeStageSecretRef']) ? $data['nodeStageSecretRef'] : null;
         $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
@@ -204,6 +209,28 @@ class CsiPersistentVolumeSourceModel implements ArrayAccess
     public function setFsType($fsType)
     {
         $this->container['fsType'] = $fsType;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodeExpandSecretRef
+     * @return \Rancher\Model\SecretReferenceModel
+     */
+    public function getNodeExpandSecretRef()
+    {
+        return $this->container['nodeExpandSecretRef'];
+    }
+
+    /**
+     * Sets nodeExpandSecretRef
+     * @param \Rancher\Model\SecretReferenceModel $nodeExpandSecretRef
+     * @return $this
+     */
+    public function setNodeExpandSecretRef($nodeExpandSecretRef)
+    {
+        $this->container['nodeExpandSecretRef'] = $nodeExpandSecretRef;
 
         return $this;
     }

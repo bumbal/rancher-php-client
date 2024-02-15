@@ -50,8 +50,10 @@ class AzureCloudProviderModel implements ArrayAccess
         'resourceGroup',
         'routeTableName',
         'securityGroupName',
+        'securityGroupResourceGroup',
         'subnetName',
         'subscriptionId',
+        'tags',
         'tenantId',
         'useInstanceMetadata',
         'useManagedIdentityExtension',
@@ -94,8 +96,10 @@ class AzureCloudProviderModel implements ArrayAccess
         'resourceGroup',
         'routeTableName',
         'securityGroupName',
+        'securityGroupResourceGroup',
         'subnetName',
         'subscriptionId',
+        'tags',
         'tenantId',
         'useInstanceMetadata',
         'useManagedIdentityExtension',
@@ -133,8 +137,10 @@ class AzureCloudProviderModel implements ArrayAccess
         'resourceGroup' => 'string',
         'routeTableName' => 'string',
         'securityGroupName' => 'string',
+        'securityGroupResourceGroup' => 'string',
         'subnetName' => 'string',
         'subscriptionId' => 'string',
+        'tags' => 'string',
         'tenantId' => 'string',
         'useInstanceMetadata' => 'boolean',
         'useManagedIdentityExtension' => 'boolean',
@@ -172,8 +178,10 @@ class AzureCloudProviderModel implements ArrayAccess
         'resourceGroup' => 'setResourceGroup',
         'routeTableName' => 'setRouteTableName',
         'securityGroupName' => 'setSecurityGroupName',
+        'securityGroupResourceGroup' => 'setSecurityGroupResourceGroup',
         'subnetName' => 'setSubnetName',
         'subscriptionId' => 'setSubscriptionId',
+        'tags' => 'setTags',
         'tenantId' => 'setTenantId',
         'useInstanceMetadata' => 'setUseInstanceMetadata',
         'useManagedIdentityExtension' => 'setUseManagedIdentityExtension',
@@ -211,8 +219,10 @@ class AzureCloudProviderModel implements ArrayAccess
         'resourceGroup' => 'getResourceGroup',
         'routeTableName' => 'getRouteTableName',
         'securityGroupName' => 'getSecurityGroupName',
+        'securityGroupResourceGroup' => 'getSecurityGroupResourceGroup',
         'subnetName' => 'getSubnetName',
         'subscriptionId' => 'getSubscriptionId',
+        'tags' => 'getTags',
         'tenantId' => 'getTenantId',
         'useInstanceMetadata' => 'getUseInstanceMetadata',
         'useManagedIdentityExtension' => 'getUseManagedIdentityExtension',
@@ -251,8 +261,10 @@ class AzureCloudProviderModel implements ArrayAccess
         $this->container['resourceGroup'] = isset($data['resourceGroup']) ? $data['resourceGroup'] : null;
         $this->container['routeTableName'] = isset($data['routeTableName']) ? $data['routeTableName'] : null;
         $this->container['securityGroupName'] = isset($data['securityGroupName']) ? $data['securityGroupName'] : null;
+        $this->container['securityGroupResourceGroup'] = isset($data['securityGroupResourceGroup']) ? $data['securityGroupResourceGroup'] : null;
         $this->container['subnetName'] = isset($data['subnetName']) ? $data['subnetName'] : null;
         $this->container['subscriptionId'] = isset($data['subscriptionId']) ? $data['subscriptionId'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['tenantId'] = isset($data['tenantId']) ? $data['tenantId'] : null;
         $this->container['useInstanceMetadata'] = isset($data['useInstanceMetadata']) ? $data['useInstanceMetadata'] : null;
         $this->container['useManagedIdentityExtension'] = isset($data['useManagedIdentityExtension']) ? $data['useManagedIdentityExtension'] : null;
@@ -747,6 +759,28 @@ class AzureCloudProviderModel implements ArrayAccess
 
 
     /**
+     * Gets securityGroupResourceGroup
+     * @return string
+     */
+    public function getSecurityGroupResourceGroup()
+    {
+        return $this->container['securityGroupResourceGroup'];
+    }
+
+    /**
+     * Sets securityGroupResourceGroup
+     * @param string $securityGroupResourceGroup
+     * @return $this
+     */
+    public function setSecurityGroupResourceGroup($securityGroupResourceGroup)
+    {
+        $this->container['securityGroupResourceGroup'] = $securityGroupResourceGroup;
+
+        return $this;
+    }
+
+
+    /**
      * Gets subnetName
      * @return string
      */
@@ -785,6 +819,28 @@ class AzureCloudProviderModel implements ArrayAccess
     public function setSubscriptionId($subscriptionId)
     {
         $this->container['subscriptionId'] = $subscriptionId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets tags
+     * @return string
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     * @param string $tags
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

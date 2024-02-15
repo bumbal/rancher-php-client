@@ -28,22 +28,41 @@ class AciNetworkProviderModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'aciContainersControllerMemoryLimit',
+        'aciContainersControllerMemoryRequest',
+        'aciContainersHostMemoryLimit',
+        'aciContainersHostMemoryRequest',
+        'aciContainersMemoryLimit',
+        'aciContainersMemoryRequest',
+        'aciMultipod',
+        'aciMultipodUbuntu',
+        'addExternalContractToDefaultEpg',
+        'addExternalSubnetsToRdconfig',
         'aep',
         'apicHosts',
+        'apicRefreshTickerAdjust',
         'apicRefreshTime',
+        'apicSubscriptionDelay',
         'apicUserCrt',
         'apicUserKey',
         'apicUserName',
         'capic',
         'controllerLogLevel',
+        'dhcpDelay',
+        'dhcpRenewMaxRetryCount',
+        'disablePeriodicSnatGlobalInfoSync',
+        'disableWaitForNetwork',
         'dropLogEnable',
+        'durationWaitForNetwork',
         'enableEndpointSlice',
+        'enableOpflexAgentReconnect',
         'encapType',
         'epRegistry',
         'externDynamic',
         'externStatic',
         'gbpPodSubnet',
         'hostAgentLogLevel',
+        'hppOptimization',
         'imagePullPolicy',
         'imagePullSecret',
         'infraVlan',
@@ -56,37 +75,61 @@ class AciNetworkProviderModel implements ArrayAccess
         'l3out',
         'l3outExternalNetworks',
         'maxNodesSvcGraph',
+        'mcastDaemonMemoryLimit',
+        'mcastDaemonMemoryRequest',
         'mcastRangeEnd',
         'mcastRangeStart',
+        'mtuHeadRoom',
+        'multusDisable',
         'noPriorityClass',
+        'noWaitForServiceEpReadiness',
+        'nodePodIfEnable',
+        'nodeSnatRedirectExclude',
         'nodeSubnet',
         'nodeSvcSubnet',
+        'opflexAgentMemoryLimit',
+        'opflexAgentMemoryRequest',
+        'opflexAgentOpflexAsyncjsonEnabled',
+        'opflexAgentOvsAsyncjsonEnabled',
+        'opflexAgentPolicyRetryDelayTimer',
+        'opflexAgentStatistics',
         'opflexClientSsl',
+        'opflexDeviceDeleteTimeout',
+        'opflexDeviceReconnectWaitTimeout',
         'opflexLogLevel',
         'opflexMode',
+        'opflexOpensslCompat',
         'opflexServerPort',
         'overlayVrfName',
         'ovsMemoryLimit',
+        'ovsMemoryRequest',
         'pbrTrackingNonSnat',
         'podSubnetChunkSize',
         'runGbpContainer',
         'runOpflexServerContainer',
+        'serviceGraphEndpointAddDelay',
+        'serviceGraphEndpointAddServices',
         'serviceMonitorInterval',
         'serviceVlan',
+        'sleepTimeSnatGlobalInfoSync',
         'snatContractScope',
         'snatNamespace',
         'snatPortRangeEnd',
         'snatPortRangeStart',
         'snatPortsPerNode',
+        'sriovEnable',
         'subnetDomainName',
         'systemId',
         'tenant',
         'token',
+        'tolerationSeconds',
         'useAciAnywhereCrd',
         'useAciCniPriorityClass',
+        'useClusterRole',
         'useHostNetnsVolume',
         'useOpflexServerVolume',
         'usePrivilegedContainer',
+        'useSystemNodePriorityClass',
         'vmmController',
         'vmmDomain',
         'vrfName',
@@ -104,22 +147,41 @@ class AciNetworkProviderModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'aciContainersControllerMemoryLimit',
+        'aciContainersControllerMemoryRequest',
+        'aciContainersHostMemoryLimit',
+        'aciContainersHostMemoryRequest',
+        'aciContainersMemoryLimit',
+        'aciContainersMemoryRequest',
+        'aciMultipod',
+        'aciMultipodUbuntu',
+        'addExternalContractToDefaultEpg',
+        'addExternalSubnetsToRdconfig',
         'aep',
         'apicHosts',
+        'apicRefreshTickerAdjust',
         'apicRefreshTime',
+        'apicSubscriptionDelay',
         'apicUserCrt',
         'apicUserKey',
         'apicUserName',
         'capic',
         'controllerLogLevel',
+        'dhcpDelay',
+        'dhcpRenewMaxRetryCount',
+        'disablePeriodicSnatGlobalInfoSync',
+        'disableWaitForNetwork',
         'dropLogEnable',
+        'durationWaitForNetwork',
         'enableEndpointSlice',
+        'enableOpflexAgentReconnect',
         'encapType',
         'epRegistry',
         'externDynamic',
         'externStatic',
         'gbpPodSubnet',
         'hostAgentLogLevel',
+        'hppOptimization',
         'imagePullPolicy',
         'imagePullSecret',
         'infraVlan',
@@ -132,37 +194,61 @@ class AciNetworkProviderModel implements ArrayAccess
         'l3out',
         'l3outExternalNetworks',
         'maxNodesSvcGraph',
+        'mcastDaemonMemoryLimit',
+        'mcastDaemonMemoryRequest',
         'mcastRangeEnd',
         'mcastRangeStart',
+        'mtuHeadRoom',
+        'multusDisable',
         'noPriorityClass',
+        'noWaitForServiceEpReadiness',
+        'nodePodIfEnable',
+        'nodeSnatRedirectExclude',
         'nodeSubnet',
         'nodeSvcSubnet',
+        'opflexAgentMemoryLimit',
+        'opflexAgentMemoryRequest',
+        'opflexAgentOpflexAsyncjsonEnabled',
+        'opflexAgentOvsAsyncjsonEnabled',
+        'opflexAgentPolicyRetryDelayTimer',
+        'opflexAgentStatistics',
         'opflexClientSsl',
+        'opflexDeviceDeleteTimeout',
+        'opflexDeviceReconnectWaitTimeout',
         'opflexLogLevel',
         'opflexMode',
+        'opflexOpensslCompat',
         'opflexServerPort',
         'overlayVrfName',
         'ovsMemoryLimit',
+        'ovsMemoryRequest',
         'pbrTrackingNonSnat',
         'podSubnetChunkSize',
         'runGbpContainer',
         'runOpflexServerContainer',
+        'serviceGraphEndpointAddDelay',
+        'serviceGraphEndpointAddServices',
         'serviceMonitorInterval',
         'serviceVlan',
+        'sleepTimeSnatGlobalInfoSync',
         'snatContractScope',
         'snatNamespace',
         'snatPortRangeEnd',
         'snatPortRangeStart',
         'snatPortsPerNode',
+        'sriovEnable',
         'subnetDomainName',
         'systemId',
         'tenant',
         'token',
+        'tolerationSeconds',
         'useAciAnywhereCrd',
         'useAciCniPriorityClass',
+        'useClusterRole',
         'useHostNetnsVolume',
         'useOpflexServerVolume',
         'usePrivilegedContainer',
+        'useSystemNodePriorityClass',
         'vmmController',
         'vmmDomain',
         'vrfName',
@@ -175,22 +261,41 @@ class AciNetworkProviderModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'aciContainersControllerMemoryLimit' => 'string',
+        'aciContainersControllerMemoryRequest' => 'string',
+        'aciContainersHostMemoryLimit' => 'string',
+        'aciContainersHostMemoryRequest' => 'string',
+        'aciContainersMemoryLimit' => 'string',
+        'aciContainersMemoryRequest' => 'string',
+        'aciMultipod' => 'string',
+        'aciMultipodUbuntu' => 'string',
+        'addExternalContractToDefaultEpg' => 'string',
+        'addExternalSubnetsToRdconfig' => 'string',
         'aep' => 'string',
         'apicHosts' => 'string[]',
+        'apicRefreshTickerAdjust' => 'string',
         'apicRefreshTime' => 'string',
+        'apicSubscriptionDelay' => 'string',
         'apicUserCrt' => 'string',
         'apicUserKey' => 'string',
         'apicUserName' => 'string',
         'capic' => 'string',
         'controllerLogLevel' => 'string',
+        'dhcpDelay' => 'string',
+        'dhcpRenewMaxRetryCount' => 'string',
+        'disablePeriodicSnatGlobalInfoSync' => 'string',
+        'disableWaitForNetwork' => 'string',
         'dropLogEnable' => 'string',
+        'durationWaitForNetwork' => 'string',
         'enableEndpointSlice' => 'string',
+        'enableOpflexAgentReconnect' => 'string',
         'encapType' => 'string',
         'epRegistry' => 'string',
         'externDynamic' => 'string',
         'externStatic' => 'string',
         'gbpPodSubnet' => 'string',
         'hostAgentLogLevel' => 'string',
+        'hppOptimization' => 'string',
         'imagePullPolicy' => 'string',
         'imagePullSecret' => 'string',
         'infraVlan' => 'string',
@@ -203,37 +308,61 @@ class AciNetworkProviderModel implements ArrayAccess
         'l3out' => 'string',
         'l3outExternalNetworks' => 'string[]',
         'maxNodesSvcGraph' => 'string',
+        'mcastDaemonMemoryLimit' => 'string',
+        'mcastDaemonMemoryRequest' => 'string',
         'mcastRangeEnd' => 'string',
         'mcastRangeStart' => 'string',
+        'mtuHeadRoom' => 'string',
+        'multusDisable' => 'string',
         'noPriorityClass' => 'string',
+        'noWaitForServiceEpReadiness' => 'string',
+        'nodePodIfEnable' => 'string',
+        'nodeSnatRedirectExclude' => '\Rancher\Model\Map[string]Model[]',
         'nodeSubnet' => 'string',
         'nodeSvcSubnet' => 'string',
+        'opflexAgentMemoryLimit' => 'string',
+        'opflexAgentMemoryRequest' => 'string',
+        'opflexAgentOpflexAsyncjsonEnabled' => 'string',
+        'opflexAgentOvsAsyncjsonEnabled' => 'string',
+        'opflexAgentPolicyRetryDelayTimer' => 'string',
+        'opflexAgentStatistics' => 'string',
         'opflexClientSsl' => 'string',
+        'opflexDeviceDeleteTimeout' => 'string',
+        'opflexDeviceReconnectWaitTimeout' => 'string',
         'opflexLogLevel' => 'string',
         'opflexMode' => 'string',
+        'opflexOpensslCompat' => 'string',
         'opflexServerPort' => 'string',
         'overlayVrfName' => 'string',
         'ovsMemoryLimit' => 'string',
+        'ovsMemoryRequest' => 'string',
         'pbrTrackingNonSnat' => 'string',
         'podSubnetChunkSize' => 'string',
         'runGbpContainer' => 'string',
         'runOpflexServerContainer' => 'string',
+        'serviceGraphEndpointAddDelay' => 'string',
+        'serviceGraphEndpointAddServices' => '\Rancher\Model\Map[string]Model[]',
         'serviceMonitorInterval' => 'string',
         'serviceVlan' => 'string',
+        'sleepTimeSnatGlobalInfoSync' => 'string',
         'snatContractScope' => 'string',
         'snatNamespace' => 'string',
         'snatPortRangeEnd' => 'string',
         'snatPortRangeStart' => 'string',
         'snatPortsPerNode' => 'string',
+        'sriovEnable' => 'string',
         'subnetDomainName' => 'string',
         'systemId' => 'string',
         'tenant' => 'string',
         'token' => 'string',
+        'tolerationSeconds' => 'string',
         'useAciAnywhereCrd' => 'string',
         'useAciCniPriorityClass' => 'string',
+        'useClusterRole' => 'string',
         'useHostNetnsVolume' => 'string',
         'useOpflexServerVolume' => 'string',
         'usePrivilegedContainer' => 'string',
+        'useSystemNodePriorityClass' => 'string',
         'vmmController' => 'string',
         'vmmDomain' => 'string',
         'vrfName' => 'string',
@@ -246,22 +375,41 @@ class AciNetworkProviderModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'aciContainersControllerMemoryLimit' => 'setAciContainersControllerMemoryLimit',
+        'aciContainersControllerMemoryRequest' => 'setAciContainersControllerMemoryRequest',
+        'aciContainersHostMemoryLimit' => 'setAciContainersHostMemoryLimit',
+        'aciContainersHostMemoryRequest' => 'setAciContainersHostMemoryRequest',
+        'aciContainersMemoryLimit' => 'setAciContainersMemoryLimit',
+        'aciContainersMemoryRequest' => 'setAciContainersMemoryRequest',
+        'aciMultipod' => 'setAciMultipod',
+        'aciMultipodUbuntu' => 'setAciMultipodUbuntu',
+        'addExternalContractToDefaultEpg' => 'setAddExternalContractToDefaultEpg',
+        'addExternalSubnetsToRdconfig' => 'setAddExternalSubnetsToRdconfig',
         'aep' => 'setAep',
         'apicHosts' => 'setApicHosts',
+        'apicRefreshTickerAdjust' => 'setApicRefreshTickerAdjust',
         'apicRefreshTime' => 'setApicRefreshTime',
+        'apicSubscriptionDelay' => 'setApicSubscriptionDelay',
         'apicUserCrt' => 'setApicUserCrt',
         'apicUserKey' => 'setApicUserKey',
         'apicUserName' => 'setApicUserName',
         'capic' => 'setCapic',
         'controllerLogLevel' => 'setControllerLogLevel',
+        'dhcpDelay' => 'setDhcpDelay',
+        'dhcpRenewMaxRetryCount' => 'setDhcpRenewMaxRetryCount',
+        'disablePeriodicSnatGlobalInfoSync' => 'setDisablePeriodicSnatGlobalInfoSync',
+        'disableWaitForNetwork' => 'setDisableWaitForNetwork',
         'dropLogEnable' => 'setDropLogEnable',
+        'durationWaitForNetwork' => 'setDurationWaitForNetwork',
         'enableEndpointSlice' => 'setEnableEndpointSlice',
+        'enableOpflexAgentReconnect' => 'setEnableOpflexAgentReconnect',
         'encapType' => 'setEncapType',
         'epRegistry' => 'setEpRegistry',
         'externDynamic' => 'setExternDynamic',
         'externStatic' => 'setExternStatic',
         'gbpPodSubnet' => 'setGbpPodSubnet',
         'hostAgentLogLevel' => 'setHostAgentLogLevel',
+        'hppOptimization' => 'setHppOptimization',
         'imagePullPolicy' => 'setImagePullPolicy',
         'imagePullSecret' => 'setImagePullSecret',
         'infraVlan' => 'setInfraVlan',
@@ -274,37 +422,61 @@ class AciNetworkProviderModel implements ArrayAccess
         'l3out' => 'setL3out',
         'l3outExternalNetworks' => 'setL3outExternalNetworks',
         'maxNodesSvcGraph' => 'setMaxNodesSvcGraph',
+        'mcastDaemonMemoryLimit' => 'setMcastDaemonMemoryLimit',
+        'mcastDaemonMemoryRequest' => 'setMcastDaemonMemoryRequest',
         'mcastRangeEnd' => 'setMcastRangeEnd',
         'mcastRangeStart' => 'setMcastRangeStart',
+        'mtuHeadRoom' => 'setMtuHeadRoom',
+        'multusDisable' => 'setMultusDisable',
         'noPriorityClass' => 'setNoPriorityClass',
+        'noWaitForServiceEpReadiness' => 'setNoWaitForServiceEpReadiness',
+        'nodePodIfEnable' => 'setNodePodIfEnable',
+        'nodeSnatRedirectExclude' => 'setNodeSnatRedirectExclude',
         'nodeSubnet' => 'setNodeSubnet',
         'nodeSvcSubnet' => 'setNodeSvcSubnet',
+        'opflexAgentMemoryLimit' => 'setOpflexAgentMemoryLimit',
+        'opflexAgentMemoryRequest' => 'setOpflexAgentMemoryRequest',
+        'opflexAgentOpflexAsyncjsonEnabled' => 'setOpflexAgentOpflexAsyncjsonEnabled',
+        'opflexAgentOvsAsyncjsonEnabled' => 'setOpflexAgentOvsAsyncjsonEnabled',
+        'opflexAgentPolicyRetryDelayTimer' => 'setOpflexAgentPolicyRetryDelayTimer',
+        'opflexAgentStatistics' => 'setOpflexAgentStatistics',
         'opflexClientSsl' => 'setOpflexClientSsl',
+        'opflexDeviceDeleteTimeout' => 'setOpflexDeviceDeleteTimeout',
+        'opflexDeviceReconnectWaitTimeout' => 'setOpflexDeviceReconnectWaitTimeout',
         'opflexLogLevel' => 'setOpflexLogLevel',
         'opflexMode' => 'setOpflexMode',
+        'opflexOpensslCompat' => 'setOpflexOpensslCompat',
         'opflexServerPort' => 'setOpflexServerPort',
         'overlayVrfName' => 'setOverlayVrfName',
         'ovsMemoryLimit' => 'setOvsMemoryLimit',
+        'ovsMemoryRequest' => 'setOvsMemoryRequest',
         'pbrTrackingNonSnat' => 'setPbrTrackingNonSnat',
         'podSubnetChunkSize' => 'setPodSubnetChunkSize',
         'runGbpContainer' => 'setRunGbpContainer',
         'runOpflexServerContainer' => 'setRunOpflexServerContainer',
+        'serviceGraphEndpointAddDelay' => 'setServiceGraphEndpointAddDelay',
+        'serviceGraphEndpointAddServices' => 'setServiceGraphEndpointAddServices',
         'serviceMonitorInterval' => 'setServiceMonitorInterval',
         'serviceVlan' => 'setServiceVlan',
+        'sleepTimeSnatGlobalInfoSync' => 'setSleepTimeSnatGlobalInfoSync',
         'snatContractScope' => 'setSnatContractScope',
         'snatNamespace' => 'setSnatNamespace',
         'snatPortRangeEnd' => 'setSnatPortRangeEnd',
         'snatPortRangeStart' => 'setSnatPortRangeStart',
         'snatPortsPerNode' => 'setSnatPortsPerNode',
+        'sriovEnable' => 'setSriovEnable',
         'subnetDomainName' => 'setSubnetDomainName',
         'systemId' => 'setSystemId',
         'tenant' => 'setTenant',
         'token' => 'setToken',
+        'tolerationSeconds' => 'setTolerationSeconds',
         'useAciAnywhereCrd' => 'setUseAciAnywhereCrd',
         'useAciCniPriorityClass' => 'setUseAciCniPriorityClass',
+        'useClusterRole' => 'setUseClusterRole',
         'useHostNetnsVolume' => 'setUseHostNetnsVolume',
         'useOpflexServerVolume' => 'setUseOpflexServerVolume',
         'usePrivilegedContainer' => 'setUsePrivilegedContainer',
+        'useSystemNodePriorityClass' => 'setUseSystemNodePriorityClass',
         'vmmController' => 'setVmmController',
         'vmmDomain' => 'setVmmDomain',
         'vrfName' => 'setVrfName',
@@ -317,22 +489,41 @@ class AciNetworkProviderModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'aciContainersControllerMemoryLimit' => 'getAciContainersControllerMemoryLimit',
+        'aciContainersControllerMemoryRequest' => 'getAciContainersControllerMemoryRequest',
+        'aciContainersHostMemoryLimit' => 'getAciContainersHostMemoryLimit',
+        'aciContainersHostMemoryRequest' => 'getAciContainersHostMemoryRequest',
+        'aciContainersMemoryLimit' => 'getAciContainersMemoryLimit',
+        'aciContainersMemoryRequest' => 'getAciContainersMemoryRequest',
+        'aciMultipod' => 'getAciMultipod',
+        'aciMultipodUbuntu' => 'getAciMultipodUbuntu',
+        'addExternalContractToDefaultEpg' => 'getAddExternalContractToDefaultEpg',
+        'addExternalSubnetsToRdconfig' => 'getAddExternalSubnetsToRdconfig',
         'aep' => 'getAep',
         'apicHosts' => 'getApicHosts',
+        'apicRefreshTickerAdjust' => 'getApicRefreshTickerAdjust',
         'apicRefreshTime' => 'getApicRefreshTime',
+        'apicSubscriptionDelay' => 'getApicSubscriptionDelay',
         'apicUserCrt' => 'getApicUserCrt',
         'apicUserKey' => 'getApicUserKey',
         'apicUserName' => 'getApicUserName',
         'capic' => 'getCapic',
         'controllerLogLevel' => 'getControllerLogLevel',
+        'dhcpDelay' => 'getDhcpDelay',
+        'dhcpRenewMaxRetryCount' => 'getDhcpRenewMaxRetryCount',
+        'disablePeriodicSnatGlobalInfoSync' => 'getDisablePeriodicSnatGlobalInfoSync',
+        'disableWaitForNetwork' => 'getDisableWaitForNetwork',
         'dropLogEnable' => 'getDropLogEnable',
+        'durationWaitForNetwork' => 'getDurationWaitForNetwork',
         'enableEndpointSlice' => 'getEnableEndpointSlice',
+        'enableOpflexAgentReconnect' => 'getEnableOpflexAgentReconnect',
         'encapType' => 'getEncapType',
         'epRegistry' => 'getEpRegistry',
         'externDynamic' => 'getExternDynamic',
         'externStatic' => 'getExternStatic',
         'gbpPodSubnet' => 'getGbpPodSubnet',
         'hostAgentLogLevel' => 'getHostAgentLogLevel',
+        'hppOptimization' => 'getHppOptimization',
         'imagePullPolicy' => 'getImagePullPolicy',
         'imagePullSecret' => 'getImagePullSecret',
         'infraVlan' => 'getInfraVlan',
@@ -345,37 +536,61 @@ class AciNetworkProviderModel implements ArrayAccess
         'l3out' => 'getL3out',
         'l3outExternalNetworks' => 'getL3outExternalNetworks',
         'maxNodesSvcGraph' => 'getMaxNodesSvcGraph',
+        'mcastDaemonMemoryLimit' => 'getMcastDaemonMemoryLimit',
+        'mcastDaemonMemoryRequest' => 'getMcastDaemonMemoryRequest',
         'mcastRangeEnd' => 'getMcastRangeEnd',
         'mcastRangeStart' => 'getMcastRangeStart',
+        'mtuHeadRoom' => 'getMtuHeadRoom',
+        'multusDisable' => 'getMultusDisable',
         'noPriorityClass' => 'getNoPriorityClass',
+        'noWaitForServiceEpReadiness' => 'getNoWaitForServiceEpReadiness',
+        'nodePodIfEnable' => 'getNodePodIfEnable',
+        'nodeSnatRedirectExclude' => 'getNodeSnatRedirectExclude',
         'nodeSubnet' => 'getNodeSubnet',
         'nodeSvcSubnet' => 'getNodeSvcSubnet',
+        'opflexAgentMemoryLimit' => 'getOpflexAgentMemoryLimit',
+        'opflexAgentMemoryRequest' => 'getOpflexAgentMemoryRequest',
+        'opflexAgentOpflexAsyncjsonEnabled' => 'getOpflexAgentOpflexAsyncjsonEnabled',
+        'opflexAgentOvsAsyncjsonEnabled' => 'getOpflexAgentOvsAsyncjsonEnabled',
+        'opflexAgentPolicyRetryDelayTimer' => 'getOpflexAgentPolicyRetryDelayTimer',
+        'opflexAgentStatistics' => 'getOpflexAgentStatistics',
         'opflexClientSsl' => 'getOpflexClientSsl',
+        'opflexDeviceDeleteTimeout' => 'getOpflexDeviceDeleteTimeout',
+        'opflexDeviceReconnectWaitTimeout' => 'getOpflexDeviceReconnectWaitTimeout',
         'opflexLogLevel' => 'getOpflexLogLevel',
         'opflexMode' => 'getOpflexMode',
+        'opflexOpensslCompat' => 'getOpflexOpensslCompat',
         'opflexServerPort' => 'getOpflexServerPort',
         'overlayVrfName' => 'getOverlayVrfName',
         'ovsMemoryLimit' => 'getOvsMemoryLimit',
+        'ovsMemoryRequest' => 'getOvsMemoryRequest',
         'pbrTrackingNonSnat' => 'getPbrTrackingNonSnat',
         'podSubnetChunkSize' => 'getPodSubnetChunkSize',
         'runGbpContainer' => 'getRunGbpContainer',
         'runOpflexServerContainer' => 'getRunOpflexServerContainer',
+        'serviceGraphEndpointAddDelay' => 'getServiceGraphEndpointAddDelay',
+        'serviceGraphEndpointAddServices' => 'getServiceGraphEndpointAddServices',
         'serviceMonitorInterval' => 'getServiceMonitorInterval',
         'serviceVlan' => 'getServiceVlan',
+        'sleepTimeSnatGlobalInfoSync' => 'getSleepTimeSnatGlobalInfoSync',
         'snatContractScope' => 'getSnatContractScope',
         'snatNamespace' => 'getSnatNamespace',
         'snatPortRangeEnd' => 'getSnatPortRangeEnd',
         'snatPortRangeStart' => 'getSnatPortRangeStart',
         'snatPortsPerNode' => 'getSnatPortsPerNode',
+        'sriovEnable' => 'getSriovEnable',
         'subnetDomainName' => 'getSubnetDomainName',
         'systemId' => 'getSystemId',
         'tenant' => 'getTenant',
         'token' => 'getToken',
+        'tolerationSeconds' => 'getTolerationSeconds',
         'useAciAnywhereCrd' => 'getUseAciAnywhereCrd',
         'useAciCniPriorityClass' => 'getUseAciCniPriorityClass',
+        'useClusterRole' => 'getUseClusterRole',
         'useHostNetnsVolume' => 'getUseHostNetnsVolume',
         'useOpflexServerVolume' => 'getUseOpflexServerVolume',
         'usePrivilegedContainer' => 'getUsePrivilegedContainer',
+        'useSystemNodePriorityClass' => 'getUseSystemNodePriorityClass',
         'vmmController' => 'getVmmController',
         'vmmDomain' => 'getVmmDomain',
         'vrfName' => 'getVrfName',
@@ -389,22 +604,41 @@ class AciNetworkProviderModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['aciContainersControllerMemoryLimit'] = isset($data['aciContainersControllerMemoryLimit']) ? $data['aciContainersControllerMemoryLimit'] : null;
+        $this->container['aciContainersControllerMemoryRequest'] = isset($data['aciContainersControllerMemoryRequest']) ? $data['aciContainersControllerMemoryRequest'] : null;
+        $this->container['aciContainersHostMemoryLimit'] = isset($data['aciContainersHostMemoryLimit']) ? $data['aciContainersHostMemoryLimit'] : null;
+        $this->container['aciContainersHostMemoryRequest'] = isset($data['aciContainersHostMemoryRequest']) ? $data['aciContainersHostMemoryRequest'] : null;
+        $this->container['aciContainersMemoryLimit'] = isset($data['aciContainersMemoryLimit']) ? $data['aciContainersMemoryLimit'] : null;
+        $this->container['aciContainersMemoryRequest'] = isset($data['aciContainersMemoryRequest']) ? $data['aciContainersMemoryRequest'] : null;
+        $this->container['aciMultipod'] = isset($data['aciMultipod']) ? $data['aciMultipod'] : null;
+        $this->container['aciMultipodUbuntu'] = isset($data['aciMultipodUbuntu']) ? $data['aciMultipodUbuntu'] : null;
+        $this->container['addExternalContractToDefaultEpg'] = isset($data['addExternalContractToDefaultEpg']) ? $data['addExternalContractToDefaultEpg'] : null;
+        $this->container['addExternalSubnetsToRdconfig'] = isset($data['addExternalSubnetsToRdconfig']) ? $data['addExternalSubnetsToRdconfig'] : null;
         $this->container['aep'] = isset($data['aep']) ? $data['aep'] : null;
         $this->container['apicHosts'] = isset($data['apicHosts']) ? $data['apicHosts'] : null;
+        $this->container['apicRefreshTickerAdjust'] = isset($data['apicRefreshTickerAdjust']) ? $data['apicRefreshTickerAdjust'] : null;
         $this->container['apicRefreshTime'] = isset($data['apicRefreshTime']) ? $data['apicRefreshTime'] : null;
+        $this->container['apicSubscriptionDelay'] = isset($data['apicSubscriptionDelay']) ? $data['apicSubscriptionDelay'] : null;
         $this->container['apicUserCrt'] = isset($data['apicUserCrt']) ? $data['apicUserCrt'] : null;
         $this->container['apicUserKey'] = isset($data['apicUserKey']) ? $data['apicUserKey'] : null;
         $this->container['apicUserName'] = isset($data['apicUserName']) ? $data['apicUserName'] : null;
         $this->container['capic'] = isset($data['capic']) ? $data['capic'] : null;
         $this->container['controllerLogLevel'] = isset($data['controllerLogLevel']) ? $data['controllerLogLevel'] : null;
+        $this->container['dhcpDelay'] = isset($data['dhcpDelay']) ? $data['dhcpDelay'] : null;
+        $this->container['dhcpRenewMaxRetryCount'] = isset($data['dhcpRenewMaxRetryCount']) ? $data['dhcpRenewMaxRetryCount'] : null;
+        $this->container['disablePeriodicSnatGlobalInfoSync'] = isset($data['disablePeriodicSnatGlobalInfoSync']) ? $data['disablePeriodicSnatGlobalInfoSync'] : null;
+        $this->container['disableWaitForNetwork'] = isset($data['disableWaitForNetwork']) ? $data['disableWaitForNetwork'] : null;
         $this->container['dropLogEnable'] = isset($data['dropLogEnable']) ? $data['dropLogEnable'] : null;
+        $this->container['durationWaitForNetwork'] = isset($data['durationWaitForNetwork']) ? $data['durationWaitForNetwork'] : null;
         $this->container['enableEndpointSlice'] = isset($data['enableEndpointSlice']) ? $data['enableEndpointSlice'] : null;
+        $this->container['enableOpflexAgentReconnect'] = isset($data['enableOpflexAgentReconnect']) ? $data['enableOpflexAgentReconnect'] : null;
         $this->container['encapType'] = isset($data['encapType']) ? $data['encapType'] : null;
         $this->container['epRegistry'] = isset($data['epRegistry']) ? $data['epRegistry'] : null;
         $this->container['externDynamic'] = isset($data['externDynamic']) ? $data['externDynamic'] : null;
         $this->container['externStatic'] = isset($data['externStatic']) ? $data['externStatic'] : null;
         $this->container['gbpPodSubnet'] = isset($data['gbpPodSubnet']) ? $data['gbpPodSubnet'] : null;
         $this->container['hostAgentLogLevel'] = isset($data['hostAgentLogLevel']) ? $data['hostAgentLogLevel'] : null;
+        $this->container['hppOptimization'] = isset($data['hppOptimization']) ? $data['hppOptimization'] : null;
         $this->container['imagePullPolicy'] = isset($data['imagePullPolicy']) ? $data['imagePullPolicy'] : null;
         $this->container['imagePullSecret'] = isset($data['imagePullSecret']) ? $data['imagePullSecret'] : null;
         $this->container['infraVlan'] = isset($data['infraVlan']) ? $data['infraVlan'] : null;
@@ -417,42 +651,286 @@ class AciNetworkProviderModel implements ArrayAccess
         $this->container['l3out'] = isset($data['l3out']) ? $data['l3out'] : null;
         $this->container['l3outExternalNetworks'] = isset($data['l3outExternalNetworks']) ? $data['l3outExternalNetworks'] : null;
         $this->container['maxNodesSvcGraph'] = isset($data['maxNodesSvcGraph']) ? $data['maxNodesSvcGraph'] : null;
+        $this->container['mcastDaemonMemoryLimit'] = isset($data['mcastDaemonMemoryLimit']) ? $data['mcastDaemonMemoryLimit'] : null;
+        $this->container['mcastDaemonMemoryRequest'] = isset($data['mcastDaemonMemoryRequest']) ? $data['mcastDaemonMemoryRequest'] : null;
         $this->container['mcastRangeEnd'] = isset($data['mcastRangeEnd']) ? $data['mcastRangeEnd'] : null;
         $this->container['mcastRangeStart'] = isset($data['mcastRangeStart']) ? $data['mcastRangeStart'] : null;
+        $this->container['mtuHeadRoom'] = isset($data['mtuHeadRoom']) ? $data['mtuHeadRoom'] : null;
+        $this->container['multusDisable'] = isset($data['multusDisable']) ? $data['multusDisable'] : null;
         $this->container['noPriorityClass'] = isset($data['noPriorityClass']) ? $data['noPriorityClass'] : null;
+        $this->container['noWaitForServiceEpReadiness'] = isset($data['noWaitForServiceEpReadiness']) ? $data['noWaitForServiceEpReadiness'] : null;
+        $this->container['nodePodIfEnable'] = isset($data['nodePodIfEnable']) ? $data['nodePodIfEnable'] : null;
+        $this->container['nodeSnatRedirectExclude'] = isset($data['nodeSnatRedirectExclude']) ? $data['nodeSnatRedirectExclude'] : null;
         $this->container['nodeSubnet'] = isset($data['nodeSubnet']) ? $data['nodeSubnet'] : null;
         $this->container['nodeSvcSubnet'] = isset($data['nodeSvcSubnet']) ? $data['nodeSvcSubnet'] : null;
+        $this->container['opflexAgentMemoryLimit'] = isset($data['opflexAgentMemoryLimit']) ? $data['opflexAgentMemoryLimit'] : null;
+        $this->container['opflexAgentMemoryRequest'] = isset($data['opflexAgentMemoryRequest']) ? $data['opflexAgentMemoryRequest'] : null;
+        $this->container['opflexAgentOpflexAsyncjsonEnabled'] = isset($data['opflexAgentOpflexAsyncjsonEnabled']) ? $data['opflexAgentOpflexAsyncjsonEnabled'] : null;
+        $this->container['opflexAgentOvsAsyncjsonEnabled'] = isset($data['opflexAgentOvsAsyncjsonEnabled']) ? $data['opflexAgentOvsAsyncjsonEnabled'] : null;
+        $this->container['opflexAgentPolicyRetryDelayTimer'] = isset($data['opflexAgentPolicyRetryDelayTimer']) ? $data['opflexAgentPolicyRetryDelayTimer'] : null;
+        $this->container['opflexAgentStatistics'] = isset($data['opflexAgentStatistics']) ? $data['opflexAgentStatistics'] : null;
         $this->container['opflexClientSsl'] = isset($data['opflexClientSsl']) ? $data['opflexClientSsl'] : null;
+        $this->container['opflexDeviceDeleteTimeout'] = isset($data['opflexDeviceDeleteTimeout']) ? $data['opflexDeviceDeleteTimeout'] : null;
+        $this->container['opflexDeviceReconnectWaitTimeout'] = isset($data['opflexDeviceReconnectWaitTimeout']) ? $data['opflexDeviceReconnectWaitTimeout'] : null;
         $this->container['opflexLogLevel'] = isset($data['opflexLogLevel']) ? $data['opflexLogLevel'] : null;
         $this->container['opflexMode'] = isset($data['opflexMode']) ? $data['opflexMode'] : null;
+        $this->container['opflexOpensslCompat'] = isset($data['opflexOpensslCompat']) ? $data['opflexOpensslCompat'] : null;
         $this->container['opflexServerPort'] = isset($data['opflexServerPort']) ? $data['opflexServerPort'] : null;
         $this->container['overlayVrfName'] = isset($data['overlayVrfName']) ? $data['overlayVrfName'] : null;
         $this->container['ovsMemoryLimit'] = isset($data['ovsMemoryLimit']) ? $data['ovsMemoryLimit'] : null;
+        $this->container['ovsMemoryRequest'] = isset($data['ovsMemoryRequest']) ? $data['ovsMemoryRequest'] : null;
         $this->container['pbrTrackingNonSnat'] = isset($data['pbrTrackingNonSnat']) ? $data['pbrTrackingNonSnat'] : null;
         $this->container['podSubnetChunkSize'] = isset($data['podSubnetChunkSize']) ? $data['podSubnetChunkSize'] : null;
         $this->container['runGbpContainer'] = isset($data['runGbpContainer']) ? $data['runGbpContainer'] : null;
         $this->container['runOpflexServerContainer'] = isset($data['runOpflexServerContainer']) ? $data['runOpflexServerContainer'] : null;
+        $this->container['serviceGraphEndpointAddDelay'] = isset($data['serviceGraphEndpointAddDelay']) ? $data['serviceGraphEndpointAddDelay'] : null;
+        $this->container['serviceGraphEndpointAddServices'] = isset($data['serviceGraphEndpointAddServices']) ? $data['serviceGraphEndpointAddServices'] : null;
         $this->container['serviceMonitorInterval'] = isset($data['serviceMonitorInterval']) ? $data['serviceMonitorInterval'] : null;
         $this->container['serviceVlan'] = isset($data['serviceVlan']) ? $data['serviceVlan'] : null;
+        $this->container['sleepTimeSnatGlobalInfoSync'] = isset($data['sleepTimeSnatGlobalInfoSync']) ? $data['sleepTimeSnatGlobalInfoSync'] : null;
         $this->container['snatContractScope'] = isset($data['snatContractScope']) ? $data['snatContractScope'] : null;
         $this->container['snatNamespace'] = isset($data['snatNamespace']) ? $data['snatNamespace'] : null;
         $this->container['snatPortRangeEnd'] = isset($data['snatPortRangeEnd']) ? $data['snatPortRangeEnd'] : null;
         $this->container['snatPortRangeStart'] = isset($data['snatPortRangeStart']) ? $data['snatPortRangeStart'] : null;
         $this->container['snatPortsPerNode'] = isset($data['snatPortsPerNode']) ? $data['snatPortsPerNode'] : null;
+        $this->container['sriovEnable'] = isset($data['sriovEnable']) ? $data['sriovEnable'] : null;
         $this->container['subnetDomainName'] = isset($data['subnetDomainName']) ? $data['subnetDomainName'] : null;
         $this->container['systemId'] = isset($data['systemId']) ? $data['systemId'] : null;
         $this->container['tenant'] = isset($data['tenant']) ? $data['tenant'] : null;
         $this->container['token'] = isset($data['token']) ? $data['token'] : null;
+        $this->container['tolerationSeconds'] = isset($data['tolerationSeconds']) ? $data['tolerationSeconds'] : null;
         $this->container['useAciAnywhereCrd'] = isset($data['useAciAnywhereCrd']) ? $data['useAciAnywhereCrd'] : null;
         $this->container['useAciCniPriorityClass'] = isset($data['useAciCniPriorityClass']) ? $data['useAciCniPriorityClass'] : null;
+        $this->container['useClusterRole'] = isset($data['useClusterRole']) ? $data['useClusterRole'] : null;
         $this->container['useHostNetnsVolume'] = isset($data['useHostNetnsVolume']) ? $data['useHostNetnsVolume'] : null;
         $this->container['useOpflexServerVolume'] = isset($data['useOpflexServerVolume']) ? $data['useOpflexServerVolume'] : null;
         $this->container['usePrivilegedContainer'] = isset($data['usePrivilegedContainer']) ? $data['usePrivilegedContainer'] : null;
+        $this->container['useSystemNodePriorityClass'] = isset($data['useSystemNodePriorityClass']) ? $data['useSystemNodePriorityClass'] : null;
         $this->container['vmmController'] = isset($data['vmmController']) ? $data['vmmController'] : null;
         $this->container['vmmDomain'] = isset($data['vmmDomain']) ? $data['vmmDomain'] : null;
         $this->container['vrfName'] = isset($data['vrfName']) ? $data['vrfName'] : null;
         $this->container['vrfTenant'] = isset($data['vrfTenant']) ? $data['vrfTenant'] : null;
     }
+
+    /**
+     * Gets aciContainersControllerMemoryLimit
+     * @return string
+     */
+    public function getAciContainersControllerMemoryLimit()
+    {
+        return $this->container['aciContainersControllerMemoryLimit'];
+    }
+
+    /**
+     * Sets aciContainersControllerMemoryLimit
+     * @param string $aciContainersControllerMemoryLimit
+     * @return $this
+     */
+    public function setAciContainersControllerMemoryLimit($aciContainersControllerMemoryLimit)
+    {
+        $this->container['aciContainersControllerMemoryLimit'] = $aciContainersControllerMemoryLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciContainersControllerMemoryRequest
+     * @return string
+     */
+    public function getAciContainersControllerMemoryRequest()
+    {
+        return $this->container['aciContainersControllerMemoryRequest'];
+    }
+
+    /**
+     * Sets aciContainersControllerMemoryRequest
+     * @param string $aciContainersControllerMemoryRequest
+     * @return $this
+     */
+    public function setAciContainersControllerMemoryRequest($aciContainersControllerMemoryRequest)
+    {
+        $this->container['aciContainersControllerMemoryRequest'] = $aciContainersControllerMemoryRequest;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciContainersHostMemoryLimit
+     * @return string
+     */
+    public function getAciContainersHostMemoryLimit()
+    {
+        return $this->container['aciContainersHostMemoryLimit'];
+    }
+
+    /**
+     * Sets aciContainersHostMemoryLimit
+     * @param string $aciContainersHostMemoryLimit
+     * @return $this
+     */
+    public function setAciContainersHostMemoryLimit($aciContainersHostMemoryLimit)
+    {
+        $this->container['aciContainersHostMemoryLimit'] = $aciContainersHostMemoryLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciContainersHostMemoryRequest
+     * @return string
+     */
+    public function getAciContainersHostMemoryRequest()
+    {
+        return $this->container['aciContainersHostMemoryRequest'];
+    }
+
+    /**
+     * Sets aciContainersHostMemoryRequest
+     * @param string $aciContainersHostMemoryRequest
+     * @return $this
+     */
+    public function setAciContainersHostMemoryRequest($aciContainersHostMemoryRequest)
+    {
+        $this->container['aciContainersHostMemoryRequest'] = $aciContainersHostMemoryRequest;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciContainersMemoryLimit
+     * @return string
+     */
+    public function getAciContainersMemoryLimit()
+    {
+        return $this->container['aciContainersMemoryLimit'];
+    }
+
+    /**
+     * Sets aciContainersMemoryLimit
+     * @param string $aciContainersMemoryLimit
+     * @return $this
+     */
+    public function setAciContainersMemoryLimit($aciContainersMemoryLimit)
+    {
+        $this->container['aciContainersMemoryLimit'] = $aciContainersMemoryLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciContainersMemoryRequest
+     * @return string
+     */
+    public function getAciContainersMemoryRequest()
+    {
+        return $this->container['aciContainersMemoryRequest'];
+    }
+
+    /**
+     * Sets aciContainersMemoryRequest
+     * @param string $aciContainersMemoryRequest
+     * @return $this
+     */
+    public function setAciContainersMemoryRequest($aciContainersMemoryRequest)
+    {
+        $this->container['aciContainersMemoryRequest'] = $aciContainersMemoryRequest;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciMultipod
+     * @return string
+     */
+    public function getAciMultipod()
+    {
+        return $this->container['aciMultipod'];
+    }
+
+    /**
+     * Sets aciMultipod
+     * @param string $aciMultipod
+     * @return $this
+     */
+    public function setAciMultipod($aciMultipod)
+    {
+        $this->container['aciMultipod'] = $aciMultipod;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aciMultipodUbuntu
+     * @return string
+     */
+    public function getAciMultipodUbuntu()
+    {
+        return $this->container['aciMultipodUbuntu'];
+    }
+
+    /**
+     * Sets aciMultipodUbuntu
+     * @param string $aciMultipodUbuntu
+     * @return $this
+     */
+    public function setAciMultipodUbuntu($aciMultipodUbuntu)
+    {
+        $this->container['aciMultipodUbuntu'] = $aciMultipodUbuntu;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets addExternalContractToDefaultEpg
+     * @return string
+     */
+    public function getAddExternalContractToDefaultEpg()
+    {
+        return $this->container['addExternalContractToDefaultEpg'];
+    }
+
+    /**
+     * Sets addExternalContractToDefaultEpg
+     * @param string $addExternalContractToDefaultEpg
+     * @return $this
+     */
+    public function setAddExternalContractToDefaultEpg($addExternalContractToDefaultEpg)
+    {
+        $this->container['addExternalContractToDefaultEpg'] = $addExternalContractToDefaultEpg;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets addExternalSubnetsToRdconfig
+     * @return string
+     */
+    public function getAddExternalSubnetsToRdconfig()
+    {
+        return $this->container['addExternalSubnetsToRdconfig'];
+    }
+
+    /**
+     * Sets addExternalSubnetsToRdconfig
+     * @param string $addExternalSubnetsToRdconfig
+     * @return $this
+     */
+    public function setAddExternalSubnetsToRdconfig($addExternalSubnetsToRdconfig)
+    {
+        $this->container['addExternalSubnetsToRdconfig'] = $addExternalSubnetsToRdconfig;
+
+        return $this;
+    }
+
 
     /**
      * Gets aep
@@ -499,6 +977,28 @@ class AciNetworkProviderModel implements ArrayAccess
 
 
     /**
+     * Gets apicRefreshTickerAdjust
+     * @return string
+     */
+    public function getApicRefreshTickerAdjust()
+    {
+        return $this->container['apicRefreshTickerAdjust'];
+    }
+
+    /**
+     * Sets apicRefreshTickerAdjust
+     * @param string $apicRefreshTickerAdjust
+     * @return $this
+     */
+    public function setApicRefreshTickerAdjust($apicRefreshTickerAdjust)
+    {
+        $this->container['apicRefreshTickerAdjust'] = $apicRefreshTickerAdjust;
+
+        return $this;
+    }
+
+
+    /**
      * Gets apicRefreshTime
      * @return string
      */
@@ -515,6 +1015,28 @@ class AciNetworkProviderModel implements ArrayAccess
     public function setApicRefreshTime($apicRefreshTime)
     {
         $this->container['apicRefreshTime'] = $apicRefreshTime;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets apicSubscriptionDelay
+     * @return string
+     */
+    public function getApicSubscriptionDelay()
+    {
+        return $this->container['apicSubscriptionDelay'];
+    }
+
+    /**
+     * Sets apicSubscriptionDelay
+     * @param string $apicSubscriptionDelay
+     * @return $this
+     */
+    public function setApicSubscriptionDelay($apicSubscriptionDelay)
+    {
+        $this->container['apicSubscriptionDelay'] = $apicSubscriptionDelay;
 
         return $this;
     }
@@ -631,6 +1153,94 @@ class AciNetworkProviderModel implements ArrayAccess
 
 
     /**
+     * Gets dhcpDelay
+     * @return string
+     */
+    public function getDhcpDelay()
+    {
+        return $this->container['dhcpDelay'];
+    }
+
+    /**
+     * Sets dhcpDelay
+     * @param string $dhcpDelay
+     * @return $this
+     */
+    public function setDhcpDelay($dhcpDelay)
+    {
+        $this->container['dhcpDelay'] = $dhcpDelay;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets dhcpRenewMaxRetryCount
+     * @return string
+     */
+    public function getDhcpRenewMaxRetryCount()
+    {
+        return $this->container['dhcpRenewMaxRetryCount'];
+    }
+
+    /**
+     * Sets dhcpRenewMaxRetryCount
+     * @param string $dhcpRenewMaxRetryCount
+     * @return $this
+     */
+    public function setDhcpRenewMaxRetryCount($dhcpRenewMaxRetryCount)
+    {
+        $this->container['dhcpRenewMaxRetryCount'] = $dhcpRenewMaxRetryCount;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets disablePeriodicSnatGlobalInfoSync
+     * @return string
+     */
+    public function getDisablePeriodicSnatGlobalInfoSync()
+    {
+        return $this->container['disablePeriodicSnatGlobalInfoSync'];
+    }
+
+    /**
+     * Sets disablePeriodicSnatGlobalInfoSync
+     * @param string $disablePeriodicSnatGlobalInfoSync
+     * @return $this
+     */
+    public function setDisablePeriodicSnatGlobalInfoSync($disablePeriodicSnatGlobalInfoSync)
+    {
+        $this->container['disablePeriodicSnatGlobalInfoSync'] = $disablePeriodicSnatGlobalInfoSync;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets disableWaitForNetwork
+     * @return string
+     */
+    public function getDisableWaitForNetwork()
+    {
+        return $this->container['disableWaitForNetwork'];
+    }
+
+    /**
+     * Sets disableWaitForNetwork
+     * @param string $disableWaitForNetwork
+     * @return $this
+     */
+    public function setDisableWaitForNetwork($disableWaitForNetwork)
+    {
+        $this->container['disableWaitForNetwork'] = $disableWaitForNetwork;
+
+        return $this;
+    }
+
+
+    /**
      * Gets dropLogEnable
      * @return string
      */
@@ -653,6 +1263,28 @@ class AciNetworkProviderModel implements ArrayAccess
 
 
     /**
+     * Gets durationWaitForNetwork
+     * @return string
+     */
+    public function getDurationWaitForNetwork()
+    {
+        return $this->container['durationWaitForNetwork'];
+    }
+
+    /**
+     * Sets durationWaitForNetwork
+     * @param string $durationWaitForNetwork
+     * @return $this
+     */
+    public function setDurationWaitForNetwork($durationWaitForNetwork)
+    {
+        $this->container['durationWaitForNetwork'] = $durationWaitForNetwork;
+
+        return $this;
+    }
+
+
+    /**
      * Gets enableEndpointSlice
      * @return string
      */
@@ -669,6 +1301,28 @@ class AciNetworkProviderModel implements ArrayAccess
     public function setEnableEndpointSlice($enableEndpointSlice)
     {
         $this->container['enableEndpointSlice'] = $enableEndpointSlice;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enableOpflexAgentReconnect
+     * @return string
+     */
+    public function getEnableOpflexAgentReconnect()
+    {
+        return $this->container['enableOpflexAgentReconnect'];
+    }
+
+    /**
+     * Sets enableOpflexAgentReconnect
+     * @param string $enableOpflexAgentReconnect
+     * @return $this
+     */
+    public function setEnableOpflexAgentReconnect($enableOpflexAgentReconnect)
+    {
+        $this->container['enableOpflexAgentReconnect'] = $enableOpflexAgentReconnect;
 
         return $this;
     }
@@ -801,6 +1455,28 @@ class AciNetworkProviderModel implements ArrayAccess
     public function setHostAgentLogLevel($hostAgentLogLevel)
     {
         $this->container['hostAgentLogLevel'] = $hostAgentLogLevel;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets hppOptimization
+     * @return string
+     */
+    public function getHppOptimization()
+    {
+        return $this->container['hppOptimization'];
+    }
+
+    /**
+     * Sets hppOptimization
+     * @param string $hppOptimization
+     * @return $this
+     */
+    public function setHppOptimization($hppOptimization)
+    {
+        $this->container['hppOptimization'] = $hppOptimization;
 
         return $this;
     }
@@ -1071,6 +1747,50 @@ class AciNetworkProviderModel implements ArrayAccess
 
 
     /**
+     * Gets mcastDaemonMemoryLimit
+     * @return string
+     */
+    public function getMcastDaemonMemoryLimit()
+    {
+        return $this->container['mcastDaemonMemoryLimit'];
+    }
+
+    /**
+     * Sets mcastDaemonMemoryLimit
+     * @param string $mcastDaemonMemoryLimit
+     * @return $this
+     */
+    public function setMcastDaemonMemoryLimit($mcastDaemonMemoryLimit)
+    {
+        $this->container['mcastDaemonMemoryLimit'] = $mcastDaemonMemoryLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets mcastDaemonMemoryRequest
+     * @return string
+     */
+    public function getMcastDaemonMemoryRequest()
+    {
+        return $this->container['mcastDaemonMemoryRequest'];
+    }
+
+    /**
+     * Sets mcastDaemonMemoryRequest
+     * @param string $mcastDaemonMemoryRequest
+     * @return $this
+     */
+    public function setMcastDaemonMemoryRequest($mcastDaemonMemoryRequest)
+    {
+        $this->container['mcastDaemonMemoryRequest'] = $mcastDaemonMemoryRequest;
+
+        return $this;
+    }
+
+
+    /**
      * Gets mcastRangeEnd
      * @return string
      */
@@ -1115,6 +1835,50 @@ class AciNetworkProviderModel implements ArrayAccess
 
 
     /**
+     * Gets mtuHeadRoom
+     * @return string
+     */
+    public function getMtuHeadRoom()
+    {
+        return $this->container['mtuHeadRoom'];
+    }
+
+    /**
+     * Sets mtuHeadRoom
+     * @param string $mtuHeadRoom
+     * @return $this
+     */
+    public function setMtuHeadRoom($mtuHeadRoom)
+    {
+        $this->container['mtuHeadRoom'] = $mtuHeadRoom;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets multusDisable
+     * @return string
+     */
+    public function getMultusDisable()
+    {
+        return $this->container['multusDisable'];
+    }
+
+    /**
+     * Sets multusDisable
+     * @param string $multusDisable
+     * @return $this
+     */
+    public function setMultusDisable($multusDisable)
+    {
+        $this->container['multusDisable'] = $multusDisable;
+
+        return $this;
+    }
+
+
+    /**
      * Gets noPriorityClass
      * @return string
      */
@@ -1131,6 +1895,72 @@ class AciNetworkProviderModel implements ArrayAccess
     public function setNoPriorityClass($noPriorityClass)
     {
         $this->container['noPriorityClass'] = $noPriorityClass;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets noWaitForServiceEpReadiness
+     * @return string
+     */
+    public function getNoWaitForServiceEpReadiness()
+    {
+        return $this->container['noWaitForServiceEpReadiness'];
+    }
+
+    /**
+     * Sets noWaitForServiceEpReadiness
+     * @param string $noWaitForServiceEpReadiness
+     * @return $this
+     */
+    public function setNoWaitForServiceEpReadiness($noWaitForServiceEpReadiness)
+    {
+        $this->container['noWaitForServiceEpReadiness'] = $noWaitForServiceEpReadiness;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodePodIfEnable
+     * @return string
+     */
+    public function getNodePodIfEnable()
+    {
+        return $this->container['nodePodIfEnable'];
+    }
+
+    /**
+     * Sets nodePodIfEnable
+     * @param string $nodePodIfEnable
+     * @return $this
+     */
+    public function setNodePodIfEnable($nodePodIfEnable)
+    {
+        $this->container['nodePodIfEnable'] = $nodePodIfEnable;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodeSnatRedirectExclude
+     * @return \Rancher\Model\Map[string]Model[]
+     */
+    public function getNodeSnatRedirectExclude()
+    {
+        return $this->container['nodeSnatRedirectExclude'];
+    }
+
+    /**
+     * Sets nodeSnatRedirectExclude
+     * @param \Rancher\Model\Map[string]Model[] $nodeSnatRedirectExclude
+     * @return $this
+     */
+    public function setNodeSnatRedirectExclude($nodeSnatRedirectExclude)
+    {
+        $this->container['nodeSnatRedirectExclude'] = $nodeSnatRedirectExclude;
 
         return $this;
     }
@@ -1181,6 +2011,138 @@ class AciNetworkProviderModel implements ArrayAccess
 
 
     /**
+     * Gets opflexAgentMemoryLimit
+     * @return string
+     */
+    public function getOpflexAgentMemoryLimit()
+    {
+        return $this->container['opflexAgentMemoryLimit'];
+    }
+
+    /**
+     * Sets opflexAgentMemoryLimit
+     * @param string $opflexAgentMemoryLimit
+     * @return $this
+     */
+    public function setOpflexAgentMemoryLimit($opflexAgentMemoryLimit)
+    {
+        $this->container['opflexAgentMemoryLimit'] = $opflexAgentMemoryLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets opflexAgentMemoryRequest
+     * @return string
+     */
+    public function getOpflexAgentMemoryRequest()
+    {
+        return $this->container['opflexAgentMemoryRequest'];
+    }
+
+    /**
+     * Sets opflexAgentMemoryRequest
+     * @param string $opflexAgentMemoryRequest
+     * @return $this
+     */
+    public function setOpflexAgentMemoryRequest($opflexAgentMemoryRequest)
+    {
+        $this->container['opflexAgentMemoryRequest'] = $opflexAgentMemoryRequest;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets opflexAgentOpflexAsyncjsonEnabled
+     * @return string
+     */
+    public function getOpflexAgentOpflexAsyncjsonEnabled()
+    {
+        return $this->container['opflexAgentOpflexAsyncjsonEnabled'];
+    }
+
+    /**
+     * Sets opflexAgentOpflexAsyncjsonEnabled
+     * @param string $opflexAgentOpflexAsyncjsonEnabled
+     * @return $this
+     */
+    public function setOpflexAgentOpflexAsyncjsonEnabled($opflexAgentOpflexAsyncjsonEnabled)
+    {
+        $this->container['opflexAgentOpflexAsyncjsonEnabled'] = $opflexAgentOpflexAsyncjsonEnabled;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets opflexAgentOvsAsyncjsonEnabled
+     * @return string
+     */
+    public function getOpflexAgentOvsAsyncjsonEnabled()
+    {
+        return $this->container['opflexAgentOvsAsyncjsonEnabled'];
+    }
+
+    /**
+     * Sets opflexAgentOvsAsyncjsonEnabled
+     * @param string $opflexAgentOvsAsyncjsonEnabled
+     * @return $this
+     */
+    public function setOpflexAgentOvsAsyncjsonEnabled($opflexAgentOvsAsyncjsonEnabled)
+    {
+        $this->container['opflexAgentOvsAsyncjsonEnabled'] = $opflexAgentOvsAsyncjsonEnabled;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets opflexAgentPolicyRetryDelayTimer
+     * @return string
+     */
+    public function getOpflexAgentPolicyRetryDelayTimer()
+    {
+        return $this->container['opflexAgentPolicyRetryDelayTimer'];
+    }
+
+    /**
+     * Sets opflexAgentPolicyRetryDelayTimer
+     * @param string $opflexAgentPolicyRetryDelayTimer
+     * @return $this
+     */
+    public function setOpflexAgentPolicyRetryDelayTimer($opflexAgentPolicyRetryDelayTimer)
+    {
+        $this->container['opflexAgentPolicyRetryDelayTimer'] = $opflexAgentPolicyRetryDelayTimer;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets opflexAgentStatistics
+     * @return string
+     */
+    public function getOpflexAgentStatistics()
+    {
+        return $this->container['opflexAgentStatistics'];
+    }
+
+    /**
+     * Sets opflexAgentStatistics
+     * @param string $opflexAgentStatistics
+     * @return $this
+     */
+    public function setOpflexAgentStatistics($opflexAgentStatistics)
+    {
+        $this->container['opflexAgentStatistics'] = $opflexAgentStatistics;
+
+        return $this;
+    }
+
+
+    /**
      * Gets opflexClientSsl
      * @return string
      */
@@ -1197,6 +2159,50 @@ class AciNetworkProviderModel implements ArrayAccess
     public function setOpflexClientSsl($opflexClientSsl)
     {
         $this->container['opflexClientSsl'] = $opflexClientSsl;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets opflexDeviceDeleteTimeout
+     * @return string
+     */
+    public function getOpflexDeviceDeleteTimeout()
+    {
+        return $this->container['opflexDeviceDeleteTimeout'];
+    }
+
+    /**
+     * Sets opflexDeviceDeleteTimeout
+     * @param string $opflexDeviceDeleteTimeout
+     * @return $this
+     */
+    public function setOpflexDeviceDeleteTimeout($opflexDeviceDeleteTimeout)
+    {
+        $this->container['opflexDeviceDeleteTimeout'] = $opflexDeviceDeleteTimeout;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets opflexDeviceReconnectWaitTimeout
+     * @return string
+     */
+    public function getOpflexDeviceReconnectWaitTimeout()
+    {
+        return $this->container['opflexDeviceReconnectWaitTimeout'];
+    }
+
+    /**
+     * Sets opflexDeviceReconnectWaitTimeout
+     * @param string $opflexDeviceReconnectWaitTimeout
+     * @return $this
+     */
+    public function setOpflexDeviceReconnectWaitTimeout($opflexDeviceReconnectWaitTimeout)
+    {
+        $this->container['opflexDeviceReconnectWaitTimeout'] = $opflexDeviceReconnectWaitTimeout;
 
         return $this;
     }
@@ -1241,6 +2247,28 @@ class AciNetworkProviderModel implements ArrayAccess
     public function setOpflexMode($opflexMode)
     {
         $this->container['opflexMode'] = $opflexMode;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets opflexOpensslCompat
+     * @return string
+     */
+    public function getOpflexOpensslCompat()
+    {
+        return $this->container['opflexOpensslCompat'];
+    }
+
+    /**
+     * Sets opflexOpensslCompat
+     * @param string $opflexOpensslCompat
+     * @return $this
+     */
+    public function setOpflexOpensslCompat($opflexOpensslCompat)
+    {
+        $this->container['opflexOpensslCompat'] = $opflexOpensslCompat;
 
         return $this;
     }
@@ -1307,6 +2335,28 @@ class AciNetworkProviderModel implements ArrayAccess
     public function setOvsMemoryLimit($ovsMemoryLimit)
     {
         $this->container['ovsMemoryLimit'] = $ovsMemoryLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ovsMemoryRequest
+     * @return string
+     */
+    public function getOvsMemoryRequest()
+    {
+        return $this->container['ovsMemoryRequest'];
+    }
+
+    /**
+     * Sets ovsMemoryRequest
+     * @param string $ovsMemoryRequest
+     * @return $this
+     */
+    public function setOvsMemoryRequest($ovsMemoryRequest)
+    {
+        $this->container['ovsMemoryRequest'] = $ovsMemoryRequest;
 
         return $this;
     }
@@ -1401,6 +2451,50 @@ class AciNetworkProviderModel implements ArrayAccess
 
 
     /**
+     * Gets serviceGraphEndpointAddDelay
+     * @return string
+     */
+    public function getServiceGraphEndpointAddDelay()
+    {
+        return $this->container['serviceGraphEndpointAddDelay'];
+    }
+
+    /**
+     * Sets serviceGraphEndpointAddDelay
+     * @param string $serviceGraphEndpointAddDelay
+     * @return $this
+     */
+    public function setServiceGraphEndpointAddDelay($serviceGraphEndpointAddDelay)
+    {
+        $this->container['serviceGraphEndpointAddDelay'] = $serviceGraphEndpointAddDelay;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets serviceGraphEndpointAddServices
+     * @return \Rancher\Model\Map[string]Model[]
+     */
+    public function getServiceGraphEndpointAddServices()
+    {
+        return $this->container['serviceGraphEndpointAddServices'];
+    }
+
+    /**
+     * Sets serviceGraphEndpointAddServices
+     * @param \Rancher\Model\Map[string]Model[] $serviceGraphEndpointAddServices
+     * @return $this
+     */
+    public function setServiceGraphEndpointAddServices($serviceGraphEndpointAddServices)
+    {
+        $this->container['serviceGraphEndpointAddServices'] = $serviceGraphEndpointAddServices;
+
+        return $this;
+    }
+
+
+    /**
      * Gets serviceMonitorInterval
      * @return string
      */
@@ -1439,6 +2533,28 @@ class AciNetworkProviderModel implements ArrayAccess
     public function setServiceVlan($serviceVlan)
     {
         $this->container['serviceVlan'] = $serviceVlan;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets sleepTimeSnatGlobalInfoSync
+     * @return string
+     */
+    public function getSleepTimeSnatGlobalInfoSync()
+    {
+        return $this->container['sleepTimeSnatGlobalInfoSync'];
+    }
+
+    /**
+     * Sets sleepTimeSnatGlobalInfoSync
+     * @param string $sleepTimeSnatGlobalInfoSync
+     * @return $this
+     */
+    public function setSleepTimeSnatGlobalInfoSync($sleepTimeSnatGlobalInfoSync)
+    {
+        $this->container['sleepTimeSnatGlobalInfoSync'] = $sleepTimeSnatGlobalInfoSync;
 
         return $this;
     }
@@ -1555,6 +2671,28 @@ class AciNetworkProviderModel implements ArrayAccess
 
 
     /**
+     * Gets sriovEnable
+     * @return string
+     */
+    public function getSriovEnable()
+    {
+        return $this->container['sriovEnable'];
+    }
+
+    /**
+     * Sets sriovEnable
+     * @param string $sriovEnable
+     * @return $this
+     */
+    public function setSriovEnable($sriovEnable)
+    {
+        $this->container['sriovEnable'] = $sriovEnable;
+
+        return $this;
+    }
+
+
+    /**
      * Gets subnetDomainName
      * @return string
      */
@@ -1643,6 +2781,28 @@ class AciNetworkProviderModel implements ArrayAccess
 
 
     /**
+     * Gets tolerationSeconds
+     * @return string
+     */
+    public function getTolerationSeconds()
+    {
+        return $this->container['tolerationSeconds'];
+    }
+
+    /**
+     * Sets tolerationSeconds
+     * @param string $tolerationSeconds
+     * @return $this
+     */
+    public function setTolerationSeconds($tolerationSeconds)
+    {
+        $this->container['tolerationSeconds'] = $tolerationSeconds;
+
+        return $this;
+    }
+
+
+    /**
      * Gets useAciAnywhereCrd
      * @return string
      */
@@ -1681,6 +2841,28 @@ class AciNetworkProviderModel implements ArrayAccess
     public function setUseAciCniPriorityClass($useAciCniPriorityClass)
     {
         $this->container['useAciCniPriorityClass'] = $useAciCniPriorityClass;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets useClusterRole
+     * @return string
+     */
+    public function getUseClusterRole()
+    {
+        return $this->container['useClusterRole'];
+    }
+
+    /**
+     * Sets useClusterRole
+     * @param string $useClusterRole
+     * @return $this
+     */
+    public function setUseClusterRole($useClusterRole)
+    {
+        $this->container['useClusterRole'] = $useClusterRole;
 
         return $this;
     }
@@ -1747,6 +2929,28 @@ class AciNetworkProviderModel implements ArrayAccess
     public function setUsePrivilegedContainer($usePrivilegedContainer)
     {
         $this->container['usePrivilegedContainer'] = $usePrivilegedContainer;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets useSystemNodePriorityClass
+     * @return string
+     */
+    public function getUseSystemNodePriorityClass()
+    {
+        return $this->container['useSystemNodePriorityClass'];
+    }
+
+    /**
+     * Sets useSystemNodePriorityClass
+     * @param string $useSystemNodePriorityClass
+     * @return $this
+     */
+    public function setUseSystemNodePriorityClass($useSystemNodePriorityClass)
+    {
+        $this->container['useSystemNodePriorityClass'] = $useSystemNodePriorityClass;
 
         return $this;
     }

@@ -140,6 +140,7 @@ class ActiveDirectoryConfigModel implements ArrayAccess
         'serviceAccountPassword' => '\Rancher\Model\PasswordModel',
         'serviceAccountUsername' => 'string',
         'starttls' => 'boolean',
+        'status' => '\Rancher\Model\AuthConfigStatusModel',
         'tls' => 'boolean',
         'type' => 'string',
         'userDisabledBitMask' => 'int',
@@ -186,6 +187,7 @@ class ActiveDirectoryConfigModel implements ArrayAccess
         'serviceAccountPassword' => 'setServiceAccountPassword',
         'serviceAccountUsername' => 'setServiceAccountUsername',
         'starttls' => 'setStarttls',
+        'status' => 'setStatus',
         'tls' => 'setTls',
         'type' => 'setType',
         'userDisabledBitMask' => 'setUserDisabledBitMask',
@@ -232,6 +234,7 @@ class ActiveDirectoryConfigModel implements ArrayAccess
         'serviceAccountPassword' => 'getServiceAccountPassword',
         'serviceAccountUsername' => 'getServiceAccountUsername',
         'starttls' => 'getStarttls',
+        'status' => 'getStatus',
         'tls' => 'getTls',
         'type' => 'getType',
         'userDisabledBitMask' => 'getUserDisabledBitMask',
@@ -279,6 +282,7 @@ class ActiveDirectoryConfigModel implements ArrayAccess
         $this->container['serviceAccountPassword'] = isset($data['serviceAccountPassword']) ? $data['serviceAccountPassword'] : null;
         $this->container['serviceAccountUsername'] = isset($data['serviceAccountUsername']) ? $data['serviceAccountUsername'] : null;
         $this->container['starttls'] = isset($data['starttls']) ? $data['starttls'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tls'] = isset($data['tls']) ? $data['tls'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['userDisabledBitMask'] = isset($data['userDisabledBitMask']) ? $data['userDisabledBitMask'] : null;
@@ -881,6 +885,28 @@ class ActiveDirectoryConfigModel implements ArrayAccess
     public function setStarttls($starttls)
     {
         $this->container['starttls'] = $starttls;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets status
+     * @return \Rancher\Model\AuthConfigStatusModel
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param \Rancher\Model\AuthConfigStatusModel $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

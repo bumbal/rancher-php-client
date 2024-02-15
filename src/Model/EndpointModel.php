@@ -28,9 +28,11 @@ class EndpointModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'authorization',
         'bearerTokenSecret',
         'honorTimestamps',
         'interval',
+        'oauth2',
         'params',
         'path',
         'relabelings',
@@ -50,9 +52,11 @@ class EndpointModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'authorization',
         'bearerTokenSecret',
         'honorTimestamps',
         'interval',
+        'oauth2',
         'params',
         'path',
         'relabelings',
@@ -67,9 +71,11 @@ class EndpointModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'authorization' => '\Rancher\Model\SafeAuthorizationModel',
         'bearerTokenSecret' => '\Rancher\Model\SecretKeySelectorModel',
         'honorTimestamps' => 'boolean',
         'interval' => 'string',
+        'oauth2' => '\Rancher\Model\OAuth2Model',
         'params' => 'map[string,\Rancher\Model\Array[string]Model]',
         'path' => 'string',
         'relabelings' => '\Rancher\Model\RelabelConfigModel[]',
@@ -84,9 +90,11 @@ class EndpointModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'authorization' => 'setAuthorization',
         'bearerTokenSecret' => 'setBearerTokenSecret',
         'honorTimestamps' => 'setHonorTimestamps',
         'interval' => 'setInterval',
+        'oauth2' => 'setOauth2',
         'params' => 'setParams',
         'path' => 'setPath',
         'relabelings' => 'setRelabelings',
@@ -101,9 +109,11 @@ class EndpointModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'authorization' => 'getAuthorization',
         'bearerTokenSecret' => 'getBearerTokenSecret',
         'honorTimestamps' => 'getHonorTimestamps',
         'interval' => 'getInterval',
+        'oauth2' => 'getOauth2',
         'params' => 'getParams',
         'path' => 'getPath',
         'relabelings' => 'getRelabelings',
@@ -119,9 +129,11 @@ class EndpointModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['authorization'] = isset($data['authorization']) ? $data['authorization'] : null;
         $this->container['bearerTokenSecret'] = isset($data['bearerTokenSecret']) ? $data['bearerTokenSecret'] : null;
         $this->container['honorTimestamps'] = isset($data['honorTimestamps']) ? $data['honorTimestamps'] : null;
         $this->container['interval'] = isset($data['interval']) ? $data['interval'] : null;
+        $this->container['oauth2'] = isset($data['oauth2']) ? $data['oauth2'] : null;
         $this->container['params'] = isset($data['params']) ? $data['params'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['relabelings'] = isset($data['relabelings']) ? $data['relabelings'] : null;
@@ -129,6 +141,28 @@ class EndpointModel implements ArrayAccess
         $this->container['scrapeTimeout'] = isset($data['scrapeTimeout']) ? $data['scrapeTimeout'] : null;
         $this->container['targetPort'] = isset($data['targetPort']) ? $data['targetPort'] : null;
     }
+
+    /**
+     * Gets authorization
+     * @return \Rancher\Model\SafeAuthorizationModel
+     */
+    public function getAuthorization()
+    {
+        return $this->container['authorization'];
+    }
+
+    /**
+     * Sets authorization
+     * @param \Rancher\Model\SafeAuthorizationModel $authorization
+     * @return $this
+     */
+    public function setAuthorization($authorization)
+    {
+        $this->container['authorization'] = $authorization;
+
+        return $this;
+    }
+
 
     /**
      * Gets bearerTokenSecret
@@ -191,6 +225,28 @@ class EndpointModel implements ArrayAccess
     public function setInterval($interval)
     {
         $this->container['interval'] = $interval;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets oauth2
+     * @return \Rancher\Model\OAuth2Model
+     */
+    public function getOauth2()
+    {
+        return $this->container['oauth2'];
+    }
+
+    /**
+     * Sets oauth2
+     * @param \Rancher\Model\OAuth2Model $oauth2
+     * @return $this
+     */
+    public function setOauth2($oauth2)
+    {
+        $this->container['oauth2'] = $oauth2;
 
         return $this;
     }

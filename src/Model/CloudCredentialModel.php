@@ -34,9 +34,11 @@ class CloudCredentialModel implements ArrayAccess
         'description',
         'digitaloceancredentialConfig',
         'googlecredentialConfig',
+        'harvestercredentialConfig',
         'labels',
         'linodecredentialConfig',
         'name',
+        's3credentialConfig',
         'vmwarevspherecredentialConfig',
     ];
 
@@ -57,9 +59,11 @@ class CloudCredentialModel implements ArrayAccess
         'description',
         'digitaloceancredentialConfig',
         'googlecredentialConfig',
+        'harvestercredentialConfig',
         'labels',
         'linodecredentialConfig',
         'name',
+        's3credentialConfig',
         'vmwarevspherecredentialConfig',
     ];
 
@@ -77,12 +81,14 @@ class CloudCredentialModel implements ArrayAccess
         'description' => 'string',
         'digitaloceancredentialConfig' => '\Rancher\Model\DigitaloceancredentialconfigModel',
         'googlecredentialConfig' => '\Rancher\Model\GooglecredentialconfigModel',
+        'harvestercredentialConfig' => '\Rancher\Model\HarvestercredentialconfigModel',
         'id' => 'string',
         'labels' => 'map[string,string]',
         'linodecredentialConfig' => '\Rancher\Model\LinodecredentialconfigModel',
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
+        's3credentialConfig' => '\Rancher\Model\S3CredentialConfigModel',
         'uuid' => 'string',
         'vmwarevspherecredentialConfig' => '\Rancher\Model\VmwarevspherecredentialconfigModel',
     ];
@@ -101,12 +107,14 @@ class CloudCredentialModel implements ArrayAccess
         'description' => 'setDescription',
         'digitaloceancredentialConfig' => 'setDigitaloceancredentialConfig',
         'googlecredentialConfig' => 'setGooglecredentialConfig',
+        'harvestercredentialConfig' => 'setHarvestercredentialConfig',
         'id' => 'setId',
         'labels' => 'setLabels',
         'linodecredentialConfig' => 'setLinodecredentialConfig',
         'name' => 'setName',
         'ownerReferences' => 'setOwnerReferences',
         'removed' => 'setRemoved',
+        's3credentialConfig' => 'setS3credentialConfig',
         'uuid' => 'setUuid',
         'vmwarevspherecredentialConfig' => 'setVmwarevspherecredentialConfig',
     ];
@@ -125,12 +133,14 @@ class CloudCredentialModel implements ArrayAccess
         'description' => 'getDescription',
         'digitaloceancredentialConfig' => 'getDigitaloceancredentialConfig',
         'googlecredentialConfig' => 'getGooglecredentialConfig',
+        'harvestercredentialConfig' => 'getHarvestercredentialConfig',
         'id' => 'getId',
         'labels' => 'getLabels',
         'linodecredentialConfig' => 'getLinodecredentialConfig',
         'name' => 'getName',
         'ownerReferences' => 'getOwnerReferences',
         'removed' => 'getRemoved',
+        's3credentialConfig' => 'getS3credentialConfig',
         'uuid' => 'getUuid',
         'vmwarevspherecredentialConfig' => 'getVmwarevspherecredentialConfig',
     ];
@@ -150,12 +160,14 @@ class CloudCredentialModel implements ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['digitaloceancredentialConfig'] = isset($data['digitaloceancredentialConfig']) ? $data['digitaloceancredentialConfig'] : null;
         $this->container['googlecredentialConfig'] = isset($data['googlecredentialConfig']) ? $data['googlecredentialConfig'] : null;
+        $this->container['harvestercredentialConfig'] = isset($data['harvestercredentialConfig']) ? $data['harvestercredentialConfig'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['linodecredentialConfig'] = isset($data['linodecredentialConfig']) ? $data['linodecredentialConfig'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
+        $this->container['s3credentialConfig'] = isset($data['s3credentialConfig']) ? $data['s3credentialConfig'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['vmwarevspherecredentialConfig'] = isset($data['vmwarevspherecredentialConfig']) ? $data['vmwarevspherecredentialConfig'] : null;
     }
@@ -337,6 +349,28 @@ class CloudCredentialModel implements ArrayAccess
 
 
     /**
+     * Gets harvestercredentialConfig
+     * @return \Rancher\Model\HarvestercredentialconfigModel
+     */
+    public function getHarvestercredentialConfig()
+    {
+        return $this->container['harvestercredentialConfig'];
+    }
+
+    /**
+     * Sets harvestercredentialConfig
+     * @param \Rancher\Model\HarvestercredentialconfigModel $harvestercredentialConfig
+     * @return $this
+     */
+    public function setHarvestercredentialConfig($harvestercredentialConfig)
+    {
+        $this->container['harvestercredentialConfig'] = $harvestercredentialConfig;
+
+        return $this;
+    }
+
+
+    /**
      * Gets id
      * @return string
      */
@@ -463,6 +497,28 @@ class CloudCredentialModel implements ArrayAccess
     public function setRemoved($removed)
     {
         $this->container['removed'] = $removed;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets s3credentialConfig
+     * @return \Rancher\Model\S3CredentialConfigModel
+     */
+    public function getS3credentialConfig()
+    {
+        return $this->container['s3credentialConfig'];
+    }
+
+    /**
+     * Sets s3credentialConfig
+     * @param \Rancher\Model\S3CredentialConfigModel $s3credentialConfig
+     * @return $this
+     */
+    public function setS3credentialConfig($s3credentialConfig)
+    {
+        $this->container['s3credentialConfig'] = $s3credentialConfig;
 
         return $this;
     }

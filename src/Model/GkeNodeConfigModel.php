@@ -36,6 +36,7 @@ class GkeNodeConfigModel implements ArrayAccess
         'machineType',
         'oauthScopes',
         'preemptible',
+        'tags',
         'taints',
     ];
 
@@ -58,6 +59,7 @@ class GkeNodeConfigModel implements ArrayAccess
         'machineType',
         'oauthScopes',
         'preemptible',
+        'tags',
         'taints',
     ];
 
@@ -75,6 +77,7 @@ class GkeNodeConfigModel implements ArrayAccess
         'machineType' => 'string',
         'oauthScopes' => 'string[]',
         'preemptible' => 'boolean',
+        'tags' => 'string[]',
         'taints' => '\Rancher\Model\GkeNodeTaintConfigModel[]',
     ];
 
@@ -92,6 +95,7 @@ class GkeNodeConfigModel implements ArrayAccess
         'machineType' => 'setMachineType',
         'oauthScopes' => 'setOauthScopes',
         'preemptible' => 'setPreemptible',
+        'tags' => 'setTags',
         'taints' => 'setTaints',
     ];
 
@@ -109,6 +113,7 @@ class GkeNodeConfigModel implements ArrayAccess
         'machineType' => 'getMachineType',
         'oauthScopes' => 'getOauthScopes',
         'preemptible' => 'getPreemptible',
+        'tags' => 'getTags',
         'taints' => 'getTaints',
     ];
 
@@ -127,6 +132,7 @@ class GkeNodeConfigModel implements ArrayAccess
         $this->container['machineType'] = isset($data['machineType']) ? $data['machineType'] : null;
         $this->container['oauthScopes'] = isset($data['oauthScopes']) ? $data['oauthScopes'] : null;
         $this->container['preemptible'] = isset($data['preemptible']) ? $data['preemptible'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['taints'] = isset($data['taints']) ? $data['taints'] : null;
     }
 
@@ -301,6 +307,28 @@ class GkeNodeConfigModel implements ArrayAccess
     public function setPreemptible($preemptible)
     {
         $this->container['preemptible'] = $preemptible;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets tags
+     * @return string[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     * @param string[] $tags
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

@@ -44,10 +44,13 @@ class NodeTemplateModel implements ArrayAccess
         'engineOpt',
         'engineRegistryMirror',
         'engineStorageDriver',
+        'harvesterConfig',
         'labels',
         'linodeConfig',
+        'logOpt',
         'name',
         'nodeTaints',
+        'storageOpt',
         'useInternalIpAddress',
         'vmwarevsphereConfig',
     ];
@@ -79,10 +82,13 @@ class NodeTemplateModel implements ArrayAccess
         'engineOpt',
         'engineRegistryMirror',
         'engineStorageDriver',
+        'harvesterConfig',
         'labels',
         'linodeConfig',
+        'logOpt',
         'name',
         'nodeTaints',
+        'storageOpt',
         'vmwarevsphereConfig',
     ];
 
@@ -111,15 +117,18 @@ class NodeTemplateModel implements ArrayAccess
         'engineOpt' => 'map[string,string]',
         'engineRegistryMirror' => 'string[]',
         'engineStorageDriver' => 'string',
+        'harvesterConfig' => '\Rancher\Model\HarvesterconfigModel',
         'id' => 'string',
         'labels' => 'map[string,string]',
         'linodeConfig' => '\Rancher\Model\LinodeconfigModel',
+        'logOpt' => 'map[string,string]',
         'name' => 'string',
         'nodeTaints' => '\Rancher\Model\TaintModel[]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
         'state' => 'string',
         'status' => '\Rancher\Model\NodeTemplateStatusModel',
+        'storageOpt' => 'map[string,string]',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'useInternalIpAddress' => 'boolean',
@@ -152,15 +161,18 @@ class NodeTemplateModel implements ArrayAccess
         'engineOpt' => 'setEngineOpt',
         'engineRegistryMirror' => 'setEngineRegistryMirror',
         'engineStorageDriver' => 'setEngineStorageDriver',
+        'harvesterConfig' => 'setHarvesterConfig',
         'id' => 'setId',
         'labels' => 'setLabels',
         'linodeConfig' => 'setLinodeConfig',
+        'logOpt' => 'setLogOpt',
         'name' => 'setName',
         'nodeTaints' => 'setNodeTaints',
         'ownerReferences' => 'setOwnerReferences',
         'removed' => 'setRemoved',
         'state' => 'setState',
         'status' => 'setStatus',
+        'storageOpt' => 'setStorageOpt',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'useInternalIpAddress' => 'setUseInternalIpAddress',
@@ -193,15 +205,18 @@ class NodeTemplateModel implements ArrayAccess
         'engineOpt' => 'getEngineOpt',
         'engineRegistryMirror' => 'getEngineRegistryMirror',
         'engineStorageDriver' => 'getEngineStorageDriver',
+        'harvesterConfig' => 'getHarvesterConfig',
         'id' => 'getId',
         'labels' => 'getLabels',
         'linodeConfig' => 'getLinodeConfig',
+        'logOpt' => 'getLogOpt',
         'name' => 'getName',
         'nodeTaints' => 'getNodeTaints',
         'ownerReferences' => 'getOwnerReferences',
         'removed' => 'getRemoved',
         'state' => 'getState',
         'status' => 'getStatus',
+        'storageOpt' => 'getStorageOpt',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'useInternalIpAddress' => 'getUseInternalIpAddress',
@@ -235,15 +250,18 @@ class NodeTemplateModel implements ArrayAccess
         $this->container['engineOpt'] = isset($data['engineOpt']) ? $data['engineOpt'] : null;
         $this->container['engineRegistryMirror'] = isset($data['engineRegistryMirror']) ? $data['engineRegistryMirror'] : null;
         $this->container['engineStorageDriver'] = isset($data['engineStorageDriver']) ? $data['engineStorageDriver'] : null;
+        $this->container['harvesterConfig'] = isset($data['harvesterConfig']) ? $data['harvesterConfig'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['linodeConfig'] = isset($data['linodeConfig']) ? $data['linodeConfig'] : null;
+        $this->container['logOpt'] = isset($data['logOpt']) ? $data['logOpt'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nodeTaints'] = isset($data['nodeTaints']) ? $data['nodeTaints'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['storageOpt'] = isset($data['storageOpt']) ? $data['storageOpt'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['useInternalIpAddress'] = isset($data['useInternalIpAddress']) ? $data['useInternalIpAddress'] : null;
@@ -670,6 +688,28 @@ class NodeTemplateModel implements ArrayAccess
 
 
     /**
+     * Gets harvesterConfig
+     * @return \Rancher\Model\HarvesterconfigModel
+     */
+    public function getHarvesterConfig()
+    {
+        return $this->container['harvesterConfig'];
+    }
+
+    /**
+     * Sets harvesterConfig
+     * @param \Rancher\Model\HarvesterconfigModel $harvesterConfig
+     * @return $this
+     */
+    public function setHarvesterConfig($harvesterConfig)
+    {
+        $this->container['harvesterConfig'] = $harvesterConfig;
+
+        return $this;
+    }
+
+
+    /**
      * Gets id
      * @return string
      */
@@ -730,6 +770,28 @@ class NodeTemplateModel implements ArrayAccess
     public function setLinodeConfig($linodeConfig)
     {
         $this->container['linodeConfig'] = $linodeConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets logOpt
+     * @return string[]
+     */
+    public function getLogOpt()
+    {
+        return $this->container['logOpt'];
+    }
+
+    /**
+     * Sets logOpt
+     * @param string[] $logOpt
+     * @return $this
+     */
+    public function setLogOpt($logOpt)
+    {
+        $this->container['logOpt'] = $logOpt;
 
         return $this;
     }
@@ -862,6 +924,28 @@ class NodeTemplateModel implements ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets storageOpt
+     * @return string[]
+     */
+    public function getStorageOpt()
+    {
+        return $this->container['storageOpt'];
+    }
+
+    /**
+     * Sets storageOpt
+     * @param string[] $storageOpt
+     * @return $this
+     */
+    public function setStorageOpt($storageOpt)
+    {
+        $this->container['storageOpt'] = $storageOpt;
 
         return $this;
     }

@@ -53,7 +53,7 @@ class SecretsEncryptionConfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'customConfig' => 'map[string,\Rancher\Model\JsonModel]',
+        'customConfig' => '\Rancher\Model\EncryptionConfigurationModel',
         'enabled' => 'boolean',
     ];
 
@@ -90,7 +90,7 @@ class SecretsEncryptionConfigModel implements ArrayAccess
 
     /**
      * Gets customConfig
-     * @return \Rancher\Model\JsonModel[]
+     * @return \Rancher\Model\EncryptionConfigurationModel
      */
     public function getCustomConfig()
     {
@@ -99,7 +99,7 @@ class SecretsEncryptionConfigModel implements ArrayAccess
 
     /**
      * Sets customConfig
-     * @param \Rancher\Model\JsonModel[] $customConfig
+     * @param \Rancher\Model\EncryptionConfigurationModel $customConfig
      * @return $this
      */
     public function setCustomConfig($customConfig)

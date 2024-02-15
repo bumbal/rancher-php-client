@@ -51,6 +51,7 @@ class CronJobStatusModel implements ArrayAccess
     protected static $typeMap = [
         'active' => '\Rancher\Model\ObjectReferenceModel[]',
         'lastScheduleTime' => '\DateTime',
+        'lastSuccessfulTime' => '\DateTime',
     ];
 
     public static function typeMap()
@@ -61,6 +62,7 @@ class CronJobStatusModel implements ArrayAccess
     protected static $setters = [
         'active' => 'setActive',
         'lastScheduleTime' => 'setLastScheduleTime',
+        'lastSuccessfulTime' => 'setLastSuccessfulTime',
     ];
 
     public static function setters()
@@ -71,6 +73,7 @@ class CronJobStatusModel implements ArrayAccess
     protected static $getters = [
         'active' => 'getActive',
         'lastScheduleTime' => 'getLastScheduleTime',
+        'lastSuccessfulTime' => 'getLastSuccessfulTime',
     ];
 
     public static function getters()
@@ -82,6 +85,7 @@ class CronJobStatusModel implements ArrayAccess
     {
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['lastScheduleTime'] = isset($data['lastScheduleTime']) ? $data['lastScheduleTime'] : null;
+        $this->container['lastSuccessfulTime'] = isset($data['lastSuccessfulTime']) ? $data['lastSuccessfulTime'] : null;
     }
 
     /**
@@ -123,6 +127,28 @@ class CronJobStatusModel implements ArrayAccess
     public function setLastScheduleTime($lastScheduleTime)
     {
         $this->container['lastScheduleTime'] = $lastScheduleTime;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets lastSuccessfulTime
+     * @return \DateTime
+     */
+    public function getLastSuccessfulTime()
+    {
+        return $this->container['lastSuccessfulTime'];
+    }
+
+    /**
+     * Sets lastSuccessfulTime
+     * @param \DateTime $lastSuccessfulTime
+     * @return $this
+     */
+    public function setLastSuccessfulTime($lastSuccessfulTime)
+    {
+        $this->container['lastSuccessfulTime'] = $lastSuccessfulTime;
 
         return $this;
     }

@@ -31,6 +31,7 @@ class AnswerModel implements ArrayAccess
         'clusterId',
         'projectId',
         'values',
+        'valuesSetString',
     ];
 
     public static function canBeCreated()
@@ -47,6 +48,7 @@ class AnswerModel implements ArrayAccess
         'clusterId',
         'projectId',
         'values',
+        'valuesSetString',
     ];
 
     public static function canBeUpdated()
@@ -58,6 +60,7 @@ class AnswerModel implements ArrayAccess
         'clusterId' => 'string',
         'projectId' => 'string',
         'values' => 'map[string,string]',
+        'valuesSetString' => 'map[string,string]',
     ];
 
     public static function typeMap()
@@ -69,6 +72,7 @@ class AnswerModel implements ArrayAccess
         'clusterId' => 'setClusterId',
         'projectId' => 'setProjectId',
         'values' => 'setValues',
+        'valuesSetString' => 'setValuesSetString',
     ];
 
     public static function setters()
@@ -80,6 +84,7 @@ class AnswerModel implements ArrayAccess
         'clusterId' => 'getClusterId',
         'projectId' => 'getProjectId',
         'values' => 'getValues',
+        'valuesSetString' => 'getValuesSetString',
     ];
 
     public static function getters()
@@ -92,6 +97,7 @@ class AnswerModel implements ArrayAccess
         $this->container['clusterId'] = isset($data['clusterId']) ? $data['clusterId'] : null;
         $this->container['projectId'] = isset($data['projectId']) ? $data['projectId'] : null;
         $this->container['values'] = isset($data['values']) ? $data['values'] : null;
+        $this->container['valuesSetString'] = isset($data['valuesSetString']) ? $data['valuesSetString'] : null;
     }
 
     /**
@@ -155,6 +161,28 @@ class AnswerModel implements ArrayAccess
     public function setValues($values)
     {
         $this->container['values'] = $values;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets valuesSetString
+     * @return string[]
+     */
+    public function getValuesSetString()
+    {
+        return $this->container['valuesSetString'];
+    }
+
+    /**
+     * Sets valuesSetString
+     * @param string[] $valuesSetString
+     * @return $this
+     */
+    public function setValuesSetString($valuesSetString)
+    {
+        $this->container['valuesSetString'] = $valuesSetString;
 
         return $this;
     }

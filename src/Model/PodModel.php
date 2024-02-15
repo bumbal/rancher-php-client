@@ -44,21 +44,25 @@ class PodModel implements ArrayAccess
         'hostIPC',
         'hostNetwork',
         'hostPID',
+        'hostUsers',
         'hostname',
         'imagePullSecrets',
         'labels',
         'name',
         'namespaceId',
         'nodeId',
+        'os',
         'overhead',
         'preemptionPolicy',
         'projectId',
         'readinessGates',
+        'resourceClaims',
         'restartPolicy',
         'runAsGroup',
         'runAsNonRoot',
         'runtimeClassName',
         'scheduling',
+        'schedulingGates',
         'seccompProfile',
         'serviceAccountName',
         'setHostnameAsFQDN',
@@ -100,18 +104,22 @@ class PodModel implements ArrayAccess
         'hostIPC',
         'hostNetwork',
         'hostPID',
+        'hostUsers',
         'hostname',
         'imagePullSecrets',
         'labels',
         'nodeId',
+        'os',
         'overhead',
         'preemptionPolicy',
         'readinessGates',
+        'resourceClaims',
         'restartPolicy',
         'runAsGroup',
         'runAsNonRoot',
         'runtimeClassName',
         'scheduling',
+        'schedulingGates',
         'seccompProfile',
         'serviceAccountName',
         'setHostnameAsFQDN',
@@ -150,12 +158,14 @@ class PodModel implements ArrayAccess
         'hostIPC' => 'boolean',
         'hostNetwork' => 'boolean',
         'hostPID' => 'boolean',
+        'hostUsers' => 'boolean',
         'hostname' => 'string',
         'imagePullSecrets' => '\Rancher\Model\LocalObjectReferenceModel[]',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeId' => 'string',
+        'os' => '\Rancher\Model\PodOSModel',
         'overhead' => 'map[string,string]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'preemptionPolicy' => 'string',
@@ -163,11 +173,13 @@ class PodModel implements ArrayAccess
         'publicEndpoints' => '\Rancher\Model\PublicEndpointModel[]',
         'readinessGates' => '\Rancher\Model\PodReadinessGateModel[]',
         'removed' => '\DateTime',
+        'resourceClaims' => '\Rancher\Model\PodResourceClaimModel[]',
         'restartPolicy' => 'string',
         'runAsGroup' => 'int',
         'runAsNonRoot' => 'boolean',
         'runtimeClassName' => 'string',
         'scheduling' => '\Rancher\Model\SchedulingModel',
+        'schedulingGates' => '\Rancher\Model\PodSchedulingGateModel[]',
         'seccompProfile' => '\Rancher\Model\SeccompProfileModel',
         'serviceAccountName' => 'string',
         'setHostnameAsFQDN' => 'boolean',
@@ -212,12 +224,14 @@ class PodModel implements ArrayAccess
         'hostIPC' => 'setHostIPC',
         'hostNetwork' => 'setHostNetwork',
         'hostPID' => 'setHostPID',
+        'hostUsers' => 'setHostUsers',
         'hostname' => 'setHostname',
         'imagePullSecrets' => 'setImagePullSecrets',
         'labels' => 'setLabels',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'nodeId' => 'setNodeId',
+        'os' => 'setOs',
         'overhead' => 'setOverhead',
         'ownerReferences' => 'setOwnerReferences',
         'preemptionPolicy' => 'setPreemptionPolicy',
@@ -225,11 +239,13 @@ class PodModel implements ArrayAccess
         'publicEndpoints' => 'setPublicEndpoints',
         'readinessGates' => 'setReadinessGates',
         'removed' => 'setRemoved',
+        'resourceClaims' => 'setResourceClaims',
         'restartPolicy' => 'setRestartPolicy',
         'runAsGroup' => 'setRunAsGroup',
         'runAsNonRoot' => 'setRunAsNonRoot',
         'runtimeClassName' => 'setRuntimeClassName',
         'scheduling' => 'setScheduling',
+        'schedulingGates' => 'setSchedulingGates',
         'seccompProfile' => 'setSeccompProfile',
         'serviceAccountName' => 'setServiceAccountName',
         'setHostnameAsFQDN' => 'setSetHostnameAsFQDN',
@@ -274,12 +290,14 @@ class PodModel implements ArrayAccess
         'hostIPC' => 'getHostIPC',
         'hostNetwork' => 'getHostNetwork',
         'hostPID' => 'getHostPID',
+        'hostUsers' => 'getHostUsers',
         'hostname' => 'getHostname',
         'imagePullSecrets' => 'getImagePullSecrets',
         'labels' => 'getLabels',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'nodeId' => 'getNodeId',
+        'os' => 'getOs',
         'overhead' => 'getOverhead',
         'ownerReferences' => 'getOwnerReferences',
         'preemptionPolicy' => 'getPreemptionPolicy',
@@ -287,11 +305,13 @@ class PodModel implements ArrayAccess
         'publicEndpoints' => 'getPublicEndpoints',
         'readinessGates' => 'getReadinessGates',
         'removed' => 'getRemoved',
+        'resourceClaims' => 'getResourceClaims',
         'restartPolicy' => 'getRestartPolicy',
         'runAsGroup' => 'getRunAsGroup',
         'runAsNonRoot' => 'getRunAsNonRoot',
         'runtimeClassName' => 'getRuntimeClassName',
         'scheduling' => 'getScheduling',
+        'schedulingGates' => 'getSchedulingGates',
         'seccompProfile' => 'getSeccompProfile',
         'serviceAccountName' => 'getServiceAccountName',
         'setHostnameAsFQDN' => 'getSetHostnameAsFQDN',
@@ -337,12 +357,14 @@ class PodModel implements ArrayAccess
         $this->container['hostIPC'] = isset($data['hostIPC']) ? $data['hostIPC'] : null;
         $this->container['hostNetwork'] = isset($data['hostNetwork']) ? $data['hostNetwork'] : null;
         $this->container['hostPID'] = isset($data['hostPID']) ? $data['hostPID'] : null;
+        $this->container['hostUsers'] = isset($data['hostUsers']) ? $data['hostUsers'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['imagePullSecrets'] = isset($data['imagePullSecrets']) ? $data['imagePullSecrets'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['nodeId'] = isset($data['nodeId']) ? $data['nodeId'] : null;
+        $this->container['os'] = isset($data['os']) ? $data['os'] : null;
         $this->container['overhead'] = isset($data['overhead']) ? $data['overhead'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['preemptionPolicy'] = isset($data['preemptionPolicy']) ? $data['preemptionPolicy'] : null;
@@ -350,11 +372,13 @@ class PodModel implements ArrayAccess
         $this->container['publicEndpoints'] = isset($data['publicEndpoints']) ? $data['publicEndpoints'] : null;
         $this->container['readinessGates'] = isset($data['readinessGates']) ? $data['readinessGates'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
+        $this->container['resourceClaims'] = isset($data['resourceClaims']) ? $data['resourceClaims'] : null;
         $this->container['restartPolicy'] = isset($data['restartPolicy']) ? $data['restartPolicy'] : null;
         $this->container['runAsGroup'] = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
         $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
         $this->container['runtimeClassName'] = isset($data['runtimeClassName']) ? $data['runtimeClassName'] : null;
         $this->container['scheduling'] = isset($data['scheduling']) ? $data['scheduling'] : null;
+        $this->container['schedulingGates'] = isset($data['schedulingGates']) ? $data['schedulingGates'] : null;
         $this->container['seccompProfile'] = isset($data['seccompProfile']) ? $data['seccompProfile'] : null;
         $this->container['serviceAccountName'] = isset($data['serviceAccountName']) ? $data['serviceAccountName'] : null;
         $this->container['setHostnameAsFQDN'] = isset($data['setHostnameAsFQDN']) ? $data['setHostnameAsFQDN'] : null;
@@ -772,6 +796,28 @@ class PodModel implements ArrayAccess
 
 
     /**
+     * Gets hostUsers
+     * @return boolean
+     */
+    public function getHostUsers()
+    {
+        return $this->container['hostUsers'];
+    }
+
+    /**
+     * Sets hostUsers
+     * @param boolean $hostUsers
+     * @return $this
+     */
+    public function setHostUsers($hostUsers)
+    {
+        $this->container['hostUsers'] = $hostUsers;
+
+        return $this;
+    }
+
+
+    /**
      * Gets hostname
      * @return string
      */
@@ -898,6 +944,28 @@ class PodModel implements ArrayAccess
     public function setNodeId($nodeId)
     {
         $this->container['nodeId'] = $nodeId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets os
+     * @return \Rancher\Model\PodOSModel
+     */
+    public function getOs()
+    {
+        return $this->container['os'];
+    }
+
+    /**
+     * Sets os
+     * @param \Rancher\Model\PodOSModel $os
+     * @return $this
+     */
+    public function setOs($os)
+    {
+        $this->container['os'] = $os;
 
         return $this;
     }
@@ -1058,6 +1126,28 @@ class PodModel implements ArrayAccess
 
 
     /**
+     * Gets resourceClaims
+     * @return \Rancher\Model\PodResourceClaimModel[]
+     */
+    public function getResourceClaims()
+    {
+        return $this->container['resourceClaims'];
+    }
+
+    /**
+     * Sets resourceClaims
+     * @param \Rancher\Model\PodResourceClaimModel[] $resourceClaims
+     * @return $this
+     */
+    public function setResourceClaims($resourceClaims)
+    {
+        $this->container['resourceClaims'] = $resourceClaims;
+
+        return $this;
+    }
+
+
+    /**
      * Gets restartPolicy
      * @return string
      */
@@ -1162,6 +1252,28 @@ class PodModel implements ArrayAccess
     public function setScheduling($scheduling)
     {
         $this->container['scheduling'] = $scheduling;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets schedulingGates
+     * @return \Rancher\Model\PodSchedulingGateModel[]
+     */
+    public function getSchedulingGates()
+    {
+        return $this->container['schedulingGates'];
+    }
+
+    /**
+     * Sets schedulingGates
+     * @param \Rancher\Model\PodSchedulingGateModel[] $schedulingGates
+     * @return $this
+     */
+    public function setSchedulingGates($schedulingGates)
+    {
+        $this->container['schedulingGates'] = $schedulingGates;
 
         return $this;
     }

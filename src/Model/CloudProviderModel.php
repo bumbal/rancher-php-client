@@ -31,8 +31,10 @@ class CloudProviderModel implements ArrayAccess
         'awsCloudProvider',
         'azureCloudProvider',
         'customCloudProvider',
+        'harvesterCloudProvider',
         'name',
         'openstackCloudProvider',
+        'useInstanceMetadataHostname',
         'vsphereCloudProvider',
     ];
 
@@ -50,8 +52,10 @@ class CloudProviderModel implements ArrayAccess
         'awsCloudProvider',
         'azureCloudProvider',
         'customCloudProvider',
+        'harvesterCloudProvider',
         'name',
         'openstackCloudProvider',
+        'useInstanceMetadataHostname',
         'vsphereCloudProvider',
     ];
 
@@ -64,8 +68,10 @@ class CloudProviderModel implements ArrayAccess
         'awsCloudProvider' => '\Rancher\Model\AwsCloudProviderModel',
         'azureCloudProvider' => '\Rancher\Model\AzureCloudProviderModel',
         'customCloudProvider' => 'string',
+        'harvesterCloudProvider' => '\Rancher\Model\HarvesterCloudProviderModel',
         'name' => 'string',
         'openstackCloudProvider' => '\Rancher\Model\OpenstackCloudProviderModel',
+        'useInstanceMetadataHostname' => 'boolean',
         'vsphereCloudProvider' => '\Rancher\Model\VsphereCloudProviderModel',
     ];
 
@@ -78,8 +84,10 @@ class CloudProviderModel implements ArrayAccess
         'awsCloudProvider' => 'setAwsCloudProvider',
         'azureCloudProvider' => 'setAzureCloudProvider',
         'customCloudProvider' => 'setCustomCloudProvider',
+        'harvesterCloudProvider' => 'setHarvesterCloudProvider',
         'name' => 'setName',
         'openstackCloudProvider' => 'setOpenstackCloudProvider',
+        'useInstanceMetadataHostname' => 'setUseInstanceMetadataHostname',
         'vsphereCloudProvider' => 'setVsphereCloudProvider',
     ];
 
@@ -92,8 +100,10 @@ class CloudProviderModel implements ArrayAccess
         'awsCloudProvider' => 'getAwsCloudProvider',
         'azureCloudProvider' => 'getAzureCloudProvider',
         'customCloudProvider' => 'getCustomCloudProvider',
+        'harvesterCloudProvider' => 'getHarvesterCloudProvider',
         'name' => 'getName',
         'openstackCloudProvider' => 'getOpenstackCloudProvider',
+        'useInstanceMetadataHostname' => 'getUseInstanceMetadataHostname',
         'vsphereCloudProvider' => 'getVsphereCloudProvider',
     ];
 
@@ -107,8 +117,10 @@ class CloudProviderModel implements ArrayAccess
         $this->container['awsCloudProvider'] = isset($data['awsCloudProvider']) ? $data['awsCloudProvider'] : null;
         $this->container['azureCloudProvider'] = isset($data['azureCloudProvider']) ? $data['azureCloudProvider'] : null;
         $this->container['customCloudProvider'] = isset($data['customCloudProvider']) ? $data['customCloudProvider'] : null;
+        $this->container['harvesterCloudProvider'] = isset($data['harvesterCloudProvider']) ? $data['harvesterCloudProvider'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['openstackCloudProvider'] = isset($data['openstackCloudProvider']) ? $data['openstackCloudProvider'] : null;
+        $this->container['useInstanceMetadataHostname'] = isset($data['useInstanceMetadataHostname']) ? $data['useInstanceMetadataHostname'] : null;
         $this->container['vsphereCloudProvider'] = isset($data['vsphereCloudProvider']) ? $data['vsphereCloudProvider'] : null;
     }
 
@@ -179,6 +191,28 @@ class CloudProviderModel implements ArrayAccess
 
 
     /**
+     * Gets harvesterCloudProvider
+     * @return \Rancher\Model\HarvesterCloudProviderModel
+     */
+    public function getHarvesterCloudProvider()
+    {
+        return $this->container['harvesterCloudProvider'];
+    }
+
+    /**
+     * Sets harvesterCloudProvider
+     * @param \Rancher\Model\HarvesterCloudProviderModel $harvesterCloudProvider
+     * @return $this
+     */
+    public function setHarvesterCloudProvider($harvesterCloudProvider)
+    {
+        $this->container['harvesterCloudProvider'] = $harvesterCloudProvider;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */
@@ -217,6 +251,28 @@ class CloudProviderModel implements ArrayAccess
     public function setOpenstackCloudProvider($openstackCloudProvider)
     {
         $this->container['openstackCloudProvider'] = $openstackCloudProvider;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets useInstanceMetadataHostname
+     * @return boolean
+     */
+    public function getUseInstanceMetadataHostname()
+    {
+        return $this->container['useInstanceMetadataHostname'];
+    }
+
+    /**
+     * Sets useInstanceMetadataHostname
+     * @param boolean $useInstanceMetadataHostname
+     * @return $this
+     */
+    public function setUseInstanceMetadataHostname($useInstanceMetadataHostname)
+    {
+        $this->container['useInstanceMetadataHostname'] = $useInstanceMetadataHostname;
 
         return $this;
     }

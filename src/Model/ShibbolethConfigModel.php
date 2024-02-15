@@ -99,6 +99,7 @@ class ShibbolethConfigModel implements ArrayAccess
         'removed' => '\DateTime',
         'spCert' => 'string',
         'spKey' => '\Rancher\Model\PasswordModel',
+        'status' => '\Rancher\Model\AuthConfigStatusModel',
         'type' => 'string',
         'uidField' => 'string',
         'userNameField' => 'string',
@@ -129,6 +130,7 @@ class ShibbolethConfigModel implements ArrayAccess
         'removed' => 'setRemoved',
         'spCert' => 'setSpCert',
         'spKey' => 'setSpKey',
+        'status' => 'setStatus',
         'type' => 'setType',
         'uidField' => 'setUidField',
         'userNameField' => 'setUserNameField',
@@ -159,6 +161,7 @@ class ShibbolethConfigModel implements ArrayAccess
         'removed' => 'getRemoved',
         'spCert' => 'getSpCert',
         'spKey' => 'getSpKey',
+        'status' => 'getStatus',
         'type' => 'getType',
         'uidField' => 'getUidField',
         'userNameField' => 'getUserNameField',
@@ -190,6 +193,7 @@ class ShibbolethConfigModel implements ArrayAccess
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
         $this->container['spCert'] = isset($data['spCert']) ? $data['spCert'] : null;
         $this->container['spKey'] = isset($data['spKey']) ? $data['spKey'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['uidField'] = isset($data['uidField']) ? $data['uidField'] : null;
         $this->container['userNameField'] = isset($data['userNameField']) ? $data['userNameField'] : null;
@@ -587,6 +591,28 @@ class ShibbolethConfigModel implements ArrayAccess
     public function setSpKey($spKey)
     {
         $this->container['spKey'] = $spKey;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets status
+     * @return \Rancher\Model\AuthConfigStatusModel
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param \Rancher\Model\AuthConfigStatusModel $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

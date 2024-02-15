@@ -30,11 +30,14 @@ class ClusterSpecModel implements ArrayAccess
     protected static $canBeCreated = [
         'agentEnvVars',
         'agentImageOverride',
+        'aksConfig',
         'amazonElasticContainerServiceConfig',
         'answers',
         'azureKubernetesServiceConfig',
+        'clusterAgentDeploymentCustomization',
         'clusterTemplateRevisionId',
         'defaultClusterRoleForProjectMembers',
+        'defaultPodSecurityAdmissionConfigurationTemplateName',
         'defaultPodSecurityPolicyTemplateId',
         'description',
         'desiredAgentImage',
@@ -45,6 +48,7 @@ class ClusterSpecModel implements ArrayAccess
         'enableClusterAlerting',
         'enableClusterMonitoring',
         'enableNetworkPolicy',
+        'fleetAgentDeploymentCustomization',
         'fleetWorkspaceName',
         'genericEngineConfig',
         'gkeConfig',
@@ -53,7 +57,6 @@ class ClusterSpecModel implements ArrayAccess
         'localClusterAuthEndpoint',
         'rancherKubernetesEngineConfig',
         'rke2Config',
-        'scheduledClusterScan',
         'windowsPreferedCluster',
     ];
 
@@ -70,11 +73,14 @@ class ClusterSpecModel implements ArrayAccess
     protected static $canBeUpdated = [
         'agentEnvVars',
         'agentImageOverride',
+        'aksConfig',
         'amazonElasticContainerServiceConfig',
         'answers',
         'azureKubernetesServiceConfig',
+        'clusterAgentDeploymentCustomization',
         'clusterTemplateRevisionId',
         'defaultClusterRoleForProjectMembers',
+        'defaultPodSecurityAdmissionConfigurationTemplateName',
         'defaultPodSecurityPolicyTemplateId',
         'description',
         'desiredAgentImage',
@@ -85,6 +91,7 @@ class ClusterSpecModel implements ArrayAccess
         'enableClusterAlerting',
         'enableClusterMonitoring',
         'enableNetworkPolicy',
+        'fleetAgentDeploymentCustomization',
         'fleetWorkspaceName',
         'genericEngineConfig',
         'gkeConfig',
@@ -93,7 +100,6 @@ class ClusterSpecModel implements ArrayAccess
         'localClusterAuthEndpoint',
         'rancherKubernetesEngineConfig',
         'rke2Config',
-        'scheduledClusterScan',
     ];
 
     public static function canBeUpdated()
@@ -104,12 +110,16 @@ class ClusterSpecModel implements ArrayAccess
     protected static $typeMap = [
         'agentEnvVars' => '\Rancher\Model\EnvVarModel[]',
         'agentImageOverride' => 'string',
+        'aksConfig' => '\Rancher\Model\AksClusterConfigSpecModel',
         'amazonElasticContainerServiceConfig' => 'map[string,\Rancher\Model\JsonModel]',
         'answers' => '\Rancher\Model\AnswerModel',
         'azureKubernetesServiceConfig' => 'map[string,\Rancher\Model\JsonModel]',
+        'clusterAgentDeploymentCustomization' => '\Rancher\Model\AgentDeploymentCustomizationModel',
+        'clusterSecrets' => '\Rancher\Model\ClusterSecretsModel',
         'clusterTemplateId' => 'string',
         'clusterTemplateRevisionId' => 'string',
         'defaultClusterRoleForProjectMembers' => 'string',
+        'defaultPodSecurityAdmissionConfigurationTemplateName' => 'string',
         'defaultPodSecurityPolicyTemplateId' => 'string',
         'description' => 'string',
         'desiredAgentImage' => 'string',
@@ -120,6 +130,7 @@ class ClusterSpecModel implements ArrayAccess
         'enableClusterAlerting' => 'boolean',
         'enableClusterMonitoring' => 'boolean',
         'enableNetworkPolicy' => 'boolean',
+        'fleetAgentDeploymentCustomization' => '\Rancher\Model\AgentDeploymentCustomizationModel',
         'fleetWorkspaceName' => 'string',
         'genericEngineConfig' => 'map[string,\Rancher\Model\JsonModel]',
         'gkeConfig' => '\Rancher\Model\GkeClusterConfigSpecModel',
@@ -131,7 +142,6 @@ class ClusterSpecModel implements ArrayAccess
         'questions' => '\Rancher\Model\QuestionModel[]',
         'rancherKubernetesEngineConfig' => '\Rancher\Model\RancherKubernetesEngineConfigModel',
         'rke2Config' => '\Rancher\Model\Rke2ConfigModel',
-        'scheduledClusterScan' => '\Rancher\Model\ScheduledClusterScanModel',
         'windowsPreferedCluster' => 'boolean',
     ];
 
@@ -143,12 +153,16 @@ class ClusterSpecModel implements ArrayAccess
     protected static $setters = [
         'agentEnvVars' => 'setAgentEnvVars',
         'agentImageOverride' => 'setAgentImageOverride',
+        'aksConfig' => 'setAksConfig',
         'amazonElasticContainerServiceConfig' => 'setAmazonElasticContainerServiceConfig',
         'answers' => 'setAnswers',
         'azureKubernetesServiceConfig' => 'setAzureKubernetesServiceConfig',
+        'clusterAgentDeploymentCustomization' => 'setClusterAgentDeploymentCustomization',
+        'clusterSecrets' => 'setClusterSecrets',
         'clusterTemplateId' => 'setClusterTemplateId',
         'clusterTemplateRevisionId' => 'setClusterTemplateRevisionId',
         'defaultClusterRoleForProjectMembers' => 'setDefaultClusterRoleForProjectMembers',
+        'defaultPodSecurityAdmissionConfigurationTemplateName' => 'setDefaultPodSecurityAdmissionConfigurationTemplateName',
         'defaultPodSecurityPolicyTemplateId' => 'setDefaultPodSecurityPolicyTemplateId',
         'description' => 'setDescription',
         'desiredAgentImage' => 'setDesiredAgentImage',
@@ -159,6 +173,7 @@ class ClusterSpecModel implements ArrayAccess
         'enableClusterAlerting' => 'setEnableClusterAlerting',
         'enableClusterMonitoring' => 'setEnableClusterMonitoring',
         'enableNetworkPolicy' => 'setEnableNetworkPolicy',
+        'fleetAgentDeploymentCustomization' => 'setFleetAgentDeploymentCustomization',
         'fleetWorkspaceName' => 'setFleetWorkspaceName',
         'genericEngineConfig' => 'setGenericEngineConfig',
         'gkeConfig' => 'setGkeConfig',
@@ -170,7 +185,6 @@ class ClusterSpecModel implements ArrayAccess
         'questions' => 'setQuestions',
         'rancherKubernetesEngineConfig' => 'setRancherKubernetesEngineConfig',
         'rke2Config' => 'setRke2Config',
-        'scheduledClusterScan' => 'setScheduledClusterScan',
         'windowsPreferedCluster' => 'setWindowsPreferedCluster',
     ];
 
@@ -182,12 +196,16 @@ class ClusterSpecModel implements ArrayAccess
     protected static $getters = [
         'agentEnvVars' => 'getAgentEnvVars',
         'agentImageOverride' => 'getAgentImageOverride',
+        'aksConfig' => 'getAksConfig',
         'amazonElasticContainerServiceConfig' => 'getAmazonElasticContainerServiceConfig',
         'answers' => 'getAnswers',
         'azureKubernetesServiceConfig' => 'getAzureKubernetesServiceConfig',
+        'clusterAgentDeploymentCustomization' => 'getClusterAgentDeploymentCustomization',
+        'clusterSecrets' => 'getClusterSecrets',
         'clusterTemplateId' => 'getClusterTemplateId',
         'clusterTemplateRevisionId' => 'getClusterTemplateRevisionId',
         'defaultClusterRoleForProjectMembers' => 'getDefaultClusterRoleForProjectMembers',
+        'defaultPodSecurityAdmissionConfigurationTemplateName' => 'getDefaultPodSecurityAdmissionConfigurationTemplateName',
         'defaultPodSecurityPolicyTemplateId' => 'getDefaultPodSecurityPolicyTemplateId',
         'description' => 'getDescription',
         'desiredAgentImage' => 'getDesiredAgentImage',
@@ -198,6 +216,7 @@ class ClusterSpecModel implements ArrayAccess
         'enableClusterAlerting' => 'getEnableClusterAlerting',
         'enableClusterMonitoring' => 'getEnableClusterMonitoring',
         'enableNetworkPolicy' => 'getEnableNetworkPolicy',
+        'fleetAgentDeploymentCustomization' => 'getFleetAgentDeploymentCustomization',
         'fleetWorkspaceName' => 'getFleetWorkspaceName',
         'genericEngineConfig' => 'getGenericEngineConfig',
         'gkeConfig' => 'getGkeConfig',
@@ -209,7 +228,6 @@ class ClusterSpecModel implements ArrayAccess
         'questions' => 'getQuestions',
         'rancherKubernetesEngineConfig' => 'getRancherKubernetesEngineConfig',
         'rke2Config' => 'getRke2Config',
-        'scheduledClusterScan' => 'getScheduledClusterScan',
         'windowsPreferedCluster' => 'getWindowsPreferedCluster',
     ];
 
@@ -222,12 +240,16 @@ class ClusterSpecModel implements ArrayAccess
     {
         $this->container['agentEnvVars'] = isset($data['agentEnvVars']) ? $data['agentEnvVars'] : null;
         $this->container['agentImageOverride'] = isset($data['agentImageOverride']) ? $data['agentImageOverride'] : null;
+        $this->container['aksConfig'] = isset($data['aksConfig']) ? $data['aksConfig'] : null;
         $this->container['amazonElasticContainerServiceConfig'] = isset($data['amazonElasticContainerServiceConfig']) ? $data['amazonElasticContainerServiceConfig'] : null;
         $this->container['answers'] = isset($data['answers']) ? $data['answers'] : null;
         $this->container['azureKubernetesServiceConfig'] = isset($data['azureKubernetesServiceConfig']) ? $data['azureKubernetesServiceConfig'] : null;
+        $this->container['clusterAgentDeploymentCustomization'] = isset($data['clusterAgentDeploymentCustomization']) ? $data['clusterAgentDeploymentCustomization'] : null;
+        $this->container['clusterSecrets'] = isset($data['clusterSecrets']) ? $data['clusterSecrets'] : null;
         $this->container['clusterTemplateId'] = isset($data['clusterTemplateId']) ? $data['clusterTemplateId'] : null;
         $this->container['clusterTemplateRevisionId'] = isset($data['clusterTemplateRevisionId']) ? $data['clusterTemplateRevisionId'] : null;
         $this->container['defaultClusterRoleForProjectMembers'] = isset($data['defaultClusterRoleForProjectMembers']) ? $data['defaultClusterRoleForProjectMembers'] : null;
+        $this->container['defaultPodSecurityAdmissionConfigurationTemplateName'] = isset($data['defaultPodSecurityAdmissionConfigurationTemplateName']) ? $data['defaultPodSecurityAdmissionConfigurationTemplateName'] : null;
         $this->container['defaultPodSecurityPolicyTemplateId'] = isset($data['defaultPodSecurityPolicyTemplateId']) ? $data['defaultPodSecurityPolicyTemplateId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['desiredAgentImage'] = isset($data['desiredAgentImage']) ? $data['desiredAgentImage'] : null;
@@ -238,6 +260,7 @@ class ClusterSpecModel implements ArrayAccess
         $this->container['enableClusterAlerting'] = isset($data['enableClusterAlerting']) ? $data['enableClusterAlerting'] : null;
         $this->container['enableClusterMonitoring'] = isset($data['enableClusterMonitoring']) ? $data['enableClusterMonitoring'] : null;
         $this->container['enableNetworkPolicy'] = isset($data['enableNetworkPolicy']) ? $data['enableNetworkPolicy'] : null;
+        $this->container['fleetAgentDeploymentCustomization'] = isset($data['fleetAgentDeploymentCustomization']) ? $data['fleetAgentDeploymentCustomization'] : null;
         $this->container['fleetWorkspaceName'] = isset($data['fleetWorkspaceName']) ? $data['fleetWorkspaceName'] : null;
         $this->container['genericEngineConfig'] = isset($data['genericEngineConfig']) ? $data['genericEngineConfig'] : null;
         $this->container['gkeConfig'] = isset($data['gkeConfig']) ? $data['gkeConfig'] : null;
@@ -249,7 +272,6 @@ class ClusterSpecModel implements ArrayAccess
         $this->container['questions'] = isset($data['questions']) ? $data['questions'] : null;
         $this->container['rancherKubernetesEngineConfig'] = isset($data['rancherKubernetesEngineConfig']) ? $data['rancherKubernetesEngineConfig'] : null;
         $this->container['rke2Config'] = isset($data['rke2Config']) ? $data['rke2Config'] : null;
-        $this->container['scheduledClusterScan'] = isset($data['scheduledClusterScan']) ? $data['scheduledClusterScan'] : null;
         $this->container['windowsPreferedCluster'] = isset($data['windowsPreferedCluster']) ? $data['windowsPreferedCluster'] : null;
     }
 
@@ -292,6 +314,28 @@ class ClusterSpecModel implements ArrayAccess
     public function setAgentImageOverride($agentImageOverride)
     {
         $this->container['agentImageOverride'] = $agentImageOverride;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aksConfig
+     * @return \Rancher\Model\AksClusterConfigSpecModel
+     */
+    public function getAksConfig()
+    {
+        return $this->container['aksConfig'];
+    }
+
+    /**
+     * Sets aksConfig
+     * @param \Rancher\Model\AksClusterConfigSpecModel $aksConfig
+     * @return $this
+     */
+    public function setAksConfig($aksConfig)
+    {
+        $this->container['aksConfig'] = $aksConfig;
 
         return $this;
     }
@@ -364,6 +408,50 @@ class ClusterSpecModel implements ArrayAccess
 
 
     /**
+     * Gets clusterAgentDeploymentCustomization
+     * @return \Rancher\Model\AgentDeploymentCustomizationModel
+     */
+    public function getClusterAgentDeploymentCustomization()
+    {
+        return $this->container['clusterAgentDeploymentCustomization'];
+    }
+
+    /**
+     * Sets clusterAgentDeploymentCustomization
+     * @param \Rancher\Model\AgentDeploymentCustomizationModel $clusterAgentDeploymentCustomization
+     * @return $this
+     */
+    public function setClusterAgentDeploymentCustomization($clusterAgentDeploymentCustomization)
+    {
+        $this->container['clusterAgentDeploymentCustomization'] = $clusterAgentDeploymentCustomization;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterSecrets
+     * @return \Rancher\Model\ClusterSecretsModel
+     */
+    public function getClusterSecrets()
+    {
+        return $this->container['clusterSecrets'];
+    }
+
+    /**
+     * Sets clusterSecrets
+     * @param \Rancher\Model\ClusterSecretsModel $clusterSecrets
+     * @return $this
+     */
+    public function setClusterSecrets($clusterSecrets)
+    {
+        $this->container['clusterSecrets'] = $clusterSecrets;
+
+        return $this;
+    }
+
+
+    /**
      * Gets clusterTemplateId
      * @return string
      */
@@ -424,6 +512,28 @@ class ClusterSpecModel implements ArrayAccess
     public function setDefaultClusterRoleForProjectMembers($defaultClusterRoleForProjectMembers)
     {
         $this->container['defaultClusterRoleForProjectMembers'] = $defaultClusterRoleForProjectMembers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets defaultPodSecurityAdmissionConfigurationTemplateName
+     * @return string
+     */
+    public function getDefaultPodSecurityAdmissionConfigurationTemplateName()
+    {
+        return $this->container['defaultPodSecurityAdmissionConfigurationTemplateName'];
+    }
+
+    /**
+     * Sets defaultPodSecurityAdmissionConfigurationTemplateName
+     * @param string $defaultPodSecurityAdmissionConfigurationTemplateName
+     * @return $this
+     */
+    public function setDefaultPodSecurityAdmissionConfigurationTemplateName($defaultPodSecurityAdmissionConfigurationTemplateName)
+    {
+        $this->container['defaultPodSecurityAdmissionConfigurationTemplateName'] = $defaultPodSecurityAdmissionConfigurationTemplateName;
 
         return $this;
     }
@@ -644,6 +754,28 @@ class ClusterSpecModel implements ArrayAccess
     public function setEnableNetworkPolicy($enableNetworkPolicy)
     {
         $this->container['enableNetworkPolicy'] = $enableNetworkPolicy;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets fleetAgentDeploymentCustomization
+     * @return \Rancher\Model\AgentDeploymentCustomizationModel
+     */
+    public function getFleetAgentDeploymentCustomization()
+    {
+        return $this->container['fleetAgentDeploymentCustomization'];
+    }
+
+    /**
+     * Sets fleetAgentDeploymentCustomization
+     * @param \Rancher\Model\AgentDeploymentCustomizationModel $fleetAgentDeploymentCustomization
+     * @return $this
+     */
+    public function setFleetAgentDeploymentCustomization($fleetAgentDeploymentCustomization)
+    {
+        $this->container['fleetAgentDeploymentCustomization'] = $fleetAgentDeploymentCustomization;
 
         return $this;
     }
@@ -886,28 +1018,6 @@ class ClusterSpecModel implements ArrayAccess
     public function setRke2Config($rke2Config)
     {
         $this->container['rke2Config'] = $rke2Config;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets scheduledClusterScan
-     * @return \Rancher\Model\ScheduledClusterScanModel
-     */
-    public function getScheduledClusterScan()
-    {
-        return $this->container['scheduledClusterScan'];
-    }
-
-    /**
-     * Sets scheduledClusterScan
-     * @param \Rancher\Model\ScheduledClusterScanModel $scheduledClusterScan
-     * @return $this
-     */
-    public function setScheduledClusterScan($scheduledClusterScan)
-    {
-        $this->container['scheduledClusterScan'] = $scheduledClusterScan;
 
         return $this;
     }

@@ -49,7 +49,7 @@ class IngressStatusModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'loadBalancer' => '\Rancher\Model\LoadBalancerStatusModel',
+        'loadBalancer' => '\Rancher\Model\IngressLoadBalancerStatusModel',
     ];
 
     public static function typeMap()
@@ -82,7 +82,7 @@ class IngressStatusModel implements ArrayAccess
 
     /**
      * Gets loadBalancer
-     * @return \Rancher\Model\LoadBalancerStatusModel
+     * @return \Rancher\Model\IngressLoadBalancerStatusModel
      */
     public function getLoadBalancer()
     {
@@ -91,7 +91,7 @@ class IngressStatusModel implements ArrayAccess
 
     /**
      * Sets loadBalancer
-     * @param \Rancher\Model\LoadBalancerStatusModel $loadBalancer
+     * @param \Rancher\Model\IngressLoadBalancerStatusModel $loadBalancer
      * @return $this
      */
     public function setLoadBalancer($loadBalancer)

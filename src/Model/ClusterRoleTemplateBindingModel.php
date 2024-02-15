@@ -53,7 +53,6 @@ class ClusterRoleTemplateBindingModel implements ArrayAccess
     protected static $canBeUpdated = [
         'annotations',
         'labels',
-        'roleTemplateId',
     ];
 
     public static function canBeUpdated()

@@ -37,6 +37,7 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         'cloudProvider',
         'clusterName',
         'dns',
+        'enableCriDockerd',
         'ignoreDockerVersion',
         'ingress',
         'kubernetesVersion',
@@ -74,6 +75,7 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         'cloudProvider',
         'clusterName',
         'dns',
+        'enableCriDockerd',
         'ignoreDockerVersion',
         'ingress',
         'kubernetesVersion',
@@ -106,6 +108,7 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         'cloudProvider' => '\Rancher\Model\CloudProviderModel',
         'clusterName' => 'string',
         'dns' => '\Rancher\Model\DnsConfigModel',
+        'enableCriDockerd' => 'boolean',
         'ignoreDockerVersion' => 'boolean',
         'ingress' => '\Rancher\Model\IngressConfigModel',
         'kubernetesVersion' => 'string',
@@ -140,6 +143,7 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         'cloudProvider' => 'setCloudProvider',
         'clusterName' => 'setClusterName',
         'dns' => 'setDns',
+        'enableCriDockerd' => 'setEnableCriDockerd',
         'ignoreDockerVersion' => 'setIgnoreDockerVersion',
         'ingress' => 'setIngress',
         'kubernetesVersion' => 'setKubernetesVersion',
@@ -174,6 +178,7 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         'cloudProvider' => 'getCloudProvider',
         'clusterName' => 'getClusterName',
         'dns' => 'getDns',
+        'enableCriDockerd' => 'getEnableCriDockerd',
         'ignoreDockerVersion' => 'getIgnoreDockerVersion',
         'ingress' => 'getIngress',
         'kubernetesVersion' => 'getKubernetesVersion',
@@ -209,6 +214,7 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
         $this->container['cloudProvider'] = isset($data['cloudProvider']) ? $data['cloudProvider'] : null;
         $this->container['clusterName'] = isset($data['clusterName']) ? $data['clusterName'] : null;
         $this->container['dns'] = isset($data['dns']) ? $data['dns'] : null;
+        $this->container['enableCriDockerd'] = isset($data['enableCriDockerd']) ? $data['enableCriDockerd'] : null;
         $this->container['ignoreDockerVersion'] = isset($data['ignoreDockerVersion']) ? $data['ignoreDockerVersion'] : null;
         $this->container['ingress'] = isset($data['ingress']) ? $data['ingress'] : null;
         $this->container['kubernetesVersion'] = isset($data['kubernetesVersion']) ? $data['kubernetesVersion'] : null;
@@ -421,6 +427,28 @@ class RancherKubernetesEngineConfigModel implements ArrayAccess
     public function setDns($dns)
     {
         $this->container['dns'] = $dns;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enableCriDockerd
+     * @return boolean
+     */
+    public function getEnableCriDockerd()
+    {
+        return $this->container['enableCriDockerd'];
+    }
+
+    /**
+     * Sets enableCriDockerd
+     * @param boolean $enableCriDockerd
+     * @return $this
+     */
+    public function setEnableCriDockerd($enableCriDockerd)
+    {
+        $this->container['enableCriDockerd'] = $enableCriDockerd;
 
         return $this;
     }

@@ -31,6 +31,7 @@ class PersistentVolumeClaimModel implements ArrayAccess
         'accessModes',
         'annotations',
         'dataSource',
+        'dataSourceRef',
         'labels',
         'name',
         'namespaceId',
@@ -56,6 +57,7 @@ class PersistentVolumeClaimModel implements ArrayAccess
         'accessModes',
         'annotations',
         'dataSource',
+        'dataSourceRef',
         'labels',
         'resources',
         'selector',
@@ -75,6 +77,7 @@ class PersistentVolumeClaimModel implements ArrayAccess
         'created' => '\DateTime',
         'creatorId' => 'string',
         'dataSource' => '\Rancher\Model\TypedLocalObjectReferenceModel',
+        'dataSourceRef' => '\Rancher\Model\TypedObjectReferenceModel',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'namespaceId' => 'string',
@@ -104,6 +107,7 @@ class PersistentVolumeClaimModel implements ArrayAccess
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'dataSource' => 'setDataSource',
+        'dataSourceRef' => 'setDataSourceRef',
         'labels' => 'setLabels',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
@@ -133,6 +137,7 @@ class PersistentVolumeClaimModel implements ArrayAccess
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'dataSource' => 'getDataSource',
+        'dataSourceRef' => 'getDataSourceRef',
         'labels' => 'getLabels',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
@@ -163,6 +168,7 @@ class PersistentVolumeClaimModel implements ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['dataSource'] = isset($data['dataSource']) ? $data['dataSource'] : null;
+        $this->container['dataSourceRef'] = isset($data['dataSourceRef']) ? $data['dataSourceRef'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
@@ -286,6 +292,28 @@ class PersistentVolumeClaimModel implements ArrayAccess
     public function setDataSource($dataSource)
     {
         $this->container['dataSource'] = $dataSource;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets dataSourceRef
+     * @return \Rancher\Model\TypedObjectReferenceModel
+     */
+    public function getDataSourceRef()
+    {
+        return $this->container['dataSourceRef'];
+    }
+
+    /**
+     * Sets dataSourceRef
+     * @param \Rancher\Model\TypedObjectReferenceModel $dataSourceRef
+     * @return $this
+     */
+    public function setDataSourceRef($dataSourceRef)
+    {
+        $this->container['dataSourceRef'] = $dataSourceRef;
 
         return $this;
     }

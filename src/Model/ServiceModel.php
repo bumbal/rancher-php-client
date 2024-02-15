@@ -37,11 +37,13 @@ class ServiceModel implements ArrayAccess
         'externalTrafficPolicy',
         'healthCheckNodePort',
         'hostname',
+        'internalTrafficPolicy',
         'ipAddresses',
         'ipFamilies',
         'ipFamilyPolicy',
         'kind',
         'labels',
+        'loadBalancerClass',
         'loadBalancerIP',
         'loadBalancerSourceRanges',
         'name',
@@ -54,7 +56,6 @@ class ServiceModel implements ArrayAccess
         'sessionAffinityConfig',
         'targetDnsRecordIds',
         'targetWorkloadIds',
-        'topologyKeys',
     ];
 
     public static function canBeCreated()
@@ -77,11 +78,13 @@ class ServiceModel implements ArrayAccess
         'externalTrafficPolicy',
         'healthCheckNodePort',
         'hostname',
+        'internalTrafficPolicy',
         'ipAddresses',
         'ipFamilies',
         'ipFamilyPolicy',
         'kind',
         'labels',
+        'loadBalancerClass',
         'loadBalancerIP',
         'loadBalancerSourceRanges',
         'ports',
@@ -91,7 +94,6 @@ class ServiceModel implements ArrayAccess
         'sessionAffinityConfig',
         'targetDnsRecordIds',
         'targetWorkloadIds',
-        'topologyKeys',
     ];
 
     public static function canBeUpdated()
@@ -111,11 +113,13 @@ class ServiceModel implements ArrayAccess
         'externalTrafficPolicy' => 'string',
         'healthCheckNodePort' => 'int',
         'hostname' => 'string',
+        'internalTrafficPolicy' => 'string',
         'ipAddresses' => 'string[]',
         'ipFamilies' => 'string[]',
         'ipFamilyPolicy' => 'string',
         'kind' => 'string',
         'labels' => 'map[string,string]',
+        'loadBalancerClass' => 'string',
         'loadBalancerIP' => 'string',
         'loadBalancerSourceRanges' => 'string[]',
         'name' => 'string',
@@ -132,7 +136,6 @@ class ServiceModel implements ArrayAccess
         'state' => 'string',
         'targetDnsRecordIds' => 'string[]',
         'targetWorkloadIds' => 'string[]',
-        'topologyKeys' => 'string[]',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'uuid' => 'string',
@@ -156,11 +159,13 @@ class ServiceModel implements ArrayAccess
         'externalTrafficPolicy' => 'setExternalTrafficPolicy',
         'healthCheckNodePort' => 'setHealthCheckNodePort',
         'hostname' => 'setHostname',
+        'internalTrafficPolicy' => 'setInternalTrafficPolicy',
         'ipAddresses' => 'setIpAddresses',
         'ipFamilies' => 'setIpFamilies',
         'ipFamilyPolicy' => 'setIpFamilyPolicy',
         'kind' => 'setKind',
         'labels' => 'setLabels',
+        'loadBalancerClass' => 'setLoadBalancerClass',
         'loadBalancerIP' => 'setLoadBalancerIP',
         'loadBalancerSourceRanges' => 'setLoadBalancerSourceRanges',
         'name' => 'setName',
@@ -177,7 +182,6 @@ class ServiceModel implements ArrayAccess
         'state' => 'setState',
         'targetDnsRecordIds' => 'setTargetDnsRecordIds',
         'targetWorkloadIds' => 'setTargetWorkloadIds',
-        'topologyKeys' => 'setTopologyKeys',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
@@ -201,11 +205,13 @@ class ServiceModel implements ArrayAccess
         'externalTrafficPolicy' => 'getExternalTrafficPolicy',
         'healthCheckNodePort' => 'getHealthCheckNodePort',
         'hostname' => 'getHostname',
+        'internalTrafficPolicy' => 'getInternalTrafficPolicy',
         'ipAddresses' => 'getIpAddresses',
         'ipFamilies' => 'getIpFamilies',
         'ipFamilyPolicy' => 'getIpFamilyPolicy',
         'kind' => 'getKind',
         'labels' => 'getLabels',
+        'loadBalancerClass' => 'getLoadBalancerClass',
         'loadBalancerIP' => 'getLoadBalancerIP',
         'loadBalancerSourceRanges' => 'getLoadBalancerSourceRanges',
         'name' => 'getName',
@@ -222,7 +228,6 @@ class ServiceModel implements ArrayAccess
         'state' => 'getState',
         'targetDnsRecordIds' => 'getTargetDnsRecordIds',
         'targetWorkloadIds' => 'getTargetWorkloadIds',
-        'topologyKeys' => 'getTopologyKeys',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
@@ -247,11 +252,13 @@ class ServiceModel implements ArrayAccess
         $this->container['externalTrafficPolicy'] = isset($data['externalTrafficPolicy']) ? $data['externalTrafficPolicy'] : null;
         $this->container['healthCheckNodePort'] = isset($data['healthCheckNodePort']) ? $data['healthCheckNodePort'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
+        $this->container['internalTrafficPolicy'] = isset($data['internalTrafficPolicy']) ? $data['internalTrafficPolicy'] : null;
         $this->container['ipAddresses'] = isset($data['ipAddresses']) ? $data['ipAddresses'] : null;
         $this->container['ipFamilies'] = isset($data['ipFamilies']) ? $data['ipFamilies'] : null;
         $this->container['ipFamilyPolicy'] = isset($data['ipFamilyPolicy']) ? $data['ipFamilyPolicy'] : null;
         $this->container['kind'] = isset($data['kind']) ? $data['kind'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
+        $this->container['loadBalancerClass'] = isset($data['loadBalancerClass']) ? $data['loadBalancerClass'] : null;
         $this->container['loadBalancerIP'] = isset($data['loadBalancerIP']) ? $data['loadBalancerIP'] : null;
         $this->container['loadBalancerSourceRanges'] = isset($data['loadBalancerSourceRanges']) ? $data['loadBalancerSourceRanges'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -268,7 +275,6 @@ class ServiceModel implements ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['targetDnsRecordIds'] = isset($data['targetDnsRecordIds']) ? $data['targetDnsRecordIds'] : null;
         $this->container['targetWorkloadIds'] = isset($data['targetWorkloadIds']) ? $data['targetWorkloadIds'] : null;
-        $this->container['topologyKeys'] = isset($data['topologyKeys']) ? $data['topologyKeys'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
@@ -518,6 +524,28 @@ class ServiceModel implements ArrayAccess
 
 
     /**
+     * Gets internalTrafficPolicy
+     * @return string
+     */
+    public function getInternalTrafficPolicy()
+    {
+        return $this->container['internalTrafficPolicy'];
+    }
+
+    /**
+     * Sets internalTrafficPolicy
+     * @param string $internalTrafficPolicy
+     * @return $this
+     */
+    public function setInternalTrafficPolicy($internalTrafficPolicy)
+    {
+        $this->container['internalTrafficPolicy'] = $internalTrafficPolicy;
+
+        return $this;
+    }
+
+
+    /**
      * Gets ipAddresses
      * @return string[]
      */
@@ -622,6 +650,28 @@ class ServiceModel implements ArrayAccess
     public function setLabels($labels)
     {
         $this->container['labels'] = $labels;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets loadBalancerClass
+     * @return string
+     */
+    public function getLoadBalancerClass()
+    {
+        return $this->container['loadBalancerClass'];
+    }
+
+    /**
+     * Sets loadBalancerClass
+     * @param string $loadBalancerClass
+     * @return $this
+     */
+    public function setLoadBalancerClass($loadBalancerClass)
+    {
+        $this->container['loadBalancerClass'] = $loadBalancerClass;
 
         return $this;
     }
@@ -974,28 +1024,6 @@ class ServiceModel implements ArrayAccess
     public function setTargetWorkloadIds($targetWorkloadIds)
     {
         $this->container['targetWorkloadIds'] = $targetWorkloadIds;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets topologyKeys
-     * @return string[]
-     */
-    public function getTopologyKeys()
-    {
-        return $this->container['topologyKeys'];
-    }
-
-    /**
-     * Sets topologyKeys
-     * @param string[] $topologyKeys
-     * @return $this
-     */
-    public function setTopologyKeys($topologyKeys)
-    {
-        $this->container['topologyKeys'] = $topologyKeys;
 
         return $this;
     }

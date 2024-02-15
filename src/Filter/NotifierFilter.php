@@ -128,6 +128,34 @@ class NotifierFilter extends AbstractFilter
 
 
     /**
+     * Gets dingtalkCredentialSecret
+     * @return string
+     */
+    public function getDingtalkCredentialSecret()
+    {
+        return $this->container['dingtalkCredentialSecret'];
+    }
+
+    /**
+     * Sets dingtalkCredentialSecret
+     * @param string $dingtalkCredentialSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setDingtalkCredentialSecret($dingtalkCredentialSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['dingtalkCredentialSecret'.$option] = $dingtalkCredentialSecret;
+
+        return $this;
+    }
+
+
+    /**
      * Gets id
      * @return string
      */
@@ -268,6 +296,34 @@ class NotifierFilter extends AbstractFilter
 
 
     /**
+     * Gets smtpCredentialSecret
+     * @return string
+     */
+    public function getSmtpCredentialSecret()
+    {
+        return $this->container['smtpCredentialSecret'];
+    }
+
+    /**
+     * Sets smtpCredentialSecret
+     * @param string $smtpCredentialSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setSmtpCredentialSecret($smtpCredentialSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['smtpCredentialSecret'.$option] = $smtpCredentialSecret;
+
+        return $this;
+    }
+
+
+    /**
      * Gets state
      * @return string
      */
@@ -374,6 +430,34 @@ class NotifierFilter extends AbstractFilter
         }
 
         $this->container['uuid'.$option] = $uuid;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets wechatCredentialSecret
+     * @return string
+     */
+    public function getWechatCredentialSecret()
+    {
+        return $this->container['wechatCredentialSecret'];
+    }
+
+    /**
+     * Sets wechatCredentialSecret
+     * @param string $wechatCredentialSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setWechatCredentialSecret($wechatCredentialSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['wechatCredentialSecret'.$option] = $wechatCredentialSecret;
 
         return $this;
     }

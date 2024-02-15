@@ -30,7 +30,9 @@ class AzurecredentialconfigModel implements ArrayAccess
     protected static $canBeCreated = [
         'clientId',
         'clientSecret',
+        'environment',
         'subscriptionId',
+        'tenantId',
     ];
 
     public static function canBeCreated()
@@ -46,7 +48,9 @@ class AzurecredentialconfigModel implements ArrayAccess
     protected static $canBeUpdated = [
         'clientId',
         'clientSecret',
+        'environment',
         'subscriptionId',
+        'tenantId',
     ];
 
     public static function canBeUpdated()
@@ -57,7 +61,9 @@ class AzurecredentialconfigModel implements ArrayAccess
     protected static $typeMap = [
         'clientId' => 'string',
         'clientSecret' => '\Rancher\Model\PasswordModel',
+        'environment' => 'string',
         'subscriptionId' => 'string',
+        'tenantId' => 'string',
     ];
 
     public static function typeMap()
@@ -68,7 +74,9 @@ class AzurecredentialconfigModel implements ArrayAccess
     protected static $setters = [
         'clientId' => 'setClientId',
         'clientSecret' => 'setClientSecret',
+        'environment' => 'setEnvironment',
         'subscriptionId' => 'setSubscriptionId',
+        'tenantId' => 'setTenantId',
     ];
 
     public static function setters()
@@ -79,7 +87,9 @@ class AzurecredentialconfigModel implements ArrayAccess
     protected static $getters = [
         'clientId' => 'getClientId',
         'clientSecret' => 'getClientSecret',
+        'environment' => 'getEnvironment',
         'subscriptionId' => 'getSubscriptionId',
+        'tenantId' => 'getTenantId',
     ];
 
     public static function getters()
@@ -91,7 +101,9 @@ class AzurecredentialconfigModel implements ArrayAccess
     {
         $this->container['clientId'] = isset($data['clientId']) ? $data['clientId'] : null;
         $this->container['clientSecret'] = isset($data['clientSecret']) ? $data['clientSecret'] : null;
+        $this->container['environment'] = isset($data['environment']) ? $data['environment'] : null;
         $this->container['subscriptionId'] = isset($data['subscriptionId']) ? $data['subscriptionId'] : null;
+        $this->container['tenantId'] = isset($data['tenantId']) ? $data['tenantId'] : null;
     }
 
     /**
@@ -139,6 +151,28 @@ class AzurecredentialconfigModel implements ArrayAccess
 
 
     /**
+     * Gets environment
+     * @return string
+     */
+    public function getEnvironment()
+    {
+        return $this->container['environment'];
+    }
+
+    /**
+     * Sets environment
+     * @param string $environment
+     * @return $this
+     */
+    public function setEnvironment($environment)
+    {
+        $this->container['environment'] = $environment;
+
+        return $this;
+    }
+
+
+    /**
      * Gets subscriptionId
      * @return string
      */
@@ -155,6 +189,28 @@ class AzurecredentialconfigModel implements ArrayAccess
     public function setSubscriptionId($subscriptionId)
     {
         $this->container['subscriptionId'] = $subscriptionId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets tenantId
+     * @return string
+     */
+    public function getTenantId()
+    {
+        return $this->container['tenantId'];
+    }
+
+    /**
+     * Sets tenantId
+     * @param string $tenantId
+     * @return $this
+     */
+    public function setTenantId($tenantId)
+    {
+        $this->container['tenantId'] = $tenantId;
 
         return $this;
     }

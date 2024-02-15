@@ -28,6 +28,7 @@ class PrivateRegistryModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'ecrCredentialPlugin',
         'isDefault',
         'password',
         'url',
@@ -45,6 +46,7 @@ class PrivateRegistryModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'ecrCredentialPlugin',
         'isDefault',
         'password',
         'url',
@@ -57,6 +59,7 @@ class PrivateRegistryModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'ecrCredentialPlugin' => '\Rancher\Model\EcrCredentialPluginModel',
         'isDefault' => 'boolean',
         'password' => '\Rancher\Model\PasswordModel',
         'url' => 'string',
@@ -69,6 +72,7 @@ class PrivateRegistryModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'ecrCredentialPlugin' => 'setEcrCredentialPlugin',
         'isDefault' => 'setIsDefault',
         'password' => 'setPassword',
         'url' => 'setUrl',
@@ -81,6 +85,7 @@ class PrivateRegistryModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'ecrCredentialPlugin' => 'getEcrCredentialPlugin',
         'isDefault' => 'getIsDefault',
         'password' => 'getPassword',
         'url' => 'getUrl',
@@ -94,11 +99,34 @@ class PrivateRegistryModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['ecrCredentialPlugin'] = isset($data['ecrCredentialPlugin']) ? $data['ecrCredentialPlugin'] : null;
         $this->container['isDefault'] = isset($data['isDefault']) ? $data['isDefault'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
     }
+
+    /**
+     * Gets ecrCredentialPlugin
+     * @return \Rancher\Model\EcrCredentialPluginModel
+     */
+    public function getEcrCredentialPlugin()
+    {
+        return $this->container['ecrCredentialPlugin'];
+    }
+
+    /**
+     * Sets ecrCredentialPlugin
+     * @param \Rancher\Model\EcrCredentialPluginModel $ecrCredentialPlugin
+     * @return $this
+     */
+    public function setEcrCredentialPlugin($ecrCredentialPlugin)
+    {
+        $this->container['ecrCredentialPlugin'] = $ecrCredentialPlugin;
+
+        return $this;
+    }
+
 
     /**
      * Gets isDefault

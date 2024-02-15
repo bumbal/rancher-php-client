@@ -29,6 +29,7 @@ class BastionHostModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'address',
+        'ignoreProxyEnvVars',
         'port',
         'sshAgentAuth',
         'sshCert',
@@ -50,6 +51,7 @@ class BastionHostModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'address',
+        'ignoreProxyEnvVars',
         'port',
         'sshAgentAuth',
         'sshCert',
@@ -66,6 +68,7 @@ class BastionHostModel implements ArrayAccess
 
     protected static $typeMap = [
         'address' => 'string',
+        'ignoreProxyEnvVars' => 'boolean',
         'port' => 'string',
         'sshAgentAuth' => 'boolean',
         'sshCert' => 'string',
@@ -82,6 +85,7 @@ class BastionHostModel implements ArrayAccess
 
     protected static $setters = [
         'address' => 'setAddress',
+        'ignoreProxyEnvVars' => 'setIgnoreProxyEnvVars',
         'port' => 'setPort',
         'sshAgentAuth' => 'setSshAgentAuth',
         'sshCert' => 'setSshCert',
@@ -98,6 +102,7 @@ class BastionHostModel implements ArrayAccess
 
     protected static $getters = [
         'address' => 'getAddress',
+        'ignoreProxyEnvVars' => 'getIgnoreProxyEnvVars',
         'port' => 'getPort',
         'sshAgentAuth' => 'getSshAgentAuth',
         'sshCert' => 'getSshCert',
@@ -115,6 +120,7 @@ class BastionHostModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['ignoreProxyEnvVars'] = isset($data['ignoreProxyEnvVars']) ? $data['ignoreProxyEnvVars'] : null;
         $this->container['port'] = isset($data['port']) ? $data['port'] : null;
         $this->container['sshAgentAuth'] = isset($data['sshAgentAuth']) ? $data['sshAgentAuth'] : null;
         $this->container['sshCert'] = isset($data['sshCert']) ? $data['sshCert'] : null;
@@ -141,6 +147,28 @@ class BastionHostModel implements ArrayAccess
     public function setAddress($address)
     {
         $this->container['address'] = $address;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ignoreProxyEnvVars
+     * @return boolean
+     */
+    public function getIgnoreProxyEnvVars()
+    {
+        return $this->container['ignoreProxyEnvVars'];
+    }
+
+    /**
+     * Sets ignoreProxyEnvVars
+     * @param boolean $ignoreProxyEnvVars
+     * @return $this
+     */
+    public function setIgnoreProxyEnvVars($ignoreProxyEnvVars)
+    {
+        $this->container['ignoreProxyEnvVars'] = $ignoreProxyEnvVars;
 
         return $this;
     }

@@ -30,12 +30,15 @@ class ClusterModel implements ArrayAccess
     protected static $canBeCreated = [
         'agentEnvVars',
         'agentImageOverride',
+        'aksConfig',
         'amazonElasticContainerServiceConfig',
         'annotations',
         'answers',
         'azureKubernetesServiceConfig',
+        'clusterAgentDeploymentCustomization',
         'clusterTemplateRevisionId',
         'defaultClusterRoleForProjectMembers',
+        'defaultPodSecurityAdmissionConfigurationTemplateName',
         'defaultPodSecurityPolicyTemplateId',
         'description',
         'desiredAgentImage',
@@ -45,6 +48,7 @@ class ClusterModel implements ArrayAccess
         'enableClusterAlerting',
         'enableClusterMonitoring',
         'enableNetworkPolicy',
+        'fleetAgentDeploymentCustomization',
         'fleetWorkspaceName',
         'gkeConfig',
         'googleKubernetesEngineConfig',
@@ -54,7 +58,6 @@ class ClusterModel implements ArrayAccess
         'name',
         'rancherKubernetesEngineConfig',
         'rke2Config',
-        'scheduledClusterScan',
         'windowsPreferedCluster',
     ];
 
@@ -71,12 +74,15 @@ class ClusterModel implements ArrayAccess
     protected static $canBeUpdated = [
         'agentEnvVars',
         'agentImageOverride',
+        'aksConfig',
         'amazonElasticContainerServiceConfig',
         'annotations',
         'answers',
         'azureKubernetesServiceConfig',
+        'clusterAgentDeploymentCustomization',
         'clusterTemplateRevisionId',
         'defaultClusterRoleForProjectMembers',
+        'defaultPodSecurityAdmissionConfigurationTemplateName',
         'defaultPodSecurityPolicyTemplateId',
         'description',
         'desiredAgentImage',
@@ -86,6 +92,7 @@ class ClusterModel implements ArrayAccess
         'enableClusterAlerting',
         'enableClusterMonitoring',
         'enableNetworkPolicy',
+        'fleetAgentDeploymentCustomization',
         'fleetWorkspaceName',
         'gkeConfig',
         'googleKubernetesEngineConfig',
@@ -95,7 +102,6 @@ class ClusterModel implements ArrayAccess
         'name',
         'rancherKubernetesEngineConfig',
         'rke2Config',
-        'scheduledClusterScan',
     ];
 
     public static function canBeUpdated()
@@ -104,16 +110,21 @@ class ClusterModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'aadClientCertSecret' => 'string',
+        'aadClientSecret' => 'string',
         'agentEnvVars' => '\Rancher\Model\EnvVarModel[]',
         'agentFeatures' => 'map[string,boolean]',
         'agentImage' => 'string',
         'agentImageOverride' => 'string',
+        'aksConfig' => '\Rancher\Model\AksClusterConfigSpecModel',
+        'aksStatus' => '\Rancher\Model\AksStatusModel',
         'allocatable' => 'map[string,string]',
         'amazonElasticContainerServiceConfig' => '\Rancher\Model\AmazonElasticContainerServiceConfigModel',
         'annotations' => 'map[string,string]',
         'answers' => '\Rancher\Model\AnswerModel',
         'apiEndpoint' => 'string',
         'appliedAgentEnvVars' => '\Rancher\Model\EnvVarModel[]',
+        'appliedClusterAgentDeploymentCustomization' => '\Rancher\Model\AgentDeploymentCustomizationModel',
         'appliedEnableNetworkPolicy' => 'boolean',
         'appliedPodSecurityPolicyTemplateId' => 'string',
         'appliedSpec' => '\Rancher\Model\ClusterSpecModel',
@@ -123,6 +134,8 @@ class ClusterModel implements ArrayAccess
         'capabilities' => '\Rancher\Model\CapabilitiesModel',
         'capacity' => 'map[string,string]',
         'certificatesExpiration' => 'map[string,\Rancher\Model\CertExpirationModel]',
+        'clusterAgentDeploymentCustomization' => '\Rancher\Model\AgentDeploymentCustomizationModel',
+        'clusterSecrets' => '\Rancher\Model\ClusterSecretsModel',
         'clusterTemplateId' => 'string',
         'clusterTemplateRevisionId' => 'string',
         'componentStatuses' => '\Rancher\Model\ClusterComponentStatusModel[]',
@@ -131,6 +144,7 @@ class ClusterModel implements ArrayAccess
         'creatorId' => 'string',
         'currentCisRunName' => 'string',
         'defaultClusterRoleForProjectMembers' => 'string',
+        'defaultPodSecurityAdmissionConfigurationTemplateName' => 'string',
         'defaultPodSecurityPolicyTemplateId' => 'string',
         'description' => 'string',
         'desiredAgentImage' => 'string',
@@ -143,6 +157,7 @@ class ClusterModel implements ArrayAccess
         'enableClusterMonitoring' => 'boolean',
         'enableNetworkPolicy' => 'boolean',
         'failedSpec' => '\Rancher\Model\ClusterSpecModel',
+        'fleetAgentDeploymentCustomization' => '\Rancher\Model\AgentDeploymentCustomizationModel',
         'fleetWorkspaceName' => 'string',
         'gkeConfig' => '\Rancher\Model\GkeClusterConfigSpecModel',
         'gkeStatus' => '\Rancher\Model\GkeStatusModel',
@@ -154,26 +169,33 @@ class ClusterModel implements ArrayAccess
         'k3sConfig' => '\Rancher\Model\K3sConfigModel',
         'labels' => 'map[string,string]',
         'limits' => 'map[string,string]',
+        'linuxWorkerCount' => 'int',
         'localClusterAuthEndpoint' => '\Rancher\Model\LocalClusterAuthEndpointModel',
         'monitoringStatus' => '\Rancher\Model\MonitoringStatusModel',
         'name' => 'string',
         'nodeCount' => 'int',
         'nodeVersion' => 'int',
+        'openStackSecret' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
+        'privateRegistrySecret' => 'string',
         'provider' => 'string',
         'questions' => '\Rancher\Model\QuestionModel[]',
         'rancherKubernetesEngineConfig' => '\Rancher\Model\RancherKubernetesEngineConfigModel',
         'removed' => '\DateTime',
         'requested' => 'map[string,string]',
         'rke2Config' => '\Rancher\Model\Rke2ConfigModel',
-        'scheduledClusterScan' => '\Rancher\Model\ScheduledClusterScanModel',
-        'scheduledClusterScanStatus' => '\Rancher\Model\ScheduledClusterScanStatusModel',
+        's3CredentialSecret' => 'string',
+        'serviceAccountTokenSecret' => 'string',
         'state' => 'string',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'uuid' => 'string',
         'version' => '\Rancher\Model\InfoModel',
+        'virtualCenterSecret' => 'string',
+        'vsphereSecret' => 'string',
+        'weavePasswordSecret' => 'string',
         'windowsPreferedCluster' => 'boolean',
+        'windowsWorkerCount' => 'int',
     ];
 
     public static function typeMap()
@@ -182,16 +204,21 @@ class ClusterModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'aadClientCertSecret' => 'setAadClientCertSecret',
+        'aadClientSecret' => 'setAadClientSecret',
         'agentEnvVars' => 'setAgentEnvVars',
         'agentFeatures' => 'setAgentFeatures',
         'agentImage' => 'setAgentImage',
         'agentImageOverride' => 'setAgentImageOverride',
+        'aksConfig' => 'setAksConfig',
+        'aksStatus' => 'setAksStatus',
         'allocatable' => 'setAllocatable',
         'amazonElasticContainerServiceConfig' => 'setAmazonElasticContainerServiceConfig',
         'annotations' => 'setAnnotations',
         'answers' => 'setAnswers',
         'apiEndpoint' => 'setApiEndpoint',
         'appliedAgentEnvVars' => 'setAppliedAgentEnvVars',
+        'appliedClusterAgentDeploymentCustomization' => 'setAppliedClusterAgentDeploymentCustomization',
         'appliedEnableNetworkPolicy' => 'setAppliedEnableNetworkPolicy',
         'appliedPodSecurityPolicyTemplateId' => 'setAppliedPodSecurityPolicyTemplateId',
         'appliedSpec' => 'setAppliedSpec',
@@ -201,6 +228,8 @@ class ClusterModel implements ArrayAccess
         'capabilities' => 'setCapabilities',
         'capacity' => 'setCapacity',
         'certificatesExpiration' => 'setCertificatesExpiration',
+        'clusterAgentDeploymentCustomization' => 'setClusterAgentDeploymentCustomization',
+        'clusterSecrets' => 'setClusterSecrets',
         'clusterTemplateId' => 'setClusterTemplateId',
         'clusterTemplateRevisionId' => 'setClusterTemplateRevisionId',
         'componentStatuses' => 'setComponentStatuses',
@@ -209,6 +238,7 @@ class ClusterModel implements ArrayAccess
         'creatorId' => 'setCreatorId',
         'currentCisRunName' => 'setCurrentCisRunName',
         'defaultClusterRoleForProjectMembers' => 'setDefaultClusterRoleForProjectMembers',
+        'defaultPodSecurityAdmissionConfigurationTemplateName' => 'setDefaultPodSecurityAdmissionConfigurationTemplateName',
         'defaultPodSecurityPolicyTemplateId' => 'setDefaultPodSecurityPolicyTemplateId',
         'description' => 'setDescription',
         'desiredAgentImage' => 'setDesiredAgentImage',
@@ -221,6 +251,7 @@ class ClusterModel implements ArrayAccess
         'enableClusterMonitoring' => 'setEnableClusterMonitoring',
         'enableNetworkPolicy' => 'setEnableNetworkPolicy',
         'failedSpec' => 'setFailedSpec',
+        'fleetAgentDeploymentCustomization' => 'setFleetAgentDeploymentCustomization',
         'fleetWorkspaceName' => 'setFleetWorkspaceName',
         'gkeConfig' => 'setGkeConfig',
         'gkeStatus' => 'setGkeStatus',
@@ -232,26 +263,33 @@ class ClusterModel implements ArrayAccess
         'k3sConfig' => 'setK3sConfig',
         'labels' => 'setLabels',
         'limits' => 'setLimits',
+        'linuxWorkerCount' => 'setLinuxWorkerCount',
         'localClusterAuthEndpoint' => 'setLocalClusterAuthEndpoint',
         'monitoringStatus' => 'setMonitoringStatus',
         'name' => 'setName',
         'nodeCount' => 'setNodeCount',
         'nodeVersion' => 'setNodeVersion',
+        'openStackSecret' => 'setOpenStackSecret',
         'ownerReferences' => 'setOwnerReferences',
+        'privateRegistrySecret' => 'setPrivateRegistrySecret',
         'provider' => 'setProvider',
         'questions' => 'setQuestions',
         'rancherKubernetesEngineConfig' => 'setRancherKubernetesEngineConfig',
         'removed' => 'setRemoved',
         'requested' => 'setRequested',
         'rke2Config' => 'setRke2Config',
-        'scheduledClusterScan' => 'setScheduledClusterScan',
-        'scheduledClusterScanStatus' => 'setScheduledClusterScanStatus',
+        's3CredentialSecret' => 'setS3CredentialSecret',
+        'serviceAccountTokenSecret' => 'setServiceAccountTokenSecret',
         'state' => 'setState',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
         'version' => 'setVersion',
+        'virtualCenterSecret' => 'setVirtualCenterSecret',
+        'vsphereSecret' => 'setVsphereSecret',
+        'weavePasswordSecret' => 'setWeavePasswordSecret',
         'windowsPreferedCluster' => 'setWindowsPreferedCluster',
+        'windowsWorkerCount' => 'setWindowsWorkerCount',
     ];
 
     public static function setters()
@@ -260,16 +298,21 @@ class ClusterModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'aadClientCertSecret' => 'getAadClientCertSecret',
+        'aadClientSecret' => 'getAadClientSecret',
         'agentEnvVars' => 'getAgentEnvVars',
         'agentFeatures' => 'getAgentFeatures',
         'agentImage' => 'getAgentImage',
         'agentImageOverride' => 'getAgentImageOverride',
+        'aksConfig' => 'getAksConfig',
+        'aksStatus' => 'getAksStatus',
         'allocatable' => 'getAllocatable',
         'amazonElasticContainerServiceConfig' => 'getAmazonElasticContainerServiceConfig',
         'annotations' => 'getAnnotations',
         'answers' => 'getAnswers',
         'apiEndpoint' => 'getApiEndpoint',
         'appliedAgentEnvVars' => 'getAppliedAgentEnvVars',
+        'appliedClusterAgentDeploymentCustomization' => 'getAppliedClusterAgentDeploymentCustomization',
         'appliedEnableNetworkPolicy' => 'getAppliedEnableNetworkPolicy',
         'appliedPodSecurityPolicyTemplateId' => 'getAppliedPodSecurityPolicyTemplateId',
         'appliedSpec' => 'getAppliedSpec',
@@ -279,6 +322,8 @@ class ClusterModel implements ArrayAccess
         'capabilities' => 'getCapabilities',
         'capacity' => 'getCapacity',
         'certificatesExpiration' => 'getCertificatesExpiration',
+        'clusterAgentDeploymentCustomization' => 'getClusterAgentDeploymentCustomization',
+        'clusterSecrets' => 'getClusterSecrets',
         'clusterTemplateId' => 'getClusterTemplateId',
         'clusterTemplateRevisionId' => 'getClusterTemplateRevisionId',
         'componentStatuses' => 'getComponentStatuses',
@@ -287,6 +332,7 @@ class ClusterModel implements ArrayAccess
         'creatorId' => 'getCreatorId',
         'currentCisRunName' => 'getCurrentCisRunName',
         'defaultClusterRoleForProjectMembers' => 'getDefaultClusterRoleForProjectMembers',
+        'defaultPodSecurityAdmissionConfigurationTemplateName' => 'getDefaultPodSecurityAdmissionConfigurationTemplateName',
         'defaultPodSecurityPolicyTemplateId' => 'getDefaultPodSecurityPolicyTemplateId',
         'description' => 'getDescription',
         'desiredAgentImage' => 'getDesiredAgentImage',
@@ -299,6 +345,7 @@ class ClusterModel implements ArrayAccess
         'enableClusterMonitoring' => 'getEnableClusterMonitoring',
         'enableNetworkPolicy' => 'getEnableNetworkPolicy',
         'failedSpec' => 'getFailedSpec',
+        'fleetAgentDeploymentCustomization' => 'getFleetAgentDeploymentCustomization',
         'fleetWorkspaceName' => 'getFleetWorkspaceName',
         'gkeConfig' => 'getGkeConfig',
         'gkeStatus' => 'getGkeStatus',
@@ -310,26 +357,33 @@ class ClusterModel implements ArrayAccess
         'k3sConfig' => 'getK3sConfig',
         'labels' => 'getLabels',
         'limits' => 'getLimits',
+        'linuxWorkerCount' => 'getLinuxWorkerCount',
         'localClusterAuthEndpoint' => 'getLocalClusterAuthEndpoint',
         'monitoringStatus' => 'getMonitoringStatus',
         'name' => 'getName',
         'nodeCount' => 'getNodeCount',
         'nodeVersion' => 'getNodeVersion',
+        'openStackSecret' => 'getOpenStackSecret',
         'ownerReferences' => 'getOwnerReferences',
+        'privateRegistrySecret' => 'getPrivateRegistrySecret',
         'provider' => 'getProvider',
         'questions' => 'getQuestions',
         'rancherKubernetesEngineConfig' => 'getRancherKubernetesEngineConfig',
         'removed' => 'getRemoved',
         'requested' => 'getRequested',
         'rke2Config' => 'getRke2Config',
-        'scheduledClusterScan' => 'getScheduledClusterScan',
-        'scheduledClusterScanStatus' => 'getScheduledClusterScanStatus',
+        's3CredentialSecret' => 'getS3CredentialSecret',
+        'serviceAccountTokenSecret' => 'getServiceAccountTokenSecret',
         'state' => 'getState',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
         'version' => 'getVersion',
+        'virtualCenterSecret' => 'getVirtualCenterSecret',
+        'vsphereSecret' => 'getVsphereSecret',
+        'weavePasswordSecret' => 'getWeavePasswordSecret',
         'windowsPreferedCluster' => 'getWindowsPreferedCluster',
+        'windowsWorkerCount' => 'getWindowsWorkerCount',
     ];
 
     public static function getters()
@@ -339,16 +393,21 @@ class ClusterModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['aadClientCertSecret'] = isset($data['aadClientCertSecret']) ? $data['aadClientCertSecret'] : null;
+        $this->container['aadClientSecret'] = isset($data['aadClientSecret']) ? $data['aadClientSecret'] : null;
         $this->container['agentEnvVars'] = isset($data['agentEnvVars']) ? $data['agentEnvVars'] : null;
         $this->container['agentFeatures'] = isset($data['agentFeatures']) ? $data['agentFeatures'] : null;
         $this->container['agentImage'] = isset($data['agentImage']) ? $data['agentImage'] : null;
         $this->container['agentImageOverride'] = isset($data['agentImageOverride']) ? $data['agentImageOverride'] : null;
+        $this->container['aksConfig'] = isset($data['aksConfig']) ? $data['aksConfig'] : null;
+        $this->container['aksStatus'] = isset($data['aksStatus']) ? $data['aksStatus'] : null;
         $this->container['allocatable'] = isset($data['allocatable']) ? $data['allocatable'] : null;
         $this->container['amazonElasticContainerServiceConfig'] = isset($data['amazonElasticContainerServiceConfig']) ? $data['amazonElasticContainerServiceConfig'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['answers'] = isset($data['answers']) ? $data['answers'] : null;
         $this->container['apiEndpoint'] = isset($data['apiEndpoint']) ? $data['apiEndpoint'] : null;
         $this->container['appliedAgentEnvVars'] = isset($data['appliedAgentEnvVars']) ? $data['appliedAgentEnvVars'] : null;
+        $this->container['appliedClusterAgentDeploymentCustomization'] = isset($data['appliedClusterAgentDeploymentCustomization']) ? $data['appliedClusterAgentDeploymentCustomization'] : null;
         $this->container['appliedEnableNetworkPolicy'] = isset($data['appliedEnableNetworkPolicy']) ? $data['appliedEnableNetworkPolicy'] : null;
         $this->container['appliedPodSecurityPolicyTemplateId'] = isset($data['appliedPodSecurityPolicyTemplateId']) ? $data['appliedPodSecurityPolicyTemplateId'] : null;
         $this->container['appliedSpec'] = isset($data['appliedSpec']) ? $data['appliedSpec'] : null;
@@ -358,6 +417,8 @@ class ClusterModel implements ArrayAccess
         $this->container['capabilities'] = isset($data['capabilities']) ? $data['capabilities'] : null;
         $this->container['capacity'] = isset($data['capacity']) ? $data['capacity'] : null;
         $this->container['certificatesExpiration'] = isset($data['certificatesExpiration']) ? $data['certificatesExpiration'] : null;
+        $this->container['clusterAgentDeploymentCustomization'] = isset($data['clusterAgentDeploymentCustomization']) ? $data['clusterAgentDeploymentCustomization'] : null;
+        $this->container['clusterSecrets'] = isset($data['clusterSecrets']) ? $data['clusterSecrets'] : null;
         $this->container['clusterTemplateId'] = isset($data['clusterTemplateId']) ? $data['clusterTemplateId'] : null;
         $this->container['clusterTemplateRevisionId'] = isset($data['clusterTemplateRevisionId']) ? $data['clusterTemplateRevisionId'] : null;
         $this->container['componentStatuses'] = isset($data['componentStatuses']) ? $data['componentStatuses'] : null;
@@ -366,6 +427,7 @@ class ClusterModel implements ArrayAccess
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['currentCisRunName'] = isset($data['currentCisRunName']) ? $data['currentCisRunName'] : null;
         $this->container['defaultClusterRoleForProjectMembers'] = isset($data['defaultClusterRoleForProjectMembers']) ? $data['defaultClusterRoleForProjectMembers'] : null;
+        $this->container['defaultPodSecurityAdmissionConfigurationTemplateName'] = isset($data['defaultPodSecurityAdmissionConfigurationTemplateName']) ? $data['defaultPodSecurityAdmissionConfigurationTemplateName'] : null;
         $this->container['defaultPodSecurityPolicyTemplateId'] = isset($data['defaultPodSecurityPolicyTemplateId']) ? $data['defaultPodSecurityPolicyTemplateId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['desiredAgentImage'] = isset($data['desiredAgentImage']) ? $data['desiredAgentImage'] : null;
@@ -378,6 +440,7 @@ class ClusterModel implements ArrayAccess
         $this->container['enableClusterMonitoring'] = isset($data['enableClusterMonitoring']) ? $data['enableClusterMonitoring'] : null;
         $this->container['enableNetworkPolicy'] = isset($data['enableNetworkPolicy']) ? $data['enableNetworkPolicy'] : null;
         $this->container['failedSpec'] = isset($data['failedSpec']) ? $data['failedSpec'] : null;
+        $this->container['fleetAgentDeploymentCustomization'] = isset($data['fleetAgentDeploymentCustomization']) ? $data['fleetAgentDeploymentCustomization'] : null;
         $this->container['fleetWorkspaceName'] = isset($data['fleetWorkspaceName']) ? $data['fleetWorkspaceName'] : null;
         $this->container['gkeConfig'] = isset($data['gkeConfig']) ? $data['gkeConfig'] : null;
         $this->container['gkeStatus'] = isset($data['gkeStatus']) ? $data['gkeStatus'] : null;
@@ -389,27 +452,78 @@ class ClusterModel implements ArrayAccess
         $this->container['k3sConfig'] = isset($data['k3sConfig']) ? $data['k3sConfig'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
+        $this->container['linuxWorkerCount'] = isset($data['linuxWorkerCount']) ? $data['linuxWorkerCount'] : null;
         $this->container['localClusterAuthEndpoint'] = isset($data['localClusterAuthEndpoint']) ? $data['localClusterAuthEndpoint'] : null;
         $this->container['monitoringStatus'] = isset($data['monitoringStatus']) ? $data['monitoringStatus'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['nodeCount'] = isset($data['nodeCount']) ? $data['nodeCount'] : null;
         $this->container['nodeVersion'] = isset($data['nodeVersion']) ? $data['nodeVersion'] : null;
+        $this->container['openStackSecret'] = isset($data['openStackSecret']) ? $data['openStackSecret'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
+        $this->container['privateRegistrySecret'] = isset($data['privateRegistrySecret']) ? $data['privateRegistrySecret'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['questions'] = isset($data['questions']) ? $data['questions'] : null;
         $this->container['rancherKubernetesEngineConfig'] = isset($data['rancherKubernetesEngineConfig']) ? $data['rancherKubernetesEngineConfig'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
         $this->container['requested'] = isset($data['requested']) ? $data['requested'] : null;
         $this->container['rke2Config'] = isset($data['rke2Config']) ? $data['rke2Config'] : null;
-        $this->container['scheduledClusterScan'] = isset($data['scheduledClusterScan']) ? $data['scheduledClusterScan'] : null;
-        $this->container['scheduledClusterScanStatus'] = isset($data['scheduledClusterScanStatus']) ? $data['scheduledClusterScanStatus'] : null;
+        $this->container['s3CredentialSecret'] = isset($data['s3CredentialSecret']) ? $data['s3CredentialSecret'] : null;
+        $this->container['serviceAccountTokenSecret'] = isset($data['serviceAccountTokenSecret']) ? $data['serviceAccountTokenSecret'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['virtualCenterSecret'] = isset($data['virtualCenterSecret']) ? $data['virtualCenterSecret'] : null;
+        $this->container['vsphereSecret'] = isset($data['vsphereSecret']) ? $data['vsphereSecret'] : null;
+        $this->container['weavePasswordSecret'] = isset($data['weavePasswordSecret']) ? $data['weavePasswordSecret'] : null;
         $this->container['windowsPreferedCluster'] = isset($data['windowsPreferedCluster']) ? $data['windowsPreferedCluster'] : null;
+        $this->container['windowsWorkerCount'] = isset($data['windowsWorkerCount']) ? $data['windowsWorkerCount'] : null;
     }
+
+    /**
+     * Gets aadClientCertSecret
+     * @return string
+     */
+    public function getAadClientCertSecret()
+    {
+        return $this->container['aadClientCertSecret'];
+    }
+
+    /**
+     * Sets aadClientCertSecret
+     * @param string $aadClientCertSecret
+     * @return $this
+     */
+    public function setAadClientCertSecret($aadClientCertSecret)
+    {
+        $this->container['aadClientCertSecret'] = $aadClientCertSecret;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aadClientSecret
+     * @return string
+     */
+    public function getAadClientSecret()
+    {
+        return $this->container['aadClientSecret'];
+    }
+
+    /**
+     * Sets aadClientSecret
+     * @param string $aadClientSecret
+     * @return $this
+     */
+    public function setAadClientSecret($aadClientSecret)
+    {
+        $this->container['aadClientSecret'] = $aadClientSecret;
+
+        return $this;
+    }
+
 
     /**
      * Gets agentEnvVars
@@ -494,6 +608,50 @@ class ClusterModel implements ArrayAccess
     public function setAgentImageOverride($agentImageOverride)
     {
         $this->container['agentImageOverride'] = $agentImageOverride;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aksConfig
+     * @return \Rancher\Model\AksClusterConfigSpecModel
+     */
+    public function getAksConfig()
+    {
+        return $this->container['aksConfig'];
+    }
+
+    /**
+     * Sets aksConfig
+     * @param \Rancher\Model\AksClusterConfigSpecModel $aksConfig
+     * @return $this
+     */
+    public function setAksConfig($aksConfig)
+    {
+        $this->container['aksConfig'] = $aksConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aksStatus
+     * @return \Rancher\Model\AksStatusModel
+     */
+    public function getAksStatus()
+    {
+        return $this->container['aksStatus'];
+    }
+
+    /**
+     * Sets aksStatus
+     * @param \Rancher\Model\AksStatusModel $aksStatus
+     * @return $this
+     */
+    public function setAksStatus($aksStatus)
+    {
+        $this->container['aksStatus'] = $aksStatus;
 
         return $this;
     }
@@ -626,6 +784,28 @@ class ClusterModel implements ArrayAccess
     public function setAppliedAgentEnvVars($appliedAgentEnvVars)
     {
         $this->container['appliedAgentEnvVars'] = $appliedAgentEnvVars;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets appliedClusterAgentDeploymentCustomization
+     * @return \Rancher\Model\AgentDeploymentCustomizationModel
+     */
+    public function getAppliedClusterAgentDeploymentCustomization()
+    {
+        return $this->container['appliedClusterAgentDeploymentCustomization'];
+    }
+
+    /**
+     * Sets appliedClusterAgentDeploymentCustomization
+     * @param \Rancher\Model\AgentDeploymentCustomizationModel $appliedClusterAgentDeploymentCustomization
+     * @return $this
+     */
+    public function setAppliedClusterAgentDeploymentCustomization($appliedClusterAgentDeploymentCustomization)
+    {
+        $this->container['appliedClusterAgentDeploymentCustomization'] = $appliedClusterAgentDeploymentCustomization;
 
         return $this;
     }
@@ -830,6 +1010,50 @@ class ClusterModel implements ArrayAccess
 
 
     /**
+     * Gets clusterAgentDeploymentCustomization
+     * @return \Rancher\Model\AgentDeploymentCustomizationModel
+     */
+    public function getClusterAgentDeploymentCustomization()
+    {
+        return $this->container['clusterAgentDeploymentCustomization'];
+    }
+
+    /**
+     * Sets clusterAgentDeploymentCustomization
+     * @param \Rancher\Model\AgentDeploymentCustomizationModel $clusterAgentDeploymentCustomization
+     * @return $this
+     */
+    public function setClusterAgentDeploymentCustomization($clusterAgentDeploymentCustomization)
+    {
+        $this->container['clusterAgentDeploymentCustomization'] = $clusterAgentDeploymentCustomization;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets clusterSecrets
+     * @return \Rancher\Model\ClusterSecretsModel
+     */
+    public function getClusterSecrets()
+    {
+        return $this->container['clusterSecrets'];
+    }
+
+    /**
+     * Sets clusterSecrets
+     * @param \Rancher\Model\ClusterSecretsModel $clusterSecrets
+     * @return $this
+     */
+    public function setClusterSecrets($clusterSecrets)
+    {
+        $this->container['clusterSecrets'] = $clusterSecrets;
+
+        return $this;
+    }
+
+
+    /**
      * Gets clusterTemplateId
      * @return string
      */
@@ -1000,6 +1224,28 @@ class ClusterModel implements ArrayAccess
     public function setDefaultClusterRoleForProjectMembers($defaultClusterRoleForProjectMembers)
     {
         $this->container['defaultClusterRoleForProjectMembers'] = $defaultClusterRoleForProjectMembers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets defaultPodSecurityAdmissionConfigurationTemplateName
+     * @return string
+     */
+    public function getDefaultPodSecurityAdmissionConfigurationTemplateName()
+    {
+        return $this->container['defaultPodSecurityAdmissionConfigurationTemplateName'];
+    }
+
+    /**
+     * Sets defaultPodSecurityAdmissionConfigurationTemplateName
+     * @param string $defaultPodSecurityAdmissionConfigurationTemplateName
+     * @return $this
+     */
+    public function setDefaultPodSecurityAdmissionConfigurationTemplateName($defaultPodSecurityAdmissionConfigurationTemplateName)
+    {
+        $this->container['defaultPodSecurityAdmissionConfigurationTemplateName'] = $defaultPodSecurityAdmissionConfigurationTemplateName;
 
         return $this;
     }
@@ -1270,6 +1516,28 @@ class ClusterModel implements ArrayAccess
 
 
     /**
+     * Gets fleetAgentDeploymentCustomization
+     * @return \Rancher\Model\AgentDeploymentCustomizationModel
+     */
+    public function getFleetAgentDeploymentCustomization()
+    {
+        return $this->container['fleetAgentDeploymentCustomization'];
+    }
+
+    /**
+     * Sets fleetAgentDeploymentCustomization
+     * @param \Rancher\Model\AgentDeploymentCustomizationModel $fleetAgentDeploymentCustomization
+     * @return $this
+     */
+    public function setFleetAgentDeploymentCustomization($fleetAgentDeploymentCustomization)
+    {
+        $this->container['fleetAgentDeploymentCustomization'] = $fleetAgentDeploymentCustomization;
+
+        return $this;
+    }
+
+
+    /**
      * Gets fleetWorkspaceName
      * @return string
      */
@@ -1512,6 +1780,28 @@ class ClusterModel implements ArrayAccess
 
 
     /**
+     * Gets linuxWorkerCount
+     * @return int
+     */
+    public function getLinuxWorkerCount()
+    {
+        return $this->container['linuxWorkerCount'];
+    }
+
+    /**
+     * Sets linuxWorkerCount
+     * @param int $linuxWorkerCount
+     * @return $this
+     */
+    public function setLinuxWorkerCount($linuxWorkerCount)
+    {
+        $this->container['linuxWorkerCount'] = $linuxWorkerCount;
+
+        return $this;
+    }
+
+
+    /**
      * Gets localClusterAuthEndpoint
      * @return \Rancher\Model\LocalClusterAuthEndpointModel
      */
@@ -1622,6 +1912,28 @@ class ClusterModel implements ArrayAccess
 
 
     /**
+     * Gets openStackSecret
+     * @return string
+     */
+    public function getOpenStackSecret()
+    {
+        return $this->container['openStackSecret'];
+    }
+
+    /**
+     * Sets openStackSecret
+     * @param string $openStackSecret
+     * @return $this
+     */
+    public function setOpenStackSecret($openStackSecret)
+    {
+        $this->container['openStackSecret'] = $openStackSecret;
+
+        return $this;
+    }
+
+
+    /**
      * Gets ownerReferences
      * @return \Rancher\Model\OwnerReferenceModel[]
      */
@@ -1638,6 +1950,28 @@ class ClusterModel implements ArrayAccess
     public function setOwnerReferences($ownerReferences)
     {
         $this->container['ownerReferences'] = $ownerReferences;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets privateRegistrySecret
+     * @return string
+     */
+    public function getPrivateRegistrySecret()
+    {
+        return $this->container['privateRegistrySecret'];
+    }
+
+    /**
+     * Sets privateRegistrySecret
+     * @param string $privateRegistrySecret
+     * @return $this
+     */
+    public function setPrivateRegistrySecret($privateRegistrySecret)
+    {
+        $this->container['privateRegistrySecret'] = $privateRegistrySecret;
 
         return $this;
     }
@@ -1776,44 +2110,44 @@ class ClusterModel implements ArrayAccess
 
 
     /**
-     * Gets scheduledClusterScan
-     * @return \Rancher\Model\ScheduledClusterScanModel
+     * Gets s3CredentialSecret
+     * @return string
      */
-    public function getScheduledClusterScan()
+    public function getS3CredentialSecret()
     {
-        return $this->container['scheduledClusterScan'];
+        return $this->container['s3CredentialSecret'];
     }
 
     /**
-     * Sets scheduledClusterScan
-     * @param \Rancher\Model\ScheduledClusterScanModel $scheduledClusterScan
+     * Sets s3CredentialSecret
+     * @param string $s3CredentialSecret
      * @return $this
      */
-    public function setScheduledClusterScan($scheduledClusterScan)
+    public function setS3CredentialSecret($s3CredentialSecret)
     {
-        $this->container['scheduledClusterScan'] = $scheduledClusterScan;
+        $this->container['s3CredentialSecret'] = $s3CredentialSecret;
 
         return $this;
     }
 
 
     /**
-     * Gets scheduledClusterScanStatus
-     * @return \Rancher\Model\ScheduledClusterScanStatusModel
+     * Gets serviceAccountTokenSecret
+     * @return string
      */
-    public function getScheduledClusterScanStatus()
+    public function getServiceAccountTokenSecret()
     {
-        return $this->container['scheduledClusterScanStatus'];
+        return $this->container['serviceAccountTokenSecret'];
     }
 
     /**
-     * Sets scheduledClusterScanStatus
-     * @param \Rancher\Model\ScheduledClusterScanStatusModel $scheduledClusterScanStatus
+     * Sets serviceAccountTokenSecret
+     * @param string $serviceAccountTokenSecret
      * @return $this
      */
-    public function setScheduledClusterScanStatus($scheduledClusterScanStatus)
+    public function setServiceAccountTokenSecret($serviceAccountTokenSecret)
     {
-        $this->container['scheduledClusterScanStatus'] = $scheduledClusterScanStatus;
+        $this->container['serviceAccountTokenSecret'] = $serviceAccountTokenSecret;
 
         return $this;
     }
@@ -1930,6 +2264,72 @@ class ClusterModel implements ArrayAccess
 
 
     /**
+     * Gets virtualCenterSecret
+     * @return string
+     */
+    public function getVirtualCenterSecret()
+    {
+        return $this->container['virtualCenterSecret'];
+    }
+
+    /**
+     * Sets virtualCenterSecret
+     * @param string $virtualCenterSecret
+     * @return $this
+     */
+    public function setVirtualCenterSecret($virtualCenterSecret)
+    {
+        $this->container['virtualCenterSecret'] = $virtualCenterSecret;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets vsphereSecret
+     * @return string
+     */
+    public function getVsphereSecret()
+    {
+        return $this->container['vsphereSecret'];
+    }
+
+    /**
+     * Sets vsphereSecret
+     * @param string $vsphereSecret
+     * @return $this
+     */
+    public function setVsphereSecret($vsphereSecret)
+    {
+        $this->container['vsphereSecret'] = $vsphereSecret;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets weavePasswordSecret
+     * @return string
+     */
+    public function getWeavePasswordSecret()
+    {
+        return $this->container['weavePasswordSecret'];
+    }
+
+    /**
+     * Sets weavePasswordSecret
+     * @param string $weavePasswordSecret
+     * @return $this
+     */
+    public function setWeavePasswordSecret($weavePasswordSecret)
+    {
+        $this->container['weavePasswordSecret'] = $weavePasswordSecret;
+
+        return $this;
+    }
+
+
+    /**
      * Gets windowsPreferedCluster
      * @return boolean
      */
@@ -1946,6 +2346,28 @@ class ClusterModel implements ArrayAccess
     public function setWindowsPreferedCluster($windowsPreferedCluster)
     {
         $this->container['windowsPreferedCluster'] = $windowsPreferedCluster;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets windowsWorkerCount
+     * @return int
+     */
+    public function getWindowsWorkerCount()
+    {
+        return $this->container['windowsWorkerCount'];
+    }
+
+    /**
+     * Sets windowsWorkerCount
+     * @param int $windowsWorkerCount
+     * @return $this
+     */
+    public function setWindowsWorkerCount($windowsWorkerCount)
+    {
+        $this->container['windowsWorkerCount'] = $windowsWorkerCount;
 
         return $this;
     }

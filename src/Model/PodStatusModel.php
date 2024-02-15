@@ -61,6 +61,7 @@ class PodStatusModel implements ArrayAccess
         'podIp' => 'string',
         'qosClass' => 'string',
         'reason' => 'string',
+        'resize' => 'string',
         'startTime' => '\DateTime',
     ];
 
@@ -82,6 +83,7 @@ class PodStatusModel implements ArrayAccess
         'podIp' => 'setPodIp',
         'qosClass' => 'setQosClass',
         'reason' => 'setReason',
+        'resize' => 'setResize',
         'startTime' => 'setStartTime',
     ];
 
@@ -103,6 +105,7 @@ class PodStatusModel implements ArrayAccess
         'podIp' => 'getPodIp',
         'qosClass' => 'getQosClass',
         'reason' => 'getReason',
+        'resize' => 'getResize',
         'startTime' => 'getStartTime',
     ];
 
@@ -125,6 +128,7 @@ class PodStatusModel implements ArrayAccess
         $this->container['podIp'] = isset($data['podIp']) ? $data['podIp'] : null;
         $this->container['qosClass'] = isset($data['qosClass']) ? $data['qosClass'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['resize'] = isset($data['resize']) ? $data['resize'] : null;
         $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
     }
 
@@ -387,6 +391,28 @@ class PodStatusModel implements ArrayAccess
     public function setReason($reason)
     {
         $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets resize
+     * @return string
+     */
+    public function getResize()
+    {
+        return $this->container['resize'];
+    }
+
+    /**
+     * Sets resize
+     * @param string $resize
+     * @return $this
+     */
+    public function setResize($resize)
+    {
+        $this->container['resize'] = $resize;
 
         return $this;
     }

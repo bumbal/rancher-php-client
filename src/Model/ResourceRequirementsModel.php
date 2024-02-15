@@ -28,6 +28,7 @@ class ResourceRequirementsModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'claims',
         'limits',
         'requests',
     ];
@@ -43,6 +44,7 @@ class ResourceRequirementsModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'claims',
         'limits',
         'requests',
     ];
@@ -53,6 +55,7 @@ class ResourceRequirementsModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'claims' => '\Rancher\Model\ResourceClaimModel[]',
         'limits' => 'map[string,string]',
         'requests' => 'map[string,string]',
     ];
@@ -63,6 +66,7 @@ class ResourceRequirementsModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'claims' => 'setClaims',
         'limits' => 'setLimits',
         'requests' => 'setRequests',
     ];
@@ -73,6 +77,7 @@ class ResourceRequirementsModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'claims' => 'getClaims',
         'limits' => 'getLimits',
         'requests' => 'getRequests',
     ];
@@ -84,9 +89,32 @@ class ResourceRequirementsModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['claims'] = isset($data['claims']) ? $data['claims'] : null;
         $this->container['limits'] = isset($data['limits']) ? $data['limits'] : null;
         $this->container['requests'] = isset($data['requests']) ? $data['requests'] : null;
     }
+
+    /**
+     * Gets claims
+     * @return \Rancher\Model\ResourceClaimModel[]
+     */
+    public function getClaims()
+    {
+        return $this->container['claims'];
+    }
+
+    /**
+     * Sets claims
+     * @param \Rancher\Model\ResourceClaimModel[] $claims
+     * @return $this
+     */
+    public function setClaims($claims)
+    {
+        $this->container['claims'] = $claims;
+
+        return $this;
+    }
+
 
     /**
      * Gets limits

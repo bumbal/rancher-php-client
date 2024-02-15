@@ -38,6 +38,7 @@ class OktaConfigModel implements ArrayAccess
         'idpMetadataContent',
         'labels',
         'name',
+        'openLdapConfig',
         'rancherApiHost',
         'spCert',
         'spKey',
@@ -66,6 +67,7 @@ class OktaConfigModel implements ArrayAccess
         'groupsField',
         'idpMetadataContent',
         'labels',
+        'openLdapConfig',
         'rancherApiHost',
         'spCert',
         'spKey',
@@ -91,11 +93,13 @@ class OktaConfigModel implements ArrayAccess
         'idpMetadataContent' => 'string',
         'labels' => 'map[string,string]',
         'name' => 'string',
+        'openLdapConfig' => '\Rancher\Model\LdapFieldsModel',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'rancherApiHost' => 'string',
         'removed' => '\DateTime',
         'spCert' => 'string',
         'spKey' => '\Rancher\Model\PasswordModel',
+        'status' => '\Rancher\Model\AuthConfigStatusModel',
         'type' => 'string',
         'uidField' => 'string',
         'userNameField' => 'string',
@@ -120,11 +124,13 @@ class OktaConfigModel implements ArrayAccess
         'idpMetadataContent' => 'setIdpMetadataContent',
         'labels' => 'setLabels',
         'name' => 'setName',
+        'openLdapConfig' => 'setOpenLdapConfig',
         'ownerReferences' => 'setOwnerReferences',
         'rancherApiHost' => 'setRancherApiHost',
         'removed' => 'setRemoved',
         'spCert' => 'setSpCert',
         'spKey' => 'setSpKey',
+        'status' => 'setStatus',
         'type' => 'setType',
         'uidField' => 'setUidField',
         'userNameField' => 'setUserNameField',
@@ -149,11 +155,13 @@ class OktaConfigModel implements ArrayAccess
         'idpMetadataContent' => 'getIdpMetadataContent',
         'labels' => 'getLabels',
         'name' => 'getName',
+        'openLdapConfig' => 'getOpenLdapConfig',
         'ownerReferences' => 'getOwnerReferences',
         'rancherApiHost' => 'getRancherApiHost',
         'removed' => 'getRemoved',
         'spCert' => 'getSpCert',
         'spKey' => 'getSpKey',
+        'status' => 'getStatus',
         'type' => 'getType',
         'uidField' => 'getUidField',
         'userNameField' => 'getUserNameField',
@@ -179,11 +187,13 @@ class OktaConfigModel implements ArrayAccess
         $this->container['idpMetadataContent'] = isset($data['idpMetadataContent']) ? $data['idpMetadataContent'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['openLdapConfig'] = isset($data['openLdapConfig']) ? $data['openLdapConfig'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['rancherApiHost'] = isset($data['rancherApiHost']) ? $data['rancherApiHost'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
         $this->container['spCert'] = isset($data['spCert']) ? $data['spCert'] : null;
         $this->container['spKey'] = isset($data['spKey']) ? $data['spKey'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['uidField'] = isset($data['uidField']) ? $data['uidField'] : null;
         $this->container['userNameField'] = isset($data['userNameField']) ? $data['userNameField'] : null;
@@ -455,6 +465,28 @@ class OktaConfigModel implements ArrayAccess
 
 
     /**
+     * Gets openLdapConfig
+     * @return \Rancher\Model\LdapFieldsModel
+     */
+    public function getOpenLdapConfig()
+    {
+        return $this->container['openLdapConfig'];
+    }
+
+    /**
+     * Sets openLdapConfig
+     * @param \Rancher\Model\LdapFieldsModel $openLdapConfig
+     * @return $this
+     */
+    public function setOpenLdapConfig($openLdapConfig)
+    {
+        $this->container['openLdapConfig'] = $openLdapConfig;
+
+        return $this;
+    }
+
+
+    /**
      * Gets ownerReferences
      * @return \Rancher\Model\OwnerReferenceModel[]
      */
@@ -559,6 +591,28 @@ class OktaConfigModel implements ArrayAccess
     public function setSpKey($spKey)
     {
         $this->container['spKey'] = $spKey;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets status
+     * @return \Rancher\Model\AuthConfigStatusModel
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param \Rancher\Model\AuthConfigStatusModel $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

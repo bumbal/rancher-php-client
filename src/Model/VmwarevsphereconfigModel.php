@@ -42,9 +42,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         'datastoreCluster',
         'diskSize',
         'folder',
+        'gracefulShutdownTimeout',
         'hostsystem',
         'memorySize',
         'network',
+        'os',
         'password',
         'pool',
         'sshPassword',
@@ -86,9 +88,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         'datastoreCluster',
         'diskSize',
         'folder',
+        'gracefulShutdownTimeout',
         'hostsystem',
         'memorySize',
         'network',
+        'os',
         'password',
         'pool',
         'sshPassword',
@@ -125,9 +129,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         'datastoreCluster' => 'string',
         'diskSize' => 'string',
         'folder' => 'string',
+        'gracefulShutdownTimeout' => 'string',
         'hostsystem' => 'string',
         'memorySize' => 'string',
         'network' => 'string[]',
+        'os' => 'string',
         'password' => '\Rancher\Model\PasswordModel',
         'pool' => 'string',
         'sshPassword' => 'string',
@@ -164,9 +170,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         'datastoreCluster' => 'setDatastoreCluster',
         'diskSize' => 'setDiskSize',
         'folder' => 'setFolder',
+        'gracefulShutdownTimeout' => 'setGracefulShutdownTimeout',
         'hostsystem' => 'setHostsystem',
         'memorySize' => 'setMemorySize',
         'network' => 'setNetwork',
+        'os' => 'setOs',
         'password' => 'setPassword',
         'pool' => 'setPool',
         'sshPassword' => 'setSshPassword',
@@ -203,9 +211,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         'datastoreCluster' => 'getDatastoreCluster',
         'diskSize' => 'getDiskSize',
         'folder' => 'getFolder',
+        'gracefulShutdownTimeout' => 'getGracefulShutdownTimeout',
         'hostsystem' => 'getHostsystem',
         'memorySize' => 'getMemorySize',
         'network' => 'getNetwork',
+        'os' => 'getOs',
         'password' => 'getPassword',
         'pool' => 'getPool',
         'sshPassword' => 'getSshPassword',
@@ -243,9 +253,11 @@ class VmwarevsphereconfigModel implements ArrayAccess
         $this->container['datastoreCluster'] = isset($data['datastoreCluster']) ? $data['datastoreCluster'] : null;
         $this->container['diskSize'] = isset($data['diskSize']) ? $data['diskSize'] : null;
         $this->container['folder'] = isset($data['folder']) ? $data['folder'] : null;
+        $this->container['gracefulShutdownTimeout'] = isset($data['gracefulShutdownTimeout']) ? $data['gracefulShutdownTimeout'] : null;
         $this->container['hostsystem'] = isset($data['hostsystem']) ? $data['hostsystem'] : null;
         $this->container['memorySize'] = isset($data['memorySize']) ? $data['memorySize'] : null;
         $this->container['network'] = isset($data['network']) ? $data['network'] : null;
+        $this->container['os'] = isset($data['os']) ? $data['os'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['pool'] = isset($data['pool']) ? $data['pool'] : null;
         $this->container['sshPassword'] = isset($data['sshPassword']) ? $data['sshPassword'] : null;
@@ -571,6 +583,28 @@ class VmwarevsphereconfigModel implements ArrayAccess
 
 
     /**
+     * Gets gracefulShutdownTimeout
+     * @return string
+     */
+    public function getGracefulShutdownTimeout()
+    {
+        return $this->container['gracefulShutdownTimeout'];
+    }
+
+    /**
+     * Sets gracefulShutdownTimeout
+     * @param string $gracefulShutdownTimeout
+     * @return $this
+     */
+    public function setGracefulShutdownTimeout($gracefulShutdownTimeout)
+    {
+        $this->container['gracefulShutdownTimeout'] = $gracefulShutdownTimeout;
+
+        return $this;
+    }
+
+
+    /**
      * Gets hostsystem
      * @return string
      */
@@ -631,6 +665,28 @@ class VmwarevsphereconfigModel implements ArrayAccess
     public function setNetwork($network)
     {
         $this->container['network'] = $network;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets os
+     * @return string
+     */
+    public function getOs()
+    {
+        return $this->container['os'];
+    }
+
+    /**
+     * Sets os
+     * @param string $os
+     * @return $this
+     */
+    public function setOs($os)
+    {
+        $this->container['os'] = $os;
 
         return $this;
     }

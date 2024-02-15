@@ -324,6 +324,34 @@ class StatefulSetFilter extends AbstractFilter
 
 
     /**
+     * Gets hostUsers
+     * @return string
+     */
+    public function getHostUsers()
+    {
+        return $this->container['hostUsers'];
+    }
+
+    /**
+     * Sets hostUsers
+     * @param string $hostUsers
+     * @param string $option
+     * @return $this
+     */
+    public function setHostUsers($hostUsers, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['hostUsers'.$option] = $hostUsers;
+
+        return $this;
+    }
+
+
+    /**
      * Gets hostname
      * @return string
      */
@@ -346,6 +374,34 @@ class StatefulSetFilter extends AbstractFilter
         }
 
         $this->container['hostname'.$option] = $hostname;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets minReadySeconds
+     * @return string
+     */
+    public function getMinReadySeconds()
+    {
+        return $this->container['minReadySeconds'];
+    }
+
+    /**
+     * Sets minReadySeconds
+     * @param string $minReadySeconds
+     * @param string $option
+     * @return $this
+     */
+    public function setMinReadySeconds($minReadySeconds, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['minReadySeconds'.$option] = $minReadySeconds;
 
         return $this;
     }

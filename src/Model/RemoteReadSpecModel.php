@@ -28,10 +28,12 @@ class RemoteReadSpecModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'authorization',
         'basicAuth',
         'bearerToken',
         'bearerTokenFile',
         'name',
+        'oauth2',
         'proxyUrl',
         'readRecent',
         'remoteTimeout',
@@ -51,10 +53,12 @@ class RemoteReadSpecModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'authorization',
         'basicAuth',
         'bearerToken',
         'bearerTokenFile',
         'name',
+        'oauth2',
         'proxyUrl',
         'readRecent',
         'remoteTimeout',
@@ -69,10 +73,12 @@ class RemoteReadSpecModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'authorization' => '\Rancher\Model\AuthorizationModel',
         'basicAuth' => '\Rancher\Model\BasicAuthModel',
         'bearerToken' => 'string',
         'bearerTokenFile' => 'string',
         'name' => 'string',
+        'oauth2' => '\Rancher\Model\OAuth2Model',
         'proxyUrl' => 'string',
         'readRecent' => 'boolean',
         'remoteTimeout' => 'string',
@@ -87,10 +93,12 @@ class RemoteReadSpecModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'authorization' => 'setAuthorization',
         'basicAuth' => 'setBasicAuth',
         'bearerToken' => 'setBearerToken',
         'bearerTokenFile' => 'setBearerTokenFile',
         'name' => 'setName',
+        'oauth2' => 'setOauth2',
         'proxyUrl' => 'setProxyUrl',
         'readRecent' => 'setReadRecent',
         'remoteTimeout' => 'setRemoteTimeout',
@@ -105,10 +113,12 @@ class RemoteReadSpecModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'authorization' => 'getAuthorization',
         'basicAuth' => 'getBasicAuth',
         'bearerToken' => 'getBearerToken',
         'bearerTokenFile' => 'getBearerTokenFile',
         'name' => 'getName',
+        'oauth2' => 'getOauth2',
         'proxyUrl' => 'getProxyUrl',
         'readRecent' => 'getReadRecent',
         'remoteTimeout' => 'getRemoteTimeout',
@@ -124,10 +134,12 @@ class RemoteReadSpecModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['authorization'] = isset($data['authorization']) ? $data['authorization'] : null;
         $this->container['basicAuth'] = isset($data['basicAuth']) ? $data['basicAuth'] : null;
         $this->container['bearerToken'] = isset($data['bearerToken']) ? $data['bearerToken'] : null;
         $this->container['bearerTokenFile'] = isset($data['bearerTokenFile']) ? $data['bearerTokenFile'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['oauth2'] = isset($data['oauth2']) ? $data['oauth2'] : null;
         $this->container['proxyUrl'] = isset($data['proxyUrl']) ? $data['proxyUrl'] : null;
         $this->container['readRecent'] = isset($data['readRecent']) ? $data['readRecent'] : null;
         $this->container['remoteTimeout'] = isset($data['remoteTimeout']) ? $data['remoteTimeout'] : null;
@@ -135,6 +147,28 @@ class RemoteReadSpecModel implements ArrayAccess
         $this->container['tlsConfig'] = isset($data['tlsConfig']) ? $data['tlsConfig'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
+
+    /**
+     * Gets authorization
+     * @return \Rancher\Model\AuthorizationModel
+     */
+    public function getAuthorization()
+    {
+        return $this->container['authorization'];
+    }
+
+    /**
+     * Sets authorization
+     * @param \Rancher\Model\AuthorizationModel $authorization
+     * @return $this
+     */
+    public function setAuthorization($authorization)
+    {
+        $this->container['authorization'] = $authorization;
+
+        return $this;
+    }
+
 
     /**
      * Gets basicAuth
@@ -219,6 +253,28 @@ class RemoteReadSpecModel implements ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets oauth2
+     * @return \Rancher\Model\OAuth2Model
+     */
+    public function getOauth2()
+    {
+        return $this->container['oauth2'];
+    }
+
+    /**
+     * Sets oauth2
+     * @param \Rancher\Model\OAuth2Model $oauth2
+     * @return $this
+     */
+    public function setOauth2($oauth2)
+    {
+        $this->container['oauth2'] = $oauth2;
 
         return $this;
     }

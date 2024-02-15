@@ -50,11 +50,14 @@ class JobStatusModel implements ArrayAccess
 
     protected static $typeMap = [
         'active' => 'int',
+        'completedIndexes' => 'string',
         'completionTime' => '\DateTime',
         'conditions' => '\Rancher\Model\JobConditionModel[]',
         'failed' => 'int',
+        'ready' => 'int',
         'startTime' => '\DateTime',
         'succeeded' => 'int',
+        'uncountedTerminatedPods' => '\Rancher\Model\UncountedTerminatedPodsModel',
     ];
 
     public static function typeMap()
@@ -64,11 +67,14 @@ class JobStatusModel implements ArrayAccess
 
     protected static $setters = [
         'active' => 'setActive',
+        'completedIndexes' => 'setCompletedIndexes',
         'completionTime' => 'setCompletionTime',
         'conditions' => 'setConditions',
         'failed' => 'setFailed',
+        'ready' => 'setReady',
         'startTime' => 'setStartTime',
         'succeeded' => 'setSucceeded',
+        'uncountedTerminatedPods' => 'setUncountedTerminatedPods',
     ];
 
     public static function setters()
@@ -78,11 +84,14 @@ class JobStatusModel implements ArrayAccess
 
     protected static $getters = [
         'active' => 'getActive',
+        'completedIndexes' => 'getCompletedIndexes',
         'completionTime' => 'getCompletionTime',
         'conditions' => 'getConditions',
         'failed' => 'getFailed',
+        'ready' => 'getReady',
         'startTime' => 'getStartTime',
         'succeeded' => 'getSucceeded',
+        'uncountedTerminatedPods' => 'getUncountedTerminatedPods',
     ];
 
     public static function getters()
@@ -93,11 +102,14 @@ class JobStatusModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['completedIndexes'] = isset($data['completedIndexes']) ? $data['completedIndexes'] : null;
         $this->container['completionTime'] = isset($data['completionTime']) ? $data['completionTime'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['failed'] = isset($data['failed']) ? $data['failed'] : null;
+        $this->container['ready'] = isset($data['ready']) ? $data['ready'] : null;
         $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
         $this->container['succeeded'] = isset($data['succeeded']) ? $data['succeeded'] : null;
+        $this->container['uncountedTerminatedPods'] = isset($data['uncountedTerminatedPods']) ? $data['uncountedTerminatedPods'] : null;
     }
 
     /**
@@ -117,6 +129,28 @@ class JobStatusModel implements ArrayAccess
     public function setActive($active)
     {
         $this->container['active'] = $active;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets completedIndexes
+     * @return string
+     */
+    public function getCompletedIndexes()
+    {
+        return $this->container['completedIndexes'];
+    }
+
+    /**
+     * Sets completedIndexes
+     * @param string $completedIndexes
+     * @return $this
+     */
+    public function setCompletedIndexes($completedIndexes)
+    {
+        $this->container['completedIndexes'] = $completedIndexes;
 
         return $this;
     }
@@ -189,6 +223,28 @@ class JobStatusModel implements ArrayAccess
 
 
     /**
+     * Gets ready
+     * @return int
+     */
+    public function getReady()
+    {
+        return $this->container['ready'];
+    }
+
+    /**
+     * Sets ready
+     * @param int $ready
+     * @return $this
+     */
+    public function setReady($ready)
+    {
+        $this->container['ready'] = $ready;
+
+        return $this;
+    }
+
+
+    /**
      * Gets startTime
      * @return \DateTime
      */
@@ -227,6 +283,28 @@ class JobStatusModel implements ArrayAccess
     public function setSucceeded($succeeded)
     {
         $this->container['succeeded'] = $succeeded;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets uncountedTerminatedPods
+     * @return \Rancher\Model\UncountedTerminatedPodsModel
+     */
+    public function getUncountedTerminatedPods()
+    {
+        return $this->container['uncountedTerminatedPods'];
+    }
+
+    /**
+     * Sets uncountedTerminatedPods
+     * @param \Rancher\Model\UncountedTerminatedPodsModel $uncountedTerminatedPods
+     * @return $this
+     */
+    public function setUncountedTerminatedPods($uncountedTerminatedPods)
+    {
+        $this->container['uncountedTerminatedPods'] = $uncountedTerminatedPods;
 
         return $this;
     }

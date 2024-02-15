@@ -30,11 +30,13 @@ class AppModel implements ArrayAccess
     protected static $canBeCreated = [
         'annotations',
         'answers',
+        'answersSetString',
         'appRevisionId',
         'description',
         'externalId',
         'files',
         'labels',
+        'maxRevisionCount',
         'multiClusterAppId',
         'name',
         'namespaceId',
@@ -59,11 +61,13 @@ class AppModel implements ArrayAccess
     protected static $canBeUpdated = [
         'annotations',
         'answers',
+        'answersSetString',
         'appRevisionId',
         'description',
         'externalId',
         'files',
         'labels',
+        'maxRevisionCount',
         'multiClusterAppId',
         'projectId',
         'prune',
@@ -81,6 +85,7 @@ class AppModel implements ArrayAccess
     protected static $typeMap = [
         'annotations' => 'map[string,string]',
         'answers' => 'map[string,string]',
+        'answersSetString' => 'map[string,string]',
         'appRevisionId' => 'string',
         'appliedFiles' => 'map[string,string]',
         'conditions' => '\Rancher\Model\AppConditionModel[]',
@@ -92,6 +97,7 @@ class AppModel implements ArrayAccess
         'helmVersion' => 'string',
         'labels' => 'map[string,string]',
         'lastAppliedTemplate' => 'string',
+        'maxRevisionCount' => 'int',
         'multiClusterAppId' => 'string',
         'name' => 'string',
         'namespaceId' => 'string',
@@ -118,6 +124,7 @@ class AppModel implements ArrayAccess
     protected static $setters = [
         'annotations' => 'setAnnotations',
         'answers' => 'setAnswers',
+        'answersSetString' => 'setAnswersSetString',
         'appRevisionId' => 'setAppRevisionId',
         'appliedFiles' => 'setAppliedFiles',
         'conditions' => 'setConditions',
@@ -129,6 +136,7 @@ class AppModel implements ArrayAccess
         'helmVersion' => 'setHelmVersion',
         'labels' => 'setLabels',
         'lastAppliedTemplate' => 'setLastAppliedTemplate',
+        'maxRevisionCount' => 'setMaxRevisionCount',
         'multiClusterAppId' => 'setMultiClusterAppId',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
@@ -155,6 +163,7 @@ class AppModel implements ArrayAccess
     protected static $getters = [
         'annotations' => 'getAnnotations',
         'answers' => 'getAnswers',
+        'answersSetString' => 'getAnswersSetString',
         'appRevisionId' => 'getAppRevisionId',
         'appliedFiles' => 'getAppliedFiles',
         'conditions' => 'getConditions',
@@ -166,6 +175,7 @@ class AppModel implements ArrayAccess
         'helmVersion' => 'getHelmVersion',
         'labels' => 'getLabels',
         'lastAppliedTemplate' => 'getLastAppliedTemplate',
+        'maxRevisionCount' => 'getMaxRevisionCount',
         'multiClusterAppId' => 'getMultiClusterAppId',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
@@ -193,6 +203,7 @@ class AppModel implements ArrayAccess
     {
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['answers'] = isset($data['answers']) ? $data['answers'] : null;
+        $this->container['answersSetString'] = isset($data['answersSetString']) ? $data['answersSetString'] : null;
         $this->container['appRevisionId'] = isset($data['appRevisionId']) ? $data['appRevisionId'] : null;
         $this->container['appliedFiles'] = isset($data['appliedFiles']) ? $data['appliedFiles'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
@@ -204,6 +215,7 @@ class AppModel implements ArrayAccess
         $this->container['helmVersion'] = isset($data['helmVersion']) ? $data['helmVersion'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['lastAppliedTemplate'] = isset($data['lastAppliedTemplate']) ? $data['lastAppliedTemplate'] : null;
+        $this->container['maxRevisionCount'] = isset($data['maxRevisionCount']) ? $data['maxRevisionCount'] : null;
         $this->container['multiClusterAppId'] = isset($data['multiClusterAppId']) ? $data['multiClusterAppId'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
@@ -261,6 +273,28 @@ class AppModel implements ArrayAccess
     public function setAnswers($answers)
     {
         $this->container['answers'] = $answers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets answersSetString
+     * @return string[]
+     */
+    public function getAnswersSetString()
+    {
+        return $this->container['answersSetString'];
+    }
+
+    /**
+     * Sets answersSetString
+     * @param string[] $answersSetString
+     * @return $this
+     */
+    public function setAnswersSetString($answersSetString)
+    {
+        $this->container['answersSetString'] = $answersSetString;
 
         return $this;
     }
@@ -503,6 +537,28 @@ class AppModel implements ArrayAccess
     public function setLastAppliedTemplate($lastAppliedTemplate)
     {
         $this->container['lastAppliedTemplate'] = $lastAppliedTemplate;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets maxRevisionCount
+     * @return int
+     */
+    public function getMaxRevisionCount()
+    {
+        return $this->container['maxRevisionCount'];
+    }
+
+    /**
+     * Sets maxRevisionCount
+     * @param int $maxRevisionCount
+     * @return $this
+     */
+    public function setMaxRevisionCount($maxRevisionCount)
+    {
+        $this->container['maxRevisionCount'] = $maxRevisionCount;
 
         return $this;
     }

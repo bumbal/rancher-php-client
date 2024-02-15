@@ -236,4 +236,19 @@ class AzureADConfigResource
 
         return;
     }
+
+    /**
+     * upgrade
+     *
+     * @param string $id
+     *
+     * @throws RancherException
+     * @return void
+     */
+    public function upgrade($id)
+    {
+        $this->client->request('POST', $this->constructPath() . $id . '?action=upgrade', []);
+
+        return;
+    }
 }

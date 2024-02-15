@@ -156,6 +156,62 @@ class ClusterRegistrationTokenFilter extends AbstractFilter
 
 
     /**
+     * Gets insecureNodeCommand
+     * @return string
+     */
+    public function getInsecureNodeCommand()
+    {
+        return $this->container['insecureNodeCommand'];
+    }
+
+    /**
+     * Sets insecureNodeCommand
+     * @param string $insecureNodeCommand
+     * @param string $option
+     * @return $this
+     */
+    public function setInsecureNodeCommand($insecureNodeCommand, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['insecureNodeCommand'.$option] = $insecureNodeCommand;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets insecureWindowsNodeCommand
+     * @return string
+     */
+    public function getInsecureWindowsNodeCommand()
+    {
+        return $this->container['insecureWindowsNodeCommand'];
+    }
+
+    /**
+     * Sets insecureWindowsNodeCommand
+     * @param string $insecureWindowsNodeCommand
+     * @param string $option
+     * @return $this
+     */
+    public function setInsecureWindowsNodeCommand($insecureWindowsNodeCommand, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['insecureWindowsNodeCommand'.$option] = $insecureWindowsNodeCommand;
+
+        return $this;
+    }
+
+
+    /**
      * Gets manifestUrl
      * @return string
      */

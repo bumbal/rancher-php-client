@@ -28,13 +28,19 @@ class RemoteWriteSpecModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'authorization',
         'basicAuth',
         'bearerToken',
         'bearerTokenFile',
+        'headers',
+        'metadataConfig',
         'name',
+        'oauth2',
         'proxyUrl',
         'queueConfig',
         'remoteTimeout',
+        'sendExemplars',
+        'sigv4',
         'tlsConfig',
         'url',
         'writeRelabelConfigs',
@@ -51,13 +57,19 @@ class RemoteWriteSpecModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'authorization',
         'basicAuth',
         'bearerToken',
         'bearerTokenFile',
+        'headers',
+        'metadataConfig',
         'name',
+        'oauth2',
         'proxyUrl',
         'queueConfig',
         'remoteTimeout',
+        'sendExemplars',
+        'sigv4',
         'tlsConfig',
         'url',
         'writeRelabelConfigs',
@@ -69,13 +81,19 @@ class RemoteWriteSpecModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'authorization' => '\Rancher\Model\AuthorizationModel',
         'basicAuth' => '\Rancher\Model\BasicAuthModel',
         'bearerToken' => 'string',
         'bearerTokenFile' => 'string',
+        'headers' => 'map[string,string]',
+        'metadataConfig' => '\Rancher\Model\MetadataConfigModel',
         'name' => 'string',
+        'oauth2' => '\Rancher\Model\OAuth2Model',
         'proxyUrl' => 'string',
         'queueConfig' => '\Rancher\Model\QueueConfigModel',
         'remoteTimeout' => 'string',
+        'sendExemplars' => 'boolean',
+        'sigv4' => '\Rancher\Model\Sigv4Model',
         'tlsConfig' => '\Rancher\Model\TlsConfigModel',
         'url' => 'string',
         'writeRelabelConfigs' => '\Rancher\Model\RelabelConfigModel[]',
@@ -87,13 +105,19 @@ class RemoteWriteSpecModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'authorization' => 'setAuthorization',
         'basicAuth' => 'setBasicAuth',
         'bearerToken' => 'setBearerToken',
         'bearerTokenFile' => 'setBearerTokenFile',
+        'headers' => 'setHeaders',
+        'metadataConfig' => 'setMetadataConfig',
         'name' => 'setName',
+        'oauth2' => 'setOauth2',
         'proxyUrl' => 'setProxyUrl',
         'queueConfig' => 'setQueueConfig',
         'remoteTimeout' => 'setRemoteTimeout',
+        'sendExemplars' => 'setSendExemplars',
+        'sigv4' => 'setSigv4',
         'tlsConfig' => 'setTlsConfig',
         'url' => 'setUrl',
         'writeRelabelConfigs' => 'setWriteRelabelConfigs',
@@ -105,13 +129,19 @@ class RemoteWriteSpecModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'authorization' => 'getAuthorization',
         'basicAuth' => 'getBasicAuth',
         'bearerToken' => 'getBearerToken',
         'bearerTokenFile' => 'getBearerTokenFile',
+        'headers' => 'getHeaders',
+        'metadataConfig' => 'getMetadataConfig',
         'name' => 'getName',
+        'oauth2' => 'getOauth2',
         'proxyUrl' => 'getProxyUrl',
         'queueConfig' => 'getQueueConfig',
         'remoteTimeout' => 'getRemoteTimeout',
+        'sendExemplars' => 'getSendExemplars',
+        'sigv4' => 'getSigv4',
         'tlsConfig' => 'getTlsConfig',
         'url' => 'getUrl',
         'writeRelabelConfigs' => 'getWriteRelabelConfigs',
@@ -124,17 +154,45 @@ class RemoteWriteSpecModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['authorization'] = isset($data['authorization']) ? $data['authorization'] : null;
         $this->container['basicAuth'] = isset($data['basicAuth']) ? $data['basicAuth'] : null;
         $this->container['bearerToken'] = isset($data['bearerToken']) ? $data['bearerToken'] : null;
         $this->container['bearerTokenFile'] = isset($data['bearerTokenFile']) ? $data['bearerTokenFile'] : null;
+        $this->container['headers'] = isset($data['headers']) ? $data['headers'] : null;
+        $this->container['metadataConfig'] = isset($data['metadataConfig']) ? $data['metadataConfig'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['oauth2'] = isset($data['oauth2']) ? $data['oauth2'] : null;
         $this->container['proxyUrl'] = isset($data['proxyUrl']) ? $data['proxyUrl'] : null;
         $this->container['queueConfig'] = isset($data['queueConfig']) ? $data['queueConfig'] : null;
         $this->container['remoteTimeout'] = isset($data['remoteTimeout']) ? $data['remoteTimeout'] : null;
+        $this->container['sendExemplars'] = isset($data['sendExemplars']) ? $data['sendExemplars'] : null;
+        $this->container['sigv4'] = isset($data['sigv4']) ? $data['sigv4'] : null;
         $this->container['tlsConfig'] = isset($data['tlsConfig']) ? $data['tlsConfig'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['writeRelabelConfigs'] = isset($data['writeRelabelConfigs']) ? $data['writeRelabelConfigs'] : null;
     }
+
+    /**
+     * Gets authorization
+     * @return \Rancher\Model\AuthorizationModel
+     */
+    public function getAuthorization()
+    {
+        return $this->container['authorization'];
+    }
+
+    /**
+     * Sets authorization
+     * @param \Rancher\Model\AuthorizationModel $authorization
+     * @return $this
+     */
+    public function setAuthorization($authorization)
+    {
+        $this->container['authorization'] = $authorization;
+
+        return $this;
+    }
+
 
     /**
      * Gets basicAuth
@@ -203,6 +261,50 @@ class RemoteWriteSpecModel implements ArrayAccess
 
 
     /**
+     * Gets headers
+     * @return string[]
+     */
+    public function getHeaders()
+    {
+        return $this->container['headers'];
+    }
+
+    /**
+     * Sets headers
+     * @param string[] $headers
+     * @return $this
+     */
+    public function setHeaders($headers)
+    {
+        $this->container['headers'] = $headers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets metadataConfig
+     * @return \Rancher\Model\MetadataConfigModel
+     */
+    public function getMetadataConfig()
+    {
+        return $this->container['metadataConfig'];
+    }
+
+    /**
+     * Sets metadataConfig
+     * @param \Rancher\Model\MetadataConfigModel $metadataConfig
+     * @return $this
+     */
+    public function setMetadataConfig($metadataConfig)
+    {
+        $this->container['metadataConfig'] = $metadataConfig;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */
@@ -219,6 +321,28 @@ class RemoteWriteSpecModel implements ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets oauth2
+     * @return \Rancher\Model\OAuth2Model
+     */
+    public function getOauth2()
+    {
+        return $this->container['oauth2'];
+    }
+
+    /**
+     * Sets oauth2
+     * @param \Rancher\Model\OAuth2Model $oauth2
+     * @return $this
+     */
+    public function setOauth2($oauth2)
+    {
+        $this->container['oauth2'] = $oauth2;
 
         return $this;
     }
@@ -285,6 +409,50 @@ class RemoteWriteSpecModel implements ArrayAccess
     public function setRemoteTimeout($remoteTimeout)
     {
         $this->container['remoteTimeout'] = $remoteTimeout;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets sendExemplars
+     * @return boolean
+     */
+    public function getSendExemplars()
+    {
+        return $this->container['sendExemplars'];
+    }
+
+    /**
+     * Sets sendExemplars
+     * @param boolean $sendExemplars
+     * @return $this
+     */
+    public function setSendExemplars($sendExemplars)
+    {
+        $this->container['sendExemplars'] = $sendExemplars;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets sigv4
+     * @return \Rancher\Model\Sigv4Model
+     */
+    public function getSigv4()
+    {
+        return $this->container['sigv4'];
+    }
+
+    /**
+     * Sets sigv4
+     * @param \Rancher\Model\Sigv4Model $sigv4
+     * @return $this
+     */
+    public function setSigv4($sigv4)
+    {
+        $this->container['sigv4'] = $sigv4;
 
         return $this;
     }

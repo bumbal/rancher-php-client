@@ -156,6 +156,34 @@ class ClusterCatalogFilter extends AbstractFilter
 
 
     /**
+     * Gets credentialSecret
+     * @return string
+     */
+    public function getCredentialSecret()
+    {
+        return $this->container['credentialSecret'];
+    }
+
+    /**
+     * Sets credentialSecret
+     * @param string $credentialSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setCredentialSecret($credentialSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['credentialSecret'.$option] = $credentialSecret;
+
+        return $this;
+    }
+
+
+    /**
      * Gets description
      * @return string
      */

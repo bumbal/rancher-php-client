@@ -29,6 +29,7 @@ class IngressModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'annotations',
+        'backend',
         'defaultBackend',
         'description',
         'ingressClassName',
@@ -52,6 +53,7 @@ class IngressModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'annotations',
+        'backend',
         'defaultBackend',
         'description',
         'ingressClassName',
@@ -67,6 +69,7 @@ class IngressModel implements ArrayAccess
 
     protected static $typeMap = [
         'annotations' => 'map[string,string]',
+        'backend' => '\Rancher\Model\IngressBackendModel',
         'created' => '\DateTime',
         'creatorId' => 'string',
         'defaultBackend' => '\Rancher\Model\IngressBackendModel',
@@ -95,6 +98,7 @@ class IngressModel implements ArrayAccess
 
     protected static $setters = [
         'annotations' => 'setAnnotations',
+        'backend' => 'setBackend',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'defaultBackend' => 'setDefaultBackend',
@@ -123,6 +127,7 @@ class IngressModel implements ArrayAccess
 
     protected static $getters = [
         'annotations' => 'getAnnotations',
+        'backend' => 'getBackend',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'defaultBackend' => 'getDefaultBackend',
@@ -152,6 +157,7 @@ class IngressModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
+        $this->container['backend'] = isset($data['backend']) ? $data['backend'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['defaultBackend'] = isset($data['defaultBackend']) ? $data['defaultBackend'] : null;
@@ -190,6 +196,28 @@ class IngressModel implements ArrayAccess
     public function setAnnotations($annotations)
     {
         $this->container['annotations'] = $annotations;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets backend
+     * @return \Rancher\Model\IngressBackendModel
+     */
+    public function getBackend()
+    {
+        return $this->container['backend'];
+    }
+
+    /**
+     * Sets backend
+     * @param \Rancher\Model\IngressBackendModel $backend
+     * @return $this
+     */
+    public function setBackend($backend)
+    {
+        $this->container['backend'] = $backend;
 
         return $this;
     }

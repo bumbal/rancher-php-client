@@ -50,6 +50,7 @@ class AlertmanagerModel implements ArrayAccess
         'listenLocal',
         'logFormat',
         'logLevel',
+        'minReadySeconds',
         'name',
         'namespaceId',
         'nodeSelector',
@@ -108,6 +109,7 @@ class AlertmanagerModel implements ArrayAccess
         'listenLocal',
         'logFormat',
         'logLevel',
+        'minReadySeconds',
         'nodeSelector',
         'paused',
         'podMetadata',
@@ -160,6 +162,7 @@ class AlertmanagerModel implements ArrayAccess
         'listenLocal' => 'boolean',
         'logFormat' => 'string',
         'logLevel' => 'string',
+        'minReadySeconds' => 'int',
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeSelector' => 'map[string,string]',
@@ -221,6 +224,7 @@ class AlertmanagerModel implements ArrayAccess
         'listenLocal' => 'setListenLocal',
         'logFormat' => 'setLogFormat',
         'logLevel' => 'setLogLevel',
+        'minReadySeconds' => 'setMinReadySeconds',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'nodeSelector' => 'setNodeSelector',
@@ -282,6 +286,7 @@ class AlertmanagerModel implements ArrayAccess
         'listenLocal' => 'getListenLocal',
         'logFormat' => 'getLogFormat',
         'logLevel' => 'getLogLevel',
+        'minReadySeconds' => 'getMinReadySeconds',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'nodeSelector' => 'getNodeSelector',
@@ -344,6 +349,7 @@ class AlertmanagerModel implements ArrayAccess
         $this->container['listenLocal'] = isset($data['listenLocal']) ? $data['listenLocal'] : null;
         $this->container['logFormat'] = isset($data['logFormat']) ? $data['logFormat'] : null;
         $this->container['logLevel'] = isset($data['logLevel']) ? $data['logLevel'] : null;
+        $this->container['minReadySeconds'] = isset($data['minReadySeconds']) ? $data['minReadySeconds'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
@@ -898,6 +904,28 @@ class AlertmanagerModel implements ArrayAccess
     public function setLogLevel($logLevel)
     {
         $this->container['logLevel'] = $logLevel;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets minReadySeconds
+     * @return int
+     */
+    public function getMinReadySeconds()
+    {
+        return $this->container['minReadySeconds'];
+    }
+
+    /**
+     * Sets minReadySeconds
+     * @param int $minReadySeconds
+     * @return $this
+     */
+    public function setMinReadySeconds($minReadySeconds)
+    {
+        $this->container['minReadySeconds'] = $minReadySeconds;
 
         return $this;
     }

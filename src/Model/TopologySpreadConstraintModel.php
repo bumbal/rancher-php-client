@@ -29,7 +29,11 @@ class TopologySpreadConstraintModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'labelSelector',
+        'matchLabelKeys',
         'maxSkew',
+        'minDomains',
+        'nodeAffinityPolicy',
+        'nodeTaintsPolicy',
         'topologyKey',
         'whenUnsatisfiable',
     ];
@@ -46,7 +50,11 @@ class TopologySpreadConstraintModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'labelSelector',
+        'matchLabelKeys',
         'maxSkew',
+        'minDomains',
+        'nodeAffinityPolicy',
+        'nodeTaintsPolicy',
         'topologyKey',
         'whenUnsatisfiable',
     ];
@@ -58,7 +66,11 @@ class TopologySpreadConstraintModel implements ArrayAccess
 
     protected static $typeMap = [
         'labelSelector' => '\Rancher\Model\LabelSelectorModel',
+        'matchLabelKeys' => 'string[]',
         'maxSkew' => 'int',
+        'minDomains' => 'int',
+        'nodeAffinityPolicy' => 'string',
+        'nodeTaintsPolicy' => 'string',
         'topologyKey' => 'string',
         'whenUnsatisfiable' => 'string',
     ];
@@ -70,7 +82,11 @@ class TopologySpreadConstraintModel implements ArrayAccess
 
     protected static $setters = [
         'labelSelector' => 'setLabelSelector',
+        'matchLabelKeys' => 'setMatchLabelKeys',
         'maxSkew' => 'setMaxSkew',
+        'minDomains' => 'setMinDomains',
+        'nodeAffinityPolicy' => 'setNodeAffinityPolicy',
+        'nodeTaintsPolicy' => 'setNodeTaintsPolicy',
         'topologyKey' => 'setTopologyKey',
         'whenUnsatisfiable' => 'setWhenUnsatisfiable',
     ];
@@ -82,7 +98,11 @@ class TopologySpreadConstraintModel implements ArrayAccess
 
     protected static $getters = [
         'labelSelector' => 'getLabelSelector',
+        'matchLabelKeys' => 'getMatchLabelKeys',
         'maxSkew' => 'getMaxSkew',
+        'minDomains' => 'getMinDomains',
+        'nodeAffinityPolicy' => 'getNodeAffinityPolicy',
+        'nodeTaintsPolicy' => 'getNodeTaintsPolicy',
         'topologyKey' => 'getTopologyKey',
         'whenUnsatisfiable' => 'getWhenUnsatisfiable',
     ];
@@ -95,7 +115,11 @@ class TopologySpreadConstraintModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['labelSelector'] = isset($data['labelSelector']) ? $data['labelSelector'] : null;
+        $this->container['matchLabelKeys'] = isset($data['matchLabelKeys']) ? $data['matchLabelKeys'] : null;
         $this->container['maxSkew'] = isset($data['maxSkew']) ? $data['maxSkew'] : null;
+        $this->container['minDomains'] = isset($data['minDomains']) ? $data['minDomains'] : null;
+        $this->container['nodeAffinityPolicy'] = isset($data['nodeAffinityPolicy']) ? $data['nodeAffinityPolicy'] : null;
+        $this->container['nodeTaintsPolicy'] = isset($data['nodeTaintsPolicy']) ? $data['nodeTaintsPolicy'] : null;
         $this->container['topologyKey'] = isset($data['topologyKey']) ? $data['topologyKey'] : null;
         $this->container['whenUnsatisfiable'] = isset($data['whenUnsatisfiable']) ? $data['whenUnsatisfiable'] : null;
     }
@@ -123,6 +147,28 @@ class TopologySpreadConstraintModel implements ArrayAccess
 
 
     /**
+     * Gets matchLabelKeys
+     * @return string[]
+     */
+    public function getMatchLabelKeys()
+    {
+        return $this->container['matchLabelKeys'];
+    }
+
+    /**
+     * Sets matchLabelKeys
+     * @param string[] $matchLabelKeys
+     * @return $this
+     */
+    public function setMatchLabelKeys($matchLabelKeys)
+    {
+        $this->container['matchLabelKeys'] = $matchLabelKeys;
+
+        return $this;
+    }
+
+
+    /**
      * Gets maxSkew
      * @return int
      */
@@ -139,6 +185,72 @@ class TopologySpreadConstraintModel implements ArrayAccess
     public function setMaxSkew($maxSkew)
     {
         $this->container['maxSkew'] = $maxSkew;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets minDomains
+     * @return int
+     */
+    public function getMinDomains()
+    {
+        return $this->container['minDomains'];
+    }
+
+    /**
+     * Sets minDomains
+     * @param int $minDomains
+     * @return $this
+     */
+    public function setMinDomains($minDomains)
+    {
+        $this->container['minDomains'] = $minDomains;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodeAffinityPolicy
+     * @return string
+     */
+    public function getNodeAffinityPolicy()
+    {
+        return $this->container['nodeAffinityPolicy'];
+    }
+
+    /**
+     * Sets nodeAffinityPolicy
+     * @param string $nodeAffinityPolicy
+     * @return $this
+     */
+    public function setNodeAffinityPolicy($nodeAffinityPolicy)
+    {
+        $this->container['nodeAffinityPolicy'] = $nodeAffinityPolicy;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodeTaintsPolicy
+     * @return string
+     */
+    public function getNodeTaintsPolicy()
+    {
+        return $this->container['nodeTaintsPolicy'];
+    }
+
+    /**
+     * Sets nodeTaintsPolicy
+     * @param string $nodeTaintsPolicy
+     * @return $this
+     */
+    public function setNodeTaintsPolicy($nodeTaintsPolicy)
+    {
+        $this->container['nodeTaintsPolicy'] = $nodeTaintsPolicy;
 
         return $this;
     }

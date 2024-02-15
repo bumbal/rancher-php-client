@@ -50,9 +50,11 @@ class PersistentVolumeClaimStatusModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessModes' => 'string[]',
+        'allocatedResources' => 'map[string,string]',
         'capacity' => 'map[string,string]',
         'conditions' => '\Rancher\Model\PersistentVolumeClaimConditionModel[]',
         'phase' => 'string',
+        'resizeStatus' => 'string',
     ];
 
     public static function typeMap()
@@ -62,9 +64,11 @@ class PersistentVolumeClaimStatusModel implements ArrayAccess
 
     protected static $setters = [
         'accessModes' => 'setAccessModes',
+        'allocatedResources' => 'setAllocatedResources',
         'capacity' => 'setCapacity',
         'conditions' => 'setConditions',
         'phase' => 'setPhase',
+        'resizeStatus' => 'setResizeStatus',
     ];
 
     public static function setters()
@@ -74,9 +78,11 @@ class PersistentVolumeClaimStatusModel implements ArrayAccess
 
     protected static $getters = [
         'accessModes' => 'getAccessModes',
+        'allocatedResources' => 'getAllocatedResources',
         'capacity' => 'getCapacity',
         'conditions' => 'getConditions',
         'phase' => 'getPhase',
+        'resizeStatus' => 'getResizeStatus',
     ];
 
     public static function getters()
@@ -87,9 +93,11 @@ class PersistentVolumeClaimStatusModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accessModes'] = isset($data['accessModes']) ? $data['accessModes'] : null;
+        $this->container['allocatedResources'] = isset($data['allocatedResources']) ? $data['allocatedResources'] : null;
         $this->container['capacity'] = isset($data['capacity']) ? $data['capacity'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['phase'] = isset($data['phase']) ? $data['phase'] : null;
+        $this->container['resizeStatus'] = isset($data['resizeStatus']) ? $data['resizeStatus'] : null;
     }
 
     /**
@@ -109,6 +117,28 @@ class PersistentVolumeClaimStatusModel implements ArrayAccess
     public function setAccessModes($accessModes)
     {
         $this->container['accessModes'] = $accessModes;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets allocatedResources
+     * @return string[]
+     */
+    public function getAllocatedResources()
+    {
+        return $this->container['allocatedResources'];
+    }
+
+    /**
+     * Sets allocatedResources
+     * @param string[] $allocatedResources
+     * @return $this
+     */
+    public function setAllocatedResources($allocatedResources)
+    {
+        $this->container['allocatedResources'] = $allocatedResources;
 
         return $this;
     }
@@ -175,6 +205,28 @@ class PersistentVolumeClaimStatusModel implements ArrayAccess
     public function setPhase($phase)
     {
         $this->container['phase'] = $phase;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets resizeStatus
+     * @return string
+     */
+    public function getResizeStatus()
+    {
+        return $this->container['resizeStatus'];
+    }
+
+    /**
+     * Sets resizeStatus
+     * @param string $resizeStatus
+     * @return $this
+     */
+    public function setResizeStatus($resizeStatus)
+    {
+        $this->container['resizeStatus'] = $resizeStatus;
 
         return $this;
     }

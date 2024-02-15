@@ -30,11 +30,13 @@ class KubeControllerServiceModel implements ArrayAccess
     protected static $canBeCreated = [
         'clusterCidr',
         'extraArgs',
+        'extraArgsArray',
         'extraBinds',
         'extraEnv',
         'image',
         'serviceClusterIpRange',
         'winExtraArgs',
+        'winExtraArgsArray',
         'winExtraBinds',
         'winExtraEnv',
     ];
@@ -52,11 +54,13 @@ class KubeControllerServiceModel implements ArrayAccess
     protected static $canBeUpdated = [
         'clusterCidr',
         'extraArgs',
+        'extraArgsArray',
         'extraBinds',
         'extraEnv',
         'image',
         'serviceClusterIpRange',
         'winExtraArgs',
+        'winExtraArgsArray',
         'winExtraBinds',
         'winExtraEnv',
     ];
@@ -69,11 +73,13 @@ class KubeControllerServiceModel implements ArrayAccess
     protected static $typeMap = [
         'clusterCidr' => 'string',
         'extraArgs' => 'map[string,string]',
+        'extraArgsArray' => 'map[string,\Rancher\Model\Array[string]Model]',
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
         'image' => 'string',
         'serviceClusterIpRange' => 'string',
         'winExtraArgs' => 'map[string,string]',
+        'winExtraArgsArray' => 'map[string,\Rancher\Model\Array[string]Model]',
         'winExtraBinds' => 'string[]',
         'winExtraEnv' => 'string[]',
     ];
@@ -86,11 +92,13 @@ class KubeControllerServiceModel implements ArrayAccess
     protected static $setters = [
         'clusterCidr' => 'setClusterCidr',
         'extraArgs' => 'setExtraArgs',
+        'extraArgsArray' => 'setExtraArgsArray',
         'extraBinds' => 'setExtraBinds',
         'extraEnv' => 'setExtraEnv',
         'image' => 'setImage',
         'serviceClusterIpRange' => 'setServiceClusterIpRange',
         'winExtraArgs' => 'setWinExtraArgs',
+        'winExtraArgsArray' => 'setWinExtraArgsArray',
         'winExtraBinds' => 'setWinExtraBinds',
         'winExtraEnv' => 'setWinExtraEnv',
     ];
@@ -103,11 +111,13 @@ class KubeControllerServiceModel implements ArrayAccess
     protected static $getters = [
         'clusterCidr' => 'getClusterCidr',
         'extraArgs' => 'getExtraArgs',
+        'extraArgsArray' => 'getExtraArgsArray',
         'extraBinds' => 'getExtraBinds',
         'extraEnv' => 'getExtraEnv',
         'image' => 'getImage',
         'serviceClusterIpRange' => 'getServiceClusterIpRange',
         'winExtraArgs' => 'getWinExtraArgs',
+        'winExtraArgsArray' => 'getWinExtraArgsArray',
         'winExtraBinds' => 'getWinExtraBinds',
         'winExtraEnv' => 'getWinExtraEnv',
     ];
@@ -121,11 +131,13 @@ class KubeControllerServiceModel implements ArrayAccess
     {
         $this->container['clusterCidr'] = isset($data['clusterCidr']) ? $data['clusterCidr'] : null;
         $this->container['extraArgs'] = isset($data['extraArgs']) ? $data['extraArgs'] : null;
+        $this->container['extraArgsArray'] = isset($data['extraArgsArray']) ? $data['extraArgsArray'] : null;
         $this->container['extraBinds'] = isset($data['extraBinds']) ? $data['extraBinds'] : null;
         $this->container['extraEnv'] = isset($data['extraEnv']) ? $data['extraEnv'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['serviceClusterIpRange'] = isset($data['serviceClusterIpRange']) ? $data['serviceClusterIpRange'] : null;
         $this->container['winExtraArgs'] = isset($data['winExtraArgs']) ? $data['winExtraArgs'] : null;
+        $this->container['winExtraArgsArray'] = isset($data['winExtraArgsArray']) ? $data['winExtraArgsArray'] : null;
         $this->container['winExtraBinds'] = isset($data['winExtraBinds']) ? $data['winExtraBinds'] : null;
         $this->container['winExtraEnv'] = isset($data['winExtraEnv']) ? $data['winExtraEnv'] : null;
     }
@@ -169,6 +181,28 @@ class KubeControllerServiceModel implements ArrayAccess
     public function setExtraArgs($extraArgs)
     {
         $this->container['extraArgs'] = $extraArgs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets extraArgsArray
+     * @return \Rancher\Model\Array[string]Model[]
+     */
+    public function getExtraArgsArray()
+    {
+        return $this->container['extraArgsArray'];
+    }
+
+    /**
+     * Sets extraArgsArray
+     * @param \Rancher\Model\Array[string]Model[] $extraArgsArray
+     * @return $this
+     */
+    public function setExtraArgsArray($extraArgsArray)
+    {
+        $this->container['extraArgsArray'] = $extraArgsArray;
 
         return $this;
     }
@@ -279,6 +313,28 @@ class KubeControllerServiceModel implements ArrayAccess
     public function setWinExtraArgs($winExtraArgs)
     {
         $this->container['winExtraArgs'] = $winExtraArgs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winExtraArgsArray
+     * @return \Rancher\Model\Array[string]Model[]
+     */
+    public function getWinExtraArgsArray()
+    {
+        return $this->container['winExtraArgsArray'];
+    }
+
+    /**
+     * Sets winExtraArgsArray
+     * @param \Rancher\Model\Array[string]Model[] $winExtraArgsArray
+     * @return $this
+     */
+    public function setWinExtraArgsArray($winExtraArgsArray)
+    {
+        $this->container['winExtraArgsArray'] = $winExtraArgsArray;
 
         return $this;
     }

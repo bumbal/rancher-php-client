@@ -29,6 +29,7 @@ class IngressBackendModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'resource',
+        'service',
         'serviceId',
         'targetPort',
         'workloadIds',
@@ -46,6 +47,7 @@ class IngressBackendModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'resource',
+        'service',
         'serviceId',
         'targetPort',
         'workloadIds',
@@ -58,6 +60,7 @@ class IngressBackendModel implements ArrayAccess
 
     protected static $typeMap = [
         'resource' => '\Rancher\Model\TypedLocalObjectReferenceModel',
+        'service' => '\Rancher\Model\IngressServiceBackendModel',
         'serviceId' => 'string',
         'targetPort' => 'string',
         'workloadIds' => 'string[]',
@@ -70,6 +73,7 @@ class IngressBackendModel implements ArrayAccess
 
     protected static $setters = [
         'resource' => 'setResource',
+        'service' => 'setService',
         'serviceId' => 'setServiceId',
         'targetPort' => 'setTargetPort',
         'workloadIds' => 'setWorkloadIds',
@@ -82,6 +86,7 @@ class IngressBackendModel implements ArrayAccess
 
     protected static $getters = [
         'resource' => 'getResource',
+        'service' => 'getService',
         'serviceId' => 'getServiceId',
         'targetPort' => 'getTargetPort',
         'workloadIds' => 'getWorkloadIds',
@@ -95,6 +100,7 @@ class IngressBackendModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
+        $this->container['service'] = isset($data['service']) ? $data['service'] : null;
         $this->container['serviceId'] = isset($data['serviceId']) ? $data['serviceId'] : null;
         $this->container['targetPort'] = isset($data['targetPort']) ? $data['targetPort'] : null;
         $this->container['workloadIds'] = isset($data['workloadIds']) ? $data['workloadIds'] : null;
@@ -117,6 +123,28 @@ class IngressBackendModel implements ArrayAccess
     public function setResource($resource)
     {
         $this->container['resource'] = $resource;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets service
+     * @return \Rancher\Model\IngressServiceBackendModel
+     */
+    public function getService()
+    {
+        return $this->container['service'];
+    }
+
+    /**
+     * Sets service
+     * @param \Rancher\Model\IngressServiceBackendModel $service
+     * @return $this
+     */
+    public function setService($service)
+    {
+        $this->container['service'] = $service;
 
         return $this;
     }

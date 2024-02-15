@@ -128,6 +128,90 @@ class ServiceMonitorFilter extends AbstractFilter
 
 
     /**
+     * Gets labelLimit
+     * @return string
+     */
+    public function getLabelLimit()
+    {
+        return $this->container['labelLimit'];
+    }
+
+    /**
+     * Sets labelLimit
+     * @param string $labelLimit
+     * @param string $option
+     * @return $this
+     */
+    public function setLabelLimit($labelLimit, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['labelLimit'.$option] = $labelLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets labelNameLengthLimit
+     * @return string
+     */
+    public function getLabelNameLengthLimit()
+    {
+        return $this->container['labelNameLengthLimit'];
+    }
+
+    /**
+     * Sets labelNameLengthLimit
+     * @param string $labelNameLengthLimit
+     * @param string $option
+     * @return $this
+     */
+    public function setLabelNameLengthLimit($labelNameLengthLimit, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['labelNameLengthLimit'.$option] = $labelNameLengthLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets labelValueLengthLimit
+     * @return string
+     */
+    public function getLabelValueLengthLimit()
+    {
+        return $this->container['labelValueLengthLimit'];
+    }
+
+    /**
+     * Sets labelValueLengthLimit
+     * @param string $labelValueLengthLimit
+     * @param string $option
+     * @return $this
+     */
+    public function setLabelValueLengthLimit($labelValueLengthLimit, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['labelValueLengthLimit'.$option] = $labelValueLengthLimit;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */

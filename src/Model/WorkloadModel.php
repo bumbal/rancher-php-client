@@ -31,6 +31,7 @@ class WorkloadModel implements ArrayAccess
         'activeDeadlineSeconds',
         'annotations',
         'automountServiceAccountToken',
+        'completionMode',
         'containers',
         'cronJobConfig',
         'daemonSetConfig',
@@ -46,26 +47,36 @@ class WorkloadModel implements ArrayAccess
         'hostIPC',
         'hostNetwork',
         'hostPID',
+        'hostUsers',
         'hostname',
         'imagePullSecrets',
         'jobConfig',
         'labels',
+        'maxSurge',
+        'maxUnavailable',
+        'minReadySeconds',
         'name',
         'namespaceId',
         'nodeId',
+        'ordinals',
+        'os',
         'overhead',
         'paused',
+        'persistentVolumeClaimRetentionPolicy',
+        'podFailurePolicy',
         'preemptionPolicy',
         'projectId',
         'readinessGates',
         'replicaSetConfig',
         'replicationControllerConfig',
+        'resourceClaims',
         'restartPolicy',
         'runAsGroup',
         'runAsNonRoot',
         'runtimeClassName',
         'scale',
         'scheduling',
+        'schedulingGates',
         'seccompProfile',
         'selector',
         'serviceAccountName',
@@ -73,8 +84,10 @@ class WorkloadModel implements ArrayAccess
         'shareProcessNamespace',
         'statefulSetConfig',
         'subdomain',
+        'suspend',
         'sysctls',
         'terminationGracePeriodSeconds',
+        'timeZone',
         'topologySpreadConstraints',
         'ttlSecondsAfterFinished',
         'uid',
@@ -99,6 +112,7 @@ class WorkloadModel implements ArrayAccess
         'activeDeadlineSeconds',
         'annotations',
         'automountServiceAccountToken',
+        'completionMode',
         'containers',
         'cronJobConfig',
         'daemonSetConfig',
@@ -114,23 +128,33 @@ class WorkloadModel implements ArrayAccess
         'hostIPC',
         'hostNetwork',
         'hostPID',
+        'hostUsers',
         'hostname',
         'imagePullSecrets',
         'jobConfig',
         'labels',
+        'maxSurge',
+        'maxUnavailable',
+        'minReadySeconds',
         'nodeId',
+        'ordinals',
+        'os',
         'overhead',
         'paused',
+        'persistentVolumeClaimRetentionPolicy',
+        'podFailurePolicy',
         'preemptionPolicy',
         'readinessGates',
         'replicaSetConfig',
         'replicationControllerConfig',
+        'resourceClaims',
         'restartPolicy',
         'runAsGroup',
         'runAsNonRoot',
         'runtimeClassName',
         'scale',
         'scheduling',
+        'schedulingGates',
         'seccompProfile',
         'selector',
         'serviceAccountName',
@@ -138,8 +162,10 @@ class WorkloadModel implements ArrayAccess
         'shareProcessNamespace',
         'statefulSetConfig',
         'subdomain',
+        'suspend',
         'sysctls',
         'terminationGracePeriodSeconds',
+        'timeZone',
         'topologySpreadConstraints',
         'ttlSecondsAfterFinished',
         'uid',
@@ -159,6 +185,7 @@ class WorkloadModel implements ArrayAccess
         'activeDeadlineSeconds' => 'int',
         'annotations' => 'map[string,string]',
         'automountServiceAccountToken' => 'boolean',
+        'completionMode' => 'string',
         'containers' => '\Rancher\Model\ContainerModel[]',
         'created' => '\DateTime',
         'creatorId' => 'string',
@@ -179,17 +206,25 @@ class WorkloadModel implements ArrayAccess
         'hostIPC' => 'boolean',
         'hostNetwork' => 'boolean',
         'hostPID' => 'boolean',
+        'hostUsers' => 'boolean',
         'hostname' => 'string',
         'imagePullSecrets' => '\Rancher\Model\LocalObjectReferenceModel[]',
         'jobConfig' => '\Rancher\Model\JobConfigModel',
         'jobStatus' => '\Rancher\Model\JobStatusModel',
         'labels' => 'map[string,string]',
+        'maxSurge' => 'string',
+        'maxUnavailable' => 'string',
+        'minReadySeconds' => 'int',
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeId' => 'string',
+        'ordinals' => '\Rancher\Model\StatefulSetOrdinalsModel',
+        'os' => '\Rancher\Model\PodOSModel',
         'overhead' => 'map[string,string]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'paused' => 'boolean',
+        'persistentVolumeClaimRetentionPolicy' => '\Rancher\Model\StatefulSetPersistentVolumeClaimRetentionPolicyModel',
+        'podFailurePolicy' => '\Rancher\Model\PodFailurePolicyModel',
         'preemptionPolicy' => 'string',
         'projectId' => 'string',
         'publicEndpoints' => '\Rancher\Model\PublicEndpointModel[]',
@@ -199,12 +234,14 @@ class WorkloadModel implements ArrayAccess
         'replicaSetStatus' => '\Rancher\Model\ReplicaSetStatusModel',
         'replicationControllerConfig' => '\Rancher\Model\ReplicationControllerConfigModel',
         'replicationControllerStatus' => '\Rancher\Model\ReplicationControllerStatusModel',
+        'resourceClaims' => '\Rancher\Model\PodResourceClaimModel[]',
         'restartPolicy' => 'string',
         'runAsGroup' => 'int',
         'runAsNonRoot' => 'boolean',
         'runtimeClassName' => 'string',
         'scale' => 'int',
         'scheduling' => '\Rancher\Model\SchedulingModel',
+        'schedulingGates' => '\Rancher\Model\PodSchedulingGateModel[]',
         'seccompProfile' => '\Rancher\Model\SeccompProfileModel',
         'selector' => '\Rancher\Model\LabelSelectorModel',
         'serviceAccountName' => 'string',
@@ -214,8 +251,10 @@ class WorkloadModel implements ArrayAccess
         'statefulSetConfig' => '\Rancher\Model\StatefulSetConfigModel',
         'statefulSetStatus' => '\Rancher\Model\StatefulSetStatusModel',
         'subdomain' => 'string',
+        'suspend' => 'boolean',
         'sysctls' => '\Rancher\Model\SysctlModel[]',
         'terminationGracePeriodSeconds' => 'int',
+        'timeZone' => 'string',
         'topologySpreadConstraints' => '\Rancher\Model\TopologySpreadConstraintModel[]',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
@@ -238,6 +277,7 @@ class WorkloadModel implements ArrayAccess
         'activeDeadlineSeconds' => 'setActiveDeadlineSeconds',
         'annotations' => 'setAnnotations',
         'automountServiceAccountToken' => 'setAutomountServiceAccountToken',
+        'completionMode' => 'setCompletionMode',
         'containers' => 'setContainers',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
@@ -258,17 +298,25 @@ class WorkloadModel implements ArrayAccess
         'hostIPC' => 'setHostIPC',
         'hostNetwork' => 'setHostNetwork',
         'hostPID' => 'setHostPID',
+        'hostUsers' => 'setHostUsers',
         'hostname' => 'setHostname',
         'imagePullSecrets' => 'setImagePullSecrets',
         'jobConfig' => 'setJobConfig',
         'jobStatus' => 'setJobStatus',
         'labels' => 'setLabels',
+        'maxSurge' => 'setMaxSurge',
+        'maxUnavailable' => 'setMaxUnavailable',
+        'minReadySeconds' => 'setMinReadySeconds',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'nodeId' => 'setNodeId',
+        'ordinals' => 'setOrdinals',
+        'os' => 'setOs',
         'overhead' => 'setOverhead',
         'ownerReferences' => 'setOwnerReferences',
         'paused' => 'setPaused',
+        'persistentVolumeClaimRetentionPolicy' => 'setPersistentVolumeClaimRetentionPolicy',
+        'podFailurePolicy' => 'setPodFailurePolicy',
         'preemptionPolicy' => 'setPreemptionPolicy',
         'projectId' => 'setProjectId',
         'publicEndpoints' => 'setPublicEndpoints',
@@ -278,12 +326,14 @@ class WorkloadModel implements ArrayAccess
         'replicaSetStatus' => 'setReplicaSetStatus',
         'replicationControllerConfig' => 'setReplicationControllerConfig',
         'replicationControllerStatus' => 'setReplicationControllerStatus',
+        'resourceClaims' => 'setResourceClaims',
         'restartPolicy' => 'setRestartPolicy',
         'runAsGroup' => 'setRunAsGroup',
         'runAsNonRoot' => 'setRunAsNonRoot',
         'runtimeClassName' => 'setRuntimeClassName',
         'scale' => 'setScale',
         'scheduling' => 'setScheduling',
+        'schedulingGates' => 'setSchedulingGates',
         'seccompProfile' => 'setSeccompProfile',
         'selector' => 'setSelector',
         'serviceAccountName' => 'setServiceAccountName',
@@ -293,8 +343,10 @@ class WorkloadModel implements ArrayAccess
         'statefulSetConfig' => 'setStatefulSetConfig',
         'statefulSetStatus' => 'setStatefulSetStatus',
         'subdomain' => 'setSubdomain',
+        'suspend' => 'setSuspend',
         'sysctls' => 'setSysctls',
         'terminationGracePeriodSeconds' => 'setTerminationGracePeriodSeconds',
+        'timeZone' => 'setTimeZone',
         'topologySpreadConstraints' => 'setTopologySpreadConstraints',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
@@ -317,6 +369,7 @@ class WorkloadModel implements ArrayAccess
         'activeDeadlineSeconds' => 'getActiveDeadlineSeconds',
         'annotations' => 'getAnnotations',
         'automountServiceAccountToken' => 'getAutomountServiceAccountToken',
+        'completionMode' => 'getCompletionMode',
         'containers' => 'getContainers',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
@@ -337,17 +390,25 @@ class WorkloadModel implements ArrayAccess
         'hostIPC' => 'getHostIPC',
         'hostNetwork' => 'getHostNetwork',
         'hostPID' => 'getHostPID',
+        'hostUsers' => 'getHostUsers',
         'hostname' => 'getHostname',
         'imagePullSecrets' => 'getImagePullSecrets',
         'jobConfig' => 'getJobConfig',
         'jobStatus' => 'getJobStatus',
         'labels' => 'getLabels',
+        'maxSurge' => 'getMaxSurge',
+        'maxUnavailable' => 'getMaxUnavailable',
+        'minReadySeconds' => 'getMinReadySeconds',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'nodeId' => 'getNodeId',
+        'ordinals' => 'getOrdinals',
+        'os' => 'getOs',
         'overhead' => 'getOverhead',
         'ownerReferences' => 'getOwnerReferences',
         'paused' => 'getPaused',
+        'persistentVolumeClaimRetentionPolicy' => 'getPersistentVolumeClaimRetentionPolicy',
+        'podFailurePolicy' => 'getPodFailurePolicy',
         'preemptionPolicy' => 'getPreemptionPolicy',
         'projectId' => 'getProjectId',
         'publicEndpoints' => 'getPublicEndpoints',
@@ -357,12 +418,14 @@ class WorkloadModel implements ArrayAccess
         'replicaSetStatus' => 'getReplicaSetStatus',
         'replicationControllerConfig' => 'getReplicationControllerConfig',
         'replicationControllerStatus' => 'getReplicationControllerStatus',
+        'resourceClaims' => 'getResourceClaims',
         'restartPolicy' => 'getRestartPolicy',
         'runAsGroup' => 'getRunAsGroup',
         'runAsNonRoot' => 'getRunAsNonRoot',
         'runtimeClassName' => 'getRuntimeClassName',
         'scale' => 'getScale',
         'scheduling' => 'getScheduling',
+        'schedulingGates' => 'getSchedulingGates',
         'seccompProfile' => 'getSeccompProfile',
         'selector' => 'getSelector',
         'serviceAccountName' => 'getServiceAccountName',
@@ -372,8 +435,10 @@ class WorkloadModel implements ArrayAccess
         'statefulSetConfig' => 'getStatefulSetConfig',
         'statefulSetStatus' => 'getStatefulSetStatus',
         'subdomain' => 'getSubdomain',
+        'suspend' => 'getSuspend',
         'sysctls' => 'getSysctls',
         'terminationGracePeriodSeconds' => 'getTerminationGracePeriodSeconds',
+        'timeZone' => 'getTimeZone',
         'topologySpreadConstraints' => 'getTopologySpreadConstraints',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
@@ -397,6 +462,7 @@ class WorkloadModel implements ArrayAccess
         $this->container['activeDeadlineSeconds'] = isset($data['activeDeadlineSeconds']) ? $data['activeDeadlineSeconds'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['automountServiceAccountToken'] = isset($data['automountServiceAccountToken']) ? $data['automountServiceAccountToken'] : null;
+        $this->container['completionMode'] = isset($data['completionMode']) ? $data['completionMode'] : null;
         $this->container['containers'] = isset($data['containers']) ? $data['containers'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
@@ -417,17 +483,25 @@ class WorkloadModel implements ArrayAccess
         $this->container['hostIPC'] = isset($data['hostIPC']) ? $data['hostIPC'] : null;
         $this->container['hostNetwork'] = isset($data['hostNetwork']) ? $data['hostNetwork'] : null;
         $this->container['hostPID'] = isset($data['hostPID']) ? $data['hostPID'] : null;
+        $this->container['hostUsers'] = isset($data['hostUsers']) ? $data['hostUsers'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['imagePullSecrets'] = isset($data['imagePullSecrets']) ? $data['imagePullSecrets'] : null;
         $this->container['jobConfig'] = isset($data['jobConfig']) ? $data['jobConfig'] : null;
         $this->container['jobStatus'] = isset($data['jobStatus']) ? $data['jobStatus'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
+        $this->container['maxSurge'] = isset($data['maxSurge']) ? $data['maxSurge'] : null;
+        $this->container['maxUnavailable'] = isset($data['maxUnavailable']) ? $data['maxUnavailable'] : null;
+        $this->container['minReadySeconds'] = isset($data['minReadySeconds']) ? $data['minReadySeconds'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['nodeId'] = isset($data['nodeId']) ? $data['nodeId'] : null;
+        $this->container['ordinals'] = isset($data['ordinals']) ? $data['ordinals'] : null;
+        $this->container['os'] = isset($data['os']) ? $data['os'] : null;
         $this->container['overhead'] = isset($data['overhead']) ? $data['overhead'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['paused'] = isset($data['paused']) ? $data['paused'] : null;
+        $this->container['persistentVolumeClaimRetentionPolicy'] = isset($data['persistentVolumeClaimRetentionPolicy']) ? $data['persistentVolumeClaimRetentionPolicy'] : null;
+        $this->container['podFailurePolicy'] = isset($data['podFailurePolicy']) ? $data['podFailurePolicy'] : null;
         $this->container['preemptionPolicy'] = isset($data['preemptionPolicy']) ? $data['preemptionPolicy'] : null;
         $this->container['projectId'] = isset($data['projectId']) ? $data['projectId'] : null;
         $this->container['publicEndpoints'] = isset($data['publicEndpoints']) ? $data['publicEndpoints'] : null;
@@ -437,12 +511,14 @@ class WorkloadModel implements ArrayAccess
         $this->container['replicaSetStatus'] = isset($data['replicaSetStatus']) ? $data['replicaSetStatus'] : null;
         $this->container['replicationControllerConfig'] = isset($data['replicationControllerConfig']) ? $data['replicationControllerConfig'] : null;
         $this->container['replicationControllerStatus'] = isset($data['replicationControllerStatus']) ? $data['replicationControllerStatus'] : null;
+        $this->container['resourceClaims'] = isset($data['resourceClaims']) ? $data['resourceClaims'] : null;
         $this->container['restartPolicy'] = isset($data['restartPolicy']) ? $data['restartPolicy'] : null;
         $this->container['runAsGroup'] = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
         $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
         $this->container['runtimeClassName'] = isset($data['runtimeClassName']) ? $data['runtimeClassName'] : null;
         $this->container['scale'] = isset($data['scale']) ? $data['scale'] : null;
         $this->container['scheduling'] = isset($data['scheduling']) ? $data['scheduling'] : null;
+        $this->container['schedulingGates'] = isset($data['schedulingGates']) ? $data['schedulingGates'] : null;
         $this->container['seccompProfile'] = isset($data['seccompProfile']) ? $data['seccompProfile'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
         $this->container['serviceAccountName'] = isset($data['serviceAccountName']) ? $data['serviceAccountName'] : null;
@@ -452,8 +528,10 @@ class WorkloadModel implements ArrayAccess
         $this->container['statefulSetConfig'] = isset($data['statefulSetConfig']) ? $data['statefulSetConfig'] : null;
         $this->container['statefulSetStatus'] = isset($data['statefulSetStatus']) ? $data['statefulSetStatus'] : null;
         $this->container['subdomain'] = isset($data['subdomain']) ? $data['subdomain'] : null;
+        $this->container['suspend'] = isset($data['suspend']) ? $data['suspend'] : null;
         $this->container['sysctls'] = isset($data['sysctls']) ? $data['sysctls'] : null;
         $this->container['terminationGracePeriodSeconds'] = isset($data['terminationGracePeriodSeconds']) ? $data['terminationGracePeriodSeconds'] : null;
+        $this->container['timeZone'] = isset($data['timeZone']) ? $data['timeZone'] : null;
         $this->container['topologySpreadConstraints'] = isset($data['topologySpreadConstraints']) ? $data['topologySpreadConstraints'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
@@ -528,6 +606,28 @@ class WorkloadModel implements ArrayAccess
     public function setAutomountServiceAccountToken($automountServiceAccountToken)
     {
         $this->container['automountServiceAccountToken'] = $automountServiceAccountToken;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets completionMode
+     * @return string
+     */
+    public function getCompletionMode()
+    {
+        return $this->container['completionMode'];
+    }
+
+    /**
+     * Sets completionMode
+     * @param string $completionMode
+     * @return $this
+     */
+    public function setCompletionMode($completionMode)
+    {
+        $this->container['completionMode'] = $completionMode;
 
         return $this;
     }
@@ -974,6 +1074,28 @@ class WorkloadModel implements ArrayAccess
 
 
     /**
+     * Gets hostUsers
+     * @return boolean
+     */
+    public function getHostUsers()
+    {
+        return $this->container['hostUsers'];
+    }
+
+    /**
+     * Sets hostUsers
+     * @param boolean $hostUsers
+     * @return $this
+     */
+    public function setHostUsers($hostUsers)
+    {
+        $this->container['hostUsers'] = $hostUsers;
+
+        return $this;
+    }
+
+
+    /**
      * Gets hostname
      * @return string
      */
@@ -1084,6 +1206,72 @@ class WorkloadModel implements ArrayAccess
 
 
     /**
+     * Gets maxSurge
+     * @return string
+     */
+    public function getMaxSurge()
+    {
+        return $this->container['maxSurge'];
+    }
+
+    /**
+     * Sets maxSurge
+     * @param string $maxSurge
+     * @return $this
+     */
+    public function setMaxSurge($maxSurge)
+    {
+        $this->container['maxSurge'] = $maxSurge;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets maxUnavailable
+     * @return string
+     */
+    public function getMaxUnavailable()
+    {
+        return $this->container['maxUnavailable'];
+    }
+
+    /**
+     * Sets maxUnavailable
+     * @param string $maxUnavailable
+     * @return $this
+     */
+    public function setMaxUnavailable($maxUnavailable)
+    {
+        $this->container['maxUnavailable'] = $maxUnavailable;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets minReadySeconds
+     * @return int
+     */
+    public function getMinReadySeconds()
+    {
+        return $this->container['minReadySeconds'];
+    }
+
+    /**
+     * Sets minReadySeconds
+     * @param int $minReadySeconds
+     * @return $this
+     */
+    public function setMinReadySeconds($minReadySeconds)
+    {
+        $this->container['minReadySeconds'] = $minReadySeconds;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */
@@ -1150,6 +1338,50 @@ class WorkloadModel implements ArrayAccess
 
 
     /**
+     * Gets ordinals
+     * @return \Rancher\Model\StatefulSetOrdinalsModel
+     */
+    public function getOrdinals()
+    {
+        return $this->container['ordinals'];
+    }
+
+    /**
+     * Sets ordinals
+     * @param \Rancher\Model\StatefulSetOrdinalsModel $ordinals
+     * @return $this
+     */
+    public function setOrdinals($ordinals)
+    {
+        $this->container['ordinals'] = $ordinals;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets os
+     * @return \Rancher\Model\PodOSModel
+     */
+    public function getOs()
+    {
+        return $this->container['os'];
+    }
+
+    /**
+     * Sets os
+     * @param \Rancher\Model\PodOSModel $os
+     * @return $this
+     */
+    public function setOs($os)
+    {
+        $this->container['os'] = $os;
+
+        return $this;
+    }
+
+
+    /**
      * Gets overhead
      * @return string[]
      */
@@ -1210,6 +1442,50 @@ class WorkloadModel implements ArrayAccess
     public function setPaused($paused)
     {
         $this->container['paused'] = $paused;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets persistentVolumeClaimRetentionPolicy
+     * @return \Rancher\Model\StatefulSetPersistentVolumeClaimRetentionPolicyModel
+     */
+    public function getPersistentVolumeClaimRetentionPolicy()
+    {
+        return $this->container['persistentVolumeClaimRetentionPolicy'];
+    }
+
+    /**
+     * Sets persistentVolumeClaimRetentionPolicy
+     * @param \Rancher\Model\StatefulSetPersistentVolumeClaimRetentionPolicyModel $persistentVolumeClaimRetentionPolicy
+     * @return $this
+     */
+    public function setPersistentVolumeClaimRetentionPolicy($persistentVolumeClaimRetentionPolicy)
+    {
+        $this->container['persistentVolumeClaimRetentionPolicy'] = $persistentVolumeClaimRetentionPolicy;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets podFailurePolicy
+     * @return \Rancher\Model\PodFailurePolicyModel
+     */
+    public function getPodFailurePolicy()
+    {
+        return $this->container['podFailurePolicy'];
+    }
+
+    /**
+     * Sets podFailurePolicy
+     * @param \Rancher\Model\PodFailurePolicyModel $podFailurePolicy
+     * @return $this
+     */
+    public function setPodFailurePolicy($podFailurePolicy)
+    {
+        $this->container['podFailurePolicy'] = $podFailurePolicy;
 
         return $this;
     }
@@ -1414,6 +1690,28 @@ class WorkloadModel implements ArrayAccess
 
 
     /**
+     * Gets resourceClaims
+     * @return \Rancher\Model\PodResourceClaimModel[]
+     */
+    public function getResourceClaims()
+    {
+        return $this->container['resourceClaims'];
+    }
+
+    /**
+     * Sets resourceClaims
+     * @param \Rancher\Model\PodResourceClaimModel[] $resourceClaims
+     * @return $this
+     */
+    public function setResourceClaims($resourceClaims)
+    {
+        $this->container['resourceClaims'] = $resourceClaims;
+
+        return $this;
+    }
+
+
+    /**
      * Gets restartPolicy
      * @return string
      */
@@ -1540,6 +1838,28 @@ class WorkloadModel implements ArrayAccess
     public function setScheduling($scheduling)
     {
         $this->container['scheduling'] = $scheduling;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets schedulingGates
+     * @return \Rancher\Model\PodSchedulingGateModel[]
+     */
+    public function getSchedulingGates()
+    {
+        return $this->container['schedulingGates'];
+    }
+
+    /**
+     * Sets schedulingGates
+     * @param \Rancher\Model\PodSchedulingGateModel[] $schedulingGates
+     * @return $this
+     */
+    public function setSchedulingGates($schedulingGates)
+    {
+        $this->container['schedulingGates'] = $schedulingGates;
 
         return $this;
     }
@@ -1744,6 +2064,28 @@ class WorkloadModel implements ArrayAccess
 
 
     /**
+     * Gets suspend
+     * @return boolean
+     */
+    public function getSuspend()
+    {
+        return $this->container['suspend'];
+    }
+
+    /**
+     * Sets suspend
+     * @param boolean $suspend
+     * @return $this
+     */
+    public function setSuspend($suspend)
+    {
+        $this->container['suspend'] = $suspend;
+
+        return $this;
+    }
+
+
+    /**
      * Gets sysctls
      * @return \Rancher\Model\SysctlModel[]
      */
@@ -1782,6 +2124,28 @@ class WorkloadModel implements ArrayAccess
     public function setTerminationGracePeriodSeconds($terminationGracePeriodSeconds)
     {
         $this->container['terminationGracePeriodSeconds'] = $terminationGracePeriodSeconds;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets timeZone
+     * @return string
+     */
+    public function getTimeZone()
+    {
+        return $this->container['timeZone'];
+    }
+
+    /**
+     * Sets timeZone
+     * @param string $timeZone
+     * @return $this
+     */
+    public function setTimeZone($timeZone)
+    {
+        $this->container['timeZone'] = $timeZone;
 
         return $this;
     }
