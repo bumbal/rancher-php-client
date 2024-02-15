@@ -837,7 +837,6 @@ class TemplateVersionModel implements ArrayAccess
      * @param  integer $offset Offset
      * @return boolean
      */
-    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -848,7 +847,6 @@ class TemplateVersionModel implements ArrayAccess
      * @param  integer $offset Offset
      * @return mixed
      */
-    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -860,7 +858,6 @@ class TemplateVersionModel implements ArrayAccess
      * @param  mixed   $value  Value to be set
      * @return void
      */
-    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -875,7 +872,6 @@ class TemplateVersionModel implements ArrayAccess
      * @param  integer $offset Offset
      * @return void
      */
-    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
