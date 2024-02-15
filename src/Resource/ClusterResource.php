@@ -366,24 +366,6 @@ class ClusterResource
     }
 
     /**
-     * runSecurityScan
-     *
-     * @param string $id
-     * @param \Rancher\Model\CisScanConfigModel $input
-     *
-     * @throws RancherException
-     * @return void
-     */
-    public function runSecurityScan($id, $input)
-    {
-        $postData = (array) \Rancher\ObjectSerializer::sanitizeForSerialization($input);
-
-        $this->client->request('POST', $this->constructPath() . $id . '?action=runSecurityScan', $postData);
-
-        return;
-    }
-
-    /**
      * saveAsTemplate
      *
      * @param string $id

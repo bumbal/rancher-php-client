@@ -30,6 +30,7 @@ class StorageSpecModel implements ArrayAccess
     protected static $canBeCreated = [
         'disableMountSubPath',
         'emptyDir',
+        'ephemeral',
         'volumeClaimTemplate',
     ];
 
@@ -46,6 +47,7 @@ class StorageSpecModel implements ArrayAccess
     protected static $canBeUpdated = [
         'disableMountSubPath',
         'emptyDir',
+        'ephemeral',
         'volumeClaimTemplate',
     ];
 
@@ -57,6 +59,7 @@ class StorageSpecModel implements ArrayAccess
     protected static $typeMap = [
         'disableMountSubPath' => 'boolean',
         'emptyDir' => '\Rancher\Model\EmptyDirVolumeSourceModel',
+        'ephemeral' => '\Rancher\Model\EphemeralVolumeSourceModel',
         'volumeClaimTemplate' => '\Rancher\Model\EmbeddedPersistentVolumeClaimModel',
     ];
 
@@ -68,6 +71,7 @@ class StorageSpecModel implements ArrayAccess
     protected static $setters = [
         'disableMountSubPath' => 'setDisableMountSubPath',
         'emptyDir' => 'setEmptyDir',
+        'ephemeral' => 'setEphemeral',
         'volumeClaimTemplate' => 'setVolumeClaimTemplate',
     ];
 
@@ -79,6 +83,7 @@ class StorageSpecModel implements ArrayAccess
     protected static $getters = [
         'disableMountSubPath' => 'getDisableMountSubPath',
         'emptyDir' => 'getEmptyDir',
+        'ephemeral' => 'getEphemeral',
         'volumeClaimTemplate' => 'getVolumeClaimTemplate',
     ];
 
@@ -91,6 +96,7 @@ class StorageSpecModel implements ArrayAccess
     {
         $this->container['disableMountSubPath'] = isset($data['disableMountSubPath']) ? $data['disableMountSubPath'] : null;
         $this->container['emptyDir'] = isset($data['emptyDir']) ? $data['emptyDir'] : null;
+        $this->container['ephemeral'] = isset($data['ephemeral']) ? $data['ephemeral'] : null;
         $this->container['volumeClaimTemplate'] = isset($data['volumeClaimTemplate']) ? $data['volumeClaimTemplate'] : null;
     }
 
@@ -133,6 +139,28 @@ class StorageSpecModel implements ArrayAccess
     public function setEmptyDir($emptyDir)
     {
         $this->container['emptyDir'] = $emptyDir;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ephemeral
+     * @return \Rancher\Model\EphemeralVolumeSourceModel
+     */
+    public function getEphemeral()
+    {
+        return $this->container['ephemeral'];
+    }
+
+    /**
+     * Sets ephemeral
+     * @param \Rancher\Model\EphemeralVolumeSourceModel $ephemeral
+     * @return $this
+     */
+    public function setEphemeral($ephemeral)
+    {
+        $this->container['ephemeral'] = $ephemeral;
 
         return $this;
     }

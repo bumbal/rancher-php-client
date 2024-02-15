@@ -34,6 +34,7 @@ class EtcdServiceModel implements ArrayAccess
         'creation',
         'externalUrls',
         'extraArgs',
+        'extraArgsArray',
         'extraBinds',
         'extraEnv',
         'gid',
@@ -44,6 +45,7 @@ class EtcdServiceModel implements ArrayAccess
         'snapshot',
         'uid',
         'winExtraArgs',
+        'winExtraArgsArray',
         'winExtraBinds',
         'winExtraEnv',
     ];
@@ -65,6 +67,7 @@ class EtcdServiceModel implements ArrayAccess
         'creation',
         'externalUrls',
         'extraArgs',
+        'extraArgsArray',
         'extraBinds',
         'extraEnv',
         'gid',
@@ -75,6 +78,7 @@ class EtcdServiceModel implements ArrayAccess
         'snapshot',
         'uid',
         'winExtraArgs',
+        'winExtraArgsArray',
         'winExtraBinds',
         'winExtraEnv',
     ];
@@ -91,6 +95,7 @@ class EtcdServiceModel implements ArrayAccess
         'creation' => 'string',
         'externalUrls' => 'string[]',
         'extraArgs' => 'map[string,string]',
+        'extraArgsArray' => 'map[string,\Rancher\Model\Array[string]Model]',
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
         'gid' => 'int',
@@ -101,6 +106,7 @@ class EtcdServiceModel implements ArrayAccess
         'snapshot' => 'boolean',
         'uid' => 'int',
         'winExtraArgs' => 'map[string,string]',
+        'winExtraArgsArray' => 'map[string,\Rancher\Model\Array[string]Model]',
         'winExtraBinds' => 'string[]',
         'winExtraEnv' => 'string[]',
     ];
@@ -117,6 +123,7 @@ class EtcdServiceModel implements ArrayAccess
         'creation' => 'setCreation',
         'externalUrls' => 'setExternalUrls',
         'extraArgs' => 'setExtraArgs',
+        'extraArgsArray' => 'setExtraArgsArray',
         'extraBinds' => 'setExtraBinds',
         'extraEnv' => 'setExtraEnv',
         'gid' => 'setGid',
@@ -127,6 +134,7 @@ class EtcdServiceModel implements ArrayAccess
         'snapshot' => 'setSnapshot',
         'uid' => 'setUid',
         'winExtraArgs' => 'setWinExtraArgs',
+        'winExtraArgsArray' => 'setWinExtraArgsArray',
         'winExtraBinds' => 'setWinExtraBinds',
         'winExtraEnv' => 'setWinExtraEnv',
     ];
@@ -143,6 +151,7 @@ class EtcdServiceModel implements ArrayAccess
         'creation' => 'getCreation',
         'externalUrls' => 'getExternalUrls',
         'extraArgs' => 'getExtraArgs',
+        'extraArgsArray' => 'getExtraArgsArray',
         'extraBinds' => 'getExtraBinds',
         'extraEnv' => 'getExtraEnv',
         'gid' => 'getGid',
@@ -153,6 +162,7 @@ class EtcdServiceModel implements ArrayAccess
         'snapshot' => 'getSnapshot',
         'uid' => 'getUid',
         'winExtraArgs' => 'getWinExtraArgs',
+        'winExtraArgsArray' => 'getWinExtraArgsArray',
         'winExtraBinds' => 'getWinExtraBinds',
         'winExtraEnv' => 'getWinExtraEnv',
     ];
@@ -170,6 +180,7 @@ class EtcdServiceModel implements ArrayAccess
         $this->container['creation'] = isset($data['creation']) ? $data['creation'] : null;
         $this->container['externalUrls'] = isset($data['externalUrls']) ? $data['externalUrls'] : null;
         $this->container['extraArgs'] = isset($data['extraArgs']) ? $data['extraArgs'] : null;
+        $this->container['extraArgsArray'] = isset($data['extraArgsArray']) ? $data['extraArgsArray'] : null;
         $this->container['extraBinds'] = isset($data['extraBinds']) ? $data['extraBinds'] : null;
         $this->container['extraEnv'] = isset($data['extraEnv']) ? $data['extraEnv'] : null;
         $this->container['gid'] = isset($data['gid']) ? $data['gid'] : null;
@@ -180,6 +191,7 @@ class EtcdServiceModel implements ArrayAccess
         $this->container['snapshot'] = isset($data['snapshot']) ? $data['snapshot'] : null;
         $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
         $this->container['winExtraArgs'] = isset($data['winExtraArgs']) ? $data['winExtraArgs'] : null;
+        $this->container['winExtraArgsArray'] = isset($data['winExtraArgsArray']) ? $data['winExtraArgsArray'] : null;
         $this->container['winExtraBinds'] = isset($data['winExtraBinds']) ? $data['winExtraBinds'] : null;
         $this->container['winExtraEnv'] = isset($data['winExtraEnv']) ? $data['winExtraEnv'] : null;
     }
@@ -311,6 +323,28 @@ class EtcdServiceModel implements ArrayAccess
     public function setExtraArgs($extraArgs)
     {
         $this->container['extraArgs'] = $extraArgs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets extraArgsArray
+     * @return \Rancher\Model\Array[string]Model[]
+     */
+    public function getExtraArgsArray()
+    {
+        return $this->container['extraArgsArray'];
+    }
+
+    /**
+     * Sets extraArgsArray
+     * @param \Rancher\Model\Array[string]Model[] $extraArgsArray
+     * @return $this
+     */
+    public function setExtraArgsArray($extraArgsArray)
+    {
+        $this->container['extraArgsArray'] = $extraArgsArray;
 
         return $this;
     }
@@ -531,6 +565,28 @@ class EtcdServiceModel implements ArrayAccess
     public function setWinExtraArgs($winExtraArgs)
     {
         $this->container['winExtraArgs'] = $winExtraArgs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winExtraArgsArray
+     * @return \Rancher\Model\Array[string]Model[]
+     */
+    public function getWinExtraArgsArray()
+    {
+        return $this->container['winExtraArgsArray'];
+    }
+
+    /**
+     * Sets winExtraArgsArray
+     * @param \Rancher\Model\Array[string]Model[] $winExtraArgsArray
+     * @return $this
+     */
+    public function setWinExtraArgsArray($winExtraArgsArray)
+    {
+        $this->container['winExtraArgsArray'] = $winExtraArgsArray;
 
         return $this;
     }

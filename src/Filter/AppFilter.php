@@ -212,6 +212,34 @@ class AppFilter extends AbstractFilter
 
 
     /**
+     * Gets maxRevisionCount
+     * @return string
+     */
+    public function getMaxRevisionCount()
+    {
+        return $this->container['maxRevisionCount'];
+    }
+
+    /**
+     * Sets maxRevisionCount
+     * @param string $maxRevisionCount
+     * @param string $option
+     * @return $this
+     */
+    public function setMaxRevisionCount($maxRevisionCount, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['maxRevisionCount'.$option] = $maxRevisionCount;
+
+        return $this;
+    }
+
+
+    /**
      * Gets multiClusterAppId
      * @return string
      */

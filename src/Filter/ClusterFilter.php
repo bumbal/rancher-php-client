@@ -16,6 +16,62 @@ use Rancher\AbstractFilter;
 class ClusterFilter extends AbstractFilter
 {
     /**
+     * Gets aadClientCertSecret
+     * @return string
+     */
+    public function getAadClientCertSecret()
+    {
+        return $this->container['aadClientCertSecret'];
+    }
+
+    /**
+     * Sets aadClientCertSecret
+     * @param string $aadClientCertSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setAadClientCertSecret($aadClientCertSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['aadClientCertSecret'.$option] = $aadClientCertSecret;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets aadClientSecret
+     * @return string
+     */
+    public function getAadClientSecret()
+    {
+        return $this->container['aadClientSecret'];
+    }
+
+    /**
+     * Sets aadClientSecret
+     * @param string $aadClientSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setAadClientSecret($aadClientSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['aadClientSecret'.$option] = $aadClientSecret;
+
+        return $this;
+    }
+
+
+    /**
      * Gets agentImage
      * @return string
      */
@@ -374,6 +430,34 @@ class ClusterFilter extends AbstractFilter
         }
 
         $this->container['defaultClusterRoleForProjectMembers'.$option] = $defaultClusterRoleForProjectMembers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets defaultPodSecurityAdmissionConfigurationTemplateName
+     * @return string
+     */
+    public function getDefaultPodSecurityAdmissionConfigurationTemplateName()
+    {
+        return $this->container['defaultPodSecurityAdmissionConfigurationTemplateName'];
+    }
+
+    /**
+     * Sets defaultPodSecurityAdmissionConfigurationTemplateName
+     * @param string $defaultPodSecurityAdmissionConfigurationTemplateName
+     * @param string $option
+     * @return $this
+     */
+    public function setDefaultPodSecurityAdmissionConfigurationTemplateName($defaultPodSecurityAdmissionConfigurationTemplateName, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['defaultPodSecurityAdmissionConfigurationTemplateName'.$option] = $defaultPodSecurityAdmissionConfigurationTemplateName;
 
         return $this;
     }
@@ -744,6 +828,34 @@ class ClusterFilter extends AbstractFilter
 
 
     /**
+     * Gets linuxWorkerCount
+     * @return string
+     */
+    public function getLinuxWorkerCount()
+    {
+        return $this->container['linuxWorkerCount'];
+    }
+
+    /**
+     * Sets linuxWorkerCount
+     * @param string $linuxWorkerCount
+     * @param string $option
+     * @return $this
+     */
+    public function setLinuxWorkerCount($linuxWorkerCount, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['linuxWorkerCount'.$option] = $linuxWorkerCount;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */
@@ -828,6 +940,62 @@ class ClusterFilter extends AbstractFilter
 
 
     /**
+     * Gets openStackSecret
+     * @return string
+     */
+    public function getOpenStackSecret()
+    {
+        return $this->container['openStackSecret'];
+    }
+
+    /**
+     * Sets openStackSecret
+     * @param string $openStackSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setOpenStackSecret($openStackSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['openStackSecret'.$option] = $openStackSecret;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets privateRegistrySecret
+     * @return string
+     */
+    public function getPrivateRegistrySecret()
+    {
+        return $this->container['privateRegistrySecret'];
+    }
+
+    /**
+     * Sets privateRegistrySecret
+     * @param string $privateRegistrySecret
+     * @param string $option
+     * @return $this
+     */
+    public function setPrivateRegistrySecret($privateRegistrySecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['privateRegistrySecret'.$option] = $privateRegistrySecret;
+
+        return $this;
+    }
+
+
+    /**
      * Gets provider
      * @return string
      */
@@ -878,6 +1046,62 @@ class ClusterFilter extends AbstractFilter
         }
 
         $this->container['removed'.$option] = $removed;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets s3CredentialSecret
+     * @return string
+     */
+    public function getS3CredentialSecret()
+    {
+        return $this->container['s3CredentialSecret'];
+    }
+
+    /**
+     * Sets s3CredentialSecret
+     * @param string $s3CredentialSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setS3CredentialSecret($s3CredentialSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['s3CredentialSecret'.$option] = $s3CredentialSecret;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets serviceAccountTokenSecret
+     * @return string
+     */
+    public function getServiceAccountTokenSecret()
+    {
+        return $this->container['serviceAccountTokenSecret'];
+    }
+
+    /**
+     * Sets serviceAccountTokenSecret
+     * @param string $serviceAccountTokenSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setServiceAccountTokenSecret($serviceAccountTokenSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['serviceAccountTokenSecret'.$option] = $serviceAccountTokenSecret;
 
         return $this;
     }
@@ -996,6 +1220,90 @@ class ClusterFilter extends AbstractFilter
 
 
     /**
+     * Gets virtualCenterSecret
+     * @return string
+     */
+    public function getVirtualCenterSecret()
+    {
+        return $this->container['virtualCenterSecret'];
+    }
+
+    /**
+     * Sets virtualCenterSecret
+     * @param string $virtualCenterSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setVirtualCenterSecret($virtualCenterSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['virtualCenterSecret'.$option] = $virtualCenterSecret;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets vsphereSecret
+     * @return string
+     */
+    public function getVsphereSecret()
+    {
+        return $this->container['vsphereSecret'];
+    }
+
+    /**
+     * Sets vsphereSecret
+     * @param string $vsphereSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setVsphereSecret($vsphereSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['vsphereSecret'.$option] = $vsphereSecret;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets weavePasswordSecret
+     * @return string
+     */
+    public function getWeavePasswordSecret()
+    {
+        return $this->container['weavePasswordSecret'];
+    }
+
+    /**
+     * Sets weavePasswordSecret
+     * @param string $weavePasswordSecret
+     * @param string $option
+     * @return $this
+     */
+    public function setWeavePasswordSecret($weavePasswordSecret, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['weavePasswordSecret'.$option] = $weavePasswordSecret;
+
+        return $this;
+    }
+
+
+    /**
      * Gets windowsPreferedCluster
      * @return string
      */
@@ -1018,6 +1326,34 @@ class ClusterFilter extends AbstractFilter
         }
 
         $this->container['windowsPreferedCluster'.$option] = $windowsPreferedCluster;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets windowsWorkerCount
+     * @return string
+     */
+    public function getWindowsWorkerCount()
+    {
+        return $this->container['windowsWorkerCount'];
+    }
+
+    /**
+     * Sets windowsWorkerCount
+     * @param string $windowsWorkerCount
+     * @param string $option
+     * @return $this
+     */
+    public function setWindowsWorkerCount($windowsWorkerCount, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['windowsWorkerCount'.$option] = $windowsWorkerCount;
 
         return $this;
     }

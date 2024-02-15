@@ -29,6 +29,7 @@ class PodAffinityTermModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'labelSelector',
+        'namespaceSelector',
         'namespaces',
         'topologyKey',
     ];
@@ -45,6 +46,7 @@ class PodAffinityTermModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'labelSelector',
+        'namespaceSelector',
         'namespaces',
         'topologyKey',
     ];
@@ -56,6 +58,7 @@ class PodAffinityTermModel implements ArrayAccess
 
     protected static $typeMap = [
         'labelSelector' => '\Rancher\Model\LabelSelectorModel',
+        'namespaceSelector' => '\Rancher\Model\LabelSelectorModel',
         'namespaces' => 'string[]',
         'topologyKey' => 'string',
     ];
@@ -67,6 +70,7 @@ class PodAffinityTermModel implements ArrayAccess
 
     protected static $setters = [
         'labelSelector' => 'setLabelSelector',
+        'namespaceSelector' => 'setNamespaceSelector',
         'namespaces' => 'setNamespaces',
         'topologyKey' => 'setTopologyKey',
     ];
@@ -78,6 +82,7 @@ class PodAffinityTermModel implements ArrayAccess
 
     protected static $getters = [
         'labelSelector' => 'getLabelSelector',
+        'namespaceSelector' => 'getNamespaceSelector',
         'namespaces' => 'getNamespaces',
         'topologyKey' => 'getTopologyKey',
     ];
@@ -90,6 +95,7 @@ class PodAffinityTermModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['labelSelector'] = isset($data['labelSelector']) ? $data['labelSelector'] : null;
+        $this->container['namespaceSelector'] = isset($data['namespaceSelector']) ? $data['namespaceSelector'] : null;
         $this->container['namespaces'] = isset($data['namespaces']) ? $data['namespaces'] : null;
         $this->container['topologyKey'] = isset($data['topologyKey']) ? $data['topologyKey'] : null;
     }
@@ -111,6 +117,28 @@ class PodAffinityTermModel implements ArrayAccess
     public function setLabelSelector($labelSelector)
     {
         $this->container['labelSelector'] = $labelSelector;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets namespaceSelector
+     * @return \Rancher\Model\LabelSelectorModel
+     */
+    public function getNamespaceSelector()
+    {
+        return $this->container['namespaceSelector'];
+    }
+
+    /**
+     * Sets namespaceSelector
+     * @param \Rancher\Model\LabelSelectorModel $namespaceSelector
+     * @return $this
+     */
+    public function setNamespaceSelector($namespaceSelector)
+    {
+        $this->container['namespaceSelector'] = $namespaceSelector;
 
         return $this;
     }

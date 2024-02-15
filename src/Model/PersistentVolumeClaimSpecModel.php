@@ -30,6 +30,7 @@ class PersistentVolumeClaimSpecModel implements ArrayAccess
     protected static $canBeCreated = [
         'accessModes',
         'dataSource',
+        'dataSourceRef',
         'resources',
         'selector',
         'storageClassId',
@@ -50,6 +51,7 @@ class PersistentVolumeClaimSpecModel implements ArrayAccess
     protected static $canBeUpdated = [
         'accessModes',
         'dataSource',
+        'dataSourceRef',
         'resources',
         'selector',
         'storageClassId',
@@ -65,6 +67,7 @@ class PersistentVolumeClaimSpecModel implements ArrayAccess
     protected static $typeMap = [
         'accessModes' => 'string[]',
         'dataSource' => '\Rancher\Model\TypedLocalObjectReferenceModel',
+        'dataSourceRef' => '\Rancher\Model\TypedObjectReferenceModel',
         'resources' => '\Rancher\Model\ResourceRequirementsModel',
         'selector' => '\Rancher\Model\LabelSelectorModel',
         'storageClassId' => 'string',
@@ -80,6 +83,7 @@ class PersistentVolumeClaimSpecModel implements ArrayAccess
     protected static $setters = [
         'accessModes' => 'setAccessModes',
         'dataSource' => 'setDataSource',
+        'dataSourceRef' => 'setDataSourceRef',
         'resources' => 'setResources',
         'selector' => 'setSelector',
         'storageClassId' => 'setStorageClassId',
@@ -95,6 +99,7 @@ class PersistentVolumeClaimSpecModel implements ArrayAccess
     protected static $getters = [
         'accessModes' => 'getAccessModes',
         'dataSource' => 'getDataSource',
+        'dataSourceRef' => 'getDataSourceRef',
         'resources' => 'getResources',
         'selector' => 'getSelector',
         'storageClassId' => 'getStorageClassId',
@@ -111,6 +116,7 @@ class PersistentVolumeClaimSpecModel implements ArrayAccess
     {
         $this->container['accessModes'] = isset($data['accessModes']) ? $data['accessModes'] : null;
         $this->container['dataSource'] = isset($data['dataSource']) ? $data['dataSource'] : null;
+        $this->container['dataSourceRef'] = isset($data['dataSourceRef']) ? $data['dataSourceRef'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
         $this->container['storageClassId'] = isset($data['storageClassId']) ? $data['storageClassId'] : null;
@@ -157,6 +163,28 @@ class PersistentVolumeClaimSpecModel implements ArrayAccess
     public function setDataSource($dataSource)
     {
         $this->container['dataSource'] = $dataSource;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets dataSourceRef
+     * @return \Rancher\Model\TypedObjectReferenceModel
+     */
+    public function getDataSourceRef()
+    {
+        return $this->container['dataSourceRef'];
+    }
+
+    /**
+     * Sets dataSourceRef
+     * @param \Rancher\Model\TypedObjectReferenceModel $dataSourceRef
+     * @return $this
+     */
+    public function setDataSourceRef($dataSourceRef)
+    {
+        $this->container['dataSourceRef'] = $dataSourceRef;
 
         return $this;
     }

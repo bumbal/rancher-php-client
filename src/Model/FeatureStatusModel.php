@@ -52,6 +52,7 @@ class FeatureStatusModel implements ArrayAccess
         'default' => 'boolean',
         'description' => 'string',
         'dynamic' => 'boolean',
+        'lockedValue' => 'boolean',
     ];
 
     public static function typeMap()
@@ -63,6 +64,7 @@ class FeatureStatusModel implements ArrayAccess
         'default' => 'setDefault',
         'description' => 'setDescription',
         'dynamic' => 'setDynamic',
+        'lockedValue' => 'setLockedValue',
     ];
 
     public static function setters()
@@ -74,6 +76,7 @@ class FeatureStatusModel implements ArrayAccess
         'default' => 'getDefault',
         'description' => 'getDescription',
         'dynamic' => 'getDynamic',
+        'lockedValue' => 'getLockedValue',
     ];
 
     public static function getters()
@@ -86,6 +89,7 @@ class FeatureStatusModel implements ArrayAccess
         $this->container['default'] = isset($data['default']) ? $data['default'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dynamic'] = isset($data['dynamic']) ? $data['dynamic'] : null;
+        $this->container['lockedValue'] = isset($data['lockedValue']) ? $data['lockedValue'] : null;
     }
 
     /**
@@ -149,6 +153,28 @@ class FeatureStatusModel implements ArrayAccess
     public function setDynamic($dynamic)
     {
         $this->container['dynamic'] = $dynamic;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets lockedValue
+     * @return boolean
+     */
+    public function getLockedValue()
+    {
+        return $this->container['lockedValue'];
+    }
+
+    /**
+     * Sets lockedValue
+     * @param boolean $lockedValue
+     * @return $this
+     */
+    public function setLockedValue($lockedValue)
+    {
+        $this->container['lockedValue'] = $lockedValue;
 
         return $this;
     }

@@ -30,6 +30,7 @@ class ProbeModel implements ArrayAccess
     protected static $canBeCreated = [
         'command',
         'failureThreshold',
+        'grpc',
         'host',
         'httpHeaders',
         'initialDelaySeconds',
@@ -39,6 +40,7 @@ class ProbeModel implements ArrayAccess
         'scheme',
         'successThreshold',
         'tcp',
+        'terminationGracePeriodSeconds',
         'timeoutSeconds',
     ];
 
@@ -55,6 +57,7 @@ class ProbeModel implements ArrayAccess
     protected static $canBeUpdated = [
         'command',
         'failureThreshold',
+        'grpc',
         'host',
         'httpHeaders',
         'initialDelaySeconds',
@@ -64,6 +67,7 @@ class ProbeModel implements ArrayAccess
         'scheme',
         'successThreshold',
         'tcp',
+        'terminationGracePeriodSeconds',
         'timeoutSeconds',
     ];
 
@@ -75,6 +79,7 @@ class ProbeModel implements ArrayAccess
     protected static $typeMap = [
         'command' => 'string[]',
         'failureThreshold' => 'int',
+        'grpc' => '\Rancher\Model\GrpcActionModel',
         'host' => 'string',
         'httpHeaders' => '\Rancher\Model\HttpHeaderModel[]',
         'initialDelaySeconds' => 'int',
@@ -84,6 +89,7 @@ class ProbeModel implements ArrayAccess
         'scheme' => 'string',
         'successThreshold' => 'int',
         'tcp' => 'boolean',
+        'terminationGracePeriodSeconds' => 'int',
         'timeoutSeconds' => 'int',
     ];
 
@@ -95,6 +101,7 @@ class ProbeModel implements ArrayAccess
     protected static $setters = [
         'command' => 'setCommand',
         'failureThreshold' => 'setFailureThreshold',
+        'grpc' => 'setGrpc',
         'host' => 'setHost',
         'httpHeaders' => 'setHttpHeaders',
         'initialDelaySeconds' => 'setInitialDelaySeconds',
@@ -104,6 +111,7 @@ class ProbeModel implements ArrayAccess
         'scheme' => 'setScheme',
         'successThreshold' => 'setSuccessThreshold',
         'tcp' => 'setTcp',
+        'terminationGracePeriodSeconds' => 'setTerminationGracePeriodSeconds',
         'timeoutSeconds' => 'setTimeoutSeconds',
     ];
 
@@ -115,6 +123,7 @@ class ProbeModel implements ArrayAccess
     protected static $getters = [
         'command' => 'getCommand',
         'failureThreshold' => 'getFailureThreshold',
+        'grpc' => 'getGrpc',
         'host' => 'getHost',
         'httpHeaders' => 'getHttpHeaders',
         'initialDelaySeconds' => 'getInitialDelaySeconds',
@@ -124,6 +133,7 @@ class ProbeModel implements ArrayAccess
         'scheme' => 'getScheme',
         'successThreshold' => 'getSuccessThreshold',
         'tcp' => 'getTcp',
+        'terminationGracePeriodSeconds' => 'getTerminationGracePeriodSeconds',
         'timeoutSeconds' => 'getTimeoutSeconds',
     ];
 
@@ -136,6 +146,7 @@ class ProbeModel implements ArrayAccess
     {
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
         $this->container['failureThreshold'] = isset($data['failureThreshold']) ? $data['failureThreshold'] : null;
+        $this->container['grpc'] = isset($data['grpc']) ? $data['grpc'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
         $this->container['httpHeaders'] = isset($data['httpHeaders']) ? $data['httpHeaders'] : null;
         $this->container['initialDelaySeconds'] = isset($data['initialDelaySeconds']) ? $data['initialDelaySeconds'] : null;
@@ -145,6 +156,7 @@ class ProbeModel implements ArrayAccess
         $this->container['scheme'] = isset($data['scheme']) ? $data['scheme'] : null;
         $this->container['successThreshold'] = isset($data['successThreshold']) ? $data['successThreshold'] : null;
         $this->container['tcp'] = isset($data['tcp']) ? $data['tcp'] : null;
+        $this->container['terminationGracePeriodSeconds'] = isset($data['terminationGracePeriodSeconds']) ? $data['terminationGracePeriodSeconds'] : null;
         $this->container['timeoutSeconds'] = isset($data['timeoutSeconds']) ? $data['timeoutSeconds'] : null;
     }
 
@@ -187,6 +199,28 @@ class ProbeModel implements ArrayAccess
     public function setFailureThreshold($failureThreshold)
     {
         $this->container['failureThreshold'] = $failureThreshold;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets grpc
+     * @return \Rancher\Model\GrpcActionModel
+     */
+    public function getGrpc()
+    {
+        return $this->container['grpc'];
+    }
+
+    /**
+     * Sets grpc
+     * @param \Rancher\Model\GrpcActionModel $grpc
+     * @return $this
+     */
+    public function setGrpc($grpc)
+    {
+        $this->container['grpc'] = $grpc;
 
         return $this;
     }
@@ -385,6 +419,28 @@ class ProbeModel implements ArrayAccess
     public function setTcp($tcp)
     {
         $this->container['tcp'] = $tcp;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets terminationGracePeriodSeconds
+     * @return int
+     */
+    public function getTerminationGracePeriodSeconds()
+    {
+        return $this->container['terminationGracePeriodSeconds'];
+    }
+
+    /**
+     * Sets terminationGracePeriodSeconds
+     * @param int $terminationGracePeriodSeconds
+     * @return $this
+     */
+    public function setTerminationGracePeriodSeconds($terminationGracePeriodSeconds)
+    {
+        $this->container['terminationGracePeriodSeconds'] = $terminationGracePeriodSeconds;
 
         return $this;
     }

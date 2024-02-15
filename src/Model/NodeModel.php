@@ -37,6 +37,7 @@ class NodeModel implements ArrayAccess
         'description',
         'digitaloceanConfig',
         'etcd',
+        'harvesterConfig',
         'imported',
         'labels',
         'linodeConfig',
@@ -93,6 +94,7 @@ class NodeModel implements ArrayAccess
         'dockerInfo' => '\Rancher\Model\DockerInfoModel',
         'etcd' => 'boolean',
         'externalIpAddress' => 'string',
+        'harvesterConfig' => '\Rancher\Model\HarvesterconfigModel',
         'hostname' => 'string',
         'id' => 'string',
         'imported' => 'boolean',
@@ -153,6 +155,7 @@ class NodeModel implements ArrayAccess
         'dockerInfo' => 'setDockerInfo',
         'etcd' => 'setEtcd',
         'externalIpAddress' => 'setExternalIpAddress',
+        'harvesterConfig' => 'setHarvesterConfig',
         'hostname' => 'setHostname',
         'id' => 'setId',
         'imported' => 'setImported',
@@ -213,6 +216,7 @@ class NodeModel implements ArrayAccess
         'dockerInfo' => 'getDockerInfo',
         'etcd' => 'getEtcd',
         'externalIpAddress' => 'getExternalIpAddress',
+        'harvesterConfig' => 'getHarvesterConfig',
         'hostname' => 'getHostname',
         'id' => 'getId',
         'imported' => 'getImported',
@@ -274,6 +278,7 @@ class NodeModel implements ArrayAccess
         $this->container['dockerInfo'] = isset($data['dockerInfo']) ? $data['dockerInfo'] : null;
         $this->container['etcd'] = isset($data['etcd']) ? $data['etcd'] : null;
         $this->container['externalIpAddress'] = isset($data['externalIpAddress']) ? $data['externalIpAddress'] : null;
+        $this->container['harvesterConfig'] = isset($data['harvesterConfig']) ? $data['harvesterConfig'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['imported'] = isset($data['imported']) ? $data['imported'] : null;
@@ -680,6 +685,28 @@ class NodeModel implements ArrayAccess
     public function setExternalIpAddress($externalIpAddress)
     {
         $this->container['externalIpAddress'] = $externalIpAddress;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets harvesterConfig
+     * @return \Rancher\Model\HarvesterconfigModel
+     */
+    public function getHarvesterConfig()
+    {
+        return $this->container['harvesterConfig'];
+    }
+
+    /**
+     * Sets harvesterConfig
+     * @param \Rancher\Model\HarvesterconfigModel $harvesterConfig
+     * @return $this
+     */
+    public function setHarvesterConfig($harvesterConfig)
+    {
+        $this->container['harvesterConfig'] = $harvesterConfig;
 
         return $this;
     }

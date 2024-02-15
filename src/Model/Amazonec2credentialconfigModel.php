@@ -29,6 +29,7 @@ class Amazonec2credentialconfigModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'accessKey',
+        'defaultRegion',
         'secretKey',
     ];
 
@@ -44,6 +45,7 @@ class Amazonec2credentialconfigModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'accessKey',
+        'defaultRegion',
         'secretKey',
     ];
 
@@ -54,6 +56,7 @@ class Amazonec2credentialconfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'accessKey' => 'string',
+        'defaultRegion' => 'string',
         'secretKey' => '\Rancher\Model\PasswordModel',
     ];
 
@@ -64,6 +67,7 @@ class Amazonec2credentialconfigModel implements ArrayAccess
 
     protected static $setters = [
         'accessKey' => 'setAccessKey',
+        'defaultRegion' => 'setDefaultRegion',
         'secretKey' => 'setSecretKey',
     ];
 
@@ -74,6 +78,7 @@ class Amazonec2credentialconfigModel implements ArrayAccess
 
     protected static $getters = [
         'accessKey' => 'getAccessKey',
+        'defaultRegion' => 'getDefaultRegion',
         'secretKey' => 'getSecretKey',
     ];
 
@@ -85,6 +90,7 @@ class Amazonec2credentialconfigModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accessKey'] = isset($data['accessKey']) ? $data['accessKey'] : null;
+        $this->container['defaultRegion'] = isset($data['defaultRegion']) ? $data['defaultRegion'] : null;
         $this->container['secretKey'] = isset($data['secretKey']) ? $data['secretKey'] : null;
     }
 
@@ -105,6 +111,28 @@ class Amazonec2credentialconfigModel implements ArrayAccess
     public function setAccessKey($accessKey)
     {
         $this->container['accessKey'] = $accessKey;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets defaultRegion
+     * @return string
+     */
+    public function getDefaultRegion()
+    {
+        return $this->container['defaultRegion'];
+    }
+
+    /**
+     * Sets defaultRegion
+     * @param string $defaultRegion
+     * @return $this
+     */
+    public function setDefaultRegion($defaultRegion)
+    {
+        $this->container['defaultRegion'] = $defaultRegion;
 
         return $this;
     }

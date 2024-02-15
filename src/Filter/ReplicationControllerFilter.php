@@ -324,6 +324,34 @@ class ReplicationControllerFilter extends AbstractFilter
 
 
     /**
+     * Gets hostUsers
+     * @return string
+     */
+    public function getHostUsers()
+    {
+        return $this->container['hostUsers'];
+    }
+
+    /**
+     * Sets hostUsers
+     * @param string $hostUsers
+     * @param string $option
+     * @return $this
+     */
+    public function setHostUsers($hostUsers, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['hostUsers'.$option] = $hostUsers;
+
+        return $this;
+    }
+
+
+    /**
      * Gets hostname
      * @return string
      */

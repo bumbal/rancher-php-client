@@ -39,6 +39,7 @@ class EphemeralContainerModel implements ArrayAccess
         'name',
         'ports',
         'readinessProbe',
+        'resizePolicy',
         'resources',
         'securityContext',
         'startupProbe',
@@ -75,6 +76,7 @@ class EphemeralContainerModel implements ArrayAccess
         'name',
         'ports',
         'readinessProbe',
+        'resizePolicy',
         'resources',
         'securityContext',
         'startupProbe',
@@ -106,6 +108,7 @@ class EphemeralContainerModel implements ArrayAccess
         'name' => 'string',
         'ports' => '\Rancher\Model\ContainerPortModel[]',
         'readinessProbe' => '\Rancher\Model\ProbeModel',
+        'resizePolicy' => '\Rancher\Model\ContainerResizePolicyModel[]',
         'resources' => '\Rancher\Model\ResourceRequirementsModel',
         'securityContext' => '\Rancher\Model\SecurityContextModel',
         'startupProbe' => '\Rancher\Model\ProbeModel',
@@ -137,6 +140,7 @@ class EphemeralContainerModel implements ArrayAccess
         'name' => 'setName',
         'ports' => 'setPorts',
         'readinessProbe' => 'setReadinessProbe',
+        'resizePolicy' => 'setResizePolicy',
         'resources' => 'setResources',
         'securityContext' => 'setSecurityContext',
         'startupProbe' => 'setStartupProbe',
@@ -168,6 +172,7 @@ class EphemeralContainerModel implements ArrayAccess
         'name' => 'getName',
         'ports' => 'getPorts',
         'readinessProbe' => 'getReadinessProbe',
+        'resizePolicy' => 'getResizePolicy',
         'resources' => 'getResources',
         'securityContext' => 'getSecurityContext',
         'startupProbe' => 'getStartupProbe',
@@ -200,6 +205,7 @@ class EphemeralContainerModel implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ports'] = isset($data['ports']) ? $data['ports'] : null;
         $this->container['readinessProbe'] = isset($data['readinessProbe']) ? $data['readinessProbe'] : null;
+        $this->container['resizePolicy'] = isset($data['resizePolicy']) ? $data['resizePolicy'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
         $this->container['securityContext'] = isset($data['securityContext']) ? $data['securityContext'] : null;
         $this->container['startupProbe'] = isset($data['startupProbe']) ? $data['startupProbe'] : null;
@@ -451,6 +457,28 @@ class EphemeralContainerModel implements ArrayAccess
     public function setReadinessProbe($readinessProbe)
     {
         $this->container['readinessProbe'] = $readinessProbe;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets resizePolicy
+     * @return \Rancher\Model\ContainerResizePolicyModel[]
+     */
+    public function getResizePolicy()
+    {
+        return $this->container['resizePolicy'];
+    }
+
+    /**
+     * Sets resizePolicy
+     * @param \Rancher\Model\ContainerResizePolicyModel[] $resizePolicy
+     * @return $this
+     */
+    public function setResizePolicy($resizePolicy)
+    {
+        $this->container['resizePolicy'] = $resizePolicy;
 
         return $this;
     }

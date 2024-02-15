@@ -43,7 +43,6 @@ class DnsRecordModel implements ArrayAccess
         'selector',
         'targetDnsRecordIds',
         'targetWorkloadIds',
-        'topologyKeys',
     ];
 
     public static function canBeCreated()
@@ -69,7 +68,6 @@ class DnsRecordModel implements ArrayAccess
         'selector',
         'targetDnsRecordIds',
         'targetWorkloadIds',
-        'topologyKeys',
     ];
 
     public static function canBeUpdated()
@@ -101,7 +99,6 @@ class DnsRecordModel implements ArrayAccess
         'state' => 'string',
         'targetDnsRecordIds' => 'string[]',
         'targetWorkloadIds' => 'string[]',
-        'topologyKeys' => 'string[]',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'uuid' => 'string',
@@ -137,7 +134,6 @@ class DnsRecordModel implements ArrayAccess
         'state' => 'setState',
         'targetDnsRecordIds' => 'setTargetDnsRecordIds',
         'targetWorkloadIds' => 'setTargetWorkloadIds',
-        'topologyKeys' => 'setTopologyKeys',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
@@ -173,7 +169,6 @@ class DnsRecordModel implements ArrayAccess
         'state' => 'getState',
         'targetDnsRecordIds' => 'getTargetDnsRecordIds',
         'targetWorkloadIds' => 'getTargetWorkloadIds',
-        'topologyKeys' => 'getTopologyKeys',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
@@ -210,7 +205,6 @@ class DnsRecordModel implements ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['targetDnsRecordIds'] = isset($data['targetDnsRecordIds']) ? $data['targetDnsRecordIds'] : null;
         $this->container['targetWorkloadIds'] = isset($data['targetWorkloadIds']) ? $data['targetWorkloadIds'] : null;
-        $this->container['topologyKeys'] = isset($data['topologyKeys']) ? $data['topologyKeys'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
@@ -718,28 +712,6 @@ class DnsRecordModel implements ArrayAccess
     public function setTargetWorkloadIds($targetWorkloadIds)
     {
         $this->container['targetWorkloadIds'] = $targetWorkloadIds;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets topologyKeys
-     * @return string[]
-     */
-    public function getTopologyKeys()
-    {
-        return $this->container['topologyKeys'];
-    }
-
-    /**
-     * Sets topologyKeys
-     * @param string[] $topologyKeys
-     * @return $this
-     */
-    public function setTopologyKeys($topologyKeys)
-    {
-        $this->container['topologyKeys'] = $topologyKeys;
 
         return $this;
     }

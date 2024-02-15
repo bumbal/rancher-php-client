@@ -30,6 +30,7 @@ class IngressConfigModel implements ArrayAccess
     protected static $canBeCreated = [
         'defaultBackend',
         'defaultHttpBackendPriorityClassName',
+        'defaultIngressClass',
         'dnsPolicy',
         'extraArgs',
         'extraEnvs',
@@ -59,6 +60,7 @@ class IngressConfigModel implements ArrayAccess
     protected static $canBeUpdated = [
         'defaultBackend',
         'defaultHttpBackendPriorityClassName',
+        'defaultIngressClass',
         'dnsPolicy',
         'extraArgs',
         'extraEnvs',
@@ -83,6 +85,7 @@ class IngressConfigModel implements ArrayAccess
     protected static $typeMap = [
         'defaultBackend' => 'boolean',
         'defaultHttpBackendPriorityClassName' => 'string',
+        'defaultIngressClass' => 'boolean',
         'dnsPolicy' => 'string',
         'extraArgs' => 'map[string,string]',
         'extraEnvs' => '\Rancher\Model\JsonModel[]',
@@ -107,6 +110,7 @@ class IngressConfigModel implements ArrayAccess
     protected static $setters = [
         'defaultBackend' => 'setDefaultBackend',
         'defaultHttpBackendPriorityClassName' => 'setDefaultHttpBackendPriorityClassName',
+        'defaultIngressClass' => 'setDefaultIngressClass',
         'dnsPolicy' => 'setDnsPolicy',
         'extraArgs' => 'setExtraArgs',
         'extraEnvs' => 'setExtraEnvs',
@@ -131,6 +135,7 @@ class IngressConfigModel implements ArrayAccess
     protected static $getters = [
         'defaultBackend' => 'getDefaultBackend',
         'defaultHttpBackendPriorityClassName' => 'getDefaultHttpBackendPriorityClassName',
+        'defaultIngressClass' => 'getDefaultIngressClass',
         'dnsPolicy' => 'getDnsPolicy',
         'extraArgs' => 'getExtraArgs',
         'extraEnvs' => 'getExtraEnvs',
@@ -156,6 +161,7 @@ class IngressConfigModel implements ArrayAccess
     {
         $this->container['defaultBackend'] = isset($data['defaultBackend']) ? $data['defaultBackend'] : null;
         $this->container['defaultHttpBackendPriorityClassName'] = isset($data['defaultHttpBackendPriorityClassName']) ? $data['defaultHttpBackendPriorityClassName'] : null;
+        $this->container['defaultIngressClass'] = isset($data['defaultIngressClass']) ? $data['defaultIngressClass'] : null;
         $this->container['dnsPolicy'] = isset($data['dnsPolicy']) ? $data['dnsPolicy'] : null;
         $this->container['extraArgs'] = isset($data['extraArgs']) ? $data['extraArgs'] : null;
         $this->container['extraEnvs'] = isset($data['extraEnvs']) ? $data['extraEnvs'] : null;
@@ -211,6 +217,28 @@ class IngressConfigModel implements ArrayAccess
     public function setDefaultHttpBackendPriorityClassName($defaultHttpBackendPriorityClassName)
     {
         $this->container['defaultHttpBackendPriorityClassName'] = $defaultHttpBackendPriorityClassName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets defaultIngressClass
+     * @return boolean
+     */
+    public function getDefaultIngressClass()
+    {
+        return $this->container['defaultIngressClass'];
+    }
+
+    /**
+     * Sets defaultIngressClass
+     * @param boolean $defaultIngressClass
+     * @return $this
+     */
+    public function setDefaultIngressClass($defaultIngressClass)
+    {
+        $this->container['defaultIngressClass'] = $defaultIngressClass;
 
         return $this;
     }

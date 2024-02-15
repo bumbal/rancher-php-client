@@ -29,6 +29,7 @@ class AppUpgradeConfigModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'answers',
+        'answersSetString',
         'externalId',
         'files',
         'forceUpgrade',
@@ -47,6 +48,7 @@ class AppUpgradeConfigModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'answers',
+        'answersSetString',
         'externalId',
         'files',
         'forceUpgrade',
@@ -60,6 +62,7 @@ class AppUpgradeConfigModel implements ArrayAccess
 
     protected static $typeMap = [
         'answers' => 'map[string,string]',
+        'answersSetString' => 'map[string,string]',
         'externalId' => 'string',
         'files' => 'map[string,string]',
         'forceUpgrade' => 'boolean',
@@ -73,6 +76,7 @@ class AppUpgradeConfigModel implements ArrayAccess
 
     protected static $setters = [
         'answers' => 'setAnswers',
+        'answersSetString' => 'setAnswersSetString',
         'externalId' => 'setExternalId',
         'files' => 'setFiles',
         'forceUpgrade' => 'setForceUpgrade',
@@ -86,6 +90,7 @@ class AppUpgradeConfigModel implements ArrayAccess
 
     protected static $getters = [
         'answers' => 'getAnswers',
+        'answersSetString' => 'getAnswersSetString',
         'externalId' => 'getExternalId',
         'files' => 'getFiles',
         'forceUpgrade' => 'getForceUpgrade',
@@ -100,6 +105,7 @@ class AppUpgradeConfigModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['answers'] = isset($data['answers']) ? $data['answers'] : null;
+        $this->container['answersSetString'] = isset($data['answersSetString']) ? $data['answersSetString'] : null;
         $this->container['externalId'] = isset($data['externalId']) ? $data['externalId'] : null;
         $this->container['files'] = isset($data['files']) ? $data['files'] : null;
         $this->container['forceUpgrade'] = isset($data['forceUpgrade']) ? $data['forceUpgrade'] : null;
@@ -123,6 +129,28 @@ class AppUpgradeConfigModel implements ArrayAccess
     public function setAnswers($answers)
     {
         $this->container['answers'] = $answers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets answersSetString
+     * @return string[]
+     */
+    public function getAnswersSetString()
+    {
+        return $this->container['answersSetString'];
+    }
+
+    /**
+     * Sets answersSetString
+     * @param string[] $answersSetString
+     * @return $this
+     */
+    public function setAnswersSetString($answersSetString)
+    {
+        $this->container['answersSetString'] = $answersSetString;
 
         return $this;
     }

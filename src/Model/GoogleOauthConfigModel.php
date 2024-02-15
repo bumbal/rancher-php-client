@@ -87,6 +87,7 @@ class GoogleOauthConfigModel implements ArrayAccess
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
         'serviceAccountCredential' => '\Rancher\Model\PasswordModel',
+        'status' => '\Rancher\Model\AuthConfigStatusModel',
         'type' => 'string',
         'userInfoEndpoint' => 'string',
         'uuid' => 'string',
@@ -113,6 +114,7 @@ class GoogleOauthConfigModel implements ArrayAccess
         'ownerReferences' => 'setOwnerReferences',
         'removed' => 'setRemoved',
         'serviceAccountCredential' => 'setServiceAccountCredential',
+        'status' => 'setStatus',
         'type' => 'setType',
         'userInfoEndpoint' => 'setUserInfoEndpoint',
         'uuid' => 'setUuid',
@@ -139,6 +141,7 @@ class GoogleOauthConfigModel implements ArrayAccess
         'ownerReferences' => 'getOwnerReferences',
         'removed' => 'getRemoved',
         'serviceAccountCredential' => 'getServiceAccountCredential',
+        'status' => 'getStatus',
         'type' => 'getType',
         'userInfoEndpoint' => 'getUserInfoEndpoint',
         'uuid' => 'getUuid',
@@ -166,6 +169,7 @@ class GoogleOauthConfigModel implements ArrayAccess
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
         $this->container['serviceAccountCredential'] = isset($data['serviceAccountCredential']) ? $data['serviceAccountCredential'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['userInfoEndpoint'] = isset($data['userInfoEndpoint']) ? $data['userInfoEndpoint'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
@@ -496,6 +500,28 @@ class GoogleOauthConfigModel implements ArrayAccess
     public function setServiceAccountCredential($serviceAccountCredential)
     {
         $this->container['serviceAccountCredential'] = $serviceAccountCredential;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets status
+     * @return \Rancher\Model\AuthConfigStatusModel
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param \Rancher\Model\AuthConfigStatusModel $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

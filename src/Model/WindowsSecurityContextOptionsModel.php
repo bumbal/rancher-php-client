@@ -30,6 +30,7 @@ class WindowsSecurityContextOptionsModel implements ArrayAccess
     protected static $canBeCreated = [
         'gmsaCredentialSpec',
         'gmsaCredentialSpecName',
+        'hostProcess',
         'runAsUserName',
     ];
 
@@ -46,6 +47,7 @@ class WindowsSecurityContextOptionsModel implements ArrayAccess
     protected static $canBeUpdated = [
         'gmsaCredentialSpec',
         'gmsaCredentialSpecName',
+        'hostProcess',
         'runAsUserName',
     ];
 
@@ -57,6 +59,7 @@ class WindowsSecurityContextOptionsModel implements ArrayAccess
     protected static $typeMap = [
         'gmsaCredentialSpec' => 'string',
         'gmsaCredentialSpecName' => 'string',
+        'hostProcess' => 'boolean',
         'runAsUserName' => 'string',
     ];
 
@@ -68,6 +71,7 @@ class WindowsSecurityContextOptionsModel implements ArrayAccess
     protected static $setters = [
         'gmsaCredentialSpec' => 'setGmsaCredentialSpec',
         'gmsaCredentialSpecName' => 'setGmsaCredentialSpecName',
+        'hostProcess' => 'setHostProcess',
         'runAsUserName' => 'setRunAsUserName',
     ];
 
@@ -79,6 +83,7 @@ class WindowsSecurityContextOptionsModel implements ArrayAccess
     protected static $getters = [
         'gmsaCredentialSpec' => 'getGmsaCredentialSpec',
         'gmsaCredentialSpecName' => 'getGmsaCredentialSpecName',
+        'hostProcess' => 'getHostProcess',
         'runAsUserName' => 'getRunAsUserName',
     ];
 
@@ -91,6 +96,7 @@ class WindowsSecurityContextOptionsModel implements ArrayAccess
     {
         $this->container['gmsaCredentialSpec'] = isset($data['gmsaCredentialSpec']) ? $data['gmsaCredentialSpec'] : null;
         $this->container['gmsaCredentialSpecName'] = isset($data['gmsaCredentialSpecName']) ? $data['gmsaCredentialSpecName'] : null;
+        $this->container['hostProcess'] = isset($data['hostProcess']) ? $data['hostProcess'] : null;
         $this->container['runAsUserName'] = isset($data['runAsUserName']) ? $data['runAsUserName'] : null;
     }
 
@@ -133,6 +139,28 @@ class WindowsSecurityContextOptionsModel implements ArrayAccess
     public function setGmsaCredentialSpecName($gmsaCredentialSpecName)
     {
         $this->container['gmsaCredentialSpecName'] = $gmsaCredentialSpecName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets hostProcess
+     * @return boolean
+     */
+    public function getHostProcess()
+    {
+        return $this->container['hostProcess'];
+    }
+
+    /**
+     * Sets hostProcess
+     * @param boolean $hostProcess
+     * @return $this
+     */
+    public function setHostProcess($hostProcess)
+    {
+        $this->container['hostProcess'] = $hostProcess;
 
         return $this;
     }

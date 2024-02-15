@@ -29,10 +29,12 @@ class SchedulerServiceModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'extraArgs',
+        'extraArgsArray',
         'extraBinds',
         'extraEnv',
         'image',
         'winExtraArgs',
+        'winExtraArgsArray',
         'winExtraBinds',
         'winExtraEnv',
     ];
@@ -49,10 +51,12 @@ class SchedulerServiceModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'extraArgs',
+        'extraArgsArray',
         'extraBinds',
         'extraEnv',
         'image',
         'winExtraArgs',
+        'winExtraArgsArray',
         'winExtraBinds',
         'winExtraEnv',
     ];
@@ -64,10 +68,12 @@ class SchedulerServiceModel implements ArrayAccess
 
     protected static $typeMap = [
         'extraArgs' => 'map[string,string]',
+        'extraArgsArray' => 'map[string,\Rancher\Model\Array[string]Model]',
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
         'image' => 'string',
         'winExtraArgs' => 'map[string,string]',
+        'winExtraArgsArray' => 'map[string,\Rancher\Model\Array[string]Model]',
         'winExtraBinds' => 'string[]',
         'winExtraEnv' => 'string[]',
     ];
@@ -79,10 +85,12 @@ class SchedulerServiceModel implements ArrayAccess
 
     protected static $setters = [
         'extraArgs' => 'setExtraArgs',
+        'extraArgsArray' => 'setExtraArgsArray',
         'extraBinds' => 'setExtraBinds',
         'extraEnv' => 'setExtraEnv',
         'image' => 'setImage',
         'winExtraArgs' => 'setWinExtraArgs',
+        'winExtraArgsArray' => 'setWinExtraArgsArray',
         'winExtraBinds' => 'setWinExtraBinds',
         'winExtraEnv' => 'setWinExtraEnv',
     ];
@@ -94,10 +102,12 @@ class SchedulerServiceModel implements ArrayAccess
 
     protected static $getters = [
         'extraArgs' => 'getExtraArgs',
+        'extraArgsArray' => 'getExtraArgsArray',
         'extraBinds' => 'getExtraBinds',
         'extraEnv' => 'getExtraEnv',
         'image' => 'getImage',
         'winExtraArgs' => 'getWinExtraArgs',
+        'winExtraArgsArray' => 'getWinExtraArgsArray',
         'winExtraBinds' => 'getWinExtraBinds',
         'winExtraEnv' => 'getWinExtraEnv',
     ];
@@ -110,10 +120,12 @@ class SchedulerServiceModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['extraArgs'] = isset($data['extraArgs']) ? $data['extraArgs'] : null;
+        $this->container['extraArgsArray'] = isset($data['extraArgsArray']) ? $data['extraArgsArray'] : null;
         $this->container['extraBinds'] = isset($data['extraBinds']) ? $data['extraBinds'] : null;
         $this->container['extraEnv'] = isset($data['extraEnv']) ? $data['extraEnv'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['winExtraArgs'] = isset($data['winExtraArgs']) ? $data['winExtraArgs'] : null;
+        $this->container['winExtraArgsArray'] = isset($data['winExtraArgsArray']) ? $data['winExtraArgsArray'] : null;
         $this->container['winExtraBinds'] = isset($data['winExtraBinds']) ? $data['winExtraBinds'] : null;
         $this->container['winExtraEnv'] = isset($data['winExtraEnv']) ? $data['winExtraEnv'] : null;
     }
@@ -135,6 +147,28 @@ class SchedulerServiceModel implements ArrayAccess
     public function setExtraArgs($extraArgs)
     {
         $this->container['extraArgs'] = $extraArgs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets extraArgsArray
+     * @return \Rancher\Model\Array[string]Model[]
+     */
+    public function getExtraArgsArray()
+    {
+        return $this->container['extraArgsArray'];
+    }
+
+    /**
+     * Sets extraArgsArray
+     * @param \Rancher\Model\Array[string]Model[] $extraArgsArray
+     * @return $this
+     */
+    public function setExtraArgsArray($extraArgsArray)
+    {
+        $this->container['extraArgsArray'] = $extraArgsArray;
 
         return $this;
     }
@@ -223,6 +257,28 @@ class SchedulerServiceModel implements ArrayAccess
     public function setWinExtraArgs($winExtraArgs)
     {
         $this->container['winExtraArgs'] = $winExtraArgs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winExtraArgsArray
+     * @return \Rancher\Model\Array[string]Model[]
+     */
+    public function getWinExtraArgsArray()
+    {
+        return $this->container['winExtraArgsArray'];
+    }
+
+    /**
+     * Sets winExtraArgsArray
+     * @param \Rancher\Model\Array[string]Model[] $winExtraArgsArray
+     * @return $this
+     */
+    public function setWinExtraArgsArray($winExtraArgsArray)
+    {
+        $this->container['winExtraArgsArray'] = $winExtraArgsArray;
 
         return $this;
     }

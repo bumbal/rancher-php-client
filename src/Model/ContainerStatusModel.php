@@ -28,12 +28,14 @@ class ContainerStatusModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'allocatedResources',
         'containerID',
         'image',
         'imageID',
         'lastState',
         'name',
         'ready',
+        'resources',
         'restartCount',
         'started',
         'state',
@@ -50,12 +52,14 @@ class ContainerStatusModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'allocatedResources',
         'containerID',
         'image',
         'imageID',
         'lastState',
         'name',
         'ready',
+        'resources',
         'restartCount',
         'started',
         'state',
@@ -67,12 +71,14 @@ class ContainerStatusModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'allocatedResources' => 'map[string,string]',
         'containerID' => 'string',
         'image' => 'string',
         'imageID' => 'string',
         'lastState' => '\Rancher\Model\ContainerStateModel',
         'name' => 'string',
         'ready' => 'boolean',
+        'resources' => '\Rancher\Model\ResourceRequirementsModel',
         'restartCount' => 'int',
         'started' => 'boolean',
         'state' => '\Rancher\Model\ContainerStateModel',
@@ -84,12 +90,14 @@ class ContainerStatusModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'allocatedResources' => 'setAllocatedResources',
         'containerID' => 'setContainerID',
         'image' => 'setImage',
         'imageID' => 'setImageID',
         'lastState' => 'setLastState',
         'name' => 'setName',
         'ready' => 'setReady',
+        'resources' => 'setResources',
         'restartCount' => 'setRestartCount',
         'started' => 'setStarted',
         'state' => 'setState',
@@ -101,12 +109,14 @@ class ContainerStatusModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'allocatedResources' => 'getAllocatedResources',
         'containerID' => 'getContainerID',
         'image' => 'getImage',
         'imageID' => 'getImageID',
         'lastState' => 'getLastState',
         'name' => 'getName',
         'ready' => 'getReady',
+        'resources' => 'getResources',
         'restartCount' => 'getRestartCount',
         'started' => 'getStarted',
         'state' => 'getState',
@@ -119,16 +129,40 @@ class ContainerStatusModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['allocatedResources'] = isset($data['allocatedResources']) ? $data['allocatedResources'] : null;
         $this->container['containerID'] = isset($data['containerID']) ? $data['containerID'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['imageID'] = isset($data['imageID']) ? $data['imageID'] : null;
         $this->container['lastState'] = isset($data['lastState']) ? $data['lastState'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ready'] = isset($data['ready']) ? $data['ready'] : null;
+        $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
         $this->container['restartCount'] = isset($data['restartCount']) ? $data['restartCount'] : null;
         $this->container['started'] = isset($data['started']) ? $data['started'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
     }
+
+    /**
+     * Gets allocatedResources
+     * @return string[]
+     */
+    public function getAllocatedResources()
+    {
+        return $this->container['allocatedResources'];
+    }
+
+    /**
+     * Sets allocatedResources
+     * @param string[] $allocatedResources
+     * @return $this
+     */
+    public function setAllocatedResources($allocatedResources)
+    {
+        $this->container['allocatedResources'] = $allocatedResources;
+
+        return $this;
+    }
+
 
     /**
      * Gets containerID
@@ -257,6 +291,28 @@ class ContainerStatusModel implements ArrayAccess
     public function setReady($ready)
     {
         $this->container['ready'] = $ready;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets resources
+     * @return \Rancher\Model\ResourceRequirementsModel
+     */
+    public function getResources()
+    {
+        return $this->container['resources'];
+    }
+
+    /**
+     * Sets resources
+     * @param \Rancher\Model\ResourceRequirementsModel $resources
+     * @return $this
+     */
+    public function setResources($resources)
+    {
+        $this->container['resources'] = $resources;
 
         return $this;
     }

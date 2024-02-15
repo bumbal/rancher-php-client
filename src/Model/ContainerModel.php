@@ -33,6 +33,8 @@ class ContainerModel implements ArrayAccess
         'capDrop',
         'command',
         'entrypoint',
+        'env',
+        'envFrom',
         'environment',
         'environmentFrom',
         'exitCode',
@@ -48,6 +50,7 @@ class ContainerModel implements ArrayAccess
         'procMount',
         'readOnly',
         'readinessProbe',
+        'resizePolicy',
         'resources',
         'restartCount',
         'runAsGroup',
@@ -85,6 +88,8 @@ class ContainerModel implements ArrayAccess
         'capDrop',
         'command',
         'entrypoint',
+        'env',
+        'envFrom',
         'environment',
         'environmentFrom',
         'exitCode',
@@ -100,6 +105,7 @@ class ContainerModel implements ArrayAccess
         'procMount',
         'readOnly',
         'readinessProbe',
+        'resizePolicy',
         'resources',
         'restartCount',
         'runAsGroup',
@@ -132,6 +138,8 @@ class ContainerModel implements ArrayAccess
         'capDrop' => 'string[]',
         'command' => 'string[]',
         'entrypoint' => 'string[]',
+        'env' => '\Rancher\Model\EnvVarModel[]',
+        'envFrom' => '\Rancher\Model\EnvFromSourceModel[]',
         'environment' => 'map[string,string]',
         'environmentFrom' => '\Rancher\Model\EnvironmentFromModel[]',
         'exitCode' => 'int',
@@ -141,12 +149,13 @@ class ContainerModel implements ArrayAccess
         'livenessProbe' => '\Rancher\Model\ProbeModel',
         'name' => 'string',
         'ports' => '\Rancher\Model\ContainerPortModel[]',
-        'postStart' => '\Rancher\Model\HandlerModel',
-        'preStop' => '\Rancher\Model\HandlerModel',
+        'postStart' => '\Rancher\Model\LifecycleHandlerModel',
+        'preStop' => '\Rancher\Model\LifecycleHandlerModel',
         'privileged' => 'boolean',
         'procMount' => 'string',
         'readOnly' => 'boolean',
         'readinessProbe' => '\Rancher\Model\ProbeModel',
+        'resizePolicy' => '\Rancher\Model\ContainerResizePolicyModel[]',
         'resources' => '\Rancher\Model\ResourceRequirementsModel',
         'restartCount' => 'int',
         'runAsGroup' => 'int',
@@ -179,6 +188,8 @@ class ContainerModel implements ArrayAccess
         'capDrop' => 'setCapDrop',
         'command' => 'setCommand',
         'entrypoint' => 'setEntrypoint',
+        'env' => 'setEnv',
+        'envFrom' => 'setEnvFrom',
         'environment' => 'setEnvironment',
         'environmentFrom' => 'setEnvironmentFrom',
         'exitCode' => 'setExitCode',
@@ -194,6 +205,7 @@ class ContainerModel implements ArrayAccess
         'procMount' => 'setProcMount',
         'readOnly' => 'setReadOnly',
         'readinessProbe' => 'setReadinessProbe',
+        'resizePolicy' => 'setResizePolicy',
         'resources' => 'setResources',
         'restartCount' => 'setRestartCount',
         'runAsGroup' => 'setRunAsGroup',
@@ -226,6 +238,8 @@ class ContainerModel implements ArrayAccess
         'capDrop' => 'getCapDrop',
         'command' => 'getCommand',
         'entrypoint' => 'getEntrypoint',
+        'env' => 'getEnv',
+        'envFrom' => 'getEnvFrom',
         'environment' => 'getEnvironment',
         'environmentFrom' => 'getEnvironmentFrom',
         'exitCode' => 'getExitCode',
@@ -241,6 +255,7 @@ class ContainerModel implements ArrayAccess
         'procMount' => 'getProcMount',
         'readOnly' => 'getReadOnly',
         'readinessProbe' => 'getReadinessProbe',
+        'resizePolicy' => 'getResizePolicy',
         'resources' => 'getResources',
         'restartCount' => 'getRestartCount',
         'runAsGroup' => 'getRunAsGroup',
@@ -274,6 +289,8 @@ class ContainerModel implements ArrayAccess
         $this->container['capDrop'] = isset($data['capDrop']) ? $data['capDrop'] : null;
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
         $this->container['entrypoint'] = isset($data['entrypoint']) ? $data['entrypoint'] : null;
+        $this->container['env'] = isset($data['env']) ? $data['env'] : null;
+        $this->container['envFrom'] = isset($data['envFrom']) ? $data['envFrom'] : null;
         $this->container['environment'] = isset($data['environment']) ? $data['environment'] : null;
         $this->container['environmentFrom'] = isset($data['environmentFrom']) ? $data['environmentFrom'] : null;
         $this->container['exitCode'] = isset($data['exitCode']) ? $data['exitCode'] : null;
@@ -289,6 +306,7 @@ class ContainerModel implements ArrayAccess
         $this->container['procMount'] = isset($data['procMount']) ? $data['procMount'] : null;
         $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
         $this->container['readinessProbe'] = isset($data['readinessProbe']) ? $data['readinessProbe'] : null;
+        $this->container['resizePolicy'] = isset($data['resizePolicy']) ? $data['resizePolicy'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
         $this->container['restartCount'] = isset($data['restartCount']) ? $data['restartCount'] : null;
         $this->container['runAsGroup'] = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
@@ -415,6 +433,50 @@ class ContainerModel implements ArrayAccess
     public function setEntrypoint($entrypoint)
     {
         $this->container['entrypoint'] = $entrypoint;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets env
+     * @return \Rancher\Model\EnvVarModel[]
+     */
+    public function getEnv()
+    {
+        return $this->container['env'];
+    }
+
+    /**
+     * Sets env
+     * @param \Rancher\Model\EnvVarModel[] $env
+     * @return $this
+     */
+    public function setEnv($env)
+    {
+        $this->container['env'] = $env;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets envFrom
+     * @return \Rancher\Model\EnvFromSourceModel[]
+     */
+    public function getEnvFrom()
+    {
+        return $this->container['envFrom'];
+    }
+
+    /**
+     * Sets envFrom
+     * @param \Rancher\Model\EnvFromSourceModel[] $envFrom
+     * @return $this
+     */
+    public function setEnvFrom($envFrom)
+    {
+        $this->container['envFrom'] = $envFrom;
 
         return $this;
     }
@@ -620,7 +682,7 @@ class ContainerModel implements ArrayAccess
 
     /**
      * Gets postStart
-     * @return \Rancher\Model\HandlerModel
+     * @return \Rancher\Model\LifecycleHandlerModel
      */
     public function getPostStart()
     {
@@ -629,7 +691,7 @@ class ContainerModel implements ArrayAccess
 
     /**
      * Sets postStart
-     * @param \Rancher\Model\HandlerModel $postStart
+     * @param \Rancher\Model\LifecycleHandlerModel $postStart
      * @return $this
      */
     public function setPostStart($postStart)
@@ -642,7 +704,7 @@ class ContainerModel implements ArrayAccess
 
     /**
      * Gets preStop
-     * @return \Rancher\Model\HandlerModel
+     * @return \Rancher\Model\LifecycleHandlerModel
      */
     public function getPreStop()
     {
@@ -651,7 +713,7 @@ class ContainerModel implements ArrayAccess
 
     /**
      * Sets preStop
-     * @param \Rancher\Model\HandlerModel $preStop
+     * @param \Rancher\Model\LifecycleHandlerModel $preStop
      * @return $this
      */
     public function setPreStop($preStop)
@@ -745,6 +807,28 @@ class ContainerModel implements ArrayAccess
     public function setReadinessProbe($readinessProbe)
     {
         $this->container['readinessProbe'] = $readinessProbe;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets resizePolicy
+     * @return \Rancher\Model\ContainerResizePolicyModel[]
+     */
+    public function getResizePolicy()
+    {
+        return $this->container['resizePolicy'];
+    }
+
+    /**
+     * Sets resizePolicy
+     * @param \Rancher\Model\ContainerResizePolicyModel[] $resizePolicy
+     * @return $this
+     */
+    public function setResizePolicy($resizePolicy)
+    {
+        $this->container['resizePolicy'] = $resizePolicy;
 
         return $this;
     }

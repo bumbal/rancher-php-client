@@ -49,6 +49,7 @@ class StatefulSetStatusModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'availableReplicas' => 'int',
         'collisionCount' => 'int',
         'conditions' => '\Rancher\Model\StatefulSetConditionModel[]',
         'currentReplicas' => 'int',
@@ -66,6 +67,7 @@ class StatefulSetStatusModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'availableReplicas' => 'setAvailableReplicas',
         'collisionCount' => 'setCollisionCount',
         'conditions' => 'setConditions',
         'currentReplicas' => 'setCurrentReplicas',
@@ -83,6 +85,7 @@ class StatefulSetStatusModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'availableReplicas' => 'getAvailableReplicas',
         'collisionCount' => 'getCollisionCount',
         'conditions' => 'getConditions',
         'currentReplicas' => 'getCurrentReplicas',
@@ -101,6 +104,7 @@ class StatefulSetStatusModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['availableReplicas'] = isset($data['availableReplicas']) ? $data['availableReplicas'] : null;
         $this->container['collisionCount'] = isset($data['collisionCount']) ? $data['collisionCount'] : null;
         $this->container['conditions'] = isset($data['conditions']) ? $data['conditions'] : null;
         $this->container['currentReplicas'] = isset($data['currentReplicas']) ? $data['currentReplicas'] : null;
@@ -111,6 +115,28 @@ class StatefulSetStatusModel implements ArrayAccess
         $this->container['updateRevision'] = isset($data['updateRevision']) ? $data['updateRevision'] : null;
         $this->container['updatedReplicas'] = isset($data['updatedReplicas']) ? $data['updatedReplicas'] : null;
     }
+
+    /**
+     * Gets availableReplicas
+     * @return int
+     */
+    public function getAvailableReplicas()
+    {
+        return $this->container['availableReplicas'];
+    }
+
+    /**
+     * Sets availableReplicas
+     * @param int $availableReplicas
+     * @return $this
+     */
+    public function setAvailableReplicas($availableReplicas)
+    {
+        $this->container['availableReplicas'] = $availableReplicas;
+
+        return $this;
+    }
+
 
     /**
      * Gets collisionCount

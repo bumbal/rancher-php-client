@@ -28,13 +28,16 @@ class AzureconfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'acceleratedNetworking',
         'availabilitySet',
+        'availabilityZone',
         'clientId',
         'clientSecret',
         'customData',
         'diskSize',
         'dns',
         'dockerPort',
+        'enablePublicIpStandardSku',
         'environment',
         'faultDomainCount',
         'image',
@@ -43,6 +46,7 @@ class AzureconfigModel implements ArrayAccess
         'noPublicIp',
         'nsg',
         'openPort',
+        'plan',
         'privateIpAddress',
         'resourceGroup',
         'size',
@@ -52,6 +56,8 @@ class AzureconfigModel implements ArrayAccess
         'subnet',
         'subnetPrefix',
         'subscriptionId',
+        'tags',
+        'tenantId',
         'updateDomainCount',
         'usePrivateIp',
         'vnet',
@@ -68,13 +74,16 @@ class AzureconfigModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'acceleratedNetworking',
         'availabilitySet',
+        'availabilityZone',
         'clientId',
         'clientSecret',
         'customData',
         'diskSize',
         'dns',
         'dockerPort',
+        'enablePublicIpStandardSku',
         'environment',
         'faultDomainCount',
         'image',
@@ -83,6 +92,7 @@ class AzureconfigModel implements ArrayAccess
         'noPublicIp',
         'nsg',
         'openPort',
+        'plan',
         'privateIpAddress',
         'resourceGroup',
         'size',
@@ -92,6 +102,8 @@ class AzureconfigModel implements ArrayAccess
         'subnet',
         'subnetPrefix',
         'subscriptionId',
+        'tags',
+        'tenantId',
         'updateDomainCount',
         'usePrivateIp',
         'vnet',
@@ -103,13 +115,16 @@ class AzureconfigModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'acceleratedNetworking' => 'boolean',
         'availabilitySet' => 'string',
+        'availabilityZone' => 'string',
         'clientId' => 'string',
         'clientSecret' => '\Rancher\Model\PasswordModel',
         'customData' => 'string',
         'diskSize' => 'string',
         'dns' => 'string',
         'dockerPort' => 'string',
+        'enablePublicIpStandardSku' => 'boolean',
         'environment' => 'string',
         'faultDomainCount' => 'string',
         'image' => 'string',
@@ -118,6 +133,7 @@ class AzureconfigModel implements ArrayAccess
         'noPublicIp' => 'boolean',
         'nsg' => 'string',
         'openPort' => 'string[]',
+        'plan' => 'string',
         'privateIpAddress' => 'string',
         'resourceGroup' => 'string',
         'size' => 'string',
@@ -127,6 +143,8 @@ class AzureconfigModel implements ArrayAccess
         'subnet' => 'string',
         'subnetPrefix' => 'string',
         'subscriptionId' => 'string',
+        'tags' => 'string',
+        'tenantId' => 'string',
         'updateDomainCount' => 'string',
         'usePrivateIp' => 'boolean',
         'vnet' => 'string',
@@ -138,13 +156,16 @@ class AzureconfigModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'acceleratedNetworking' => 'setAcceleratedNetworking',
         'availabilitySet' => 'setAvailabilitySet',
+        'availabilityZone' => 'setAvailabilityZone',
         'clientId' => 'setClientId',
         'clientSecret' => 'setClientSecret',
         'customData' => 'setCustomData',
         'diskSize' => 'setDiskSize',
         'dns' => 'setDns',
         'dockerPort' => 'setDockerPort',
+        'enablePublicIpStandardSku' => 'setEnablePublicIpStandardSku',
         'environment' => 'setEnvironment',
         'faultDomainCount' => 'setFaultDomainCount',
         'image' => 'setImage',
@@ -153,6 +174,7 @@ class AzureconfigModel implements ArrayAccess
         'noPublicIp' => 'setNoPublicIp',
         'nsg' => 'setNsg',
         'openPort' => 'setOpenPort',
+        'plan' => 'setPlan',
         'privateIpAddress' => 'setPrivateIpAddress',
         'resourceGroup' => 'setResourceGroup',
         'size' => 'setSize',
@@ -162,6 +184,8 @@ class AzureconfigModel implements ArrayAccess
         'subnet' => 'setSubnet',
         'subnetPrefix' => 'setSubnetPrefix',
         'subscriptionId' => 'setSubscriptionId',
+        'tags' => 'setTags',
+        'tenantId' => 'setTenantId',
         'updateDomainCount' => 'setUpdateDomainCount',
         'usePrivateIp' => 'setUsePrivateIp',
         'vnet' => 'setVnet',
@@ -173,13 +197,16 @@ class AzureconfigModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'acceleratedNetworking' => 'getAcceleratedNetworking',
         'availabilitySet' => 'getAvailabilitySet',
+        'availabilityZone' => 'getAvailabilityZone',
         'clientId' => 'getClientId',
         'clientSecret' => 'getClientSecret',
         'customData' => 'getCustomData',
         'diskSize' => 'getDiskSize',
         'dns' => 'getDns',
         'dockerPort' => 'getDockerPort',
+        'enablePublicIpStandardSku' => 'getEnablePublicIpStandardSku',
         'environment' => 'getEnvironment',
         'faultDomainCount' => 'getFaultDomainCount',
         'image' => 'getImage',
@@ -188,6 +215,7 @@ class AzureconfigModel implements ArrayAccess
         'noPublicIp' => 'getNoPublicIp',
         'nsg' => 'getNsg',
         'openPort' => 'getOpenPort',
+        'plan' => 'getPlan',
         'privateIpAddress' => 'getPrivateIpAddress',
         'resourceGroup' => 'getResourceGroup',
         'size' => 'getSize',
@@ -197,6 +225,8 @@ class AzureconfigModel implements ArrayAccess
         'subnet' => 'getSubnet',
         'subnetPrefix' => 'getSubnetPrefix',
         'subscriptionId' => 'getSubscriptionId',
+        'tags' => 'getTags',
+        'tenantId' => 'getTenantId',
         'updateDomainCount' => 'getUpdateDomainCount',
         'usePrivateIp' => 'getUsePrivateIp',
         'vnet' => 'getVnet',
@@ -209,13 +239,16 @@ class AzureconfigModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['acceleratedNetworking'] = isset($data['acceleratedNetworking']) ? $data['acceleratedNetworking'] : null;
         $this->container['availabilitySet'] = isset($data['availabilitySet']) ? $data['availabilitySet'] : null;
+        $this->container['availabilityZone'] = isset($data['availabilityZone']) ? $data['availabilityZone'] : null;
         $this->container['clientId'] = isset($data['clientId']) ? $data['clientId'] : null;
         $this->container['clientSecret'] = isset($data['clientSecret']) ? $data['clientSecret'] : null;
         $this->container['customData'] = isset($data['customData']) ? $data['customData'] : null;
         $this->container['diskSize'] = isset($data['diskSize']) ? $data['diskSize'] : null;
         $this->container['dns'] = isset($data['dns']) ? $data['dns'] : null;
         $this->container['dockerPort'] = isset($data['dockerPort']) ? $data['dockerPort'] : null;
+        $this->container['enablePublicIpStandardSku'] = isset($data['enablePublicIpStandardSku']) ? $data['enablePublicIpStandardSku'] : null;
         $this->container['environment'] = isset($data['environment']) ? $data['environment'] : null;
         $this->container['faultDomainCount'] = isset($data['faultDomainCount']) ? $data['faultDomainCount'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
@@ -224,6 +257,7 @@ class AzureconfigModel implements ArrayAccess
         $this->container['noPublicIp'] = isset($data['noPublicIp']) ? $data['noPublicIp'] : null;
         $this->container['nsg'] = isset($data['nsg']) ? $data['nsg'] : null;
         $this->container['openPort'] = isset($data['openPort']) ? $data['openPort'] : null;
+        $this->container['plan'] = isset($data['plan']) ? $data['plan'] : null;
         $this->container['privateIpAddress'] = isset($data['privateIpAddress']) ? $data['privateIpAddress'] : null;
         $this->container['resourceGroup'] = isset($data['resourceGroup']) ? $data['resourceGroup'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
@@ -233,10 +267,34 @@ class AzureconfigModel implements ArrayAccess
         $this->container['subnet'] = isset($data['subnet']) ? $data['subnet'] : null;
         $this->container['subnetPrefix'] = isset($data['subnetPrefix']) ? $data['subnetPrefix'] : null;
         $this->container['subscriptionId'] = isset($data['subscriptionId']) ? $data['subscriptionId'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['tenantId'] = isset($data['tenantId']) ? $data['tenantId'] : null;
         $this->container['updateDomainCount'] = isset($data['updateDomainCount']) ? $data['updateDomainCount'] : null;
         $this->container['usePrivateIp'] = isset($data['usePrivateIp']) ? $data['usePrivateIp'] : null;
         $this->container['vnet'] = isset($data['vnet']) ? $data['vnet'] : null;
     }
+
+    /**
+     * Gets acceleratedNetworking
+     * @return boolean
+     */
+    public function getAcceleratedNetworking()
+    {
+        return $this->container['acceleratedNetworking'];
+    }
+
+    /**
+     * Sets acceleratedNetworking
+     * @param boolean $acceleratedNetworking
+     * @return $this
+     */
+    public function setAcceleratedNetworking($acceleratedNetworking)
+    {
+        $this->container['acceleratedNetworking'] = $acceleratedNetworking;
+
+        return $this;
+    }
+
 
     /**
      * Gets availabilitySet
@@ -255,6 +313,28 @@ class AzureconfigModel implements ArrayAccess
     public function setAvailabilitySet($availabilitySet)
     {
         $this->container['availabilitySet'] = $availabilitySet;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets availabilityZone
+     * @return string
+     */
+    public function getAvailabilityZone()
+    {
+        return $this->container['availabilityZone'];
+    }
+
+    /**
+     * Sets availabilityZone
+     * @param string $availabilityZone
+     * @return $this
+     */
+    public function setAvailabilityZone($availabilityZone)
+    {
+        $this->container['availabilityZone'] = $availabilityZone;
 
         return $this;
     }
@@ -387,6 +467,28 @@ class AzureconfigModel implements ArrayAccess
     public function setDockerPort($dockerPort)
     {
         $this->container['dockerPort'] = $dockerPort;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enablePublicIpStandardSku
+     * @return boolean
+     */
+    public function getEnablePublicIpStandardSku()
+    {
+        return $this->container['enablePublicIpStandardSku'];
+    }
+
+    /**
+     * Sets enablePublicIpStandardSku
+     * @param boolean $enablePublicIpStandardSku
+     * @return $this
+     */
+    public function setEnablePublicIpStandardSku($enablePublicIpStandardSku)
+    {
+        $this->container['enablePublicIpStandardSku'] = $enablePublicIpStandardSku;
 
         return $this;
     }
@@ -563,6 +665,28 @@ class AzureconfigModel implements ArrayAccess
     public function setOpenPort($openPort)
     {
         $this->container['openPort'] = $openPort;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets plan
+     * @return string
+     */
+    public function getPlan()
+    {
+        return $this->container['plan'];
+    }
+
+    /**
+     * Sets plan
+     * @param string $plan
+     * @return $this
+     */
+    public function setPlan($plan)
+    {
+        $this->container['plan'] = $plan;
 
         return $this;
     }
@@ -761,6 +885,50 @@ class AzureconfigModel implements ArrayAccess
     public function setSubscriptionId($subscriptionId)
     {
         $this->container['subscriptionId'] = $subscriptionId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets tags
+     * @return string
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     * @param string $tags
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets tenantId
+     * @return string
+     */
+    public function getTenantId()
+    {
+        return $this->container['tenantId'];
+    }
+
+    /**
+     * Sets tenantId
+     * @param string $tenantId
+     * @return $this
+     */
+    public function setTenantId($tenantId)
+    {
+        $this->container['tenantId'] = $tenantId;
 
         return $this;
     }

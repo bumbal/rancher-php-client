@@ -42,6 +42,11 @@ class PrometheusModel implements ArrayAccess
         'description',
         'disableCompaction',
         'enableAdminAPI',
+        'enableFeatures',
+        'enforcedBodySizeLimit',
+        'enforcedLabelLimit',
+        'enforcedLabelNameLengthLimit',
+        'enforcedLabelValueLengthLimit',
         'enforcedNamespaceLabel',
         'enforcedSampleLimit',
         'enforcedTargetLimit',
@@ -56,6 +61,7 @@ class PrometheusModel implements ArrayAccess
         'listenLocal',
         'logFormat',
         'logLevel',
+        'minReadySeconds',
         'name',
         'namespaceId',
         'nodeSelector',
@@ -127,6 +133,11 @@ class PrometheusModel implements ArrayAccess
         'description',
         'disableCompaction',
         'enableAdminAPI',
+        'enableFeatures',
+        'enforcedBodySizeLimit',
+        'enforcedLabelLimit',
+        'enforcedLabelNameLengthLimit',
+        'enforcedLabelValueLengthLimit',
         'enforcedNamespaceLabel',
         'enforcedSampleLimit',
         'enforcedTargetLimit',
@@ -141,6 +152,7 @@ class PrometheusModel implements ArrayAccess
         'listenLocal',
         'logFormat',
         'logLevel',
+        'minReadySeconds',
         'nodeSelector',
         'overrideHonorLabels',
         'overrideHonorTimestamps',
@@ -206,6 +218,11 @@ class PrometheusModel implements ArrayAccess
         'description' => 'string',
         'disableCompaction' => 'boolean',
         'enableAdminAPI' => 'boolean',
+        'enableFeatures' => 'string[]',
+        'enforcedBodySizeLimit' => 'string',
+        'enforcedLabelLimit' => 'int',
+        'enforcedLabelNameLengthLimit' => 'int',
+        'enforcedLabelValueLengthLimit' => 'int',
         'enforcedNamespaceLabel' => 'string',
         'enforcedSampleLimit' => 'int',
         'enforcedTargetLimit' => 'int',
@@ -220,6 +237,7 @@ class PrometheusModel implements ArrayAccess
         'listenLocal' => 'boolean',
         'logFormat' => 'string',
         'logLevel' => 'string',
+        'minReadySeconds' => 'int',
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeSelector' => 'map[string,string]',
@@ -294,6 +312,11 @@ class PrometheusModel implements ArrayAccess
         'description' => 'setDescription',
         'disableCompaction' => 'setDisableCompaction',
         'enableAdminAPI' => 'setEnableAdminAPI',
+        'enableFeatures' => 'setEnableFeatures',
+        'enforcedBodySizeLimit' => 'setEnforcedBodySizeLimit',
+        'enforcedLabelLimit' => 'setEnforcedLabelLimit',
+        'enforcedLabelNameLengthLimit' => 'setEnforcedLabelNameLengthLimit',
+        'enforcedLabelValueLengthLimit' => 'setEnforcedLabelValueLengthLimit',
         'enforcedNamespaceLabel' => 'setEnforcedNamespaceLabel',
         'enforcedSampleLimit' => 'setEnforcedSampleLimit',
         'enforcedTargetLimit' => 'setEnforcedTargetLimit',
@@ -308,6 +331,7 @@ class PrometheusModel implements ArrayAccess
         'listenLocal' => 'setListenLocal',
         'logFormat' => 'setLogFormat',
         'logLevel' => 'setLogLevel',
+        'minReadySeconds' => 'setMinReadySeconds',
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'nodeSelector' => 'setNodeSelector',
@@ -382,6 +406,11 @@ class PrometheusModel implements ArrayAccess
         'description' => 'getDescription',
         'disableCompaction' => 'getDisableCompaction',
         'enableAdminAPI' => 'getEnableAdminAPI',
+        'enableFeatures' => 'getEnableFeatures',
+        'enforcedBodySizeLimit' => 'getEnforcedBodySizeLimit',
+        'enforcedLabelLimit' => 'getEnforcedLabelLimit',
+        'enforcedLabelNameLengthLimit' => 'getEnforcedLabelNameLengthLimit',
+        'enforcedLabelValueLengthLimit' => 'getEnforcedLabelValueLengthLimit',
         'enforcedNamespaceLabel' => 'getEnforcedNamespaceLabel',
         'enforcedSampleLimit' => 'getEnforcedSampleLimit',
         'enforcedTargetLimit' => 'getEnforcedTargetLimit',
@@ -396,6 +425,7 @@ class PrometheusModel implements ArrayAccess
         'listenLocal' => 'getListenLocal',
         'logFormat' => 'getLogFormat',
         'logLevel' => 'getLogLevel',
+        'minReadySeconds' => 'getMinReadySeconds',
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'nodeSelector' => 'getNodeSelector',
@@ -471,6 +501,11 @@ class PrometheusModel implements ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['disableCompaction'] = isset($data['disableCompaction']) ? $data['disableCompaction'] : null;
         $this->container['enableAdminAPI'] = isset($data['enableAdminAPI']) ? $data['enableAdminAPI'] : null;
+        $this->container['enableFeatures'] = isset($data['enableFeatures']) ? $data['enableFeatures'] : null;
+        $this->container['enforcedBodySizeLimit'] = isset($data['enforcedBodySizeLimit']) ? $data['enforcedBodySizeLimit'] : null;
+        $this->container['enforcedLabelLimit'] = isset($data['enforcedLabelLimit']) ? $data['enforcedLabelLimit'] : null;
+        $this->container['enforcedLabelNameLengthLimit'] = isset($data['enforcedLabelNameLengthLimit']) ? $data['enforcedLabelNameLengthLimit'] : null;
+        $this->container['enforcedLabelValueLengthLimit'] = isset($data['enforcedLabelValueLengthLimit']) ? $data['enforcedLabelValueLengthLimit'] : null;
         $this->container['enforcedNamespaceLabel'] = isset($data['enforcedNamespaceLabel']) ? $data['enforcedNamespaceLabel'] : null;
         $this->container['enforcedSampleLimit'] = isset($data['enforcedSampleLimit']) ? $data['enforcedSampleLimit'] : null;
         $this->container['enforcedTargetLimit'] = isset($data['enforcedTargetLimit']) ? $data['enforcedTargetLimit'] : null;
@@ -485,6 +520,7 @@ class PrometheusModel implements ArrayAccess
         $this->container['listenLocal'] = isset($data['listenLocal']) ? $data['listenLocal'] : null;
         $this->container['logFormat'] = isset($data['logFormat']) ? $data['logFormat'] : null;
         $this->container['logLevel'] = isset($data['logLevel']) ? $data['logLevel'] : null;
+        $this->container['minReadySeconds'] = isset($data['minReadySeconds']) ? $data['minReadySeconds'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['nodeSelector'] = isset($data['nodeSelector']) ? $data['nodeSelector'] : null;
@@ -890,6 +926,116 @@ class PrometheusModel implements ArrayAccess
 
 
     /**
+     * Gets enableFeatures
+     * @return string[]
+     */
+    public function getEnableFeatures()
+    {
+        return $this->container['enableFeatures'];
+    }
+
+    /**
+     * Sets enableFeatures
+     * @param string[] $enableFeatures
+     * @return $this
+     */
+    public function setEnableFeatures($enableFeatures)
+    {
+        $this->container['enableFeatures'] = $enableFeatures;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedBodySizeLimit
+     * @return string
+     */
+    public function getEnforcedBodySizeLimit()
+    {
+        return $this->container['enforcedBodySizeLimit'];
+    }
+
+    /**
+     * Sets enforcedBodySizeLimit
+     * @param string $enforcedBodySizeLimit
+     * @return $this
+     */
+    public function setEnforcedBodySizeLimit($enforcedBodySizeLimit)
+    {
+        $this->container['enforcedBodySizeLimit'] = $enforcedBodySizeLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedLabelLimit
+     * @return int
+     */
+    public function getEnforcedLabelLimit()
+    {
+        return $this->container['enforcedLabelLimit'];
+    }
+
+    /**
+     * Sets enforcedLabelLimit
+     * @param int $enforcedLabelLimit
+     * @return $this
+     */
+    public function setEnforcedLabelLimit($enforcedLabelLimit)
+    {
+        $this->container['enforcedLabelLimit'] = $enforcedLabelLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedLabelNameLengthLimit
+     * @return int
+     */
+    public function getEnforcedLabelNameLengthLimit()
+    {
+        return $this->container['enforcedLabelNameLengthLimit'];
+    }
+
+    /**
+     * Sets enforcedLabelNameLengthLimit
+     * @param int $enforcedLabelNameLengthLimit
+     * @return $this
+     */
+    public function setEnforcedLabelNameLengthLimit($enforcedLabelNameLengthLimit)
+    {
+        $this->container['enforcedLabelNameLengthLimit'] = $enforcedLabelNameLengthLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedLabelValueLengthLimit
+     * @return int
+     */
+    public function getEnforcedLabelValueLengthLimit()
+    {
+        return $this->container['enforcedLabelValueLengthLimit'];
+    }
+
+    /**
+     * Sets enforcedLabelValueLengthLimit
+     * @param int $enforcedLabelValueLengthLimit
+     * @return $this
+     */
+    public function setEnforcedLabelValueLengthLimit($enforcedLabelValueLengthLimit)
+    {
+        $this->container['enforcedLabelValueLengthLimit'] = $enforcedLabelValueLengthLimit;
+
+        return $this;
+    }
+
+
+    /**
      * Gets enforcedNamespaceLabel
      * @return string
      */
@@ -1192,6 +1338,28 @@ class PrometheusModel implements ArrayAccess
     public function setLogLevel($logLevel)
     {
         $this->container['logLevel'] = $logLevel;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets minReadySeconds
+     * @return int
+     */
+    public function getMinReadySeconds()
+    {
+        return $this->container['minReadySeconds'];
+    }
+
+    /**
+     * Sets minReadySeconds
+     * @param int $minReadySeconds
+     * @return $this
+     */
+    public function setMinReadySeconds($minReadySeconds)
+    {
+        $this->container['minReadySeconds'] = $minReadySeconds;
 
         return $this;
     }

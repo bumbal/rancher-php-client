@@ -28,6 +28,7 @@ class EksStatusModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'generatedNodeRole',
         'managedLaunchTemplateID',
         'managedLaunchTemplateVersions',
         'privateRequiresTunnel',
@@ -48,6 +49,7 @@ class EksStatusModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'generatedNodeRole',
         'managedLaunchTemplateID',
         'managedLaunchTemplateVersions',
         'privateRequiresTunnel',
@@ -63,6 +65,7 @@ class EksStatusModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'generatedNodeRole' => 'string',
         'managedLaunchTemplateID' => 'string',
         'managedLaunchTemplateVersions' => 'map[string,string]',
         'privateRequiresTunnel' => 'boolean',
@@ -78,6 +81,7 @@ class EksStatusModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'generatedNodeRole' => 'setGeneratedNodeRole',
         'managedLaunchTemplateID' => 'setManagedLaunchTemplateID',
         'managedLaunchTemplateVersions' => 'setManagedLaunchTemplateVersions',
         'privateRequiresTunnel' => 'setPrivateRequiresTunnel',
@@ -93,6 +97,7 @@ class EksStatusModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'generatedNodeRole' => 'getGeneratedNodeRole',
         'managedLaunchTemplateID' => 'getManagedLaunchTemplateID',
         'managedLaunchTemplateVersions' => 'getManagedLaunchTemplateVersions',
         'privateRequiresTunnel' => 'getPrivateRequiresTunnel',
@@ -109,6 +114,7 @@ class EksStatusModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['generatedNodeRole'] = isset($data['generatedNodeRole']) ? $data['generatedNodeRole'] : null;
         $this->container['managedLaunchTemplateID'] = isset($data['managedLaunchTemplateID']) ? $data['managedLaunchTemplateID'] : null;
         $this->container['managedLaunchTemplateVersions'] = isset($data['managedLaunchTemplateVersions']) ? $data['managedLaunchTemplateVersions'] : null;
         $this->container['privateRequiresTunnel'] = isset($data['privateRequiresTunnel']) ? $data['privateRequiresTunnel'] : null;
@@ -117,6 +123,28 @@ class EksStatusModel implements ArrayAccess
         $this->container['upstreamSpec'] = isset($data['upstreamSpec']) ? $data['upstreamSpec'] : null;
         $this->container['virtualNetwork'] = isset($data['virtualNetwork']) ? $data['virtualNetwork'] : null;
     }
+
+    /**
+     * Gets generatedNodeRole
+     * @return string
+     */
+    public function getGeneratedNodeRole()
+    {
+        return $this->container['generatedNodeRole'];
+    }
+
+    /**
+     * Sets generatedNodeRole
+     * @param string $generatedNodeRole
+     * @return $this
+     */
+    public function setGeneratedNodeRole($generatedNodeRole)
+    {
+        $this->container['generatedNodeRole'] = $generatedNodeRole;
+
+        return $this;
+    }
+
 
     /**
      * Gets managedLaunchTemplateID

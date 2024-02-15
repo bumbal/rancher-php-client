@@ -82,6 +82,7 @@ class NotifierModel implements ArrayAccess
         'creatorId' => 'string',
         'description' => 'string',
         'dingtalkConfig' => '\Rancher\Model\DingtalkConfigModel',
+        'dingtalkCredentialSecret' => 'string',
         'id' => 'string',
         'labels' => 'map[string,string]',
         'msteamsConfig' => '\Rancher\Model\MsTeamsConfigModel',
@@ -93,13 +94,14 @@ class NotifierModel implements ArrayAccess
         'sendResolved' => 'boolean',
         'slackConfig' => '\Rancher\Model\SlackConfigModel',
         'smtpConfig' => '\Rancher\Model\SmtpConfigModel',
+        'smtpCredentialSecret' => 'string',
         'state' => 'string',
-        'status' => '\Rancher\Model\NotifierStatusModel',
         'transitioning' => 'string',
         'transitioningMessage' => 'string',
         'uuid' => 'string',
         'webhookConfig' => '\Rancher\Model\WebhookConfigModel',
         'wechatConfig' => '\Rancher\Model\WechatConfigModel',
+        'wechatCredentialSecret' => 'string',
     ];
 
     public static function typeMap()
@@ -114,6 +116,7 @@ class NotifierModel implements ArrayAccess
         'creatorId' => 'setCreatorId',
         'description' => 'setDescription',
         'dingtalkConfig' => 'setDingtalkConfig',
+        'dingtalkCredentialSecret' => 'setDingtalkCredentialSecret',
         'id' => 'setId',
         'labels' => 'setLabels',
         'msteamsConfig' => 'setMsteamsConfig',
@@ -125,13 +128,14 @@ class NotifierModel implements ArrayAccess
         'sendResolved' => 'setSendResolved',
         'slackConfig' => 'setSlackConfig',
         'smtpConfig' => 'setSmtpConfig',
+        'smtpCredentialSecret' => 'setSmtpCredentialSecret',
         'state' => 'setState',
-        'status' => 'setStatus',
         'transitioning' => 'setTransitioning',
         'transitioningMessage' => 'setTransitioningMessage',
         'uuid' => 'setUuid',
         'webhookConfig' => 'setWebhookConfig',
         'wechatConfig' => 'setWechatConfig',
+        'wechatCredentialSecret' => 'setWechatCredentialSecret',
     ];
 
     public static function setters()
@@ -146,6 +150,7 @@ class NotifierModel implements ArrayAccess
         'creatorId' => 'getCreatorId',
         'description' => 'getDescription',
         'dingtalkConfig' => 'getDingtalkConfig',
+        'dingtalkCredentialSecret' => 'getDingtalkCredentialSecret',
         'id' => 'getId',
         'labels' => 'getLabels',
         'msteamsConfig' => 'getMsteamsConfig',
@@ -157,13 +162,14 @@ class NotifierModel implements ArrayAccess
         'sendResolved' => 'getSendResolved',
         'slackConfig' => 'getSlackConfig',
         'smtpConfig' => 'getSmtpConfig',
+        'smtpCredentialSecret' => 'getSmtpCredentialSecret',
         'state' => 'getState',
-        'status' => 'getStatus',
         'transitioning' => 'getTransitioning',
         'transitioningMessage' => 'getTransitioningMessage',
         'uuid' => 'getUuid',
         'webhookConfig' => 'getWebhookConfig',
         'wechatConfig' => 'getWechatConfig',
+        'wechatCredentialSecret' => 'getWechatCredentialSecret',
     ];
 
     public static function getters()
@@ -179,6 +185,7 @@ class NotifierModel implements ArrayAccess
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['dingtalkConfig'] = isset($data['dingtalkConfig']) ? $data['dingtalkConfig'] : null;
+        $this->container['dingtalkCredentialSecret'] = isset($data['dingtalkCredentialSecret']) ? $data['dingtalkCredentialSecret'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['msteamsConfig'] = isset($data['msteamsConfig']) ? $data['msteamsConfig'] : null;
@@ -190,13 +197,14 @@ class NotifierModel implements ArrayAccess
         $this->container['sendResolved'] = isset($data['sendResolved']) ? $data['sendResolved'] : null;
         $this->container['slackConfig'] = isset($data['slackConfig']) ? $data['slackConfig'] : null;
         $this->container['smtpConfig'] = isset($data['smtpConfig']) ? $data['smtpConfig'] : null;
+        $this->container['smtpCredentialSecret'] = isset($data['smtpCredentialSecret']) ? $data['smtpCredentialSecret'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['transitioning'] = isset($data['transitioning']) ? $data['transitioning'] : null;
         $this->container['transitioningMessage'] = isset($data['transitioningMessage']) ? $data['transitioningMessage'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['webhookConfig'] = isset($data['webhookConfig']) ? $data['webhookConfig'] : null;
         $this->container['wechatConfig'] = isset($data['wechatConfig']) ? $data['wechatConfig'] : null;
+        $this->container['wechatCredentialSecret'] = isset($data['wechatCredentialSecret']) ? $data['wechatCredentialSecret'] : null;
     }
 
     /**
@@ -326,6 +334,28 @@ class NotifierModel implements ArrayAccess
     public function setDingtalkConfig($dingtalkConfig)
     {
         $this->container['dingtalkConfig'] = $dingtalkConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets dingtalkCredentialSecret
+     * @return string
+     */
+    public function getDingtalkCredentialSecret()
+    {
+        return $this->container['dingtalkCredentialSecret'];
+    }
+
+    /**
+     * Sets dingtalkCredentialSecret
+     * @param string $dingtalkCredentialSecret
+     * @return $this
+     */
+    public function setDingtalkCredentialSecret($dingtalkCredentialSecret)
+    {
+        $this->container['dingtalkCredentialSecret'] = $dingtalkCredentialSecret;
 
         return $this;
     }
@@ -574,6 +604,28 @@ class NotifierModel implements ArrayAccess
 
 
     /**
+     * Gets smtpCredentialSecret
+     * @return string
+     */
+    public function getSmtpCredentialSecret()
+    {
+        return $this->container['smtpCredentialSecret'];
+    }
+
+    /**
+     * Sets smtpCredentialSecret
+     * @param string $smtpCredentialSecret
+     * @return $this
+     */
+    public function setSmtpCredentialSecret($smtpCredentialSecret)
+    {
+        $this->container['smtpCredentialSecret'] = $smtpCredentialSecret;
+
+        return $this;
+    }
+
+
+    /**
      * Gets state
      * @return string
      */
@@ -590,28 +642,6 @@ class NotifierModel implements ArrayAccess
     public function setState($state)
     {
         $this->container['state'] = $state;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets status
-     * @return \Rancher\Model\NotifierStatusModel
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     * @param \Rancher\Model\NotifierStatusModel $status
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
 
         return $this;
     }
@@ -722,6 +752,28 @@ class NotifierModel implements ArrayAccess
     public function setWechatConfig($wechatConfig)
     {
         $this->container['wechatConfig'] = $wechatConfig;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets wechatCredentialSecret
+     * @return string
+     */
+    public function getWechatCredentialSecret()
+    {
+        return $this->container['wechatCredentialSecret'];
+    }
+
+    /**
+     * Sets wechatCredentialSecret
+     * @param string $wechatCredentialSecret
+     * @return $this
+     */
+    public function setWechatCredentialSecret($wechatCredentialSecret)
+    {
+        $this->container['wechatCredentialSecret'] = $wechatCredentialSecret;
 
         return $this;
     }

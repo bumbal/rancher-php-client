@@ -71,6 +71,7 @@ class LocalConfigModel implements ArrayAccess
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
+        'status' => '\Rancher\Model\AuthConfigStatusModel',
         'type' => 'string',
         'uuid' => 'string',
     ];
@@ -91,6 +92,7 @@ class LocalConfigModel implements ArrayAccess
         'name' => 'setName',
         'ownerReferences' => 'setOwnerReferences',
         'removed' => 'setRemoved',
+        'status' => 'setStatus',
         'type' => 'setType',
         'uuid' => 'setUuid',
     ];
@@ -111,6 +113,7 @@ class LocalConfigModel implements ArrayAccess
         'name' => 'getName',
         'ownerReferences' => 'getOwnerReferences',
         'removed' => 'getRemoved',
+        'status' => 'getStatus',
         'type' => 'getType',
         'uuid' => 'getUuid',
     ];
@@ -132,6 +135,7 @@ class LocalConfigModel implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
     }
@@ -351,6 +355,28 @@ class LocalConfigModel implements ArrayAccess
     public function setRemoved($removed)
     {
         $this->container['removed'] = $removed;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets status
+     * @return \Rancher\Model\AuthConfigStatusModel
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param \Rancher\Model\AuthConfigStatusModel $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

@@ -212,6 +212,118 @@ class PrometheusFilter extends AbstractFilter
 
 
     /**
+     * Gets enforcedBodySizeLimit
+     * @return string
+     */
+    public function getEnforcedBodySizeLimit()
+    {
+        return $this->container['enforcedBodySizeLimit'];
+    }
+
+    /**
+     * Sets enforcedBodySizeLimit
+     * @param string $enforcedBodySizeLimit
+     * @param string $option
+     * @return $this
+     */
+    public function setEnforcedBodySizeLimit($enforcedBodySizeLimit, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['enforcedBodySizeLimit'.$option] = $enforcedBodySizeLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedLabelLimit
+     * @return string
+     */
+    public function getEnforcedLabelLimit()
+    {
+        return $this->container['enforcedLabelLimit'];
+    }
+
+    /**
+     * Sets enforcedLabelLimit
+     * @param string $enforcedLabelLimit
+     * @param string $option
+     * @return $this
+     */
+    public function setEnforcedLabelLimit($enforcedLabelLimit, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['enforcedLabelLimit'.$option] = $enforcedLabelLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedLabelNameLengthLimit
+     * @return string
+     */
+    public function getEnforcedLabelNameLengthLimit()
+    {
+        return $this->container['enforcedLabelNameLengthLimit'];
+    }
+
+    /**
+     * Sets enforcedLabelNameLengthLimit
+     * @param string $enforcedLabelNameLengthLimit
+     * @param string $option
+     * @return $this
+     */
+    public function setEnforcedLabelNameLengthLimit($enforcedLabelNameLengthLimit, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['enforcedLabelNameLengthLimit'.$option] = $enforcedLabelNameLengthLimit;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets enforcedLabelValueLengthLimit
+     * @return string
+     */
+    public function getEnforcedLabelValueLengthLimit()
+    {
+        return $this->container['enforcedLabelValueLengthLimit'];
+    }
+
+    /**
+     * Sets enforcedLabelValueLengthLimit
+     * @param string $enforcedLabelValueLengthLimit
+     * @param string $option
+     * @return $this
+     */
+    public function setEnforcedLabelValueLengthLimit($enforcedLabelValueLengthLimit, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['enforcedLabelValueLengthLimit'.$option] = $enforcedLabelValueLengthLimit;
+
+        return $this;
+    }
+
+
+    /**
      * Gets enforcedNamespaceLabel
      * @return string
      */
@@ -486,6 +598,34 @@ class PrometheusFilter extends AbstractFilter
         }
 
         $this->container['logLevel'.$option] = $logLevel;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets minReadySeconds
+     * @return string
+     */
+    public function getMinReadySeconds()
+    {
+        return $this->container['minReadySeconds'];
+    }
+
+    /**
+     * Sets minReadySeconds
+     * @param string $minReadySeconds
+     * @param string $option
+     * @return $this
+     */
+    public function setMinReadySeconds($minReadySeconds, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['minReadySeconds'.$option] = $minReadySeconds;
 
         return $this;
     }

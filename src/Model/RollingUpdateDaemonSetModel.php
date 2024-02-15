@@ -28,6 +28,7 @@ class RollingUpdateDaemonSetModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
+        'maxSurge',
         'maxUnavailable',
     ];
 
@@ -42,6 +43,7 @@ class RollingUpdateDaemonSetModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
+        'maxSurge',
         'maxUnavailable',
     ];
 
@@ -51,6 +53,7 @@ class RollingUpdateDaemonSetModel implements ArrayAccess
     }
 
     protected static $typeMap = [
+        'maxSurge' => 'string',
         'maxUnavailable' => 'string',
     ];
 
@@ -60,6 +63,7 @@ class RollingUpdateDaemonSetModel implements ArrayAccess
     }
 
     protected static $setters = [
+        'maxSurge' => 'setMaxSurge',
         'maxUnavailable' => 'setMaxUnavailable',
     ];
 
@@ -69,6 +73,7 @@ class RollingUpdateDaemonSetModel implements ArrayAccess
     }
 
     protected static $getters = [
+        'maxSurge' => 'getMaxSurge',
         'maxUnavailable' => 'getMaxUnavailable',
     ];
 
@@ -79,8 +84,31 @@ class RollingUpdateDaemonSetModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
+        $this->container['maxSurge'] = isset($data['maxSurge']) ? $data['maxSurge'] : null;
         $this->container['maxUnavailable'] = isset($data['maxUnavailable']) ? $data['maxUnavailable'] : null;
     }
+
+    /**
+     * Gets maxSurge
+     * @return string
+     */
+    public function getMaxSurge()
+    {
+        return $this->container['maxSurge'];
+    }
+
+    /**
+     * Sets maxSurge
+     * @param string $maxSurge
+     * @return $this
+     */
+    public function setMaxSurge($maxSurge)
+    {
+        $this->container['maxSurge'] = $maxSurge;
+
+        return $this;
+    }
+
 
     /**
      * Gets maxUnavailable

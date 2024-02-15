@@ -30,6 +30,7 @@ class EksClusterConfigSpecModel implements ArrayAccess
     protected static $canBeCreated = [
         'amazonCredentialSecret',
         'displayName',
+        'ebsCSIDriver',
         'imported',
         'kmsKey',
         'kubernetesVersion',
@@ -58,6 +59,7 @@ class EksClusterConfigSpecModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'amazonCredentialSecret',
+        'ebsCSIDriver',
         'kubernetesVersion',
         'loggingTypes',
         'nodeGroups',
@@ -75,6 +77,7 @@ class EksClusterConfigSpecModel implements ArrayAccess
     protected static $typeMap = [
         'amazonCredentialSecret' => 'string',
         'displayName' => 'string',
+        'ebsCSIDriver' => 'boolean',
         'imported' => 'boolean',
         'kmsKey' => 'string',
         'kubernetesVersion' => 'string',
@@ -99,6 +102,7 @@ class EksClusterConfigSpecModel implements ArrayAccess
     protected static $setters = [
         'amazonCredentialSecret' => 'setAmazonCredentialSecret',
         'displayName' => 'setDisplayName',
+        'ebsCSIDriver' => 'setEbsCSIDriver',
         'imported' => 'setImported',
         'kmsKey' => 'setKmsKey',
         'kubernetesVersion' => 'setKubernetesVersion',
@@ -123,6 +127,7 @@ class EksClusterConfigSpecModel implements ArrayAccess
     protected static $getters = [
         'amazonCredentialSecret' => 'getAmazonCredentialSecret',
         'displayName' => 'getDisplayName',
+        'ebsCSIDriver' => 'getEbsCSIDriver',
         'imported' => 'getImported',
         'kmsKey' => 'getKmsKey',
         'kubernetesVersion' => 'getKubernetesVersion',
@@ -148,6 +153,7 @@ class EksClusterConfigSpecModel implements ArrayAccess
     {
         $this->container['amazonCredentialSecret'] = isset($data['amazonCredentialSecret']) ? $data['amazonCredentialSecret'] : null;
         $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
+        $this->container['ebsCSIDriver'] = isset($data['ebsCSIDriver']) ? $data['ebsCSIDriver'] : null;
         $this->container['imported'] = isset($data['imported']) ? $data['imported'] : null;
         $this->container['kmsKey'] = isset($data['kmsKey']) ? $data['kmsKey'] : null;
         $this->container['kubernetesVersion'] = isset($data['kubernetesVersion']) ? $data['kubernetesVersion'] : null;
@@ -203,6 +209,28 @@ class EksClusterConfigSpecModel implements ArrayAccess
     public function setDisplayName($displayName)
     {
         $this->container['displayName'] = $displayName;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ebsCSIDriver
+     * @return boolean
+     */
+    public function getEbsCSIDriver()
+    {
+        return $this->container['ebsCSIDriver'];
+    }
+
+    /**
+     * Sets ebsCSIDriver
+     * @param boolean $ebsCSIDriver
+     * @return $this
+     */
+    public function setEbsCSIDriver($ebsCSIDriver)
+    {
+        $this->container['ebsCSIDriver'] = $ebsCSIDriver;
 
         return $this;
     }

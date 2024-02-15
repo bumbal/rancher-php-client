@@ -56,6 +56,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'flannelCni',
         'ingress',
         'ingressBackend',
+        'ingressWebhook',
         'kubedns',
         'kubednsAutoscaler',
         'kubednsSidecar',
@@ -109,6 +110,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'flannelCni',
         'ingress',
         'ingressBackend',
+        'ingressWebhook',
         'kubedns',
         'kubednsAutoscaler',
         'kubednsSidecar',
@@ -157,6 +159,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'flannelCni' => 'string',
         'ingress' => 'string',
         'ingressBackend' => 'string',
+        'ingressWebhook' => 'string',
         'kubedns' => 'string',
         'kubednsAutoscaler' => 'string',
         'kubednsSidecar' => 'string',
@@ -205,6 +208,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'flannelCni' => 'setFlannelCni',
         'ingress' => 'setIngress',
         'ingressBackend' => 'setIngressBackend',
+        'ingressWebhook' => 'setIngressWebhook',
         'kubedns' => 'setKubedns',
         'kubednsAutoscaler' => 'setKubednsAutoscaler',
         'kubednsSidecar' => 'setKubednsSidecar',
@@ -253,6 +257,7 @@ class RkeSystemImagesModel implements ArrayAccess
         'flannelCni' => 'getFlannelCni',
         'ingress' => 'getIngress',
         'ingressBackend' => 'getIngressBackend',
+        'ingressWebhook' => 'getIngressWebhook',
         'kubedns' => 'getKubedns',
         'kubednsAutoscaler' => 'getKubednsAutoscaler',
         'kubednsSidecar' => 'getKubednsSidecar',
@@ -302,6 +307,7 @@ class RkeSystemImagesModel implements ArrayAccess
         $this->container['flannelCni'] = isset($data['flannelCni']) ? $data['flannelCni'] : null;
         $this->container['ingress'] = isset($data['ingress']) ? $data['ingress'] : null;
         $this->container['ingressBackend'] = isset($data['ingressBackend']) ? $data['ingressBackend'] : null;
+        $this->container['ingressWebhook'] = isset($data['ingressWebhook']) ? $data['ingressWebhook'] : null;
         $this->container['kubedns'] = isset($data['kubedns']) ? $data['kubedns'] : null;
         $this->container['kubednsAutoscaler'] = isset($data['kubednsAutoscaler']) ? $data['kubednsAutoscaler'] : null;
         $this->container['kubednsSidecar'] = isset($data['kubednsSidecar']) ? $data['kubednsSidecar'] : null;
@@ -927,6 +933,28 @@ class RkeSystemImagesModel implements ArrayAccess
     public function setIngressBackend($ingressBackend)
     {
         $this->container['ingressBackend'] = $ingressBackend;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets ingressWebhook
+     * @return string
+     */
+    public function getIngressWebhook()
+    {
+        return $this->container['ingressWebhook'];
+    }
+
+    /**
+     * Sets ingressWebhook
+     * @param string $ingressWebhook
+     * @return $this
+     */
+    public function setIngressWebhook($ingressWebhook)
+    {
+        $this->container['ingressWebhook'] = $ingressWebhook;
 
         return $this;
     }

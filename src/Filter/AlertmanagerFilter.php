@@ -408,6 +408,34 @@ class AlertmanagerFilter extends AbstractFilter
 
 
     /**
+     * Gets minReadySeconds
+     * @return string
+     */
+    public function getMinReadySeconds()
+    {
+        return $this->container['minReadySeconds'];
+    }
+
+    /**
+     * Sets minReadySeconds
+     * @param string $minReadySeconds
+     * @param string $option
+     * @return $this
+     */
+    public function setMinReadySeconds($minReadySeconds, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['minReadySeconds'.$option] = $minReadySeconds;
+
+        return $this;
+    }
+
+
+    /**
      * Gets name
      * @return string
      */

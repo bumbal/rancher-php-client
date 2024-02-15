@@ -28,7 +28,8 @@ class RecipientModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
-        'notifier',
+        'notifierId',
+        'notifierType',
         'recipient',
     ];
 
@@ -43,7 +44,8 @@ class RecipientModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
-        'notifier',
+        'notifierId',
+        'notifierType',
         'recipient',
     ];
 
@@ -53,7 +55,8 @@ class RecipientModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'notifier' => 'string',
+        'notifierId' => 'string',
+        'notifierType' => 'string',
         'recipient' => 'string',
     ];
 
@@ -63,7 +66,8 @@ class RecipientModel implements ArrayAccess
     }
 
     protected static $setters = [
-        'notifier' => 'setNotifier',
+        'notifierId' => 'setNotifierId',
+        'notifierType' => 'setNotifierType',
         'recipient' => 'setRecipient',
     ];
 
@@ -73,7 +77,8 @@ class RecipientModel implements ArrayAccess
     }
 
     protected static $getters = [
-        'notifier' => 'getNotifier',
+        'notifierId' => 'getNotifierId',
+        'notifierType' => 'getNotifierType',
         'recipient' => 'getRecipient',
     ];
 
@@ -84,27 +89,50 @@ class RecipientModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
-        $this->container['notifier'] = isset($data['notifier']) ? $data['notifier'] : null;
+        $this->container['notifierId'] = isset($data['notifierId']) ? $data['notifierId'] : null;
+        $this->container['notifierType'] = isset($data['notifierType']) ? $data['notifierType'] : null;
         $this->container['recipient'] = isset($data['recipient']) ? $data['recipient'] : null;
     }
 
     /**
-     * Gets notifier
+     * Gets notifierId
      * @return string
      */
-    public function getNotifier()
+    public function getNotifierId()
     {
-        return $this->container['notifier'];
+        return $this->container['notifierId'];
     }
 
     /**
-     * Sets notifier
-     * @param string $notifier
+     * Sets notifierId
+     * @param string $notifierId
      * @return $this
      */
-    public function setNotifier($notifier)
+    public function setNotifierId($notifierId)
     {
-        $this->container['notifier'] = $notifier;
+        $this->container['notifierId'] = $notifierId;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets notifierType
+     * @return string
+     */
+    public function getNotifierType()
+    {
+        return $this->container['notifierType'];
+    }
+
+    /**
+     * Sets notifierType
+     * @param string $notifierType
+     * @return $this
+     */
+    public function setNotifierType($notifierType)
+    {
+        $this->container['notifierType'] = $notifierType;
 
         return $this;
     }

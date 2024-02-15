@@ -28,7 +28,6 @@ class EphemeralVolumeSourceModel implements ArrayAccess
      * @var array
      */
     protected static $canBeCreated = [
-        'readOnly',
         'volumeClaimTemplate',
     ];
 
@@ -43,7 +42,6 @@ class EphemeralVolumeSourceModel implements ArrayAccess
      * @var array
      */
     protected static $canBeUpdated = [
-        'readOnly',
         'volumeClaimTemplate',
     ];
 
@@ -53,7 +51,6 @@ class EphemeralVolumeSourceModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'readOnly' => 'boolean',
         'volumeClaimTemplate' => '\Rancher\Model\PersistentVolumeClaimTemplateModel',
     ];
 
@@ -63,7 +60,6 @@ class EphemeralVolumeSourceModel implements ArrayAccess
     }
 
     protected static $setters = [
-        'readOnly' => 'setReadOnly',
         'volumeClaimTemplate' => 'setVolumeClaimTemplate',
     ];
 
@@ -73,7 +69,6 @@ class EphemeralVolumeSourceModel implements ArrayAccess
     }
 
     protected static $getters = [
-        'readOnly' => 'getReadOnly',
         'volumeClaimTemplate' => 'getVolumeClaimTemplate',
     ];
 
@@ -84,31 +79,8 @@ class EphemeralVolumeSourceModel implements ArrayAccess
 
     public function __construct(array $data = null)
     {
-        $this->container['readOnly'] = isset($data['readOnly']) ? $data['readOnly'] : null;
         $this->container['volumeClaimTemplate'] = isset($data['volumeClaimTemplate']) ? $data['volumeClaimTemplate'] : null;
     }
-
-    /**
-     * Gets readOnly
-     * @return boolean
-     */
-    public function getReadOnly()
-    {
-        return $this->container['readOnly'];
-    }
-
-    /**
-     * Sets readOnly
-     * @param boolean $readOnly
-     * @return $this
-     */
-    public function setReadOnly($readOnly)
-    {
-        $this->container['readOnly'] = $readOnly;
-
-        return $this;
-    }
-
 
     /**
      * Gets volumeClaimTemplate

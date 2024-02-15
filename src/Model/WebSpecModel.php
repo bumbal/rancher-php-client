@@ -29,6 +29,7 @@ class WebSpecModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'pageTitle',
+        'tlsConfig',
     ];
 
     public static function canBeCreated()
@@ -43,6 +44,7 @@ class WebSpecModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'pageTitle',
+        'tlsConfig',
     ];
 
     public static function canBeUpdated()
@@ -52,6 +54,7 @@ class WebSpecModel implements ArrayAccess
 
     protected static $typeMap = [
         'pageTitle' => 'string',
+        'tlsConfig' => '\Rancher\Model\WebTLSConfigModel',
     ];
 
     public static function typeMap()
@@ -61,6 +64,7 @@ class WebSpecModel implements ArrayAccess
 
     protected static $setters = [
         'pageTitle' => 'setPageTitle',
+        'tlsConfig' => 'setTlsConfig',
     ];
 
     public static function setters()
@@ -70,6 +74,7 @@ class WebSpecModel implements ArrayAccess
 
     protected static $getters = [
         'pageTitle' => 'getPageTitle',
+        'tlsConfig' => 'getTlsConfig',
     ];
 
     public static function getters()
@@ -80,6 +85,7 @@ class WebSpecModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['pageTitle'] = isset($data['pageTitle']) ? $data['pageTitle'] : null;
+        $this->container['tlsConfig'] = isset($data['tlsConfig']) ? $data['tlsConfig'] : null;
     }
 
     /**
@@ -99,6 +105,28 @@ class WebSpecModel implements ArrayAccess
     public function setPageTitle($pageTitle)
     {
         $this->container['pageTitle'] = $pageTitle;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets tlsConfig
+     * @return \Rancher\Model\WebTLSConfigModel
+     */
+    public function getTlsConfig()
+    {
+        return $this->container['tlsConfig'];
+    }
+
+    /**
+     * Sets tlsConfig
+     * @param \Rancher\Model\WebTLSConfigModel $tlsConfig
+     * @return $this
+     */
+    public function setTlsConfig($tlsConfig)
+    {
+        $this->container['tlsConfig'] = $tlsConfig;
 
         return $this;
     }

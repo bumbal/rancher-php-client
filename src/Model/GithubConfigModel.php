@@ -84,6 +84,7 @@ class GithubConfigModel implements ArrayAccess
         'name' => 'string',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
         'removed' => '\DateTime',
+        'status' => '\Rancher\Model\AuthConfigStatusModel',
         'tls' => 'boolean',
         'type' => 'string',
         'uuid' => 'string',
@@ -110,6 +111,7 @@ class GithubConfigModel implements ArrayAccess
         'name' => 'setName',
         'ownerReferences' => 'setOwnerReferences',
         'removed' => 'setRemoved',
+        'status' => 'setStatus',
         'tls' => 'setTls',
         'type' => 'setType',
         'uuid' => 'setUuid',
@@ -136,6 +138,7 @@ class GithubConfigModel implements ArrayAccess
         'name' => 'getName',
         'ownerReferences' => 'getOwnerReferences',
         'removed' => 'getRemoved',
+        'status' => 'getStatus',
         'tls' => 'getTls',
         'type' => 'getType',
         'uuid' => 'getUuid',
@@ -163,6 +166,7 @@ class GithubConfigModel implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tls'] = isset($data['tls']) ? $data['tls'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
@@ -493,6 +497,28 @@ class GithubConfigModel implements ArrayAccess
     public function setRemoved($removed)
     {
         $this->container['removed'] = $removed;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets status
+     * @return \Rancher\Model\AuthConfigStatusModel
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param \Rancher\Model\AuthConfigStatusModel $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

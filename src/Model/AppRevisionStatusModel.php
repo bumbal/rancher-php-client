@@ -50,6 +50,7 @@ class AppRevisionStatusModel implements ArrayAccess
 
     protected static $typeMap = [
         'answers' => 'map[string,string]',
+        'answersSetString' => 'map[string,string]',
         'digest' => 'string',
         'externalId' => 'string',
         'files' => 'map[string,string]',
@@ -64,6 +65,7 @@ class AppRevisionStatusModel implements ArrayAccess
 
     protected static $setters = [
         'answers' => 'setAnswers',
+        'answersSetString' => 'setAnswersSetString',
         'digest' => 'setDigest',
         'externalId' => 'setExternalId',
         'files' => 'setFiles',
@@ -78,6 +80,7 @@ class AppRevisionStatusModel implements ArrayAccess
 
     protected static $getters = [
         'answers' => 'getAnswers',
+        'answersSetString' => 'getAnswersSetString',
         'digest' => 'getDigest',
         'externalId' => 'getExternalId',
         'files' => 'getFiles',
@@ -93,6 +96,7 @@ class AppRevisionStatusModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['answers'] = isset($data['answers']) ? $data['answers'] : null;
+        $this->container['answersSetString'] = isset($data['answersSetString']) ? $data['answersSetString'] : null;
         $this->container['digest'] = isset($data['digest']) ? $data['digest'] : null;
         $this->container['externalId'] = isset($data['externalId']) ? $data['externalId'] : null;
         $this->container['files'] = isset($data['files']) ? $data['files'] : null;
@@ -117,6 +121,28 @@ class AppRevisionStatusModel implements ArrayAccess
     public function setAnswers($answers)
     {
         $this->container['answers'] = $answers;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets answersSetString
+     * @return string[]
+     */
+    public function getAnswersSetString()
+    {
+        return $this->container['answersSetString'];
+    }
+
+    /**
+     * Sets answersSetString
+     * @param string[] $answersSetString
+     * @return $this
+     */
+    public function setAnswersSetString($answersSetString)
+    {
+        $this->container['answersSetString'] = $answersSetString;
 
         return $this;
     }

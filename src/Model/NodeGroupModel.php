@@ -38,6 +38,7 @@ class NodeGroupModel implements ArrayAccess
         'launchTemplate',
         'maxSize',
         'minSize',
+        'nodeRole',
         'nodegroupName',
         'requestSpotInstances',
         'resourceTags',
@@ -69,6 +70,7 @@ class NodeGroupModel implements ArrayAccess
         'launchTemplate',
         'maxSize',
         'minSize',
+        'nodeRole',
         'nodegroupName',
         'requestSpotInstances',
         'resourceTags',
@@ -95,6 +97,7 @@ class NodeGroupModel implements ArrayAccess
         'launchTemplate' => '\Rancher\Model\LaunchTemplateModel',
         'maxSize' => 'int',
         'minSize' => 'int',
+        'nodeRole' => 'string',
         'nodegroupName' => 'string',
         'requestSpotInstances' => 'boolean',
         'resourceTags' => 'map[string,string]',
@@ -121,6 +124,7 @@ class NodeGroupModel implements ArrayAccess
         'launchTemplate' => 'setLaunchTemplate',
         'maxSize' => 'setMaxSize',
         'minSize' => 'setMinSize',
+        'nodeRole' => 'setNodeRole',
         'nodegroupName' => 'setNodegroupName',
         'requestSpotInstances' => 'setRequestSpotInstances',
         'resourceTags' => 'setResourceTags',
@@ -147,6 +151,7 @@ class NodeGroupModel implements ArrayAccess
         'launchTemplate' => 'getLaunchTemplate',
         'maxSize' => 'getMaxSize',
         'minSize' => 'getMinSize',
+        'nodeRole' => 'getNodeRole',
         'nodegroupName' => 'getNodegroupName',
         'requestSpotInstances' => 'getRequestSpotInstances',
         'resourceTags' => 'getResourceTags',
@@ -174,6 +179,7 @@ class NodeGroupModel implements ArrayAccess
         $this->container['launchTemplate'] = isset($data['launchTemplate']) ? $data['launchTemplate'] : null;
         $this->container['maxSize'] = isset($data['maxSize']) ? $data['maxSize'] : null;
         $this->container['minSize'] = isset($data['minSize']) ? $data['minSize'] : null;
+        $this->container['nodeRole'] = isset($data['nodeRole']) ? $data['nodeRole'] : null;
         $this->container['nodegroupName'] = isset($data['nodegroupName']) ? $data['nodegroupName'] : null;
         $this->container['requestSpotInstances'] = isset($data['requestSpotInstances']) ? $data['requestSpotInstances'] : null;
         $this->container['resourceTags'] = isset($data['resourceTags']) ? $data['resourceTags'] : null;
@@ -399,6 +405,28 @@ class NodeGroupModel implements ArrayAccess
     public function setMinSize($minSize)
     {
         $this->container['minSize'] = $minSize;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets nodeRole
+     * @return string
+     */
+    public function getNodeRole()
+    {
+        return $this->container['nodeRole'];
+    }
+
+    /**
+     * Sets nodeRole
+     * @param string $nodeRole
+     * @return $this
+     */
+    public function setNodeRole($nodeRole)
+    {
+        $this->container['nodeRole'] = $nodeRole;
 
         return $this;
     }

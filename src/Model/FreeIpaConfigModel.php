@@ -136,6 +136,7 @@ class FreeIpaConfigModel implements ArrayAccess
         'serviceAccountDistinguishedName' => 'string',
         'serviceAccountPassword' => '\Rancher\Model\PasswordModel',
         'starttls' => 'boolean',
+        'status' => '\Rancher\Model\AuthConfigStatusModel',
         'tls' => 'boolean',
         'type' => 'string',
         'userDisabledBitMask' => 'int',
@@ -181,6 +182,7 @@ class FreeIpaConfigModel implements ArrayAccess
         'serviceAccountDistinguishedName' => 'setServiceAccountDistinguishedName',
         'serviceAccountPassword' => 'setServiceAccountPassword',
         'starttls' => 'setStarttls',
+        'status' => 'setStatus',
         'tls' => 'setTls',
         'type' => 'setType',
         'userDisabledBitMask' => 'setUserDisabledBitMask',
@@ -226,6 +228,7 @@ class FreeIpaConfigModel implements ArrayAccess
         'serviceAccountDistinguishedName' => 'getServiceAccountDistinguishedName',
         'serviceAccountPassword' => 'getServiceAccountPassword',
         'starttls' => 'getStarttls',
+        'status' => 'getStatus',
         'tls' => 'getTls',
         'type' => 'getType',
         'userDisabledBitMask' => 'getUserDisabledBitMask',
@@ -272,6 +275,7 @@ class FreeIpaConfigModel implements ArrayAccess
         $this->container['serviceAccountDistinguishedName'] = isset($data['serviceAccountDistinguishedName']) ? $data['serviceAccountDistinguishedName'] : null;
         $this->container['serviceAccountPassword'] = isset($data['serviceAccountPassword']) ? $data['serviceAccountPassword'] : null;
         $this->container['starttls'] = isset($data['starttls']) ? $data['starttls'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['tls'] = isset($data['tls']) ? $data['tls'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['userDisabledBitMask'] = isset($data['userDisabledBitMask']) ? $data['userDisabledBitMask'] : null;
@@ -831,6 +835,28 @@ class FreeIpaConfigModel implements ArrayAccess
     public function setStarttls($starttls)
     {
         $this->container['starttls'] = $starttls;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets status
+     * @return \Rancher\Model\AuthConfigStatusModel
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param \Rancher\Model\AuthConfigStatusModel $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

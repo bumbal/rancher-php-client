@@ -29,6 +29,7 @@ class AlertmanagerEndpointsModel implements ArrayAccess
      */
     protected static $canBeCreated = [
         'apiVersion',
+        'authorization',
         'bearerTokenFile',
         'name',
         'namespace',
@@ -51,6 +52,7 @@ class AlertmanagerEndpointsModel implements ArrayAccess
      */
     protected static $canBeUpdated = [
         'apiVersion',
+        'authorization',
         'bearerTokenFile',
         'name',
         'namespace',
@@ -68,6 +70,7 @@ class AlertmanagerEndpointsModel implements ArrayAccess
 
     protected static $typeMap = [
         'apiVersion' => 'string',
+        'authorization' => '\Rancher\Model\SafeAuthorizationModel',
         'bearerTokenFile' => 'string',
         'name' => 'string',
         'namespace' => 'string',
@@ -85,6 +88,7 @@ class AlertmanagerEndpointsModel implements ArrayAccess
 
     protected static $setters = [
         'apiVersion' => 'setApiVersion',
+        'authorization' => 'setAuthorization',
         'bearerTokenFile' => 'setBearerTokenFile',
         'name' => 'setName',
         'namespace' => 'setNamespace',
@@ -102,6 +106,7 @@ class AlertmanagerEndpointsModel implements ArrayAccess
 
     protected static $getters = [
         'apiVersion' => 'getApiVersion',
+        'authorization' => 'getAuthorization',
         'bearerTokenFile' => 'getBearerTokenFile',
         'name' => 'getName',
         'namespace' => 'getNamespace',
@@ -120,6 +125,7 @@ class AlertmanagerEndpointsModel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['apiVersion'] = isset($data['apiVersion']) ? $data['apiVersion'] : null;
+        $this->container['authorization'] = isset($data['authorization']) ? $data['authorization'] : null;
         $this->container['bearerTokenFile'] = isset($data['bearerTokenFile']) ? $data['bearerTokenFile'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespace'] = isset($data['namespace']) ? $data['namespace'] : null;
@@ -147,6 +153,28 @@ class AlertmanagerEndpointsModel implements ArrayAccess
     public function setApiVersion($apiVersion)
     {
         $this->container['apiVersion'] = $apiVersion;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets authorization
+     * @return \Rancher\Model\SafeAuthorizationModel
+     */
+    public function getAuthorization()
+    {
+        return $this->container['authorization'];
+    }
+
+    /**
+     * Sets authorization
+     * @param \Rancher\Model\SafeAuthorizationModel $authorization
+     * @return $this
+     */
+    public function setAuthorization($authorization)
+    {
+        $this->container['authorization'] = $authorization;
 
         return $this;
     }

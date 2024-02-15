@@ -63,6 +63,8 @@ class ClusterRegistrationTokenModel implements ArrayAccess
         'created' => '\DateTime',
         'creatorId' => 'string',
         'insecureCommand' => 'string',
+        'insecureNodeCommand' => 'string',
+        'insecureWindowsNodeCommand' => 'string',
         'labels' => 'map[string,string]',
         'manifestUrl' => 'string',
         'name' => 'string',
@@ -90,6 +92,8 @@ class ClusterRegistrationTokenModel implements ArrayAccess
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
         'insecureCommand' => 'setInsecureCommand',
+        'insecureNodeCommand' => 'setInsecureNodeCommand',
+        'insecureWindowsNodeCommand' => 'setInsecureWindowsNodeCommand',
         'labels' => 'setLabels',
         'manifestUrl' => 'setManifestUrl',
         'name' => 'setName',
@@ -117,6 +121,8 @@ class ClusterRegistrationTokenModel implements ArrayAccess
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
         'insecureCommand' => 'getInsecureCommand',
+        'insecureNodeCommand' => 'getInsecureNodeCommand',
+        'insecureWindowsNodeCommand' => 'getInsecureWindowsNodeCommand',
         'labels' => 'getLabels',
         'manifestUrl' => 'getManifestUrl',
         'name' => 'getName',
@@ -145,6 +151,8 @@ class ClusterRegistrationTokenModel implements ArrayAccess
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['insecureCommand'] = isset($data['insecureCommand']) ? $data['insecureCommand'] : null;
+        $this->container['insecureNodeCommand'] = isset($data['insecureNodeCommand']) ? $data['insecureNodeCommand'] : null;
+        $this->container['insecureWindowsNodeCommand'] = isset($data['insecureWindowsNodeCommand']) ? $data['insecureWindowsNodeCommand'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['manifestUrl'] = isset($data['manifestUrl']) ? $data['manifestUrl'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -287,6 +295,50 @@ class ClusterRegistrationTokenModel implements ArrayAccess
     public function setInsecureCommand($insecureCommand)
     {
         $this->container['insecureCommand'] = $insecureCommand;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets insecureNodeCommand
+     * @return string
+     */
+    public function getInsecureNodeCommand()
+    {
+        return $this->container['insecureNodeCommand'];
+    }
+
+    /**
+     * Sets insecureNodeCommand
+     * @param string $insecureNodeCommand
+     * @return $this
+     */
+    public function setInsecureNodeCommand($insecureNodeCommand)
+    {
+        $this->container['insecureNodeCommand'] = $insecureNodeCommand;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets insecureWindowsNodeCommand
+     * @return string
+     */
+    public function getInsecureWindowsNodeCommand()
+    {
+        return $this->container['insecureWindowsNodeCommand'];
+    }
+
+    /**
+     * Sets insecureWindowsNodeCommand
+     * @param string $insecureWindowsNodeCommand
+     * @return $this
+     */
+    public function setInsecureWindowsNodeCommand($insecureWindowsNodeCommand)
+    {
+        $this->container['insecureWindowsNodeCommand'] = $insecureWindowsNodeCommand;
 
         return $this;
     }

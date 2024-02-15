@@ -72,6 +72,34 @@ class JobFilter extends AbstractFilter
 
 
     /**
+     * Gets completionMode
+     * @return string
+     */
+    public function getCompletionMode()
+    {
+        return $this->container['completionMode'];
+    }
+
+    /**
+     * Sets completionMode
+     * @param string $completionMode
+     * @param string $option
+     * @return $this
+     */
+    public function setCompletionMode($completionMode, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['completionMode'.$option] = $completionMode;
+
+        return $this;
+    }
+
+
+    /**
      * Gets created
      * @return string
      */
@@ -318,6 +346,34 @@ class JobFilter extends AbstractFilter
         }
 
         $this->container['hostPID'.$option] = $hostPID;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets hostUsers
+     * @return string
+     */
+    public function getHostUsers()
+    {
+        return $this->container['hostUsers'];
+    }
+
+    /**
+     * Sets hostUsers
+     * @param string $hostUsers
+     * @param string $option
+     * @return $this
+     */
+    public function setHostUsers($hostUsers, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['hostUsers'.$option] = $hostUsers;
 
         return $this;
     }
@@ -766,6 +822,34 @@ class JobFilter extends AbstractFilter
         }
 
         $this->container['subdomain'.$option] = $subdomain;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets suspend
+     * @return string
+     */
+    public function getSuspend()
+    {
+        return $this->container['suspend'];
+    }
+
+    /**
+     * Sets suspend
+     * @param string $suspend
+     * @param string $option
+     * @return $this
+     */
+    public function setSuspend($suspend, $option = '')
+    {
+        if(!empty($option) && in_array($option, $this->allowedOptions))
+        {
+            $option = '_'.$option;
+        }
+
+        $this->container['suspend'.$option] = $suspend;
 
         return $this;
     }

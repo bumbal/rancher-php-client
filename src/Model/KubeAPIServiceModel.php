@@ -33,14 +33,17 @@ class KubeAPIServiceModel implements ArrayAccess
         'auditLog',
         'eventRateLimit',
         'extraArgs',
+        'extraArgsArray',
         'extraBinds',
         'extraEnv',
         'image',
+        'podSecurityConfiguration',
         'podSecurityPolicy',
         'secretsEncryptionConfig',
         'serviceClusterIpRange',
         'serviceNodePortRange',
         'winExtraArgs',
+        'winExtraArgsArray',
         'winExtraBinds',
         'winExtraEnv',
     ];
@@ -61,14 +64,17 @@ class KubeAPIServiceModel implements ArrayAccess
         'auditLog',
         'eventRateLimit',
         'extraArgs',
+        'extraArgsArray',
         'extraBinds',
         'extraEnv',
         'image',
+        'podSecurityConfiguration',
         'podSecurityPolicy',
         'secretsEncryptionConfig',
         'serviceClusterIpRange',
         'serviceNodePortRange',
         'winExtraArgs',
+        'winExtraArgsArray',
         'winExtraBinds',
         'winExtraEnv',
     ];
@@ -84,14 +90,17 @@ class KubeAPIServiceModel implements ArrayAccess
         'auditLog' => '\Rancher\Model\AuditLogModel',
         'eventRateLimit' => '\Rancher\Model\EventRateLimitModel',
         'extraArgs' => 'map[string,string]',
+        'extraArgsArray' => 'map[string,\Rancher\Model\Array[string]Model]',
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
         'image' => 'string',
+        'podSecurityConfiguration' => 'string',
         'podSecurityPolicy' => 'boolean',
         'secretsEncryptionConfig' => '\Rancher\Model\SecretsEncryptionConfigModel',
         'serviceClusterIpRange' => 'string',
         'serviceNodePortRange' => 'string',
         'winExtraArgs' => 'map[string,string]',
+        'winExtraArgsArray' => 'map[string,\Rancher\Model\Array[string]Model]',
         'winExtraBinds' => 'string[]',
         'winExtraEnv' => 'string[]',
     ];
@@ -107,14 +116,17 @@ class KubeAPIServiceModel implements ArrayAccess
         'auditLog' => 'setAuditLog',
         'eventRateLimit' => 'setEventRateLimit',
         'extraArgs' => 'setExtraArgs',
+        'extraArgsArray' => 'setExtraArgsArray',
         'extraBinds' => 'setExtraBinds',
         'extraEnv' => 'setExtraEnv',
         'image' => 'setImage',
+        'podSecurityConfiguration' => 'setPodSecurityConfiguration',
         'podSecurityPolicy' => 'setPodSecurityPolicy',
         'secretsEncryptionConfig' => 'setSecretsEncryptionConfig',
         'serviceClusterIpRange' => 'setServiceClusterIpRange',
         'serviceNodePortRange' => 'setServiceNodePortRange',
         'winExtraArgs' => 'setWinExtraArgs',
+        'winExtraArgsArray' => 'setWinExtraArgsArray',
         'winExtraBinds' => 'setWinExtraBinds',
         'winExtraEnv' => 'setWinExtraEnv',
     ];
@@ -130,14 +142,17 @@ class KubeAPIServiceModel implements ArrayAccess
         'auditLog' => 'getAuditLog',
         'eventRateLimit' => 'getEventRateLimit',
         'extraArgs' => 'getExtraArgs',
+        'extraArgsArray' => 'getExtraArgsArray',
         'extraBinds' => 'getExtraBinds',
         'extraEnv' => 'getExtraEnv',
         'image' => 'getImage',
+        'podSecurityConfiguration' => 'getPodSecurityConfiguration',
         'podSecurityPolicy' => 'getPodSecurityPolicy',
         'secretsEncryptionConfig' => 'getSecretsEncryptionConfig',
         'serviceClusterIpRange' => 'getServiceClusterIpRange',
         'serviceNodePortRange' => 'getServiceNodePortRange',
         'winExtraArgs' => 'getWinExtraArgs',
+        'winExtraArgsArray' => 'getWinExtraArgsArray',
         'winExtraBinds' => 'getWinExtraBinds',
         'winExtraEnv' => 'getWinExtraEnv',
     ];
@@ -154,14 +169,17 @@ class KubeAPIServiceModel implements ArrayAccess
         $this->container['auditLog'] = isset($data['auditLog']) ? $data['auditLog'] : null;
         $this->container['eventRateLimit'] = isset($data['eventRateLimit']) ? $data['eventRateLimit'] : null;
         $this->container['extraArgs'] = isset($data['extraArgs']) ? $data['extraArgs'] : null;
+        $this->container['extraArgsArray'] = isset($data['extraArgsArray']) ? $data['extraArgsArray'] : null;
         $this->container['extraBinds'] = isset($data['extraBinds']) ? $data['extraBinds'] : null;
         $this->container['extraEnv'] = isset($data['extraEnv']) ? $data['extraEnv'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['podSecurityConfiguration'] = isset($data['podSecurityConfiguration']) ? $data['podSecurityConfiguration'] : null;
         $this->container['podSecurityPolicy'] = isset($data['podSecurityPolicy']) ? $data['podSecurityPolicy'] : null;
         $this->container['secretsEncryptionConfig'] = isset($data['secretsEncryptionConfig']) ? $data['secretsEncryptionConfig'] : null;
         $this->container['serviceClusterIpRange'] = isset($data['serviceClusterIpRange']) ? $data['serviceClusterIpRange'] : null;
         $this->container['serviceNodePortRange'] = isset($data['serviceNodePortRange']) ? $data['serviceNodePortRange'] : null;
         $this->container['winExtraArgs'] = isset($data['winExtraArgs']) ? $data['winExtraArgs'] : null;
+        $this->container['winExtraArgsArray'] = isset($data['winExtraArgsArray']) ? $data['winExtraArgsArray'] : null;
         $this->container['winExtraBinds'] = isset($data['winExtraBinds']) ? $data['winExtraBinds'] : null;
         $this->container['winExtraEnv'] = isset($data['winExtraEnv']) ? $data['winExtraEnv'] : null;
     }
@@ -277,6 +295,28 @@ class KubeAPIServiceModel implements ArrayAccess
 
 
     /**
+     * Gets extraArgsArray
+     * @return \Rancher\Model\Array[string]Model[]
+     */
+    public function getExtraArgsArray()
+    {
+        return $this->container['extraArgsArray'];
+    }
+
+    /**
+     * Sets extraArgsArray
+     * @param \Rancher\Model\Array[string]Model[] $extraArgsArray
+     * @return $this
+     */
+    public function setExtraArgsArray($extraArgsArray)
+    {
+        $this->container['extraArgsArray'] = $extraArgsArray;
+
+        return $this;
+    }
+
+
+    /**
      * Gets extraBinds
      * @return string[]
      */
@@ -337,6 +377,28 @@ class KubeAPIServiceModel implements ArrayAccess
     public function setImage($image)
     {
         $this->container['image'] = $image;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets podSecurityConfiguration
+     * @return string
+     */
+    public function getPodSecurityConfiguration()
+    {
+        return $this->container['podSecurityConfiguration'];
+    }
+
+    /**
+     * Sets podSecurityConfiguration
+     * @param string $podSecurityConfiguration
+     * @return $this
+     */
+    public function setPodSecurityConfiguration($podSecurityConfiguration)
+    {
+        $this->container['podSecurityConfiguration'] = $podSecurityConfiguration;
 
         return $this;
     }
@@ -447,6 +509,28 @@ class KubeAPIServiceModel implements ArrayAccess
     public function setWinExtraArgs($winExtraArgs)
     {
         $this->container['winExtraArgs'] = $winExtraArgs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winExtraArgsArray
+     * @return \Rancher\Model\Array[string]Model[]
+     */
+    public function getWinExtraArgsArray()
+    {
+        return $this->container['winExtraArgsArray'];
+    }
+
+    /**
+     * Sets winExtraArgsArray
+     * @param \Rancher\Model\Array[string]Model[] $winExtraArgsArray
+     * @return $this
+     */
+    public function setWinExtraArgsArray($winExtraArgsArray)
+    {
+        $this->container['winExtraArgsArray'] = $winExtraArgsArray;
 
         return $this;
     }

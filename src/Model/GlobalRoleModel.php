@@ -30,6 +30,7 @@ class GlobalRoleModel implements ArrayAccess
     protected static $canBeCreated = [
         'annotations',
         'description',
+        'inheritedClusterRoles',
         'labels',
         'name',
         'newUserDefault',
@@ -49,6 +50,7 @@ class GlobalRoleModel implements ArrayAccess
     protected static $canBeUpdated = [
         'annotations',
         'description',
+        'inheritedClusterRoles',
         'labels',
         'name',
         'newUserDefault',
@@ -67,6 +69,7 @@ class GlobalRoleModel implements ArrayAccess
         'creatorId' => 'string',
         'description' => 'string',
         'id' => 'string',
+        'inheritedClusterRoles' => 'string[]',
         'labels' => 'map[string,string]',
         'name' => 'string',
         'newUserDefault' => 'boolean',
@@ -88,6 +91,7 @@ class GlobalRoleModel implements ArrayAccess
         'creatorId' => 'setCreatorId',
         'description' => 'setDescription',
         'id' => 'setId',
+        'inheritedClusterRoles' => 'setInheritedClusterRoles',
         'labels' => 'setLabels',
         'name' => 'setName',
         'newUserDefault' => 'setNewUserDefault',
@@ -109,6 +113,7 @@ class GlobalRoleModel implements ArrayAccess
         'creatorId' => 'getCreatorId',
         'description' => 'getDescription',
         'id' => 'getId',
+        'inheritedClusterRoles' => 'getInheritedClusterRoles',
         'labels' => 'getLabels',
         'name' => 'getName',
         'newUserDefault' => 'getNewUserDefault',
@@ -131,6 +136,7 @@ class GlobalRoleModel implements ArrayAccess
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['inheritedClusterRoles'] = isset($data['inheritedClusterRoles']) ? $data['inheritedClusterRoles'] : null;
         $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['newUserDefault'] = isset($data['newUserDefault']) ? $data['newUserDefault'] : null;
@@ -267,6 +273,28 @@ class GlobalRoleModel implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets inheritedClusterRoles
+     * @return string[]
+     */
+    public function getInheritedClusterRoles()
+    {
+        return $this->container['inheritedClusterRoles'];
+    }
+
+    /**
+     * Sets inheritedClusterRoles
+     * @param string[] $inheritedClusterRoles
+     * @return $this
+     */
+    public function setInheritedClusterRoles($inheritedClusterRoles)
+    {
+        $this->container['inheritedClusterRoles'] = $inheritedClusterRoles;
 
         return $this;
     }

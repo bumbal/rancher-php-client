@@ -31,6 +31,7 @@ class JobModel implements ArrayAccess
         'activeDeadlineSeconds',
         'annotations',
         'automountServiceAccountToken',
+        'completionMode',
         'containers',
         'dnsConfig',
         'dnsPolicy',
@@ -43,6 +44,7 @@ class JobModel implements ArrayAccess
         'hostIPC',
         'hostNetwork',
         'hostPID',
+        'hostUsers',
         'hostname',
         'imagePullSecrets',
         'jobConfig',
@@ -50,21 +52,26 @@ class JobModel implements ArrayAccess
         'name',
         'namespaceId',
         'nodeId',
+        'os',
         'overhead',
+        'podFailurePolicy',
         'preemptionPolicy',
         'projectId',
         'readinessGates',
+        'resourceClaims',
         'restartPolicy',
         'runAsGroup',
         'runAsNonRoot',
         'runtimeClassName',
         'scheduling',
+        'schedulingGates',
         'seccompProfile',
         'selector',
         'serviceAccountName',
         'setHostnameAsFQDN',
         'shareProcessNamespace',
         'subdomain',
+        'suspend',
         'sysctls',
         'terminationGracePeriodSeconds',
         'topologySpreadConstraints',
@@ -91,6 +98,7 @@ class JobModel implements ArrayAccess
         'activeDeadlineSeconds',
         'annotations',
         'automountServiceAccountToken',
+        'completionMode',
         'containers',
         'dnsConfig',
         'dnsPolicy',
@@ -103,25 +111,31 @@ class JobModel implements ArrayAccess
         'hostIPC',
         'hostNetwork',
         'hostPID',
+        'hostUsers',
         'hostname',
         'imagePullSecrets',
         'jobConfig',
         'labels',
         'nodeId',
+        'os',
         'overhead',
+        'podFailurePolicy',
         'preemptionPolicy',
         'readinessGates',
+        'resourceClaims',
         'restartPolicy',
         'runAsGroup',
         'runAsNonRoot',
         'runtimeClassName',
         'scheduling',
+        'schedulingGates',
         'seccompProfile',
         'selector',
         'serviceAccountName',
         'setHostnameAsFQDN',
         'shareProcessNamespace',
         'subdomain',
+        'suspend',
         'sysctls',
         'terminationGracePeriodSeconds',
         'topologySpreadConstraints',
@@ -143,6 +157,7 @@ class JobModel implements ArrayAccess
         'activeDeadlineSeconds' => 'int',
         'annotations' => 'map[string,string]',
         'automountServiceAccountToken' => 'boolean',
+        'completionMode' => 'string',
         'containers' => '\Rancher\Model\ContainerModel[]',
         'created' => '\DateTime',
         'creatorId' => 'string',
@@ -157,6 +172,7 @@ class JobModel implements ArrayAccess
         'hostIPC' => 'boolean',
         'hostNetwork' => 'boolean',
         'hostPID' => 'boolean',
+        'hostUsers' => 'boolean',
         'hostname' => 'string',
         'imagePullSecrets' => '\Rancher\Model\LocalObjectReferenceModel[]',
         'jobConfig' => '\Rancher\Model\JobConfigModel',
@@ -165,18 +181,22 @@ class JobModel implements ArrayAccess
         'name' => 'string',
         'namespaceId' => 'string',
         'nodeId' => 'string',
+        'os' => '\Rancher\Model\PodOSModel',
         'overhead' => 'map[string,string]',
         'ownerReferences' => '\Rancher\Model\OwnerReferenceModel[]',
+        'podFailurePolicy' => '\Rancher\Model\PodFailurePolicyModel',
         'preemptionPolicy' => 'string',
         'projectId' => 'string',
         'publicEndpoints' => '\Rancher\Model\PublicEndpointModel[]',
         'readinessGates' => '\Rancher\Model\PodReadinessGateModel[]',
         'removed' => '\DateTime',
+        'resourceClaims' => '\Rancher\Model\PodResourceClaimModel[]',
         'restartPolicy' => 'string',
         'runAsGroup' => 'int',
         'runAsNonRoot' => 'boolean',
         'runtimeClassName' => 'string',
         'scheduling' => '\Rancher\Model\SchedulingModel',
+        'schedulingGates' => '\Rancher\Model\PodSchedulingGateModel[]',
         'seccompProfile' => '\Rancher\Model\SeccompProfileModel',
         'selector' => '\Rancher\Model\LabelSelectorModel',
         'serviceAccountName' => 'string',
@@ -184,6 +204,7 @@ class JobModel implements ArrayAccess
         'shareProcessNamespace' => 'boolean',
         'state' => 'string',
         'subdomain' => 'string',
+        'suspend' => 'boolean',
         'sysctls' => '\Rancher\Model\SysctlModel[]',
         'terminationGracePeriodSeconds' => 'int',
         'topologySpreadConstraints' => '\Rancher\Model\TopologySpreadConstraintModel[]',
@@ -208,6 +229,7 @@ class JobModel implements ArrayAccess
         'activeDeadlineSeconds' => 'setActiveDeadlineSeconds',
         'annotations' => 'setAnnotations',
         'automountServiceAccountToken' => 'setAutomountServiceAccountToken',
+        'completionMode' => 'setCompletionMode',
         'containers' => 'setContainers',
         'created' => 'setCreated',
         'creatorId' => 'setCreatorId',
@@ -222,6 +244,7 @@ class JobModel implements ArrayAccess
         'hostIPC' => 'setHostIPC',
         'hostNetwork' => 'setHostNetwork',
         'hostPID' => 'setHostPID',
+        'hostUsers' => 'setHostUsers',
         'hostname' => 'setHostname',
         'imagePullSecrets' => 'setImagePullSecrets',
         'jobConfig' => 'setJobConfig',
@@ -230,18 +253,22 @@ class JobModel implements ArrayAccess
         'name' => 'setName',
         'namespaceId' => 'setNamespaceId',
         'nodeId' => 'setNodeId',
+        'os' => 'setOs',
         'overhead' => 'setOverhead',
         'ownerReferences' => 'setOwnerReferences',
+        'podFailurePolicy' => 'setPodFailurePolicy',
         'preemptionPolicy' => 'setPreemptionPolicy',
         'projectId' => 'setProjectId',
         'publicEndpoints' => 'setPublicEndpoints',
         'readinessGates' => 'setReadinessGates',
         'removed' => 'setRemoved',
+        'resourceClaims' => 'setResourceClaims',
         'restartPolicy' => 'setRestartPolicy',
         'runAsGroup' => 'setRunAsGroup',
         'runAsNonRoot' => 'setRunAsNonRoot',
         'runtimeClassName' => 'setRuntimeClassName',
         'scheduling' => 'setScheduling',
+        'schedulingGates' => 'setSchedulingGates',
         'seccompProfile' => 'setSeccompProfile',
         'selector' => 'setSelector',
         'serviceAccountName' => 'setServiceAccountName',
@@ -249,6 +276,7 @@ class JobModel implements ArrayAccess
         'shareProcessNamespace' => 'setShareProcessNamespace',
         'state' => 'setState',
         'subdomain' => 'setSubdomain',
+        'suspend' => 'setSuspend',
         'sysctls' => 'setSysctls',
         'terminationGracePeriodSeconds' => 'setTerminationGracePeriodSeconds',
         'topologySpreadConstraints' => 'setTopologySpreadConstraints',
@@ -273,6 +301,7 @@ class JobModel implements ArrayAccess
         'activeDeadlineSeconds' => 'getActiveDeadlineSeconds',
         'annotations' => 'getAnnotations',
         'automountServiceAccountToken' => 'getAutomountServiceAccountToken',
+        'completionMode' => 'getCompletionMode',
         'containers' => 'getContainers',
         'created' => 'getCreated',
         'creatorId' => 'getCreatorId',
@@ -287,6 +316,7 @@ class JobModel implements ArrayAccess
         'hostIPC' => 'getHostIPC',
         'hostNetwork' => 'getHostNetwork',
         'hostPID' => 'getHostPID',
+        'hostUsers' => 'getHostUsers',
         'hostname' => 'getHostname',
         'imagePullSecrets' => 'getImagePullSecrets',
         'jobConfig' => 'getJobConfig',
@@ -295,18 +325,22 @@ class JobModel implements ArrayAccess
         'name' => 'getName',
         'namespaceId' => 'getNamespaceId',
         'nodeId' => 'getNodeId',
+        'os' => 'getOs',
         'overhead' => 'getOverhead',
         'ownerReferences' => 'getOwnerReferences',
+        'podFailurePolicy' => 'getPodFailurePolicy',
         'preemptionPolicy' => 'getPreemptionPolicy',
         'projectId' => 'getProjectId',
         'publicEndpoints' => 'getPublicEndpoints',
         'readinessGates' => 'getReadinessGates',
         'removed' => 'getRemoved',
+        'resourceClaims' => 'getResourceClaims',
         'restartPolicy' => 'getRestartPolicy',
         'runAsGroup' => 'getRunAsGroup',
         'runAsNonRoot' => 'getRunAsNonRoot',
         'runtimeClassName' => 'getRuntimeClassName',
         'scheduling' => 'getScheduling',
+        'schedulingGates' => 'getSchedulingGates',
         'seccompProfile' => 'getSeccompProfile',
         'selector' => 'getSelector',
         'serviceAccountName' => 'getServiceAccountName',
@@ -314,6 +348,7 @@ class JobModel implements ArrayAccess
         'shareProcessNamespace' => 'getShareProcessNamespace',
         'state' => 'getState',
         'subdomain' => 'getSubdomain',
+        'suspend' => 'getSuspend',
         'sysctls' => 'getSysctls',
         'terminationGracePeriodSeconds' => 'getTerminationGracePeriodSeconds',
         'topologySpreadConstraints' => 'getTopologySpreadConstraints',
@@ -339,6 +374,7 @@ class JobModel implements ArrayAccess
         $this->container['activeDeadlineSeconds'] = isset($data['activeDeadlineSeconds']) ? $data['activeDeadlineSeconds'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['automountServiceAccountToken'] = isset($data['automountServiceAccountToken']) ? $data['automountServiceAccountToken'] : null;
+        $this->container['completionMode'] = isset($data['completionMode']) ? $data['completionMode'] : null;
         $this->container['containers'] = isset($data['containers']) ? $data['containers'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['creatorId'] = isset($data['creatorId']) ? $data['creatorId'] : null;
@@ -353,6 +389,7 @@ class JobModel implements ArrayAccess
         $this->container['hostIPC'] = isset($data['hostIPC']) ? $data['hostIPC'] : null;
         $this->container['hostNetwork'] = isset($data['hostNetwork']) ? $data['hostNetwork'] : null;
         $this->container['hostPID'] = isset($data['hostPID']) ? $data['hostPID'] : null;
+        $this->container['hostUsers'] = isset($data['hostUsers']) ? $data['hostUsers'] : null;
         $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
         $this->container['imagePullSecrets'] = isset($data['imagePullSecrets']) ? $data['imagePullSecrets'] : null;
         $this->container['jobConfig'] = isset($data['jobConfig']) ? $data['jobConfig'] : null;
@@ -361,18 +398,22 @@ class JobModel implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['namespaceId'] = isset($data['namespaceId']) ? $data['namespaceId'] : null;
         $this->container['nodeId'] = isset($data['nodeId']) ? $data['nodeId'] : null;
+        $this->container['os'] = isset($data['os']) ? $data['os'] : null;
         $this->container['overhead'] = isset($data['overhead']) ? $data['overhead'] : null;
         $this->container['ownerReferences'] = isset($data['ownerReferences']) ? $data['ownerReferences'] : null;
+        $this->container['podFailurePolicy'] = isset($data['podFailurePolicy']) ? $data['podFailurePolicy'] : null;
         $this->container['preemptionPolicy'] = isset($data['preemptionPolicy']) ? $data['preemptionPolicy'] : null;
         $this->container['projectId'] = isset($data['projectId']) ? $data['projectId'] : null;
         $this->container['publicEndpoints'] = isset($data['publicEndpoints']) ? $data['publicEndpoints'] : null;
         $this->container['readinessGates'] = isset($data['readinessGates']) ? $data['readinessGates'] : null;
         $this->container['removed'] = isset($data['removed']) ? $data['removed'] : null;
+        $this->container['resourceClaims'] = isset($data['resourceClaims']) ? $data['resourceClaims'] : null;
         $this->container['restartPolicy'] = isset($data['restartPolicy']) ? $data['restartPolicy'] : null;
         $this->container['runAsGroup'] = isset($data['runAsGroup']) ? $data['runAsGroup'] : null;
         $this->container['runAsNonRoot'] = isset($data['runAsNonRoot']) ? $data['runAsNonRoot'] : null;
         $this->container['runtimeClassName'] = isset($data['runtimeClassName']) ? $data['runtimeClassName'] : null;
         $this->container['scheduling'] = isset($data['scheduling']) ? $data['scheduling'] : null;
+        $this->container['schedulingGates'] = isset($data['schedulingGates']) ? $data['schedulingGates'] : null;
         $this->container['seccompProfile'] = isset($data['seccompProfile']) ? $data['seccompProfile'] : null;
         $this->container['selector'] = isset($data['selector']) ? $data['selector'] : null;
         $this->container['serviceAccountName'] = isset($data['serviceAccountName']) ? $data['serviceAccountName'] : null;
@@ -380,6 +421,7 @@ class JobModel implements ArrayAccess
         $this->container['shareProcessNamespace'] = isset($data['shareProcessNamespace']) ? $data['shareProcessNamespace'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['subdomain'] = isset($data['subdomain']) ? $data['subdomain'] : null;
+        $this->container['suspend'] = isset($data['suspend']) ? $data['suspend'] : null;
         $this->container['sysctls'] = isset($data['sysctls']) ? $data['sysctls'] : null;
         $this->container['terminationGracePeriodSeconds'] = isset($data['terminationGracePeriodSeconds']) ? $data['terminationGracePeriodSeconds'] : null;
         $this->container['topologySpreadConstraints'] = isset($data['topologySpreadConstraints']) ? $data['topologySpreadConstraints'] : null;
@@ -456,6 +498,28 @@ class JobModel implements ArrayAccess
     public function setAutomountServiceAccountToken($automountServiceAccountToken)
     {
         $this->container['automountServiceAccountToken'] = $automountServiceAccountToken;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets completionMode
+     * @return string
+     */
+    public function getCompletionMode()
+    {
+        return $this->container['completionMode'];
+    }
+
+    /**
+     * Sets completionMode
+     * @param string $completionMode
+     * @return $this
+     */
+    public function setCompletionMode($completionMode)
+    {
+        $this->container['completionMode'] = $completionMode;
 
         return $this;
     }
@@ -770,6 +834,28 @@ class JobModel implements ArrayAccess
 
 
     /**
+     * Gets hostUsers
+     * @return boolean
+     */
+    public function getHostUsers()
+    {
+        return $this->container['hostUsers'];
+    }
+
+    /**
+     * Sets hostUsers
+     * @param boolean $hostUsers
+     * @return $this
+     */
+    public function setHostUsers($hostUsers)
+    {
+        $this->container['hostUsers'] = $hostUsers;
+
+        return $this;
+    }
+
+
+    /**
      * Gets hostname
      * @return string
      */
@@ -946,6 +1032,28 @@ class JobModel implements ArrayAccess
 
 
     /**
+     * Gets os
+     * @return \Rancher\Model\PodOSModel
+     */
+    public function getOs()
+    {
+        return $this->container['os'];
+    }
+
+    /**
+     * Sets os
+     * @param \Rancher\Model\PodOSModel $os
+     * @return $this
+     */
+    public function setOs($os)
+    {
+        $this->container['os'] = $os;
+
+        return $this;
+    }
+
+
+    /**
      * Gets overhead
      * @return string[]
      */
@@ -984,6 +1092,28 @@ class JobModel implements ArrayAccess
     public function setOwnerReferences($ownerReferences)
     {
         $this->container['ownerReferences'] = $ownerReferences;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets podFailurePolicy
+     * @return \Rancher\Model\PodFailurePolicyModel
+     */
+    public function getPodFailurePolicy()
+    {
+        return $this->container['podFailurePolicy'];
+    }
+
+    /**
+     * Sets podFailurePolicy
+     * @param \Rancher\Model\PodFailurePolicyModel $podFailurePolicy
+     * @return $this
+     */
+    public function setPodFailurePolicy($podFailurePolicy)
+    {
+        $this->container['podFailurePolicy'] = $podFailurePolicy;
 
         return $this;
     }
@@ -1100,6 +1230,28 @@ class JobModel implements ArrayAccess
 
 
     /**
+     * Gets resourceClaims
+     * @return \Rancher\Model\PodResourceClaimModel[]
+     */
+    public function getResourceClaims()
+    {
+        return $this->container['resourceClaims'];
+    }
+
+    /**
+     * Sets resourceClaims
+     * @param \Rancher\Model\PodResourceClaimModel[] $resourceClaims
+     * @return $this
+     */
+    public function setResourceClaims($resourceClaims)
+    {
+        $this->container['resourceClaims'] = $resourceClaims;
+
+        return $this;
+    }
+
+
+    /**
      * Gets restartPolicy
      * @return string
      */
@@ -1204,6 +1356,28 @@ class JobModel implements ArrayAccess
     public function setScheduling($scheduling)
     {
         $this->container['scheduling'] = $scheduling;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets schedulingGates
+     * @return \Rancher\Model\PodSchedulingGateModel[]
+     */
+    public function getSchedulingGates()
+    {
+        return $this->container['schedulingGates'];
+    }
+
+    /**
+     * Sets schedulingGates
+     * @param \Rancher\Model\PodSchedulingGateModel[] $schedulingGates
+     * @return $this
+     */
+    public function setSchedulingGates($schedulingGates)
+    {
+        $this->container['schedulingGates'] = $schedulingGates;
 
         return $this;
     }
@@ -1358,6 +1532,28 @@ class JobModel implements ArrayAccess
     public function setSubdomain($subdomain)
     {
         $this->container['subdomain'] = $subdomain;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets suspend
+     * @return boolean
+     */
+    public function getSuspend()
+    {
+        return $this->container['suspend'];
+    }
+
+    /**
+     * Sets suspend
+     * @param boolean $suspend
+     * @return $this
+     */
+    public function setSuspend($suspend)
+    {
+        $this->container['suspend'] = $suspend;
 
         return $this;
     }

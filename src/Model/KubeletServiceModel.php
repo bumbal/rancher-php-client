@@ -31,6 +31,7 @@ class KubeletServiceModel implements ArrayAccess
         'clusterDnsServer',
         'clusterDomain',
         'extraArgs',
+        'extraArgsArray',
         'extraBinds',
         'extraEnv',
         'failSwapOn',
@@ -38,6 +39,7 @@ class KubeletServiceModel implements ArrayAccess
         'image',
         'infraContainerImage',
         'winExtraArgs',
+        'winExtraArgsArray',
         'winExtraBinds',
         'winExtraEnv',
     ];
@@ -56,6 +58,7 @@ class KubeletServiceModel implements ArrayAccess
         'clusterDnsServer',
         'clusterDomain',
         'extraArgs',
+        'extraArgsArray',
         'extraBinds',
         'extraEnv',
         'failSwapOn',
@@ -63,6 +66,7 @@ class KubeletServiceModel implements ArrayAccess
         'image',
         'infraContainerImage',
         'winExtraArgs',
+        'winExtraArgsArray',
         'winExtraBinds',
         'winExtraEnv',
     ];
@@ -76,6 +80,7 @@ class KubeletServiceModel implements ArrayAccess
         'clusterDnsServer' => 'string',
         'clusterDomain' => 'string',
         'extraArgs' => 'map[string,string]',
+        'extraArgsArray' => 'map[string,\Rancher\Model\Array[string]Model]',
         'extraBinds' => 'string[]',
         'extraEnv' => 'string[]',
         'failSwapOn' => 'boolean',
@@ -83,6 +88,7 @@ class KubeletServiceModel implements ArrayAccess
         'image' => 'string',
         'infraContainerImage' => 'string',
         'winExtraArgs' => 'map[string,string]',
+        'winExtraArgsArray' => 'map[string,\Rancher\Model\Array[string]Model]',
         'winExtraBinds' => 'string[]',
         'winExtraEnv' => 'string[]',
     ];
@@ -96,6 +102,7 @@ class KubeletServiceModel implements ArrayAccess
         'clusterDnsServer' => 'setClusterDnsServer',
         'clusterDomain' => 'setClusterDomain',
         'extraArgs' => 'setExtraArgs',
+        'extraArgsArray' => 'setExtraArgsArray',
         'extraBinds' => 'setExtraBinds',
         'extraEnv' => 'setExtraEnv',
         'failSwapOn' => 'setFailSwapOn',
@@ -103,6 +110,7 @@ class KubeletServiceModel implements ArrayAccess
         'image' => 'setImage',
         'infraContainerImage' => 'setInfraContainerImage',
         'winExtraArgs' => 'setWinExtraArgs',
+        'winExtraArgsArray' => 'setWinExtraArgsArray',
         'winExtraBinds' => 'setWinExtraBinds',
         'winExtraEnv' => 'setWinExtraEnv',
     ];
@@ -116,6 +124,7 @@ class KubeletServiceModel implements ArrayAccess
         'clusterDnsServer' => 'getClusterDnsServer',
         'clusterDomain' => 'getClusterDomain',
         'extraArgs' => 'getExtraArgs',
+        'extraArgsArray' => 'getExtraArgsArray',
         'extraBinds' => 'getExtraBinds',
         'extraEnv' => 'getExtraEnv',
         'failSwapOn' => 'getFailSwapOn',
@@ -123,6 +132,7 @@ class KubeletServiceModel implements ArrayAccess
         'image' => 'getImage',
         'infraContainerImage' => 'getInfraContainerImage',
         'winExtraArgs' => 'getWinExtraArgs',
+        'winExtraArgsArray' => 'getWinExtraArgsArray',
         'winExtraBinds' => 'getWinExtraBinds',
         'winExtraEnv' => 'getWinExtraEnv',
     ];
@@ -137,6 +147,7 @@ class KubeletServiceModel implements ArrayAccess
         $this->container['clusterDnsServer'] = isset($data['clusterDnsServer']) ? $data['clusterDnsServer'] : null;
         $this->container['clusterDomain'] = isset($data['clusterDomain']) ? $data['clusterDomain'] : null;
         $this->container['extraArgs'] = isset($data['extraArgs']) ? $data['extraArgs'] : null;
+        $this->container['extraArgsArray'] = isset($data['extraArgsArray']) ? $data['extraArgsArray'] : null;
         $this->container['extraBinds'] = isset($data['extraBinds']) ? $data['extraBinds'] : null;
         $this->container['extraEnv'] = isset($data['extraEnv']) ? $data['extraEnv'] : null;
         $this->container['failSwapOn'] = isset($data['failSwapOn']) ? $data['failSwapOn'] : null;
@@ -144,6 +155,7 @@ class KubeletServiceModel implements ArrayAccess
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['infraContainerImage'] = isset($data['infraContainerImage']) ? $data['infraContainerImage'] : null;
         $this->container['winExtraArgs'] = isset($data['winExtraArgs']) ? $data['winExtraArgs'] : null;
+        $this->container['winExtraArgsArray'] = isset($data['winExtraArgsArray']) ? $data['winExtraArgsArray'] : null;
         $this->container['winExtraBinds'] = isset($data['winExtraBinds']) ? $data['winExtraBinds'] : null;
         $this->container['winExtraEnv'] = isset($data['winExtraEnv']) ? $data['winExtraEnv'] : null;
     }
@@ -209,6 +221,28 @@ class KubeletServiceModel implements ArrayAccess
     public function setExtraArgs($extraArgs)
     {
         $this->container['extraArgs'] = $extraArgs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets extraArgsArray
+     * @return \Rancher\Model\Array[string]Model[]
+     */
+    public function getExtraArgsArray()
+    {
+        return $this->container['extraArgsArray'];
+    }
+
+    /**
+     * Sets extraArgsArray
+     * @param \Rancher\Model\Array[string]Model[] $extraArgsArray
+     * @return $this
+     */
+    public function setExtraArgsArray($extraArgsArray)
+    {
+        $this->container['extraArgsArray'] = $extraArgsArray;
 
         return $this;
     }
@@ -363,6 +397,28 @@ class KubeletServiceModel implements ArrayAccess
     public function setWinExtraArgs($winExtraArgs)
     {
         $this->container['winExtraArgs'] = $winExtraArgs;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets winExtraArgsArray
+     * @return \Rancher\Model\Array[string]Model[]
+     */
+    public function getWinExtraArgsArray()
+    {
+        return $this->container['winExtraArgsArray'];
+    }
+
+    /**
+     * Sets winExtraArgsArray
+     * @param \Rancher\Model\Array[string]Model[] $winExtraArgsArray
+     * @return $this
+     */
+    public function setWinExtraArgsArray($winExtraArgsArray)
+    {
+        $this->container['winExtraArgsArray'] = $winExtraArgsArray;
 
         return $this;
     }

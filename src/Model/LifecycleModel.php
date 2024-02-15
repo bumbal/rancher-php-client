@@ -53,8 +53,8 @@ class LifecycleModel implements ArrayAccess
     }
 
     protected static $typeMap = [
-        'postStart' => '\Rancher\Model\HandlerModel',
-        'preStop' => '\Rancher\Model\HandlerModel',
+        'postStart' => '\Rancher\Model\LifecycleHandlerModel',
+        'preStop' => '\Rancher\Model\LifecycleHandlerModel',
     ];
 
     public static function typeMap()
@@ -90,7 +90,7 @@ class LifecycleModel implements ArrayAccess
 
     /**
      * Gets postStart
-     * @return \Rancher\Model\HandlerModel
+     * @return \Rancher\Model\LifecycleHandlerModel
      */
     public function getPostStart()
     {
@@ -99,7 +99,7 @@ class LifecycleModel implements ArrayAccess
 
     /**
      * Sets postStart
-     * @param \Rancher\Model\HandlerModel $postStart
+     * @param \Rancher\Model\LifecycleHandlerModel $postStart
      * @return $this
      */
     public function setPostStart($postStart)
@@ -112,7 +112,7 @@ class LifecycleModel implements ArrayAccess
 
     /**
      * Gets preStop
-     * @return \Rancher\Model\HandlerModel
+     * @return \Rancher\Model\LifecycleHandlerModel
      */
     public function getPreStop()
     {
@@ -121,7 +121,7 @@ class LifecycleModel implements ArrayAccess
 
     /**
      * Sets preStop
-     * @param \Rancher\Model\HandlerModel $preStop
+     * @param \Rancher\Model\LifecycleHandlerModel $preStop
      * @return $this
      */
     public function setPreStop($preStop)
